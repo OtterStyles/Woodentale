@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Fighter
+  - Enemy
+  - NPC
   layers:
   - Default
   - TransparentFX
@@ -52,4 +55,7 @@ TagManager:
     locked: 0
   - name: Interactable
     uniqueID: 920235717
+    locked: 0
+  - name: Tools
+    uniqueID: 1197192715
     locked: 0

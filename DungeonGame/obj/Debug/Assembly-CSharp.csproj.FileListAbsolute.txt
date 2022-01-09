@@ -280,3 +280,6 @@ C:\Users\Wiju\Documents\GitHub\Lost-Kingdom\LostKingdom\obj\Debug\Assembly-CShar
 C:\Users\Wiju\Documents\GitHub\Lost-Kingdom\LostKingdom\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 C:\Users\Wiju\Documents\GitHub\Lost-Kingdom\LostKingdom\obj\Debug\Assembly-CSharp.dll
 C:\Users\Wiju\Documents\GitHub\Lost-Kingdom\LostKingdom\obj\Debug\Assembly-CSharp.pdb
+C:\Users\Wiju\Documents\GitHub\Lost-Kingdom\DungeonGame\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
+C:\Users\Wiju\Documents\GitHub\Lost-Kingdom\DungeonGame\obj\Debug\Assembly-CSharp.dll
+C:\Users\Wiju\Documents\GitHub\Lost-Kingdom\DungeonGame\obj\Debug\Assembly-CSharp.pdb

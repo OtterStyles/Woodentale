@@ -355,9 +355,17 @@
 "Assets/Scripts/Chest.cs"
 "Assets/Scripts/Collectable.cs"
 "Assets/Scripts/Collidable.cs"
+"Assets/Scripts/Damage.cs"
+"Assets/Scripts/Enemy.cs"
+"Assets/Scripts/EnemyHitbox.cs"
+"Assets/Scripts/Figther.cs"
+"Assets/Scripts/FloatingText.cs"
+"Assets/Scripts/FloatingTextManager.cs"
 "Assets/Scripts/GameManager.cs"
+"Assets/Scripts/Mover.cs"
 "Assets/Scripts/player.cs"
 "Assets/Scripts/Portal.cs"
+"Assets/Scripts/Weapon.cs"
 -langversion:9.0
 
 /deterministic
