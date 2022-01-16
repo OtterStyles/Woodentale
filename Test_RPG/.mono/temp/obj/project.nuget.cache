@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "oHtqcl9rdqflVXcVTEQ4eUjPBo1Ybc2Z/roQGvplVURtNYSALrWAkBLBBjSEep6zEHihCpVdxaINET94TJKvnw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Wiju\\Documents\\Test_RPG\\Test_RPG.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Wiju\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.2\\microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512",
+    "C:\\Users\\Wiju\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net472\\1.0.2\\microsoft.netframework.referenceassemblies.net472.1.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
