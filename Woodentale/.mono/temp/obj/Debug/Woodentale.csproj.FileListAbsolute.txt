@@ -1,0 +1,9 @@
+C:\Users\Wiju\Documents\GitHub\Lost-Kingdom\Woodentale\.mono\temp\obj\Debug\Woodentale.csproj.AssemblyReference.cache
+C:\Users\Wiju\Documents\GitHub\Lost-Kingdom\Woodentale\.mono\temp\obj\Debug\Woodentale.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Wiju\Documents\GitHub\Lost-Kingdom\Woodentale\.mono\temp\obj\Debug\Woodentale.AssemblyInfoInputs.cache
+C:\Users\Wiju\Documents\GitHub\Lost-Kingdom\Woodentale\.mono\temp\obj\Debug\Woodentale.AssemblyInfo.cs
+C:\Users\Wiju\Documents\GitHub\Lost-Kingdom\Woodentale\.mono\temp\obj\Debug\Woodentale.csproj.CoreCompileInputs.cache
+C:\Users\Wiju\Documents\GitHub\Lost-Kingdom\Woodentale\.mono\temp\bin\Debug\Woodentale.dll
+C:\Users\Wiju\Documents\GitHub\Lost-Kingdom\Woodentale\.mono\temp\bin\Debug\Woodentale.pdb
+C:\Users\Wiju\Documents\GitHub\Lost-Kingdom\Woodentale\.mono\temp\obj\Debug\Woodentale.dll
+C:\Users\Wiju\Documents\GitHub\Lost-Kingdom\Woodentale\.mono\temp\obj\Debug\Woodentale.pdb
