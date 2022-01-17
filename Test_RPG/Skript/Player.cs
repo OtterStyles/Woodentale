@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Object = Godot.Object;
 
 public class Player : Godot.KinematicBody2D
 {
@@ -8,7 +9,18 @@ public class Player : Godot.KinematicBody2D
     private const int ACCELERATION = 500;
     const int FRICTION = 600;
 
-
+    private AnimationPlayer _animationPlayer = null;
+    private AnimationTree _animationTree = null;
+    private AnimationNodeStateMachinePlayback _animationState = null;
+    
+    public override void _Ready()
+    {
+        _animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+        _animationTree = GetNode<AnimationTree>("AnimationTree");
+        _animationState = (AnimationNodeStateMachinePlayback)_animationTree.Get("parameters/playback");
+    }
+    
+    
     public override void _PhysicsProcess(float delta)
     {
         Vector2 inputVector = Vector2.Zero;
@@ -16,13 +28,17 @@ public class Player : Godot.KinematicBody2D
         inputVector.y = Input.GetActionStrength("ui_down") - Input.GetActionStrength("ui_up");
 
         inputVector = inputVector.Normalized();
-
+        
         if (inputVector != Vector2.Zero)
         {
+            _animationTree.Set("parameters/Idle/blend_position", inputVector);
+            _animationTree.Set("parameters/Run/blend_position", inputVector);
+            _animationState.Travel("Run");
             _velocity = _velocity.MoveToward(inputVector * MAX_SPEED, ACCELERATION * delta);
         }
         else
         {
+            _animationState.Travel("Idle");
             _velocity = _velocity.MoveToward(Vector2.Zero, FRICTION * delta);
         }
         _velocity = MoveAndSlide(_velocity);
