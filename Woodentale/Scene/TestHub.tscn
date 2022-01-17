@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Artwork/Atlases/TileSet/Test.tres" type="TileSet" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Skript/Player.cs" type="Script" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+height = 46.0
 
 [node name="TestHub" type="Node2D"]
 
@@ -29,4 +33,19 @@ position = Vector2( 642, 373 )
 texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="tree"]
-polygon = PoolVector2Array( -16, 19, -22, 12, -22, 5, -22, 0, -22, -5, -24, -6, -24, -9, -22, -12, -19, -15, -17, -14, -13, -15, -13, -17, -13, -20, -8, -23, -5, -23, -3, -23, -3, -20, 2, -18, 1, -23, 3, -24, 13, -22, 11, -22, 13, -19, 14, -13, 15, -16, 19, -16, 23, -15, 25, -9, 26, -4, 23, -3, 22, -2, 23, 3, 22, 13, 21, 16, 17, 19, 11, 22, 6, 23, -10, 22, -17, 21, -17, 20, -17, 19 )
+polygon = PoolVector2Array( -16, 19, -22, 12, -22, 5, -22, 0, -22, -5, -24, -6, -24, -9, -22, -12, -19, -15, -17, -14, -13, -15, -13, -17, -13, -20, -10, -22, -8, -23, -3, -23, -2, -20, 2, -18, 1, -23, 3, -24, 9, -23, 13, -20, 13, -19, 14, -13, 15, -16, 19, -16, 23, -15, 25, -9, 26, -4, 23, -3, 22, -2, 23, 3, 22, 13, 21, 16, 17, 19, 11, 22, 6, 23, -10, 22, -17, 21, -17, 20, -17, 19 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+position = Vector2( 1087, 602 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+position = Vector2( 0, 22 )
+rotation = 1.5708
+shape = SubResource( 1 )
