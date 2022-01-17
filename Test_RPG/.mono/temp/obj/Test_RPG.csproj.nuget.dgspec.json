@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Wiju\\Documents\\Test_RPG\\Test_RPG.csproj": {}
+    "C:\\Users\\Wiju\\Documents\\GitHub\\Lost-Kingdom\\Test_RPG\\Test_RPG.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Wiju\\Documents\\Test_RPG\\Test_RPG.csproj": {
+    "C:\\Users\\Wiju\\Documents\\GitHub\\Lost-Kingdom\\Test_RPG\\Test_RPG.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Wiju\\Documents\\Test_RPG\\Test_RPG.csproj",
+        "projectUniqueName": "C:\\Users\\Wiju\\Documents\\GitHub\\Lost-Kingdom\\Test_RPG\\Test_RPG.csproj",
         "projectName": "Test_RPG",
-        "projectPath": "C:\\Users\\Wiju\\Documents\\Test_RPG\\Test_RPG.csproj",
+        "projectPath": "C:\\Users\\Wiju\\Documents\\GitHub\\Lost-Kingdom\\Test_RPG\\Test_RPG.csproj",
         "packagesPath": "C:\\Users\\Wiju\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Wiju\\Documents\\Test_RPG\\.mono\\temp\\obj\\",
+        "outputPath": "C:\\Users\\Wiju\\Documents\\GitHub\\Lost-Kingdom\\Test_RPG\\.mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Wiju\\AppData\\Roaming\\NuGet\\NuGet.Config"

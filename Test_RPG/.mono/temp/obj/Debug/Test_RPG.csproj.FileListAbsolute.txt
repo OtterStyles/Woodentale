@@ -7,3 +7,12 @@ C:\Users\Wiju\Documents\Test_RPG\.mono\temp\obj\Debug\Test_RPG.AssemblyInfo.cs
 C:\Users\Wiju\Documents\Test_RPG\.mono\temp\obj\Debug\Test_RPG.csproj.CoreCompileInputs.cache
 C:\Users\Wiju\Documents\Test_RPG\.mono\temp\obj\Debug\Test_RPG.dll
 C:\Users\Wiju\Documents\Test_RPG\.mono\temp\obj\Debug\Test_RPG.pdb
+C:\Users\Wiju\Documents\GitHub\Lost-Kingdom\Test_RPG\.mono\temp\bin\Debug\Test_RPG.dll
+C:\Users\Wiju\Documents\GitHub\Lost-Kingdom\Test_RPG\.mono\temp\bin\Debug\Test_RPG.pdb
+C:\Users\Wiju\Documents\GitHub\Lost-Kingdom\Test_RPG\.mono\temp\obj\Debug\Test_RPG.csproj.AssemblyReference.cache
+C:\Users\Wiju\Documents\GitHub\Lost-Kingdom\Test_RPG\.mono\temp\obj\Debug\Test_RPG.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Wiju\Documents\GitHub\Lost-Kingdom\Test_RPG\.mono\temp\obj\Debug\Test_RPG.AssemblyInfoInputs.cache
+C:\Users\Wiju\Documents\GitHub\Lost-Kingdom\Test_RPG\.mono\temp\obj\Debug\Test_RPG.AssemblyInfo.cs
+C:\Users\Wiju\Documents\GitHub\Lost-Kingdom\Test_RPG\.mono\temp\obj\Debug\Test_RPG.csproj.CoreCompileInputs.cache
+C:\Users\Wiju\Documents\GitHub\Lost-Kingdom\Test_RPG\.mono\temp\obj\Debug\Test_RPG.dll
+C:\Users\Wiju\Documents\GitHub\Lost-Kingdom\Test_RPG\.mono\temp\obj\Debug\Test_RPG.pdb
