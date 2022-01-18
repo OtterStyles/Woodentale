@@ -4,7 +4,8 @@
 [ext_resource path="res://Artwork/Atlases/Player.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
-height = 46.0
+radius = 4.008
+height = 16.0
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -13,10 +14,10 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -28 )
 scale = Vector2( 1.333, 1.333 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 22 )
 rotation = 1.5708
 shape = SubResource( 1 )
