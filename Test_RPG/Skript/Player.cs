@@ -7,15 +7,24 @@ public class Player : Godot.KinematicBody2D
 	private const int MAX_SPEED = 80;
 	private const int ACCELERATION = 500;
 	const int FRICTION = 600;
+	private enum PlayerEnum
+	{
+		MOVE,
+		ROLL,
+		ATACK
+	};
 
 	private AnimationPlayer _animationPlayer = null;
 	private AnimationTree _animationTree = null;
 	private AnimationNodeStateMachinePlayback _animationState = null;
+	private PlayerEnum state = PlayerEnum.MOVE;
 	
 	public override void _Ready()
 	{
+		
 		_animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 		_animationTree = GetNode<AnimationTree>("AnimationTree");
+		_animationTree.Active = true;
 		_animationState = (AnimationNodeStateMachinePlayback)_animationTree.Get("parameters/playback");
 	}
 	

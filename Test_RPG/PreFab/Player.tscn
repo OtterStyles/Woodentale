@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Skript/Player.cs" type="Script" id=1]
 [ext_resource path="res://Player/Player.png" type="Texture" id=2]
@@ -88,6 +88,71 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 7, 8, 9, 10, 11, 6 ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "atackDown"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 36, 37, 38, 39 ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "atackLeft"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 32, 33, 34, 35 ]
+}
+
+[sub_resource type="Animation" id=27]
+resource_name = "atackRight"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 24, 25, 26, 27 ]
+}
+
+[sub_resource type="Animation" id=28]
+resource_name = "atackUp"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 28, 29, 30, 31 ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -241,6 +306,10 @@ anims/RunDown = SubResource( 6 )
 anims/RunLeft = SubResource( 5 )
 anims/RunRight = SubResource( 2 )
 anims/RunUp = SubResource( 4 )
+anims/atackDown = SubResource( 25 )
+anims/atackLeft = SubResource( 26 )
+anims/atackRight = SubResource( 27 )
+anims/atackUp = SubResource( 28 )
 anims/idleDown = SubResource( 10 )
 anims/idleLeft = SubResource( 9 )
 anims/idleRight = SubResource( 7 )
@@ -249,7 +318,6 @@ anims/idleUp = SubResource( 8 )
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 23 )
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/playback = SubResource( 24 )
 parameters/Idle/blend_position = Vector2( 0.341107, 0.649324 )
 parameters/Run/blend_position = Vector2( 0, 0 )
