@@ -31,6 +31,20 @@ public class Player : Godot.KinematicBody2D
 	
 	public override void _PhysicsProcess(float delta)
 	{
+		switch (state)
+		{
+			case PlayerEnum.MOVE: moveState(delta);
+				break;
+			case PlayerEnum.ROLL: 
+				break;
+			case PlayerEnum.ATACK: attackState(delta);
+				break;
+		}
+		
+	}
+
+	private void moveState(float delta)
+	{
 		Vector2 inputVector = Vector2.Zero;
 		inputVector.x = Input.GetActionStrength("ui_right") - Input.GetActionStrength("ui_left");
 		inputVector.y = Input.GetActionStrength("ui_down") - Input.GetActionStrength("ui_up");
@@ -50,6 +64,11 @@ public class Player : Godot.KinematicBody2D
 			_velocity = _velocity.MoveToward(Vector2.Zero, FRICTION * delta);
 		}
 		_velocity = MoveAndSlide(_velocity);
+	}
+
+	private void attackState(float delta)
+	{
 		
 	}
+	
 }
