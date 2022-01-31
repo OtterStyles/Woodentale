@@ -3,25 +3,20 @@ using System;
 
 public class Grass : Node2D
 {
-	private Sprite sprite = null; 
-	private Node2D grassEffect = null;
-	private PackedScene scene = null;
-
-	public override void _Ready()
+	private void create_grass_effect()
 	{
-		scene = (PackedScene)ResourceLoader.Load("res://Effects/GrassEffect.tscn");
-		grassEffect = (Node2D)scene.Instance();
-		sprite = GetNode<Sprite>("Sprite");
+		var scene = (PackedScene)ResourceLoader.Load("res://Effects/GrassEffect.tscn");
+		var grassEffect = (Node2D)scene.Instance();
+		var world = GetTree().CurrentScene;
+		world.AddChild(grassEffect);
+		grassEffect.GlobalPosition = GlobalPosition;
+		QueueFree();
 	}
-
-	public override void _Process(float delta)
+	
+	public void _on_Hurtbox_area_entered(Area area)
 	{
-		if (Input.IsActionPressed("attack"))
-		{
-			sprite.QueueFree();
-			AddChild(grassEffect);
-		}     
-
+		create_grass_effect();
+		QueueFree();
 	}
 
 }

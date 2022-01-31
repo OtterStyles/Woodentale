@@ -14,7 +14,7 @@ public class GrassEffect : Node2D
 	
 	public void animationFinished()
 	{
-		GetParent().QueueFree();
+		QueueFree();
 	}
 	
 }
