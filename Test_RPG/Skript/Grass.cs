@@ -3,31 +3,25 @@ using System;
 
 public class Grass : Node2D
 {
-	private AnimatedSprite _animatedSprite = null;
-	private Sprite _sprite = null;
+	private Sprite sprite = null; 
+	private Node2D grassEffect = null;
+	private PackedScene scene = null;
 
 	public override void _Ready()
 	{
-		_animatedSprite = GetNode<AnimatedSprite>("AnimatedSprite");
-		_sprite = GetNode<Sprite>("Sprite");
-		RemoveChild(_animatedSprite);
+		scene = (PackedScene)ResourceLoader.Load("res://Effects/GrassEffect.tscn");
+		grassEffect = (Node2D)scene.Instance();
+		sprite = GetNode<Sprite>("Sprite");
 	}
-
 
 	public override void _Process(float delta)
 	{
 		if (Input.IsActionPressed("attack"))
 		{
-			RemoveChild(_sprite);
-			AddChild(_animatedSprite);
-			_animatedSprite.Frame = 0;
-			_animatedSprite.Play("Animate");
+			sprite.QueueFree();
+			AddChild(grassEffect);
 		}     
 
 	}
 
-	public void animationFinished()
-	{
-		QueueFree();
-	}
 }

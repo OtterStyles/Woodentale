@@ -9,13 +9,12 @@ public class GrassEffect : Node2D
 		_animatedSprite = GetNode<AnimatedSprite>("AnimatedSprite");
 		_animatedSprite.Frame = 0;
 		_animatedSprite.Play("Animate");
+		
 	}
-	private void animationfinished()
+	
+	public void animationFinished()
 	{
-		QueueFree();
+		GetParent().QueueFree();
 	}
 	
 }
-
-
-
