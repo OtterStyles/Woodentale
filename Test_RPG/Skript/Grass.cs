@@ -3,23 +3,31 @@ using System;
 
 public class Grass : Node2D
 {
-  private GrassEffect _grassEffect = null;
-  private Node _world = null;
+	private AnimatedSprite _animatedSprite = null;
+	private Sprite _sprite = null;
 
-  public override void _Ready()
-  {
-	_grassEffect = new GrassEffect();
-	_world = GetTree().CurrentScene;
-  }
-
-
-  public override void _Process(float delta)
-  {
-	if (Input.IsActionPressed("attack"))
+	public override void _Ready()
 	{
-	   _world.AddChild(_grassEffect);
-	   _grassEffect.GlobalPosition = GlobalPosition;
-	  QueueFree();
-	}     
-  }
+		_animatedSprite = GetNode<AnimatedSprite>("AnimatedSprite");
+		_sprite = GetNode<Sprite>("Sprite");
+		RemoveChild(_animatedSprite);
+	}
+
+
+	public override void _Process(float delta)
+	{
+		if (Input.IsActionPressed("attack"))
+		{
+			RemoveChild(_sprite);
+			AddChild(_animatedSprite);
+			_animatedSprite.Frame = 0;
+			_animatedSprite.Play("Animate");
+		}     
+
+	}
+
+	public void animationFinished()
+	{
+		QueueFree();
+	}
 }
