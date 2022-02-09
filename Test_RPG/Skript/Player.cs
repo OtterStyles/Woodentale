@@ -20,6 +20,7 @@ public class Player : Godot.KinematicBody2D
 	private AnimationTree _animationTree = null;
 	private AnimationNodeStateMachinePlayback _animationState = null;
 	private PlayerEnum state = PlayerEnum.MOVE;
+	public Sword swordHitbox = new Sword();
 	
 	public override void _Ready()
 	{
@@ -28,6 +29,7 @@ public class Player : Godot.KinematicBody2D
 		_animationTree = GetNode<AnimationTree>("AnimationTree");
 		_animationTree.Active = true;
 		_animationState = (AnimationNodeStateMachinePlayback)_animationTree.Get("parameters/playback");
+		swordHitbox.knockback_vector = _roll_Vector;
 	}
 	
 	
@@ -57,6 +59,7 @@ public class Player : Godot.KinematicBody2D
 		if (inputVector != Vector2.Zero)
 		{
 			_roll_Vector = inputVector;
+			swordHitbox.knockback_vector = inputVector;
 			_animationTree.Set("parameters/Idle/blend_position", inputVector);
 			_animationTree.Set("parameters/Run/blend_position", inputVector);
 			_animationTree.Set("parameters/Attack/blend_position", inputVector);
