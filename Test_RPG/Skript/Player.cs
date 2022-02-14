@@ -5,6 +5,8 @@ public class Player : Godot.KinematicBody2D
 {
 	private Vector2 _velocity = Vector2.Zero;
 	private Vector2 _roll_Vector = Vector2.Down;
+	public PlayerStats _stats = PlayerStats;
+
 	private const int MAX_SPEED = 80;
 	private const int ROLL_SPEED = 125;
 	private const int ACCELERATION = 500;
@@ -20,16 +22,19 @@ public class Player : Godot.KinematicBody2D
 	private AnimationTree _animationTree = null;
 	private AnimationNodeStateMachinePlayback _animationState = null;
 	private PlayerEnum state = PlayerEnum.MOVE;
-	public Sword swordHitbox = new Sword();
+	private Sword _swordHitbox = null;
 	
 	public override void _Ready()
 	{
-		
 		_animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 		_animationTree = GetNode<AnimationTree>("AnimationTree");
+		_swordHitbox = GetNode<Sword>("HitboxPivot/SwordHitbox");
+		_stats = GetNode<PlayerStats>("/root/PlayerStats");
+		
 		_animationTree.Active = true;
 		_animationState = (AnimationNodeStateMachinePlayback)_animationTree.Get("parameters/playback");
-		swordHitbox.knockback_vector = _roll_Vector;
+		_swordHitbox.knockback_vector = _roll_Vector;
+		_stats.connect("noHealth", this, "QueueFree");
 	}
 	
 	
@@ -51,6 +56,7 @@ public class Player : Godot.KinematicBody2D
 	private void moveState(float delta)
 	{
 		Vector2 inputVector = Vector2.Zero;
+		
 		inputVector.x = Input.GetActionStrength("ui_right") - Input.GetActionStrength("ui_left");
 		inputVector.y = Input.GetActionStrength("ui_down") - Input.GetActionStrength("ui_up");
 
@@ -59,7 +65,7 @@ public class Player : Godot.KinematicBody2D
 		if (inputVector != Vector2.Zero)
 		{
 			_roll_Vector = inputVector;
-			swordHitbox.knockback_vector = inputVector;
+			_swordHitbox.knockback_vector = inputVector;
 			_animationTree.Set("parameters/Idle/blend_position", inputVector);
 			_animationTree.Set("parameters/Run/blend_position", inputVector);
 			_animationTree.Set("parameters/Attack/blend_position", inputVector);

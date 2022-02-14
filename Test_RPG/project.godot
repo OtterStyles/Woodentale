@@ -14,6 +14,10 @@ config/name="Test_RPG"
 run/main_scene="res://Wolrd.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+PlayerStats="*res://PreFab/GameManager/PlayerStats.tscn"
+
 [display]
 
 window/size/width=320
