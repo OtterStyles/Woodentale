@@ -23,6 +23,7 @@ public class Player : Godot.KinematicBody2D
 	private AnimationNodeStateMachinePlayback _animationState = null;
 	private PlayerEnum state = PlayerEnum.MOVE;
 	private Sword _swordHitbox = null;
+	private Hurtbox _hurtbox = null;
 	
 	public override void _Ready()
 	{
@@ -30,15 +31,20 @@ public class Player : Godot.KinematicBody2D
 		_animationTree = GetNode<AnimationTree>("AnimationTree");
 		_swordHitbox = GetNode<Sword>("HitboxPivot/SwordHitbox");
 		_stats = GetNode<PlayerStats>("/root/PlayerStats");
-		
+		_hurtbox = GetNode<Hurtbox>("Hurtbox");
 		_animationTree.Active = true;
 		_animationState = (AnimationNodeStateMachinePlayback)_animationTree.Get("parameters/playback");
 		_swordHitbox.knockback_vector = _roll_Vector;
-		_stats = 
-		_stats.connect("noHealth", this, "QueueFree");
+		_stats = GetNode<PlayerStats>("/root/PlayerStats");
+		_stats.Connect("noHealth", this, "destroyPlayer");
 	}
-	
-	
+
+	private void destroyPlayer()
+	{
+		QueueFree();
+	}
+
+
 	public override void _PhysicsProcess(float delta)
 	{
 		switch (state)
@@ -111,6 +117,13 @@ public class Player : Godot.KinematicBody2D
 	private void move()
 	{
 		_velocity = MoveAndSlide(_velocity);
+	}
+
+	public void onHurtboxAreaEntered(Area area)
+	{
+		_stats.Health -= 1;
+		_hurtbox.start_invincibillity(0.5f);
+		_hurtbox.createHitEffect();
 	}
 	
 }

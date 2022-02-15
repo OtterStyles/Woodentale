@@ -24,11 +24,13 @@ public class Bat : KinematicBody2D
 	private Stats _stats = null;
 	private PlayerDetectionZone _playerDetectionZone = null;
 	private AnimatedSprite _animatedSprite = null;
+	private Hurtbox _hurtbox = null;
 	public override void _Ready()
 	{
 		_stats = GetNode<Stats>("Stats");
 		_playerDetectionZone = GetNode<PlayerDetectionZone>("PlayerDetection");
 		_animatedSprite = GetNode<AnimatedSprite>("AnimatedSprite");
+		_hurtbox = GetNode<Hurtbox>("Hurtbox");
 	}
 
 	public override void _PhysicsProcess(float delta)
@@ -80,6 +82,8 @@ public class Bat : KinematicBody2D
 	{
 		_stats.Health -= area.damage;
 		knockback = area.knockback_vector * 140;
+		_hurtbox.start_invincibillity(0.1f);
+		_hurtbox.createHitEffect();
 	}
 
 	public void _on_Stats_noHealth()

@@ -4,7 +4,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2bf9a3f0-df6b-4270-8b1a-ff05becf2a77" name="Changes" comment="" />
+    <list default="true" id="2bf9a3f0-df6b-4270-8b1a-ff05becf2a77" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Test_RPG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Test_RPG/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mono/assemblies/Debug/GodotSharp.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/assemblies/Debug/GodotSharp.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mono/assemblies/Debug/GodotSharpEditor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/assemblies/Debug/GodotSharpEditor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mono/assemblies/Debug/api_hash_cache.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/assemblies/Debug/api_hash_cache.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mono/metadata/ide_messaging_meta.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mono/metadata/scripts_metadata.editor" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/metadata/scripts_metadata.editor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mono/metadata/scripts_metadata.editor_player" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/metadata/scripts_metadata.editor_player" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mono/temp/bin/Debug/Test_RPG.dll" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/bin/Debug/Test_RPG.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mono/temp/bin/Debug/Test_RPG.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/bin/Debug/Test_RPG.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mono/temp/obj/Debug/Test_RPG.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/Debug/Test_RPG.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mono/temp/obj/Debug/Test_RPG.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/Debug/Test_RPG.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mono/temp/obj/Debug/Test_RPG.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/Debug/Test_RPG.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mono/temp/obj/Debug/Test_RPG.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/Debug/Test_RPG.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mono/temp/obj/Debug/Test_RPG.dll" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/Debug/Test_RPG.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mono/temp/obj/Debug/Test_RPG.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/Debug/Test_RPG.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mono/temp/obj/Test_RPG.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/Test_RPG.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mono/temp/obj/Test_RPG.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/Test_RPG.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mono/temp/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mono/temp/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mono/temp/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Enemies/Bat.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Enemies/Bat.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hitboxes/Hurtbox.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Hitboxes/Hurtbox.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PreFab/Enviroment/Grass.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/PreFab/Enviroment/Grass.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PreFab/GameManager/PlayerStats.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/PreFab/GameManager/PlayerStats.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PreFab/Player.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/PreFab/Player.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Skript/Bat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Skript/Bat.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Skript/Hurtbox.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Skript/Hurtbox.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Skript/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Skript/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Skript/PlayerStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Skript/PlayerStats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Skript/Stats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Skript/Stats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wolrd.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Wolrd.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/default_env.tres" beforeDir="false" afterPath="$PROJECT_DIR$/default_env.tres" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,6 +46,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/86783f30b5d94fdcab41ce40c3024c7712c00/51/3ff012b5/ScriptCreateDialog.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/413c825e0c714d4f98a0010540a0b039273a00/23/8122c064/Control.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/413c825e0c714d4f98a0010540a0b039273a00/57/097810f6/TextureRect.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -31,6 +67,37 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RunManager" selected="Start and Debug.Player">
+    <configuration name="Attach to Player" type="ConnectRemote" factoryName="Mono Remote" show_console_on_std_err="false" show_console_on_std_out="false" port="23685" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Editor" type="GODOT_DEBUG_RUN_CONFIGURATION" factoryName="Start and Debug">
+      <option name="EXE_PATH" value="$USER_HOME$/Downloads/Godot_v3.4.2-stable_mono_win64/Godot_v3.4.2-stable_mono_win64/Godot_v3.4.2-stable_mono_win64.exe" />
+      <option name="PROGRAM_PARAMETERS" value="--path &quot;$PROJECT_DIR$&quot; --editor" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2">
+        <option name="Build Solution" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Player" type="GODOT_DEBUG_RUN_CONFIGURATION" factoryName="Start and Debug">
+      <option name="EXE_PATH" value="$USER_HOME$/Downloads/Godot_v3.4.2-stable_mono_win64/Godot_v3.4.2-stable_mono_win64/Godot_v3.4.2-stable_mono_win64.exe" />
+      <option name="PROGRAM_PARAMETERS" value="--path &quot;$PROJECT_DIR$&quot;" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2">
+        <option name="Build Solution" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -40,13 +107,15 @@
       <option name="presentableId" value="Default" />
       <updated>1642351911126</updated>
       <workItem from="1642351913562" duration="3868000" />
+      <workItem from="1644935233755" duration="10531000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
