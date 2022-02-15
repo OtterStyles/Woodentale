@@ -1,0 +1,47 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\julia\\Documents\\GitHub\\Woodentale\\Test_RPG\\Test_RPG.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\julia\\Documents\\GitHub\\Woodentale\\Test_RPG\\Test_RPG.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\julia\\Documents\\GitHub\\Woodentale\\Test_RPG\\Test_RPG.csproj",
+        "projectName": "Test_RPG",
+        "projectPath": "C:\\Users\\julia\\Documents\\GitHub\\Woodentale\\Test_RPG\\Test_RPG.csproj",
+        "packagesPath": "C:\\Users\\julia\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\julia\\Documents\\GitHub\\Woodentale\\Test_RPG\\.mono\\temp\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\julia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "targetAlias": "net472",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

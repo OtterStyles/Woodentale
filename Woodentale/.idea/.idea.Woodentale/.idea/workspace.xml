@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d40e187c-4afe-4f5b-ae26-26a25a96812c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.mono/assemblies/Debug/GodotSharp.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/assemblies/Debug/GodotSharp.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mono/assemblies/Debug/GodotSharpEditor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/assemblies/Debug/GodotSharpEditor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mono/assemblies/Debug/api_hash_cache.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/assemblies/Debug/api_hash_cache.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mono/metadata/scripts_metadata.editor" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/metadata/scripts_metadata.editor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mono/metadata/scripts_metadata.editor_player" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/metadata/scripts_metadata.editor_player" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scene/TestHub.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scene/TestHub.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Skript/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Skript/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/default_env.tres" beforeDir="false" afterPath="$PROJECT_DIR$/default_env.tres" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="23pmKb09DLSlNUCfuxFTf7krNRm" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="rider.run.widget.enabled.cache" value="false" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="Start and Debug.Player">
+    <configuration name="Attach to Player" type="ConnectRemote" factoryName="Mono Remote" show_console_on_std_err="false" show_console_on_std_out="false" port="23685" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Editor" type="GODOT_DEBUG_RUN_CONFIGURATION" factoryName="Start and Debug">
+      <option name="EXE_PATH" value="$USER_HOME$/Downloads/Godot_v3.4.2-stable_mono_win64/Godot_v3.4.2-stable_mono_win64/Godot_v3.4.2-stable_mono_win64.exe" />
+      <option name="PROGRAM_PARAMETERS" value="--path &quot;$PROJECT_DIR$&quot; --editor" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2">
+        <option name="Build Solution" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Player" type="GODOT_DEBUG_RUN_CONFIGURATION" factoryName="Start and Debug">
+      <option name="EXE_PATH" value="$USER_HOME$/Downloads/Godot_v3.4.2-stable_mono_win64/Godot_v3.4.2-stable_mono_win64/Godot_v3.4.2-stable_mono_win64.exe" />
+      <option name="PROGRAM_PARAMETERS" value="--path &quot;$PROJECT_DIR$&quot;" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2">
+        <option name="Build Solution" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d40e187c-4afe-4f5b-ae26-26a25a96812c" name="Changes" comment="" />
+      <created>1642439343139</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1642439343139</updated>
+      <workItem from="1642439343140" duration="643000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>
