@@ -5,7 +5,7 @@ public class Player : Godot.KinematicBody2D
 {
 	private Vector2 _velocity = Vector2.Zero;
 	private Vector2 _roll_Vector = Vector2.Down;
-	public PlayerStats _stats = PlayerStats;
+	public PlayerStats _stats = null;
 
 	private const int MAX_SPEED = 80;
 	private const int ROLL_SPEED = 125;
@@ -34,6 +34,7 @@ public class Player : Godot.KinematicBody2D
 		_animationTree.Active = true;
 		_animationState = (AnimationNodeStateMachinePlayback)_animationTree.Get("parameters/playback");
 		_swordHitbox.knockback_vector = _roll_Vector;
+		_stats = 
 		_stats.connect("noHealth", this, "QueueFree");
 	}
 	
