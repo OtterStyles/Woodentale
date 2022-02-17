@@ -12,14 +12,21 @@ public class Player : Godot.KinematicBody2D
 	private AnimationPlayer _animationPlayer = null;
 	private AnimationTree _animationTree = null;
 	private AnimationNodeStateMachinePlayback _animationState = null;
+	private PlayerStats _stats = null;
 	
 	public override void _Ready()
 	{
 		_animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 		_animationTree = GetNode<AnimationTree>("AnimationTree");
 		_animationState = (AnimationNodeStateMachinePlayback)_animationTree.Get("parameters/playback");
+		_stats = GetNode<PlayerStats>("/root/PlayerStats");
+		_stats.Connect("noHealth", this, "destroyPlayer");
 	}
-	
+
+	private void destroyPlayer()
+	{
+		QueueFree();
+	}
 	public override void _PhysicsProcess(float delta)
 	{
 		Vector2 inputVector = Vector2.Zero;
