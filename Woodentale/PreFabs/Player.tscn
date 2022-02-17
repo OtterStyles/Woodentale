@@ -1,7 +1,8 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://Skript/Player.cs" type="Script" id=1]
 [ext_resource path="res://Artwork/Atlases/Player.png" type="Texture" id=2]
+[ext_resource path="res://PreFabs/Manager/Hurtbox.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.008
@@ -224,6 +225,10 @@ graph_offset = Vector2( -101, -65 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=14]
 
+[sub_resource type="CapsuleShape2D" id=59]
+radius = 8.0
+height = 30.0
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
 __meta__ = {
@@ -270,3 +275,11 @@ parameters/CHOP/blend_position = Vector2( 0, 0 )
 parameters/GOING/blend_position = Vector2( 0, 0 )
 parameters/IDLE/blend_position = Vector2( 0, 0 )
 parameters/RUNNING/blend_position = Vector2( 0, 0 )
+
+[node name="Hurtbox" parent="." instance=ExtResource( 3 )]
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( 0, -23 )
+shape = SubResource( 59 )
+
+[editable path="Hurtbox"]
