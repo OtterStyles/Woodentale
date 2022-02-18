@@ -8,19 +8,19 @@
     ".NETFramework,Version=v4.7.2": []
   },
   "packageFolders": {
-    "C:\\Users\\Wiju\\.nuget\\packages\\": {}
+    "C:\\Users\\julia\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Wiju\\Documents\\GitHub\\Lost-Kingdom\\Test_RPG\\Test_RPG.csproj",
+      "projectUniqueName": "C:\\Users\\julia\\Documents\\GitHub\\Woodentale\\Test_RPG\\Test_RPG.csproj",
       "projectName": "Test_RPG",
-      "projectPath": "C:\\Users\\Wiju\\Documents\\GitHub\\Lost-Kingdom\\Test_RPG\\Test_RPG.csproj",
-      "packagesPath": "C:\\Users\\Wiju\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Wiju\\Documents\\GitHub\\Lost-Kingdom\\Test_RPG\\.mono\\temp\\obj\\",
+      "projectPath": "C:\\Users\\julia\\Documents\\GitHub\\Woodentale\\Test_RPG\\Test_RPG.csproj",
+      "packagesPath": "C:\\Users\\julia\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\julia\\Documents\\GitHub\\Woodentale\\Test_RPG\\.mono\\temp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Wiju\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\julia\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
