@@ -8,19 +8,19 @@
     ".NETFramework,Version=v4.7.2": []
   },
   "packageFolders": {
-    "C:\\Users\\julia\\.nuget\\packages\\": {}
+    "C:\\Users\\Wiju\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\julia\\Documents\\GitHub\\Woodentale\\Woodentale\\Woodentale.csproj",
+      "projectUniqueName": "C:\\Users\\Wiju\\Documents\\GitHub\\Lost-Kingdom\\Woodentale\\Woodentale.csproj",
       "projectName": "Woodentale",
-      "projectPath": "C:\\Users\\julia\\Documents\\GitHub\\Woodentale\\Woodentale\\Woodentale.csproj",
-      "packagesPath": "C:\\Users\\julia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\julia\\Documents\\GitHub\\Woodentale\\Woodentale\\.mono\\temp\\obj\\",
+      "projectPath": "C:\\Users\\Wiju\\Documents\\GitHub\\Lost-Kingdom\\Woodentale\\Woodentale.csproj",
+      "packagesPath": "C:\\Users\\Wiju\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Wiju\\Documents\\GitHub\\Lost-Kingdom\\Woodentale\\.mono\\temp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\julia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Wiju\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
