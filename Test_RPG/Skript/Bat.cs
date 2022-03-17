@@ -1,6 +1,10 @@
 using Godot;
 using System;
 using System.Drawing.Printing;
+using System.Linq;
+using Godot.Collections;
+using Array = System.Array;
+using Object = Godot.Object;
 
 
 public class Bat : KinematicBody2D
@@ -25,12 +29,14 @@ public class Bat : KinematicBody2D
 	private PlayerDetectionZone _playerDetectionZone = null;
 	private AnimatedSprite _animatedSprite = null;
 	private Hurtbox _hurtbox = null;
+	private SoftCollision _softCollision = null;
 	public override void _Ready()
 	{
 		_stats = GetNode<Stats>("Stats");
 		_playerDetectionZone = GetNode<PlayerDetectionZone>("PlayerDetection");
 		_animatedSprite = GetNode<AnimatedSprite>("AnimatedSprite");
 		_hurtbox = GetNode<Hurtbox>("Hurtbox");
+		_softCollision = GetNode<SoftCollision>("SoftCollision");
 	}
 
 	public override void _PhysicsProcess(float delta)
@@ -46,10 +52,10 @@ public class Bat : KinematicBody2D
 			case BatEnum.CHASE:
 				chasePlayer(delta);
 				break;
-			case BatEnum.WANDER: break;
+			case BatEnum.WANDER: 
+				break;
 		}
-
-		
+		velocity += _softCollision.getPushVector() * delta * MAX_SPEED * 100;
 		velocity = MoveAndSlide(velocity);
 
 	}
@@ -77,6 +83,7 @@ public class Bat : KinematicBody2D
 			state = BatEnum.CHASE;
 		}
 	}
+
 	
 	public void onHurtboxAreaEntered(Sword area)
 	{

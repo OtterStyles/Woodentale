@@ -4,7 +4,7 @@ using System;
 public class Stats : Node
 { 
 	[Export(PropertyHint.Range,"0,100,")]
-	public int max_health = 1;
+	private int max_health = 1;
 	private int health = 1;
 
 	[Signal]

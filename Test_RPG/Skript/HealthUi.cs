@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Drawing;
 using Vector2 = System.Numerics.Vector2;
 
 public class HealthUi : Control
@@ -27,10 +28,10 @@ public class HealthUi : Control
       set
       {
          hearts = Mathf.Clamp(value, 0, MaxHearts);
-         GD.Print(hearts);
          if (_fullHearts != null)
          {
-            _fullHearts.RectSize = new Godot.Vector2(hearts * 15, 10);
+            _fullHearts.RectSize = new Godot.Vector2(hearts * 15, 11);
+            
          }
       }
    }
@@ -41,9 +42,10 @@ public class HealthUi : Control
       set
       {
          maxHearts = Mathf.Max(value, 1);
+         Hearts = Mathf.Min(Hearts, MaxHearts);
          if (_emptyHearts != null)
          {
-            _emptyHearts.RectSize = new Godot.Vector2(hearts * 15, 10);
+            _emptyHearts.RectSize = new Godot.Vector2(maxHearts * 15, 11);
          }
       }
    }

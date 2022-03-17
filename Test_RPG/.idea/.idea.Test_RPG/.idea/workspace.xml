@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2bf9a3f0-df6b-4270-8b1a-ff05becf2a77" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Test_RPG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Test_RPG/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mono/assemblies/Debug/GodotSharp.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/assemblies/Debug/GodotSharp.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mono/assemblies/Debug/GodotSharpEditor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/assemblies/Debug/GodotSharpEditor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/assemblies/Debug/api_hash_cache.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/assemblies/Debug/api_hash_cache.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mono/metadata/ide_messaging_meta.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/metadata/scripts_metadata.editor" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/metadata/scripts_metadata.editor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/metadata/scripts_metadata.editor_player" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/metadata/scripts_metadata.editor_player" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/bin/Debug/Test_RPG.dll" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/bin/Debug/Test_RPG.dll" afterDir="false" />
@@ -26,17 +23,15 @@
       <change beforePath="$PROJECT_DIR$/.mono/temp/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/project.nuget.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/rider.project.restore.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Enemies/Bat.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Enemies/Bat.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hitboxes/Hurtbox.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Hitboxes/Hurtbox.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PreFab/Enviroment/Grass.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/PreFab/Enviroment/Grass.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PreFab/Enviroment/Bush.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/PreFab/Enviroment/Bush.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PreFab/GameManager/PlayerStats.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/PreFab/GameManager/PlayerStats.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PreFab/GameManager/Stats.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/PreFab/GameManager/Stats.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PreFab/Player.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/PreFab/Player.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Skript/Bat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Skript/Bat.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Skript/Hurtbox.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Skript/Hurtbox.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Skript/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Skript/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Skript/PlayerStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Skript/PlayerStats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Skript/HealthUi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Skript/HealthUi.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Skript/Stats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Skript/Stats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/HealthUi.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/UI/HealthUi.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Wolrd.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Wolrd.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/default_env.tres" beforeDir="false" afterPath="$PROJECT_DIR$/default_env.tres" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,6 +40,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/413c825e0c714d4f98a0010540a0b039273a00/4c/5c451363/Area2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/86783f30b5d94fdcab41ce40c3024c7712c00/51/3ff012b5/ScriptCreateDialog.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/413c825e0c714d4f98a0010540a0b039273a00/23/8122c064/Control.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/413c825e0c714d4f98a0010540a0b039273a00/57/097810f6/TextureRect.cs" root0="SKIP_HIGHLIGHTING" />
@@ -58,6 +54,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -108,6 +105,7 @@
       <updated>1642351911126</updated>
       <workItem from="1642351913562" duration="3868000" />
       <workItem from="1644935233755" duration="10531000" />
+      <workItem from="1647444933311" duration="7014000" />
     </task>
     <servers />
   </component>
@@ -117,6 +115,17 @@
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
