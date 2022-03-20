@@ -22,22 +22,22 @@
       <change beforePath="$PROJECT_DIR$/.mono/temp/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/project.assets.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/project.nuget.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Enemies/Bat.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Enemies/Bat.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PreFab/Enviroment/Bush.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/PreFab/Enviroment/Bush.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PreFab/GameManager/PlayerStats.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/PreFab/GameManager/PlayerStats.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PreFab/GameManager/Stats.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/PreFab/GameManager/Stats.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PreFab/Player.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/PreFab/Player.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Skript/Bat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Skript/Bat.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Skript/HealthUi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Skript/HealthUi.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Skript/Stats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Skript/Stats.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/HealthUi.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/UI/HealthUi.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PreFab/Enviroment/Grass.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/PreFab/Enviroment/Grass.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scene/GrassLand.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scene/GrassLand.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Wolrd.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Wolrd.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/413c825e0c714d4f98a0010540a0b039273a00/4c/5c451363/Area2D.cs" root0="SKIP_HIGHLIGHTING" />
@@ -106,6 +106,7 @@
       <workItem from="1642351913562" duration="3868000" />
       <workItem from="1644935233755" duration="10531000" />
       <workItem from="1647444933311" duration="7014000" />
+      <workItem from="1647790775155" duration="6012000" />
     </task>
     <servers />
   </component>

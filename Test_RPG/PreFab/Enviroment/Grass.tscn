@@ -8,9 +8,11 @@
 extents = Vector2( 6, 5.5 )
 
 [node name="Grass" type="Node2D"]
+scale = Vector2( 0.961054, 1 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -8.32419, -8 )
 texture = ExtResource( 1 )
 centered = false
 offset = Vector2( -8, -8 )
@@ -20,7 +22,6 @@ collision_mask = 0
 showHit = false
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2( 8, 7.5 )
 shape = SubResource( 1 )
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
