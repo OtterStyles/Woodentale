@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://PreFab/Enviroment/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://PreFab/Player.tscn" type="PackedScene" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://UI/HealthUi.tscn" type="PackedScene" id=8]
 [ext_resource path="res://PreFab/Enviroment/Tree.tscn" type="PackedScene" id=9]
 [ext_resource path="res://PreFab/Enviroment/Teleporter.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scene/GrassLand.tscn" type="PackedScene" id=11]
 
 [sub_resource type="TileSet" id=1]
 resource_local_to_scene = true
@@ -518,7 +517,6 @@ smoothing_enabled = true
 
 [node name="Teleporter" parent="." instance=ExtResource( 10 )]
 position = Vector2( 153, 79 )
-teleportToScene = ExtResource( 11 )
 
 [node name="CollisionShape2D" parent="Teleporter" index="0"]
 position = Vector2( 70, -131 )
