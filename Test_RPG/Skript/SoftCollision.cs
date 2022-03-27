@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public class SoftCollision : Area2D
 {

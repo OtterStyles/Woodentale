@@ -5,12 +5,14 @@ public class Hurtbox : Area2D
 {
 	[Export] public bool showHit = true;
 	public PackedScene HitEffect = (PackedScene) ResourceLoader.Load("res://PreFab/Effects/HitEffect.tscn");
+	private CollisionShape2D _collisionShape = null;
 	private Timer _timer = null;
 	private bool invicible = false;
 
 	public override void _Ready()
 	{
 		_timer = GetNode<Timer>("Timer");
+		_collisionShape = GetNode<CollisionShape2D>("CollisionShape2D");
 	}
 
 	[Signal]
@@ -62,12 +64,12 @@ public class Hurtbox : Area2D
 
 	public void _on_Hurtbox_invicibleStarted()
 	{
-		SetDeferred("Monitorable",false);
+		_collisionShape.SetDeferred("Disabled",true);
 	}
 
 	public void _on_Hurtbox_invincibleStoped()
 	{
-		Monitorable = true;
+		_collisionShape.Disabled = false;
 	}
 	
 	

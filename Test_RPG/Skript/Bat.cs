@@ -1,10 +1,6 @@
 using Godot;
 using System;
-using System.Drawing.Printing;
-using System.Linq;
-using Godot.Collections;
-using Array = System.Array;
-using Object = Godot.Object;
+using System.Collections;
 
 
 public class Bat : KinematicBody2D
@@ -30,6 +26,9 @@ public class Bat : KinematicBody2D
 	private AnimatedSprite _animatedSprite = null;
 	private Hurtbox _hurtbox = null;
 	private SoftCollision _softCollision = null;
+	private WanderController _wanderController = null;
+	private AnimationPlayer _blinkAnimationPlayer = null;
+	
 	public override void _Ready()
 	{
 		_stats = GetNode<Stats>("Stats");
@@ -37,6 +36,9 @@ public class Bat : KinematicBody2D
 		_animatedSprite = GetNode<AnimatedSprite>("AnimatedSprite");
 		_hurtbox = GetNode<Hurtbox>("Hurtbox");
 		_softCollision = GetNode<SoftCollision>("SoftCollision");
+		_wanderController = GetNode<WanderController>("WanderController");
+		_blinkAnimationPlayer = GetNode<AnimationPlayer>("BlinkAnimationPlayer");
+		updateWanderState();
 	}
 
 	public override void _PhysicsProcess(float delta)
@@ -48,11 +50,15 @@ public class Bat : KinematicBody2D
 			case BatEnum.IDLE:
 				velocity = velocity.MoveToward(Vector2.Zero, FRICTION * delta);
 				seekPlayer();
+				checkPlayer();
 				break;
 			case BatEnum.CHASE:
 				chasePlayer(delta);
 				break;
 			case BatEnum.WANDER: 
+				seekPlayer();
+				checkPlayer();
+				wanderState(delta);
 				break;
 		}
 		velocity += _softCollision.getPushVector() * delta * MAX_SPEED * 100;
@@ -60,20 +66,50 @@ public class Bat : KinematicBody2D
 
 	}
 
+	public void checkPlayer()
+	{
+		if (_wanderController.getTimeLeft() == 0)
+		{
+			updateWanderState();
+		}
+	}
+
 	public void chasePlayer(float delta)
 	{
 		var player = _playerDetectionZone.player;
 		if (player != null)
 		{
-			var direction = (player.GlobalPosition - GlobalPosition).Normalized();
-			velocity = velocity.MoveToward(direction * MAX_SPEED, ACCELERATION*delta);
-					
+			accelerateTowardsPoint(player.GlobalPosition, delta);
 		}
 		else
 		{
 			state = BatEnum.IDLE;
 		}
 		_animatedSprite.FlipH = velocity.x < 0;
+	}
+
+	public void wanderState(float delta)
+	{
+		accelerateTowardsPoint(_wanderController.TargetPosition, delta);
+		if (GlobalPosition.DistanceTo(_wanderController.TargetPosition) <= MAX_SPEED*delta)
+		{
+			updateWanderState();
+			_animatedSprite.FlipH = velocity.x < 0;
+		}
+	}
+
+	private void updateWanderState()
+	{
+		
+		state = (BatEnum) pickNewState(new ArrayList() {BatEnum.IDLE, BatEnum.WANDER});
+		_wanderController.startWanderTimer(new Random().Next(1, 3));
+	}
+	
+	private void accelerateTowardsPoint(Vector2 point, float delta)
+	{
+		
+		var direction = GlobalPosition.DirectionTo(point);
+		velocity = velocity.MoveToward(direction * MAX_SPEED, ACCELERATION*delta);
 	}
 	
 	public void seekPlayer()
@@ -84,6 +120,12 @@ public class Bat : KinematicBody2D
 		}
 	}
 
+	public object pickNewState(ArrayList stateList)
+	{
+		Random random = new Random();
+		int randomInt = random.Next(0, stateList.Count);
+		return stateList[randomInt];
+	}
 	
 	public void onHurtboxAreaEntered(Sword area)
 	{
@@ -91,6 +133,8 @@ public class Bat : KinematicBody2D
 		knockback = area.knockback_vector * 140;
 		_hurtbox.start_invincibillity(0.1f);
 		_hurtbox.createHitEffect();
+		_hurtbox.start_invincibillity(0.2f);
+		
 	}
 
 	public void _on_Stats_noHealth()
@@ -100,5 +144,13 @@ public class Bat : KinematicBody2D
 		GetParent().AddChild(enemyDeathEffect);
 		enemyDeathEffect.GlobalPosition = GlobalPosition;
 	}
+	public void _onHurtboxInvicibleStarted()
+	{
+		_blinkAnimationPlayer.Play("Start");
+	}
 
+	public void _onHurtboxInvincibleStoped()
+	{
+		_blinkAnimationPlayer.Play("Stop");
+	}
 }

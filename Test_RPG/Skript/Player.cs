@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public class Player : Godot.KinematicBody2D
 {
@@ -19,15 +18,18 @@ public class Player : Godot.KinematicBody2D
 	};
 
 	private AnimationPlayer _animationPlayer = null;
+	private AnimationPlayer _blinkAnimationPlayer = null;
 	private AnimationTree _animationTree = null;
 	private AnimationNodeStateMachinePlayback _animationState = null;
 	private PlayerEnum state = PlayerEnum.MOVE;
 	private Sword _swordHitbox = null;
 	private Hurtbox _hurtbox = null;
+	private PackedScene _playerHurtSound = null;
 	
 	public override void _Ready()
 	{
 		_animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+		_blinkAnimationPlayer = GetNode<AnimationPlayer>("BlinkAnimationPlayer");
 		_animationTree = GetNode<AnimationTree>("AnimationTree");
 		_swordHitbox = GetNode<Sword>("HitboxPivot/SwordHitbox");
 		_stats = GetNode<PlayerStats>("/root/PlayerStats");
@@ -37,6 +39,7 @@ public class Player : Godot.KinematicBody2D
 		_swordHitbox.knockback_vector = _roll_Vector;
 		_stats = GetNode<PlayerStats>("/root/PlayerStats");
 		_stats.Connect("noHealth", this, "destroyPlayer");
+		_playerHurtSound = ResourceLoader.Load<PackedScene>("res://PreFab/Effects/PlayerHurtSound.tscn");
 	}
 
 	private void destroyPlayer()
@@ -119,11 +122,22 @@ public class Player : Godot.KinematicBody2D
 		_velocity = MoveAndSlide(_velocity);
 	}
 
-	public void onHurtboxAreaEntered(Area area)
+	public void onHurtboxAreaEntered(Hitbox area)
 	{
-		_stats.Health -= 1;
-		_hurtbox.start_invincibillity(0.5f);
+		_stats.Health -= area.damage;
+		_hurtbox.start_invincibillity(0.8f);
 		_hurtbox.createHitEffect();
+		GetTree().CurrentScene.AddChild(_playerHurtSound.Instance());
+	}
+
+	public void _onHurtboxInvicibleStarted()
+	{
+		_blinkAnimationPlayer.Play("Start");
+	}
+
+	public void _onHurtboxInvincibleStoped()
+	{
+		_blinkAnimationPlayer.Play("Stop");
 	}
 	
 }
