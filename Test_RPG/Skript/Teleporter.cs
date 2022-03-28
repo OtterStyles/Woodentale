@@ -4,7 +4,7 @@ using System;
 public class Teleporter : Area2D
 {
 	[Export]
-	public PackedScene teleportToScene = (PackedScene)ResourceLoader.Load("res://Wolrd.tscn");
+	public PackedScene teleportToScene = (PackedScene)ResourceLoader.Load("res://Scene/Wolrd.tscn");
 	
 	private void onTeleporterBodyEntered(Node2D body)
 	{

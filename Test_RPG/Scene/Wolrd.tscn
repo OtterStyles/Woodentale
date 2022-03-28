@@ -1,22 +1,22 @@
 [gd_scene load_steps=63 format=2]
 
-[ext_resource path="res://PreFab/Enviroment/Bush.tscn" type="PackedScene" id=1]
-[ext_resource path="res://PreFab/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://World/DirtTileset.png" type="Texture" id=1]
+[ext_resource path="res://World/CliffTileset.png" type="Texture" id=2]
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=3]
-[ext_resource path="res://World/DirtTileset.png" type="Texture" id=4]
-[ext_resource path="res://World/CliffTileset.png" type="Texture" id=5]
+[ext_resource path="res://PreFab/Enviroment/Teleporter.tscn" type="PackedScene" id=4]
+[ext_resource path="res://PreFab/Enviroment/Bush.tscn" type="PackedScene" id=5]
 [ext_resource path="res://PreFab/Enviroment/EnviromentSpawner.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Enemies/Bat.tscn" type="PackedScene" id=7]
-[ext_resource path="res://UI/HealthUi.tscn" type="PackedScene" id=8]
-[ext_resource path="res://PreFab/Enviroment/Tree.tscn" type="PackedScene" id=9]
-[ext_resource path="res://PreFab/Enviroment/Teleporter.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scene/GrassLand.tscn" type="PackedScene" id=11]
-[ext_resource path="res://PreFab/CameraMain.tscn" type="PackedScene" id=12]
+[ext_resource path="res://PreFab/Enviroment/Tree.tscn" type="PackedScene" id=8]
+[ext_resource path="res://GUI/HUD.tscn" type="PackedScene" id=9]
+[ext_resource path="res://PreFab/CameraMain.tscn" type="PackedScene" id=10]
+[ext_resource path="res://PreFab/GameManager/GrassLand.tscn" type="PackedScene" id=11]
+[ext_resource path="res://PreFab/Player.tscn" type="PackedScene" id=12]
 
 [sub_resource type="TileSet" id=1]
 resource_local_to_scene = true
 0/name = "Dirt"
-0/texture = ExtResource( 4 )
+0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 176, 80 )
@@ -182,7 +182,7 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="TileSet" id=2]
 0/name = "CliffTileset.png 0"
-0/texture = ExtResource( 5 )
+0/texture = ExtResource( 2 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( -32, -32, 384, 192 )
@@ -512,7 +512,9 @@ collision_mask = 0
 format = 1
 tile_data = PoolIntArray( -196603, 0, 65541, -196602, 0, 262146, -196601, 0, 262146, -196600, 0, 65544, -65537, 0, 65537, -131072, 0, 65538, -131071, 0, 65539, -131067, 0, 131076, -131064, 0, 131076, -2, 0, 65537, -1, 0, 131082, -65536, 0, 196610, -65535, 0, 262150, -65534, 0, 65543, -65533, 0, 65542, -65532, 0, 262146, -65531, 0, 327688, -65528, 0, 196613, -65527, 0, 65538, -65526, 0, 65539, 65534, 0, 131073, 65535, 0, 131075, 2, 0, 196609, 3, 0, 196611, 5, 0, 196612, 8, 0, 196609, 9, 0, 196610, 10, 0, 65546, 11, 0, 65539, 131070, 0, 131073, 131071, 0, 131075, 65546, 0, 131073, 65547, 0, 131075, 196606, 0, 131073, 196607, 0, 131075, 131079, 0, 262145, 131080, 0, 262147, 131082, 0, 131073, 131083, 0, 131075, 262142, 0, 131073, 262143, 0, 196614, 196608, 0, 65539, 196618, 0, 131073, 196619, 0, 131075, 327678, 0, 131073, 327679, 0, 131074, 262144, 0, 131075, 262153, 0, 65537, 262154, 0, 196615, 262155, 0, 131075, 393214, 0, 131073, 393215, 0, 131074, 327680, 0, 196614, 327681, 0, 65538, 327682, 0, 65538, 327683, 0, 65538, 327684, 0, 65539, 327687, 0, 65537, 327688, 0, 65538, 327689, 0, 131082, 327690, 0, 196610, 327691, 0, 196611, 458750, 0, 196609, 458751, 0, 196610, 393216, 0, 196610, 393217, 0, 196610, 393218, 0, 196610, 393219, 0, 196610, 393220, 0, 262150, 393221, 0, 262146, 393222, 0, 262146, 393223, 0, 262151, 393224, 0, 196610, 393225, 0, 196611 )
 
-[node name="CameraMain" parent="." instance=ExtResource( 12 )]
+[node name="Teleporter2" parent="." instance=ExtResource( 4 )]
+
+[node name="CameraMain" parent="." instance=ExtResource( 10 )]
 position = Vector2( 153, 79 )
 
 [node name="TopLeft" parent="CameraMain/Limits" index="0"]
@@ -521,7 +523,7 @@ position = Vector2( -64, -96 )
 [node name="BottomRight" parent="CameraMain/Limits" index="1"]
 position = Vector2( 384, 224 )
 
-[node name="Teleporter" parent="." instance=ExtResource( 10 )]
+[node name="Teleporter" parent="." instance=ExtResource( 4 )]
 position = Vector2( 154, 77 )
 teleportToScene = ExtResource( 11 )
 
@@ -532,7 +534,7 @@ shape = SubResource( 50 )
 [node name="YSort" type="YSort" parent="."]
 position = Vector2( 1, -1 )
 
-[node name="Player" parent="YSort" instance=ExtResource( 2 )]
+[node name="Player" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 152, 80 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
@@ -555,7 +557,7 @@ position = Vector2( 236, -16 )
 
 [node name="Bush" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( -1, 1 )
-spawnScene = ExtResource( 1 )
+spawnScene = ExtResource( 5 )
 
 [node name="TileMap" parent="YSort/Bush" index="0"]
 tile_data = PoolIntArray( -65518, 0, 0, 65533, 0, 0, 131090, 0, 0, 196629, 0, 0, 262148, 0, 0, 589832, 0, 0, 720893, 0, 0 )
@@ -568,19 +570,13 @@ offsetY = 8
 tile_data = PoolIntArray( 12, 0, 0, 13, 0, 0, 65548, 0, 0, 65549, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 262147, 0, 0, 262150, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393234, 0, 0, 393235, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458764, 0, 0, 458765, 0, 0, 458770, 0, 0, 458771, 0, 0, 524290, 0, 0, 524291, 0, 0, 524300, 0, 0, 524301, 0, 0, 589826, 0, 0, 589836, 0, 0, 589837, 0, 0, 655373, 0, 0 )
 
 [node name="Tree" parent="YSort" instance=ExtResource( 6 )]
-spawnScene = ExtResource( 9 )
+spawnScene = ExtResource( 8 )
 offsetX = 8
 
 [node name="TileMap" parent="YSort/Tree" index="0"]
 tile_data = PoolIntArray( 2, 0, 0, 196608, 0, 0, 196624, 0, 0, 262156, 0, 0, 327698, 0, 0, 458752, 0, 0 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="HealthUi" parent="CanvasLayer" instance=ExtResource( 8 )]
-margin_left = 8.0
-margin_top = 8.0
-margin_right = 119.0
-margin_bottom = 23.0
+[node name="HUD" parent="." instance=ExtResource( 9 )]
 
 [editable path="CameraMain"]
 [editable path="Teleporter"]

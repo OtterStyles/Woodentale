@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2bf9a3f0-df6b-4270-8b1a-ff05becf2a77" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Test_RPG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Test_RPG/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mono/assemblies/Debug/api_hash_cache.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/assemblies/Debug/api_hash_cache.cfg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/metadata/scripts_metadata.editor" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/metadata/scripts_metadata.editor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/metadata/scripts_metadata.editor_player" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/metadata/scripts_metadata.editor_player" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/bin/Debug/Test_RPG.dll" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/bin/Debug/Test_RPG.dll" afterDir="false" />
@@ -15,17 +14,16 @@
       <change beforePath="$PROJECT_DIR$/.mono/temp/obj/Debug/Test_RPG.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/Debug/Test_RPG.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/obj/Debug/Test_RPG.dll" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/Debug/Test_RPG.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/obj/Debug/Test_RPG.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/Debug/Test_RPG.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mono/temp/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/rider.project.restore.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Enemies/Bat.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Enemies/Bat.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PreFab/Effects/EnemyDeathEffect.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/PreFab/Effects/EnemyDeathEffect.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PreFab/Effects/HitEffect.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/PreFab/Effects/HitEffect.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PreFab/Player.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/PreFab/Player.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scene/GrassLand.tscn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scene/MainMenu.tscn" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Skript/Bat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Skript/Bat.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Skript/Hurtbox.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Skript/Hurtbox.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Skript/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Skript/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Skript/SoftCollision.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Skript/SoftCollision.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Skript/WanderController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Skript/WanderController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wolrd.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Wolrd.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Skript/PlayerStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Skript/PlayerStats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Skript/Stats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Skript/Stats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Skript/Teleporter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Skript/Teleporter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wolrd.tscn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,6 +107,7 @@
       <workItem from="1647444933311" duration="7014000" />
       <workItem from="1647790775155" duration="6012000" />
       <workItem from="1648387850431" duration="9387000" />
+      <workItem from="1648493397964" duration="6030000" />
     </task>
     <servers />
   </component>

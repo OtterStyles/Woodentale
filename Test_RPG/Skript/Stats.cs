@@ -6,7 +6,8 @@ public class Stats : Node
 	[Export(PropertyHint.Range,"0,100,")]
 	private int max_health = 1;
 	private int health = 1;
-
+	private int damage = 1;
+	
 	[Signal]
 	public delegate void noHealth();
 	[Signal]
@@ -14,6 +15,11 @@ public class Stats : Node
 	[Signal]
 	public delegate void maxHealthChanged(int value);
 
+	public int Damage
+	{
+		get => damage;
+		set => damage = value;
+	}
 	public override void _Ready()
 	{
 		health = max_health;

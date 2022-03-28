@@ -25,9 +25,12 @@ public class Bat : KinematicBody2D
 	private PlayerDetectionZone _playerDetectionZone = null;
 	private AnimatedSprite _animatedSprite = null;
 	private Hurtbox _hurtbox = null;
+	private Hitbox _hittbox = null;
 	private SoftCollision _softCollision = null;
 	private WanderController _wanderController = null;
 	private AnimationPlayer _blinkAnimationPlayer = null;
+	private EnemyStats _enemyStats = null;
+	private PlayerStats _playerStats = null;
 	
 	public override void _Ready()
 	{
@@ -35,9 +38,13 @@ public class Bat : KinematicBody2D
 		_playerDetectionZone = GetNode<PlayerDetectionZone>("PlayerDetection");
 		_animatedSprite = GetNode<AnimatedSprite>("AnimatedSprite");
 		_hurtbox = GetNode<Hurtbox>("Hurtbox");
+		_hittbox = GetNode<Hitbox>("Hitbox");
 		_softCollision = GetNode<SoftCollision>("SoftCollision");
 		_wanderController = GetNode<WanderController>("WanderController");
 		_blinkAnimationPlayer = GetNode<AnimationPlayer>("BlinkAnimationPlayer");
+		_enemyStats = GetNode<EnemyStats>("/root/EnemyStats");
+		_playerStats = GetNode<PlayerStats>("/root/PlayerStats");
+		_hittbox.damage = _enemyStats.Damage;
 		updateWanderState();
 	}
 
@@ -139,6 +146,7 @@ public class Bat : KinematicBody2D
 
 	public void _on_Stats_noHealth()
 	{
+		_playerStats.Kills += 1;
 		QueueFree();
 		var enemyDeathEffect = (Node2D)EnemyDeathEffect.Instance();
 		GetParent().AddChild(enemyDeathEffect);

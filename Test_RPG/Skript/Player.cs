@@ -25,6 +25,7 @@ public class Player : Godot.KinematicBody2D
 	private Sword _swordHitbox = null;
 	private Hurtbox _hurtbox = null;
 	private PackedScene _playerHurtSound = null;
+	private PackedScene _deathScene = null;
 	
 	public override void _Ready()
 	{
@@ -40,10 +41,16 @@ public class Player : Godot.KinematicBody2D
 		_stats = GetNode<PlayerStats>("/root/PlayerStats");
 		_stats.Connect("noHealth", this, "destroyPlayer");
 		_playerHurtSound = ResourceLoader.Load<PackedScene>("res://PreFab/Effects/PlayerHurtSound.tscn");
+		_deathScene = ResourceLoader.Load<PackedScene>("res://PreFab/Effects/DeathScene.tscn");
+		_onHurtboxInvincibleStoped();
+		
 	}
 
 	private void destroyPlayer()
 	{
+		var deathEffect = (Node2D)_deathScene.Instance();
+		deathEffect.GlobalPosition = GlobalPosition;
+		GetTree().CurrentScene.AddChild(deathEffect);
 		QueueFree();
 	}
 
