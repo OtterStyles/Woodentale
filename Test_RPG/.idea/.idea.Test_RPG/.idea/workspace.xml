@@ -6,24 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="2bf9a3f0-df6b-4270-8b1a-ff05becf2a77" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Test_RPG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Test_RPG/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mono/metadata/ide_messaging_meta.txt" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/metadata/ide_messaging_meta.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/metadata/scripts_metadata.editor" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/metadata/scripts_metadata.editor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/metadata/scripts_metadata.editor_player" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/metadata/scripts_metadata.editor_player" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/bin/Debug/Test_RPG.dll" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/bin/Debug/Test_RPG.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/bin/Debug/Test_RPG.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/bin/Debug/Test_RPG.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/obj/Debug/Test_RPG.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/Debug/Test_RPG.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mono/temp/obj/Debug/Test_RPG.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/Debug/Test_RPG.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/obj/Debug/Test_RPG.dll" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/Debug/Test_RPG.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/obj/Debug/Test_RPG.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/Debug/Test_RPG.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Enemies/Bat.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Enemies/Bat.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scene/GrassLand.tscn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scene/MainMenu.tscn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Skript/Bat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Skript/Bat.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Skript/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Skript/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Skript/PlayerStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Skript/PlayerStats.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Skript/Stats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Skript/Stats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mono/temp/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mono/temp/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PreFab/Enviroment/Teleporter.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/PreFab/Enviroment/Teleporter.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PreFab/GameManager/GrassLand.tscn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scene/Wolrd.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scene/Wolrd.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Skript/Teleporter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Skript/Teleporter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wolrd.tscn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,6 +104,7 @@
       <workItem from="1647790775155" duration="6012000" />
       <workItem from="1648387850431" duration="9387000" />
       <workItem from="1648493397964" duration="6030000" />
+      <workItem from="1648499787106" duration="307000" />
     </task>
     <servers />
   </component>
