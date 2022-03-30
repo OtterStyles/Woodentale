@@ -56,18 +56,23 @@ public class Player : Godot.KinematicBody2D
 
 
 	public override void _PhysicsProcess(float delta)
-	{
-		switch (state)
-		{
-			case PlayerEnum.MOVE: moveState(delta);
-				break;
-			case PlayerEnum.ROLL:
-				roleState(delta);
-				break;
-			case PlayerEnum.ATACK: attackState(delta);
-				break;
+	{	
+		if(Input.IsActionPressed("ui_cancle")){
+			GetTree().Paused = !GetTree().Paused;
+			
 		}
-		
+		if (!GetTree().Paused){
+			switch (state)
+			{
+				case PlayerEnum.MOVE: moveState(delta);
+					break;
+				case PlayerEnum.ROLL:
+					roleState(delta);
+					break;
+				case PlayerEnum.ATACK: attackState(delta);
+					break;
+			}
+		}
 	}
 
 	private void moveState(float delta)
