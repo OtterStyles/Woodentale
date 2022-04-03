@@ -5,17 +5,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d40e187c-4afe-4f5b-ae26-26a25a96812c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.mono/metadata/ide_messaging_meta.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Artwork/Atlases/Asperite/BaseTileMap.aseprite" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Artwork/Atlases/Asperite/BasicEnviroment.aseprite" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Artwork/Atlases/Asperite/Items.aseprite" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Artwork/Atlases/Asperite/Stone.aseprite" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PreFabs/Manager/Camera2D.tscn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scene/Farm.tscn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/Manager/Camera2D.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test_RPG/.idea/.idea.Test_RPG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Test_RPG/.idea/.idea.Test_RPG/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test_RPG/.mono/assemblies/Debug/api_hash_cache.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/../Test_RPG/.mono/assemblies/Debug/api_hash_cache.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test_RPG/.mono/metadata/scripts_metadata.editor" beforeDir="false" afterPath="$PROJECT_DIR$/../Test_RPG/.mono/metadata/scripts_metadata.editor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test_RPG/.mono/metadata/scripts_metadata.editor_player" beforeDir="false" afterPath="$PROJECT_DIR$/../Test_RPG/.mono/metadata/scripts_metadata.editor_player" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test_RPG/.mono/temp/bin/Debug/Test_RPG.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Test_RPG/.mono/temp/bin/Debug/Test_RPG.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test_RPG/.mono/temp/bin/Debug/Test_RPG.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Test_RPG/.mono/temp/bin/Debug/Test_RPG.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test_RPG/.mono/temp/obj/Debug/Test_RPG.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../Test_RPG/.mono/temp/obj/Debug/Test_RPG.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test_RPG/.mono/temp/obj/Debug/Test_RPG.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Test_RPG/.mono/temp/obj/Debug/Test_RPG.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test_RPG/.mono/temp/obj/Debug/Test_RPG.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Test_RPG/.mono/temp/obj/Debug/Test_RPG.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test_RPG/.mono/temp/obj/Debug/Test_RPG.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Test_RPG/.mono/temp/obj/Debug/Test_RPG.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test_RPG/.mono/temp/obj/Debug/Test_RPG.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Test_RPG/.mono/temp/obj/Debug/Test_RPG.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test_RPG/.mono/temp/obj/Debug/Test_RPG.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Test_RPG/.mono/temp/obj/Debug/Test_RPG.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test_RPG/.mono/temp/obj/Test_RPG.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Test_RPG/.mono/temp/obj/Test_RPG.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test_RPG/.mono/temp/obj/Test_RPG.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/../Test_RPG/.mono/temp/obj/Test_RPG.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test_RPG/.mono/temp/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Test_RPG/.mono/temp/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test_RPG/.mono/temp/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Test_RPG/.mono/temp/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test_RPG/.mono/temp/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Test_RPG/.mono/temp/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test_RPG/.mono/temp/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/../Test_RPG/.mono/temp/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test_RPG/Skript/Bat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Test_RPG/Skript/Bat.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Woodentale/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Woodentale/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mono/assemblies/Debug/api_hash_cache.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/assemblies/Debug/api_hash_cache.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.import/Test.png-2606ff27b6c90fbcc68638aedea27e21.md5" beforeDir="false" afterPath="$PROJECT_DIR$/.import/Test.png-2606ff27b6c90fbcc68638aedea27e21.md5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.import/Test.png-2606ff27b6c90fbcc68638aedea27e21.stex" beforeDir="false" afterPath="$PROJECT_DIR$/.import/Test.png-2606ff27b6c90fbcc68638aedea27e21.stex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/metadata/scripts_metadata.editor" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/metadata/scripts_metadata.editor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/metadata/scripts_metadata.editor_player" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/metadata/scripts_metadata.editor_player" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/bin/Debug/Woodentale.dll" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/bin/Debug/Woodentale.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/bin/Debug/Woodentale.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/bin/Debug/Woodentale.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mono/temp/obj/Debug/Woodentale.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/Debug/Woodentale.csproj.AssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/obj/Debug/Woodentale.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/Debug/Woodentale.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/obj/Debug/Woodentale.dll" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/Debug/Woodentale.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.mono/temp/obj/Debug/Woodentale.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/Debug/Woodentale.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mono/temp/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/.mono/temp/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Artwork/Atlases/Test.png" beforeDir="false" afterPath="$PROJECT_DIR$/Artwork/Atlases/Test.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Artwork/Atlases/Test.png.import" beforeDir="false" afterPath="$PROJECT_DIR$/Artwork/Atlases/Test.png.import" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Skript/HUD/StartScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Skript/HUD/StartScreen.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Skript/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Skript/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,12 +57,15 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="23pmKb09DLSlNUCfuxFTf7krNRm" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -85,6 +118,7 @@
       <updated>1642439343139</updated>
       <workItem from="1642439343140" duration="643000" />
       <workItem from="1648571674096" duration="1476000" />
+      <workItem from="1649008128719" duration="1063000" />
     </task>
     <servers />
   </component>
@@ -106,6 +140,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
 </project>

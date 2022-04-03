@@ -13,12 +13,14 @@ public class Player : Godot.KinematicBody2D
 	private AnimationTree _animationTree = null;
 	private AnimationNodeStateMachinePlayback _animationState = null;
 	private PlayerStats _stats = null;
+	private Sprite _sprite = null;
 	
 	public override void _Ready()
 	{
 		_animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 		_animationTree = GetNode<AnimationTree>("AnimationTree");
 		_animationState = (AnimationNodeStateMachinePlayback)_animationTree.Get("parameters/playback");
+		_sprite = GetNode<Sprite>("Sprite");
 		_stats = GetNode<PlayerStats>("/root/PlayerStats");
 		_stats.Connect("noHealth", this, "destroyPlayer");
 	}
@@ -38,6 +40,7 @@ public class Player : Godot.KinematicBody2D
 		_animationTree.Set("parameters/RUNNING/blend_position", inputVector);
 
 		inputVector = inputVector.Normalized();
+		flipThePlayer(inputVector);
 		if ((inputVector != Vector2.Zero)&&(sprint == 0))
 		{
 			_animationState.Travel("GOING");
@@ -45,8 +48,6 @@ public class Player : Godot.KinematicBody2D
 		}
 		else if ((inputVector != Vector2.Zero)&&(sprint == 1))
 		{
-			_animationTree.Set("parameters/Idle/blend_position", inputVector);
-			_animationTree.Set("parameters/Run/blend_position", inputVector);
 			_animationState.Travel("RUNNING");
 			_velocity = _velocity.MoveToward(inputVector * MAX_SPEED_SPRINT, ACCELERATION * delta);
 		}
@@ -57,5 +58,17 @@ public class Player : Godot.KinematicBody2D
 		}
 		_velocity = MoveAndSlide(_velocity);
 		
+	}
+
+	private void flipThePlayer(Vector2 inputVector)
+	{
+		if (inputVector.x < 0)
+		{
+			_sprite.FlipH = true;
+		}
+		else
+		{
+			_sprite.FlipH = false;
+		}
 	}
 }

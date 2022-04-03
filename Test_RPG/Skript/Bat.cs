@@ -8,6 +8,7 @@ public class Bat : KinematicBody2D
 	[Export] public int ACCELERATION = 300;
 	[Export] public int MAX_SPEED = 50;
 	[Export] public int FRICTION = 200;
+	[Export] public int dropHearts = 50;
 		
 	public PackedScene EnemyDeathEffect = (PackedScene) ResourceLoader.Load("res://Prefab/Effects/EnemyDeathEffect.tscn");
 	private enum BatEnum
@@ -31,6 +32,7 @@ public class Bat : KinematicBody2D
 	private AnimationPlayer _blinkAnimationPlayer = null;
 	private EnemyStats _enemyStats = null;
 	private PlayerStats _playerStats = null;
+	private PackedScene HeartScene = ResourceLoader.Load<PackedScene>("res://PreFab/Items/HeartItem.tscn");
 	
 	public override void _Ready()
 	{
@@ -44,6 +46,7 @@ public class Bat : KinematicBody2D
 		_blinkAnimationPlayer = GetNode<AnimationPlayer>("BlinkAnimationPlayer");
 		_enemyStats = GetNode<EnemyStats>("/root/EnemyStats");
 		_playerStats = GetNode<PlayerStats>("/root/PlayerStats");
+		
 		_hittbox.damage = _enemyStats.Damage;
 		updateWanderState();
 	}
@@ -147,10 +150,17 @@ public class Bat : KinematicBody2D
 	public void _on_Stats_noHealth()
 	{
 		_playerStats.Kills += 1;
-		QueueFree();
 		var enemyDeathEffect = (Node2D)EnemyDeathEffect.Instance();
+		var heartItem = (Node2D) HeartScene.Instance();
 		GetParent().AddChild(enemyDeathEffect);
 		enemyDeathEffect.GlobalPosition = GlobalPosition;
+		
+		if (new Random().Next(100) < dropHearts)
+		{
+			GetParent().CallDeferred("add_child", heartItem);
+			heartItem.GlobalPosition = GlobalPosition;
+		}
+		QueueFree();
 	}
 	public void _onHurtboxInvicibleStarted()
 	{

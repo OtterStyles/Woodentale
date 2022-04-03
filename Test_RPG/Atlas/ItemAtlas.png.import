@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Test.png-2606ff27b6c90fbcc68638aedea27e21.stex"
+path="res://.import/ItemAtlas.png-1ae1a546827de316cddb1b8ad6b952e4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Artwork/Atlases/Test.png"
-dest_files=[ "res://.import/Test.png-2606ff27b6c90fbcc68638aedea27e21.stex" ]
+source_file="res://Atlas/ItemAtlas.png"
+dest_files=[ "res://.import/ItemAtlas.png-1ae1a546827de316cddb1b8ad6b952e4.stex" ]
 
 [params]
 
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

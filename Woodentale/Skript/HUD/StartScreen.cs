@@ -4,7 +4,7 @@ using System;
 public class StartScreen : Control
 {
     public PackedScene OptionsGUI = ResourceLoader.Load<PackedScene>("res://Menu/Options.tscn");
-    public PackedScene StartScene = ResourceLoader.Load<PackedScene>("res://Scene/TestHub.tscn");
+    public PackedScene StartScene = ResourceLoader.Load<PackedScene>("res://Scene/Farm.tscn");
 
 
     public void _on_Start_pressed()
