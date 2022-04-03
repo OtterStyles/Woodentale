@@ -56,7 +56,7 @@ public class Player : Godot.KinematicBody2D
 
 
 	public override void _PhysicsProcess(float delta)
-	{
+	{	
 		switch (state)
 		{
 			case PlayerEnum.MOVE: moveState(delta);
@@ -67,7 +67,6 @@ public class Player : Godot.KinematicBody2D
 			case PlayerEnum.ATACK: attackState(delta);
 				break;
 		}
-		
 	}
 
 	private void moveState(float delta)
