@@ -1,15 +1,8 @@
 using Godot;
 using System;
 
-public struct Item
+enum ItemID
 {
-	[Export]
-	public int ID;
-	[Export]
-	public string NAME;
-	[Export]
-	public Texture texture;
+	0: 1
 }
-
-
 
