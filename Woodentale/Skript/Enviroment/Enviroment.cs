@@ -3,9 +3,9 @@ using System;
 
 public class Enviroment : Node2D
 {
-	[Export(String)]
+	[Export()]
 	public String ItemID = "";
-	[Export(String)]
+	[Export()]
 	public String Type = "";
 	[Export()]
 	public int Hits = 0;
@@ -16,7 +16,7 @@ public class Enviroment : Node2D
 		
 	}
 	
-	private void _on_Area2D_body_entered(object body)
+	private void _on_Area2D_body_entered(Node2D body)
 	{
 		if (body.isInGroup(Type)){
 			Hits -= body.Strength;

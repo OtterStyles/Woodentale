@@ -1,8 +1,8 @@
 using Godot;
 using System;
 
-enum ItemID
+class Item
 {
-	0: 1
+	
 }
 
