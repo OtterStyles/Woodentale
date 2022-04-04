@@ -1,11 +1,11 @@
 using Godot;
+using System;
 
 public class EnviromentSpawner : YSort
 {
 
 	[Export()] public PackedScene spawnScene = ResourceLoader.Load<PackedScene>("res://PreFab/Enviroment/Grass.tscn");
-	[Export()] public int offsetX = 0;
-	[Export()] public int offsetY = 0;
+	[Export(PropertyHint.Range, "0,100,")] public int Percentage = 50;
 	private TileMap _tileMap = null;
 	public override void _Ready()
 	{
@@ -13,11 +13,15 @@ public class EnviromentSpawner : YSort
 		_tileMap.Visible = false;
 		foreach (Vector2 ob in _tileMap.GetUsedCells())
 		{
-			var scene = spawnScene.Instance<Node2D>();
-			var pos = _tileMap.MapToWorld(ob);
-			scene.GlobalPosition = new Vector2(pos.x + offsetX, pos.y + offsetY);
-			AddChild(scene);
+			if (new Random().Next(100) < Percentage)
+			{
+				var scene = spawnScene.Instance<Node2D>();
+				var pos = _tileMap.MapToWorld(ob);
+				scene.GlobalPosition = new Vector2(pos.x, pos.y);
+				AddChild(scene);
+			}
 			
 		}
 	}
 }
+
