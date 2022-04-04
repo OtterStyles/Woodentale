@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Items.png-89c56b069ba962060039cfaeacae99a2.stex"
+path="res://.import/BasicEnviroment.png-8e646c8f9c4b8dbe11d88c32334d9f7e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Artwork/Atlases/Items.png"
-dest_files=[ "res://.import/Items.png-89c56b069ba962060039cfaeacae99a2.stex" ]
+source_file="res://Artwork/Atlases/PNG/BasicEnviroment.png"
+dest_files=[ "res://.import/BasicEnviroment.png-8e646c8f9c4b8dbe11d88c32334d9f7e.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
