@@ -206,6 +206,7 @@ margin_bottom = 16.0
 rect_min_size = Vector2( 300, 0 )
 
 [node name="Video" type="ScrollContainer" parent="MarginContainer/VBoxContainer/Controlls"]
+visible = false
 margin_left = 20.0
 margin_right = 620.0
 margin_bottom = 200.0
@@ -279,7 +280,6 @@ custom_fonts/font = SubResource( 6 )
 text = "Active"
 
 [node name="Controls" type="ScrollContainer" parent="MarginContainer/VBoxContainer/Controlls"]
-visible = false
 margin_left = 20.0
 margin_right = 620.0
 margin_bottom = 200.0
@@ -288,93 +288,26 @@ scroll_horizontal_enabled = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Controlls/Controls"]
 margin_right = 600.0
-margin_bottom = 104.0
+margin_bottom = 14.0
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/Controlls/Controls/VBoxContainer"]
 margin_right = 600.0
-margin_bottom = 32.0
+margin_bottom = 14.0
 rect_min_size = Vector2( 600, 0 )
 columns = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Controlls/Controls/VBoxContainer/GridContainer"]
 margin_right = 600.0
-margin_bottom = 32.0
+margin_bottom = 14.0
 rect_min_size = Vector2( 600, 0 )
 custom_constants/separation = 100
 alignment = 1
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Controlls/Controls/VBoxContainer/GridContainer/HBoxContainer"]
-margin_left = 10.0
-margin_right = 190.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 180, 0 )
-custom_fonts/font = SubResource( 4 )
-text = "Generall"
-align = 1
-
-[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/Controlls/Controls/VBoxContainer/GridContainer/HBoxContainer"]
-margin_left = 290.0
-margin_right = 590.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 300, 0 )
-
-[node name="GridContainer2" type="GridContainer" parent="MarginContainer/VBoxContainer/Controlls/Controls/VBoxContainer"]
-margin_top = 36.0
-margin_right = 600.0
-margin_bottom = 68.0
-rect_min_size = Vector2( 600, 0 )
-columns = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Controlls/Controls/VBoxContainer/GridContainer2"]
-margin_right = 600.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 600, 0 )
-custom_constants/separation = 100
-alignment = 1
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Controlls/Controls/VBoxContainer/GridContainer2/HBoxContainer"]
-margin_left = 10.0
-margin_right = 190.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 180, 0 )
-custom_fonts/font = SubResource( 4 )
-text = "Audio"
-align = 1
-
-[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/Controlls/Controls/VBoxContainer/GridContainer2/HBoxContainer"]
-margin_left = 290.0
-margin_right = 590.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 300, 0 )
-
-[node name="GridContainer3" type="GridContainer" parent="MarginContainer/VBoxContainer/Controlls/Controls/VBoxContainer"]
-margin_top = 72.0
-margin_right = 600.0
-margin_bottom = 104.0
-rect_min_size = Vector2( 600, 0 )
-columns = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Controlls/Controls/VBoxContainer/GridContainer3"]
-margin_right = 600.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 600, 0 )
-custom_constants/separation = 100
-alignment = 1
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Controlls/Controls/VBoxContainer/GridContainer3/HBoxContainer"]
-margin_left = 10.0
-margin_right = 190.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 180, 0 )
-custom_fonts/font = SubResource( 4 )
-text = "Musik"
-align = 1
-
-[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/Controlls/Controls/VBoxContainer/GridContainer3/HBoxContainer"]
-margin_left = 290.0
-margin_right = 590.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 300, 0 )
+margin_left = 264.0
+margin_right = 336.0
+margin_bottom = 14.0
+text = "In Progress"
 
 [node name="Menue" type="Button" parent="MarginContainer/VBoxContainer"]
 margin_top = 314.0
