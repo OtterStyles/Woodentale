@@ -11,10 +11,15 @@ public class Enviroment : Node2D
 	public int Hits = 0;
 	
 	private Sprite _sprite = null;
+
+	[Export()]
+	private Sprite itemSprite = null;
+
 	
 	public override void _Ready()
 	{
 		_sprite = GetNode<Sprite>("Sprite");
+		
 	}
 	
 	
