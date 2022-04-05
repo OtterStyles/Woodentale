@@ -14,15 +14,26 @@ public class Player : Godot.KinematicBody2D
 	private AnimationNodeStateMachinePlayback _animationState = null;
 	private PlayerStats _stats = null;
 	private Sprite _sprite = null;
+	private Position2D _handLeft = null;
+	private PackedScene _axe = ResourceLoader.Load<PackedScene>("res://PreFabs/Tools/Axe.tscn");
+	private Hitbox _hitbox = null;
 	
 	public override void _Ready()
 	{
 		_animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 		_animationTree = GetNode<AnimationTree>("AnimationTree");
 		_animationState = (AnimationNodeStateMachinePlayback)_animationTree.Get("parameters/playback");
+		_hitbox = GetNode<Hitbox>("Hitbox");
 		_sprite = GetNode<Sprite>("Sprite");
 		_stats = GetNode<PlayerStats>("/root/PlayerStats");
 		_stats.Connect("noHealth", this, "destroyPlayer");
+
+		_handLeft = GetNode<Position2D>("HandLeft");
+		_handLeft.AddChild((Node2D)_axe.Instance());
+		foreach(String obj in _axe.Instance().GetGroups()){
+			_hitbox.AddToGroup(obj);
+		}
+
 	}
 
 	private void destroyPlayer()
@@ -38,6 +49,7 @@ public class Player : Godot.KinematicBody2D
 		_animationTree.Set("parameters/IDLE/blend_position", inputVector);
 		_animationTree.Set("parameters/GOING/blend_position", inputVector);
 		_animationTree.Set("parameters/RUNNING/blend_position", inputVector);
+		_animationTree.Set("parameters/CHOP/blend_position", inputVector);
 
 		inputVector = inputVector.Normalized();
 		flipThePlayer(inputVector);
@@ -55,6 +67,10 @@ public class Player : Godot.KinematicBody2D
 		{
 			_animationState.Travel("IDLE");
 			_velocity = _velocity.MoveToward(Vector2.Zero, FRICTION * delta);
+		}
+		if (Input.IsActionJustPressed("chop")){
+			_animationState.Travel("CHOP");
+			_velocity = Vector2.Zero;
 		}
 		_velocity = MoveAndSlide(_velocity);
 		

@@ -1,10 +1,9 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://PreFabs/Manager/Camera2D.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Artwork/Atlases/PNG/Farm.png" type="Texture" id=2]
 [ext_resource path="res://PreFabs/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://PreFabs/Enviroment/EnviromentSpawner.tscn" type="PackedScene" id=4]
-[ext_resource path="res://PreFabs/Enviroment/Objects/Wood.tscn" type="PackedScene" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -845,7 +844,6 @@ collision_mask = 2
 remote_path = NodePath("../../../Camera2D")
 
 [node name="Wood" parent="YSort" instance=ExtResource( 4 )]
-spawnScene = ExtResource( 5 )
 Percentage = 100
 
 [node name="TileMap" parent="YSort/Wood" index="0"]

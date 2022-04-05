@@ -17,20 +17,21 @@ public class Enviroment : Node2D
 		_sprite = GetNode<Sprite>("Sprite");
 	}
 	
-	private void _on_Area2D_body_entered(Node2D body)
-	{
-		if (body.IsInGroup(Type)){
+	
+	private void _on_Area2D_area_entered(Area2D area){
+		if (area.IsInGroup(Type)){
 			Hits -= 1;
-			if (Hits < 0){
+			if (Hits <= 0){
 				dropItem();
 				QueueFree();
 			}
 		}
 	}
-	
+
+
 	private void dropItem()
 	{
-		
+		GD.Print("Dropped Item");
 	}
 	
 	
