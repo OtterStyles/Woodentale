@@ -3,9 +3,12 @@ using System;
 
 public class StartScreen : Control
 {
-	public PackedScene OptionsGUI = ResourceLoader.Load<PackedScene>("res://Menu/Options.tscn");
+	private Control options;
 	public PackedScene StartScene = ResourceLoader.Load<PackedScene>("res://Scene/Farm.tscn");
-
+	
+	public override void _Ready(){
+		options = GetNode<Control>("MarginContainer/Options");
+	}
 
 	public void _on_Start_pressed()
 	{
@@ -14,7 +17,7 @@ public class StartScreen : Control
 
 	public void _on_Options_pressed()
 	{
-		GetTree().ChangeSceneTo(OptionsGUI);
+		options.Visible = true;
 	}
 
 	public void _on_Exit_pressed()

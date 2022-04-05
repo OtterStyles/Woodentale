@@ -15,3 +15,9 @@ Woodentale/.mono/temp/bin/Debug/Woodentale.dll
 Woodentale/.mono/temp/bin/Debug/Woodentale.pdb
 Woodentale/.mono/temp/obj/Debug/Woodentale.dll
 Woodentale/.mono/temp/obj/Debug/Woodentale.pdb
+*.cfg
+*.editor
+*.dll
+*.editor_player
+*.cache
+*.pdb

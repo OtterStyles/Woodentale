@@ -4,7 +4,7 @@ using System;
 public class EnviromentSpawner : YSort
 {
 
-	[Export()] public PackedScene spawnScene = ResourceLoader.Load<PackedScene>("res://PreFab/Enviroment/Grass.tscn");
+	[Export()] public PackedScene spawnScene = ResourceLoader.Load<PackedScene>("res://PreFabs/Enviroment/Objects/Wood.tscn");
 	[Export(PropertyHint.Range, "0,100,")] public int Percentage = 50;
 	private TileMap _tileMap = null;
 	public override void _Ready()
