@@ -7,16 +7,14 @@ export_presets.cfg
 *.translation
 
 # Mono-specific ignores
-.Test_RPG/data_*/
-.Woodentale/data_*/
+Test_RPG/data_*/
+Woodentale/data_*/
 
-.Woodentale/.idea/
-.Woodentale/.import/
-.Woodentale/.mono/
-.Test_RPG/.godot/
-.Test_RPG/.idea/
-.Test_RPG/.import/
-.Test_RPG/.mono/
-.Test_RPG/.vs/
-Woodentale/.mono/temp/obj/Debug/Woodentale.pdb
-Woodentale/.idea/.idea.Woodentale/.idea/workspace.xml
+Woodentale/.idea/
+Woodentale/.import/
+Woodentale/.mono/
+Test_RPG/.godot/
+Test_RPG/.idea/
+Test_RPG/.import/
+Test_RPG/.mono/
+Test_RPG/.vs/
