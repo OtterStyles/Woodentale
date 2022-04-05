@@ -17,7 +17,7 @@ public class EnviromentSpawner : YSort
 			{
 				var scene = spawnScene.Instance<Node2D>();
 				var pos = _tileMap.MapToWorld(ob);
-				scene.GlobalPosition = new Vector2(pos.x, pos.y);
+				scene.GlobalPosition = new Vector2(pos.x + 64, pos.y + 64);
 				AddChild(scene);
 			}
 			

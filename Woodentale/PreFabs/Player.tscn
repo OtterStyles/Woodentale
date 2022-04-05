@@ -277,6 +277,7 @@ parameters/IDLE/blend_position = Vector2( 0, 0 )
 parameters/RUNNING/blend_position = Vector2( 0, 0 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 3 )]
+visible = false
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( -1, -36 )
