@@ -7,6 +7,7 @@ public class Options : Control
 	private ScrollContainer _Video = null;
 	private ScrollContainer _Controll = null;
 	
+	
 	public override void _Ready()
 	{
 		_Audio = GetNode<ScrollContainer>("MarginContainer/VBoxContainer/Controlls/Audio");
