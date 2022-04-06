@@ -12,9 +12,6 @@ public class Enviroment : Node2D
 	
 	private Sprite _sprite = null;
 
-	[Export()]
-	private Sprite itemSprite = null;
-
 	
 	public override void _Ready()
 	{

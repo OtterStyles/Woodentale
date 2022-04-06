@@ -1,9 +1,10 @@
 [gd_scene load_steps=66 format=2]
 
-[ext_resource path="res://Skript/Player.cs" type="Script" id=1]
+[ext_resource path="res://Skript/Player/Player.cs" type="Script" id=1]
 [ext_resource path="res://Artwork/Atlases/PNG/Player.png" type="Texture" id=2]
 [ext_resource path="res://PreFabs/Manager/Hurtbox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://PreFabs/Manager/Hitbox.tscn" type="PackedScene" id=4]
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.008
