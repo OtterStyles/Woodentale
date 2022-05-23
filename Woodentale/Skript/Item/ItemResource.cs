@@ -16,7 +16,5 @@ public class ItemResource : Resource
         QUEST,
         EQUIPMENT
     }
-
-    [Export()] private ItemType type;
     [Export()] public Texture texture;
 }

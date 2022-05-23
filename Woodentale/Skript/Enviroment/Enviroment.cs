@@ -11,12 +11,15 @@ public class Enviroment : Node2D
 	public int Hits = 0;
 	
 	private Sprite _sprite = null;
+	PackedScene itemDrop = null;
+	[Export()]
+	public ItemResource itemResource;
 
 	
 	public override void _Ready()
 	{
 		_sprite = GetNode<Sprite>("Sprite");
-		
+		itemDrop = ResourceLoader.Load<PackedScene>("res://Items/ItemDrop.tscn");
 	}
 	
 	
@@ -33,7 +36,8 @@ public class Enviroment : Node2D
 
 	private void dropItem()
 	{
-		GD.Print("Dropped Item");
+		ItemDrop safe = (ItemDrop)itemDrop.Instance();
+		CallDeferred("add_child",safe);	
 	}
 	
 	

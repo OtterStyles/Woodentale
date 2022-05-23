@@ -5,7 +5,6 @@
 [ext_resource path="res://PreFabs/Manager/Hurtbox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://PreFabs/Manager/Hitbox.tscn" type="PackedScene" id=4]
 
-
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.008
 height = 16.0
