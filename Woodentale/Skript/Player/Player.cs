@@ -4,10 +4,8 @@ using System;
 public class Player : Godot.KinematicBody2D
 {
 	Vector2 _velocity = Vector2.Zero;
-	private const int MAX_SPEED = 80;
-	private const int MAX_SPEED_SPRINT = 160;	
-	private const int ACCELERATION = 500;
-	const int FRICTION = 600;
+	private PlayerDefaults _playerDefaults = new PlayerDefaults();
+	private PlayerMultiplier _playerMultiplier = new PlayerMultiplier();
 	
 	private AnimationPlayer _animationPlayer = null;
 	private AnimationTree _animationTree = null;
@@ -40,6 +38,12 @@ public class Player : Godot.KinematicBody2D
 	{
 		QueueFree();
 	}
+
+	public override void _Process(float delta)
+	{
+		
+	}
+
 	public override void _PhysicsProcess(float delta)
 	{
 		Vector2 inputVector = Vector2.Zero;
@@ -50,23 +54,22 @@ public class Player : Godot.KinematicBody2D
 		_animationTree.Set("parameters/GOING/blend_position", inputVector);
 		_animationTree.Set("parameters/RUNNING/blend_position", inputVector);
 		_animationTree.Set("parameters/CHOP/blend_position", inputVector);
-
 		inputVector = inputVector.Normalized();
 		flipThePlayer(inputVector);
 		if ((inputVector != Vector2.Zero)&&(sprint == 0))
 		{
 			_animationState.Travel("GOING");
-			_velocity = _velocity.MoveToward(inputVector * MAX_SPEED, ACCELERATION * delta);
+			_velocity = _velocity.MoveToward(inputVector * _playerDefaults.MAX_SPEED, _playerDefaults.ACCELERATION * delta);
 		}
 		else if ((inputVector != Vector2.Zero)&&(sprint == 1))
 		{
 			_animationState.Travel("RUNNING");
-			_velocity = _velocity.MoveToward(inputVector * MAX_SPEED_SPRINT, ACCELERATION * delta);
+			_velocity = _velocity.MoveToward(inputVector * _playerDefaults.MAX_SPEED_SPRINT, _playerDefaults.ACCELERATION * delta);
 		}
 		else
 		{
 			_animationState.Travel("IDLE");
-			_velocity = _velocity.MoveToward(Vector2.Zero, FRICTION * delta);
+			_velocity = _velocity.MoveToward(Vector2.Zero, _playerDefaults.FRICTION * delta);
 		}
 		if (Input.IsActionJustPressed("chop")){
 			_animationState.Travel("CHOP");
