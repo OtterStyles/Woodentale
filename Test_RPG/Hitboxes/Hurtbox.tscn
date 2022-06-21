@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Skript/Hurtbox.cs" type="Script" id=1]
+
+[node name="Hurtbox" type="Area2D"]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="invicibleStarted" from="." to="." method="_on_Hurtbox_invicibleStarted"]
+[connection signal="invincibleStoped" from="." to="." method="_on_Hurtbox_invincibleStoped"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

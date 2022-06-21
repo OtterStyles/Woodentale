@@ -1,0 +1,128 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Fonts/Adventure.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Skript/MainMenu.cs" type="Script" id=2]
+
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://Fonts/Adventurer.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+font_data = SubResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = SubResource( 4 )
+
+[node name="MarginContainer" type="MarginContainer"]
+margin_right = 320.0
+margin_bottom = 180.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 320.0
+margin_bottom = 180.0
+color = Color( 0.290196, 0.521569, 0.286275, 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 320.0
+margin_bottom = 180.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 48.0
+margin_top = 26.0
+margin_right = 272.0
+margin_bottom = 154.0
+custom_constants/separation = 40
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 224.0
+margin_bottom = 32.0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer"]
+margin_right = 224.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 1 )
+text = "Test RGP Game"
+
+[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 72.0
+margin_right = 224.0
+margin_bottom = 128.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2"]
+margin_left = 78.0
+margin_right = 145.0
+margin_bottom = 56.0
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_right = 67.0
+margin_bottom = 16.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer"]
+margin_right = 67.0
+margin_bottom = 16.0
+
+[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_right = 8.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 8, 0 )
+custom_fonts/font = SubResource( 2 )
+text = ">"
+
+[node name="OptionName" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_left = 12.0
+margin_right = 67.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 55, 0 )
+custom_fonts/font = SubResource( 3 )
+text = "Start"
+
+[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 20.0
+margin_right = 67.0
+margin_bottom = 36.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2"]
+margin_left = 1.0
+margin_right = 66.0
+margin_bottom = 16.0
+
+[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer"]
+margin_right = 8.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 8, 0 )
+custom_fonts/font = SubResource( 2 )
+text = ">"
+
+[node name="OptionName" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer"]
+margin_left = 12.0
+margin_right = 65.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 3 )
+text = "Options"
+
+[node name="CenterContainer3" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 40.0
+margin_right = 67.0
+margin_bottom = 56.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3"]
+margin_right = 67.0
+margin_bottom = 16.0
+
+[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer"]
+margin_right = 8.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 8, 0 )
+custom_fonts/font = SubResource( 2 )
+text = ">"
+
+[node name="OptionName" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer"]
+margin_left = 12.0
+margin_right = 67.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 55, 0 )
+custom_fonts/font = SubResource( 3 )
+text = "Exit"

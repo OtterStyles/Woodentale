@@ -1,0 +1,363 @@
+[gd_scene load_steps=66 format=2]
+
+[ext_resource path="res://Skript/Player/Player.cs" type="Script" id=1]
+[ext_resource path="res://Artwork/Atlases/PNG/Player.png" type="Texture" id=2]
+[ext_resource path="res://PreFabs/Manager/Hurtbox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://PreFabs/Manager/Hitbox.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 4.008
+height = 16.0
+
+[sub_resource type="Animation" id=19]
+resource_name = "ATTACK_DOWN"
+
+[sub_resource type="Animation" id=20]
+resource_name = "ATTACK_LEFT"
+
+[sub_resource type="Animation" id=21]
+resource_name = "ATTACK_RIGHT"
+
+[sub_resource type="Animation" id=22]
+resource_name = "ATTACK_UP"
+
+[sub_resource type="Animation" id=27]
+resource_name = "CHOP_DOWN"
+
+[sub_resource type="Animation" id=28]
+resource_name = "CHOP_LEFT"
+
+[sub_resource type="Animation" id=29]
+resource_name = "CHOP_RIGHT"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("HandLeft:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 20.0, 60.0, 90.0, 60.0, 20.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+
+[sub_resource type="Animation" id=30]
+resource_name = "CHOP_UP"
+
+[sub_resource type="Animation" id=2]
+resource_name = "GOING_DOWN"
+
+[sub_resource type="Animation" id=3]
+resource_name = "GOING_LEFT"
+
+[sub_resource type="Animation" id=4]
+resource_name = "GOING_RIGHT"
+
+[sub_resource type="Animation" id=5]
+resource_name = "GOING_UP"
+
+[sub_resource type="Animation" id=6]
+resource_name = "IDLE_DOWN"
+
+[sub_resource type="Animation" id=7]
+resource_name = "IDLE_LEFT"
+
+[sub_resource type="Animation" id=8]
+resource_name = "IDLE_RIGHT"
+
+[sub_resource type="Animation" id=9]
+resource_name = "IDLE_UP"
+
+[sub_resource type="Animation" id=60]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("HandLeft:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 20.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "RUNNING_DOWN"
+
+[sub_resource type="Animation" id=24]
+resource_name = "RUNNING_LEFT"
+
+[sub_resource type="Animation" id=25]
+resource_name = "RUNNING_RIGHT"
+
+[sub_resource type="Animation" id=26]
+resource_name = "RUNNING_UP"
+
+[sub_resource type="AnimationNodeAnimation" id=47]
+animation = "ATTACK_DOWN"
+
+[sub_resource type="AnimationNodeAnimation" id=48]
+animation = "ATTACK_RIGHT"
+
+[sub_resource type="AnimationNodeAnimation" id=49]
+animation = "ATTACK_UP"
+
+[sub_resource type="AnimationNodeAnimation" id=50]
+animation = "ATTACK_LEFT"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=31]
+blend_point_0/node = SubResource( 47 )
+blend_point_0/pos = Vector2( 0, 1.1 )
+blend_point_1/node = SubResource( 48 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 49 )
+blend_point_2/pos = Vector2( 0, -1.1 )
+blend_point_3/node = SubResource( 50 )
+blend_point_3/pos = Vector2( -1, 0 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=61]
+animation = "CHOP_DOWN"
+
+[sub_resource type="AnimationNodeAnimation" id=62]
+animation = "CHOP_UP"
+
+[sub_resource type="AnimationNodeAnimation" id=63]
+animation = "CHOP_RIGHT"
+
+[sub_resource type="AnimationNodeAnimation" id=64]
+animation = "CHOP_LEFT"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=32]
+blend_point_0/node = SubResource( 61 )
+blend_point_0/pos = Vector2( 0, 1.1 )
+blend_point_1/node = SubResource( 62 )
+blend_point_1/pos = Vector2( 0, -1.1 )
+blend_point_2/node = SubResource( 63 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 64 )
+blend_point_3/pos = Vector2( -1, 0 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=43]
+animation = "GOING_DOWN"
+
+[sub_resource type="AnimationNodeAnimation" id=44]
+animation = "GOING_RIGHT"
+
+[sub_resource type="AnimationNodeAnimation" id=45]
+animation = "GOING_UP"
+
+[sub_resource type="AnimationNodeAnimation" id=46]
+animation = "GOING_LEFT"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=33]
+blend_point_0/node = SubResource( 43 )
+blend_point_0/pos = Vector2( 0, 1.1 )
+blend_point_1/node = SubResource( 44 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 45 )
+blend_point_2/pos = Vector2( 0, -1.1 )
+blend_point_3/node = SubResource( 46 )
+blend_point_3/pos = Vector2( -1, 0 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "IDLE_DOWN"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "IDLE_RIGHT"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "IDLE_UP"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "IDLE_LEFT"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=11]
+blend_point_0/node = SubResource( 15 )
+blend_point_0/pos = Vector2( 0, 1.1 )
+blend_point_1/node = SubResource( 16 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 17 )
+blend_point_2/pos = Vector2( 0, -1.1 )
+blend_point_3/node = SubResource( 18 )
+blend_point_3/pos = Vector2( -1, 0 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=55]
+animation = "RUNNING_DOWN"
+
+[sub_resource type="AnimationNodeAnimation" id=56]
+animation = "RUNNING_RIGHT"
+
+[sub_resource type="AnimationNodeAnimation" id=57]
+animation = "RUNNING_UP"
+
+[sub_resource type="AnimationNodeAnimation" id=58]
+animation = "RUNNING_LEFT"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=34]
+blend_point_0/node = SubResource( 55 )
+blend_point_0/pos = Vector2( 0, 1.1 )
+blend_point_1/node = SubResource( 56 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 57 )
+blend_point_2/pos = Vector2( 0, -1.1 )
+blend_point_3/node = SubResource( 58 )
+blend_point_3/pos = Vector2( -1, 0 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=37]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=38]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=39]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=40]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=41]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=42]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=65]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=66]
+
+[sub_resource type="AnimationNodeStateMachine" id=13]
+states/ATTACK/node = SubResource( 31 )
+states/ATTACK/position = Vector2( 634, 168 )
+states/CHOP/node = SubResource( 32 )
+states/CHOP/position = Vector2( 414, 39 )
+states/GOING/node = SubResource( 33 )
+states/GOING/position = Vector2( 683, 39 )
+states/IDLE/node = SubResource( 11 )
+states/IDLE/position = Vector2( 414, 168 )
+states/RUNNING/node = SubResource( 34 )
+states/RUNNING/position = Vector2( 144, 39 )
+transitions = [ "IDLE", "RUNNING", SubResource( 35 ), "RUNNING", "IDLE", SubResource( 36 ), "IDLE", "CHOP", SubResource( 37 ), "CHOP", "IDLE", SubResource( 38 ), "ATTACK", "IDLE", SubResource( 39 ), "IDLE", "ATTACK", SubResource( 40 ), "IDLE", "GOING", SubResource( 41 ), "GOING", "IDLE", SubResource( 42 ), "RUNNING", "CHOP", SubResource( 65 ), "GOING", "CHOP", SubResource( 66 ) ]
+start_node = "IDLE"
+graph_offset = Vector2( -134, 1 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=14]
+
+[sub_resource type="CapsuleShape2D" id=59]
+radius = 12.0
+height = 40.0
+
+[sub_resource type="CapsuleShape2D" id=67]
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -42 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/ATTACK_DOWN = SubResource( 19 )
+anims/ATTACK_LEFT = SubResource( 20 )
+anims/ATTACK_RIGHT = SubResource( 21 )
+anims/ATTACK_UP = SubResource( 22 )
+anims/CHOP_DOWN = SubResource( 27 )
+anims/CHOP_LEFT = SubResource( 28 )
+anims/CHOP_RIGHT = SubResource( 29 )
+anims/CHOP_UP = SubResource( 30 )
+anims/GOING_DOWN = SubResource( 2 )
+anims/GOING_LEFT = SubResource( 3 )
+anims/GOING_RIGHT = SubResource( 4 )
+anims/GOING_UP = SubResource( 5 )
+anims/IDLE_DOWN = SubResource( 6 )
+anims/IDLE_LEFT = SubResource( 7 )
+anims/IDLE_RIGHT = SubResource( 8 )
+anims/IDLE_UP = SubResource( 9 )
+anims/RESET = SubResource( 60 )
+anims/RUNNING_DOWN = SubResource( 23 )
+anims/RUNNING_LEFT = SubResource( 24 )
+anims/RUNNING_RIGHT = SubResource( 25 )
+anims/RUNNING_UP = SubResource( 26 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 13 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 14 )
+parameters/ATTACK/blend_position = Vector2( 0, 0 )
+parameters/CHOP/blend_position = Vector2( -0.00554234, 0.0349824 )
+parameters/GOING/blend_position = Vector2( 0, 0 )
+parameters/IDLE/blend_position = Vector2( 0, 0 )
+parameters/RUNNING/blend_position = Vector2( 0, 0 )
+
+[node name="Hurtbox" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( -1, -36 )
+shape = SubResource( 59 )
+
+[node name="HandLeft" type="Position2D" parent="."]
+position = Vector2( 11, -20 )
+rotation = 0.349066
+
+[node name="Hitbox" parent="." instance=ExtResource( 4 )]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2( 25, -4 )
+rotation = 1.5708
+shape = SubResource( 67 )
+
+[editable path="Hurtbox"]
+[editable path="Hitbox"]

@@ -1,0 +1,101 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Fonts/Adventure.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Fonts/FontStyle/Adventurer.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Skript/HUD/StartScreen.cs" type="Script" id=3]
+[ext_resource path="res://Menu/Options.tscn" type="PackedScene" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 2 )
+
+[node name="StartScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_right = 640.0
+margin_bottom = 360.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+margin_right = 640.0
+margin_bottom = 360.0
+color = Color( 0.0627451, 0.282353, 0.0509804, 1 )
+
+[node name="Startscreen" type="CenterContainer" parent="MarginContainer"]
+margin_right = 640.0
+margin_bottom = 360.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Startscreen"]
+margin_left = 162.0
+margin_top = 62.0
+margin_right = 478.0
+margin_bottom = 298.0
+custom_constants/separation = 50
+
+[node name="Title" type="CenterContainer" parent="MarginContainer/Startscreen/VBoxContainer"]
+margin_right = 316.0
+margin_bottom = 64.0
+
+[node name="Title" type="Label" parent="MarginContainer/Startscreen/VBoxContainer/Title"]
+margin_right = 316.0
+margin_bottom = 64.0
+custom_fonts/font = ExtResource( 1 )
+text = "Woodentale"
+
+[node name="Menu" type="CenterContainer" parent="MarginContainer/Startscreen/VBoxContainer"]
+margin_top = 114.0
+margin_right = 316.0
+margin_bottom = 236.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Startscreen/VBoxContainer/Menu"]
+margin_left = 99.0
+margin_right = 217.0
+margin_bottom = 122.0
+
+[node name="Start" type="Button" parent="MarginContainer/Startscreen/VBoxContainer/Menu/VBoxContainer"]
+margin_right = 118.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 1 )
+action_mode = 0
+text = "Start"
+flat = true
+
+[node name="Options" type="Button" parent="MarginContainer/Startscreen/VBoxContainer/Menu/VBoxContainer"]
+margin_top = 42.0
+margin_right = 118.0
+margin_bottom = 80.0
+custom_fonts/font = SubResource( 1 )
+text = "Options"
+flat = true
+
+[node name="Exit" type="Button" parent="MarginContainer/Startscreen/VBoxContainer/Menu/VBoxContainer"]
+margin_top = 84.0
+margin_right = 118.0
+margin_bottom = 122.0
+custom_fonts/font = SubResource( 1 )
+text = "Exit"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" parent="MarginContainer" instance=ExtResource( 4 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 640.0
+margin_bottom = 360.0
+
+[connection signal="pressed" from="MarginContainer/Startscreen/VBoxContainer/Menu/VBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="MarginContainer/Startscreen/VBoxContainer/Menu/VBoxContainer/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="MarginContainer/Startscreen/VBoxContainer/Menu/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]

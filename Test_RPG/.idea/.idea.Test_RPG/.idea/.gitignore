@@ -1,0 +1,17 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+<<<<<<< HEAD:Woodentale/.idea/.idea.Woodentale/.idea/.gitignore
+/.idea.Woodentale.iml
+=======
+/.idea.Test_RPG.iml
+>>>>>>> Test-Game:Test_RPG/.idea/.idea.Test_RPG/.idea/.gitignore
+/contentModel.xml
+/modules.xml
+/projectSettingsUpdater.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
