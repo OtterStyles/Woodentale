@@ -33,17 +33,6 @@ public class Player : Godot.KinematicBody2D
 		}
 
 	}
-
-	private void destroyPlayer()
-	{
-		QueueFree();
-	}
-
-	public override void _Process(float delta)
-	{
-		
-	}
-
 	public override void _PhysicsProcess(float delta)
 	{
 		Vector2 inputVector = Vector2.Zero;
@@ -89,5 +78,10 @@ public class Player : Godot.KinematicBody2D
 		{
 			_sprite.FlipH = false;
 		}
+	}
+
+	private void destroyPlayer()
+	{
+		QueueFree();
 	}
 }
