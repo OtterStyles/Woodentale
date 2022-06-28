@@ -269,13 +269,13 @@ switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id=13]
 states/ATTACK/node = SubResource( 31 )
-states/ATTACK/position = Vector2( 634, 168 )
+states/ATTACK/position = Vector2( 691.333, 210 )
 states/CHOP/node = SubResource( 32 )
-states/CHOP/position = Vector2( 414, 39 )
+states/CHOP/position = Vector2( 384, 44.3333 )
 states/GOING/node = SubResource( 33 )
 states/GOING/position = Vector2( 683, 39 )
 states/IDLE/node = SubResource( 11 )
-states/IDLE/position = Vector2( 414, 168 )
+states/IDLE/position = Vector2( 408.667, 235.333 )
 states/RUNNING/node = SubResource( 34 )
 states/RUNNING/position = Vector2( 144, 39 )
 transitions = [ "IDLE", "RUNNING", SubResource( 35 ), "RUNNING", "IDLE", SubResource( 36 ), "IDLE", "CHOP", SubResource( 37 ), "CHOP", "IDLE", SubResource( 38 ), "ATTACK", "IDLE", SubResource( 39 ), "IDLE", "ATTACK", SubResource( 40 ), "IDLE", "GOING", SubResource( 41 ), "GOING", "IDLE", SubResource( 42 ), "RUNNING", "CHOP", SubResource( 65 ), "GOING", "CHOP", SubResource( 66 ) ]
