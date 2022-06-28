@@ -811,7 +811,7 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 [node name="Farm" type="Node2D"]
 
 [node name="Camera2D" parent="." instance=ExtResource( 1 )]
-position = Vector2( 213, -5 )
+position = Vector2( 186, 0 )
 
 [node name="TopLeft" parent="Camera2D/Limits" index="0"]
 position = Vector2( -37, -583 )
@@ -836,7 +836,7 @@ tile_data = PoolIntArray( -524272, 1, 0, -524271, 1, 1, -524270, 1, 1, -524269, 
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 213, -5 )
+position = Vector2( 186, 0 )
 collision_layer = 2
 collision_mask = 2
 
