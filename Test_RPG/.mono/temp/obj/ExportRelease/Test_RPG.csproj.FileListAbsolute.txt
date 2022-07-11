@@ -1,9 +1,0 @@
-C:\Users\julia\Documents\GitHub\Woodentale\Test_RPG\.mono\temp\bin\ExportRelease\Test_RPG.dll
-C:\Users\julia\Documents\GitHub\Woodentale\Test_RPG\.mono\temp\bin\ExportRelease\Test_RPG.pdb
-C:\Users\julia\Documents\GitHub\Woodentale\Test_RPG\.mono\temp\obj\ExportRelease\Test_RPG.csproj.AssemblyReference.cache
-C:\Users\julia\Documents\GitHub\Woodentale\Test_RPG\.mono\temp\obj\ExportRelease\Test_RPG.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\julia\Documents\GitHub\Woodentale\Test_RPG\.mono\temp\obj\ExportRelease\Test_RPG.AssemblyInfoInputs.cache
-C:\Users\julia\Documents\GitHub\Woodentale\Test_RPG\.mono\temp\obj\ExportRelease\Test_RPG.AssemblyInfo.cs
-C:\Users\julia\Documents\GitHub\Woodentale\Test_RPG\.mono\temp\obj\ExportRelease\Test_RPG.csproj.CoreCompileInputs.cache
-C:\Users\julia\Documents\GitHub\Woodentale\Test_RPG\.mono\temp\obj\ExportRelease\Test_RPG.dll
-C:\Users\julia\Documents\GitHub\Woodentale\Test_RPG\.mono\temp\obj\ExportRelease\Test_RPG.pdb
