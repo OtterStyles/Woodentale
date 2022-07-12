@@ -11,6 +11,5 @@ func _process(delta):
 		velocity.y = -PlayerStats.Movement.Speed
 	if Input.is_action_pressed("ui_down"):
 		velocity.y = PlayerStats.Movement.Speed
-		
+
 	move_and_slide(velocity)
-	
