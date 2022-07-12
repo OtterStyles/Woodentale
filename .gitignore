@@ -7,4 +7,5 @@
 /Test_RPG/.vs/*
 /OLD_Woodentale/.mono/*
 /OLD_Woodentale/.import/*
-/OLD_Woodentale/.idea/*
+/OLD_Woodentale/.idea/*.idea/.name
+.idea/.name
