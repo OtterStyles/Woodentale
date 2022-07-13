@@ -1,7 +1,24 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Artwork/64Base.png" type="Texture" id=1]
 [ext_resource path="res://Skripts/Player.gd" type="Script" id=2]
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=2]
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=3]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=4]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=5]
+
+[sub_resource type="AnimationNodeStateMachine" id=6]
+states/Walking/node = SubResource( 2 )
+states/Walking/position = Vector2( 223, 156 )
+states/Working/node = SubResource( 3 )
+states/Working/position = Vector2( 223, 250 )
+transitions = [ "Walking", "Working", SubResource( 4 ), "Working", "Walking", SubResource( 5 ) ]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 12.0
@@ -9,6 +26,18 @@ height = 40.0
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
+
+[node name="Animation" type="Node" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Animation"]
+root_node = NodePath("../..")
+
+[node name="AnimationTree" type="AnimationTree" parent="Animation"]
+tree_root = SubResource( 6 )
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource( 7 )
+parameters/Walking/blend_position = Vector2( 0, 0 )
+parameters/Working/blend_position = Vector2( 0, 0 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -32 )
@@ -20,3 +49,4 @@ shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+smoothing_enabled = true
