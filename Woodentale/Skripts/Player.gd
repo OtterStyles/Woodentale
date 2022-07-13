@@ -2,8 +2,10 @@ extends KinematicBody2D
 
 # Movement
 var velocity = Vector2()
-var speed = PlayerStats.Movement.Speed
+export var playerDefaultStats: Resource
+export var playerDefaultModifier: Resource
 
+var speed = 0
 
 func getInput():
 	var input = Vector2()
@@ -18,14 +20,14 @@ func getInput():
 	return input
 
 func calculateStats():
-	speed = (PlayerStats.Movement.Speed + PlayerStats.Multiplier.SpeedAbs) * PlayerStats.Multiplier.SpeedPerc 
+	speed = (playerDefaultStats.Speed + playerDefaultModifier.SpeedAbs) * playerDefaultModifier.SpeedPerc 
 
 
 func _process(delta):
 	calculateStats()
-	var direction = getInput()
+	var direction = getInput().normalized()
 	if direction.length() > 0:
-		velocity = lerp(velocity, direction * speed, PlayerStats.Movement.Acceleration)
+		velocity = lerp(velocity, direction * speed, playerDefaultStats.Acceleration)
 	else:
-		velocity = lerp(velocity, Vector2.ZERO, PlayerStats.Movement.Friction)
-	velocity = move_and_slide(velocity * delta)
+		velocity = lerp(velocity, Vector2.ZERO, playerDefaultStats.Friction)
+	velocity = move_and_slide(velocity)
