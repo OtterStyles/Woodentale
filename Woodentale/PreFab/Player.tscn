@@ -1,24 +1,57 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Artwork/64Base.png" type="Texture" id=1]
 [ext_resource path="res://Skripts/Player.gd" type="Script" id=2]
-[ext_resource path="res://Resource/PlayerStats.gd" type="Script" id=3]
-[ext_resource path="res://Resource/PlayerModifier.gd" type="Script" id=4]
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=2]
+[sub_resource type="Animation" id=8]
+resource_name = "walk_DOWN"
+
+[sub_resource type="Animation" id=9]
+resource_name = "walk_LEFT"
+
+[sub_resource type="Animation" id=10]
+resource_name = "walk_RIGHT"
+
+[sub_resource type="Animation" id=11]
+resource_name = "walk_UP"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id=3]
+
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "walk_DOWN"
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "walk_RIGHT"
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "walk_UP"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "walk_LEFT"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=2]
+blend_point_0/node = SubResource( 12 )
+blend_point_0/pos = Vector2( 0, 1.1 )
+blend_point_1/node = SubResource( 13 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 14 )
+blend_point_2/pos = Vector2( 0, -1.1 )
+blend_point_3/node = SubResource( 15 )
+blend_point_3/pos = Vector2( -1, 0 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=4]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=5]
 
 [sub_resource type="AnimationNodeStateMachine" id=6]
-states/Walking/node = SubResource( 2 )
-states/Walking/position = Vector2( 223, 156 )
 states/Working/node = SubResource( 3 )
-states/Working/position = Vector2( 223, 250 )
-transitions = [ "Walking", "Working", SubResource( 4 ), "Working", "Walking", SubResource( 5 ) ]
+states/Working/position = Vector2( 223, 279 )
+states/walking/node = SubResource( 2 )
+states/walking/position = Vector2( 223, 156 )
+transitions = [ "walking", "Working", SubResource( 4 ), "Working", "walking", SubResource( 5 ) ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=7]
 
@@ -28,20 +61,22 @@ height = 40.0
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
-playerDefaultStats = ExtResource( 3 )
-playerDefaultModifier = ExtResource( 4 )
 
 [node name="Animation" type="Node" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Animation"]
 root_node = NodePath("../..")
+anims/walk_DOWN = SubResource( 8 )
+anims/walk_LEFT = SubResource( 9 )
+anims/walk_RIGHT = SubResource( 10 )
+anims/walk_UP = SubResource( 11 )
 
 [node name="AnimationTree" type="AnimationTree" parent="Animation"]
 tree_root = SubResource( 6 )
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource( 7 )
-parameters/Walking/blend_position = Vector2( 0, 0 )
 parameters/Working/blend_position = Vector2( 0, 0 )
+parameters/walking/blend_position = Vector2( -0.00432903, 0.00201833 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -32 )
@@ -54,5 +89,3 @@ shape = SubResource( 1 )
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 smoothing_enabled = true
-
-[node name="StateMachine" type="Node" parent="."]
