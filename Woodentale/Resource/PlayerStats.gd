@@ -1,8 +1,8 @@
 extends Resource
-class_name PlayerStats
+class_name playerStats
 
-#Movement
 var Speed: int = 400
-export var Speed_Sprint: int = 600
-export var Acceleration: float = 0.1
-export var Friction = 0.01
+var Speed_Sprint: int = 600
+var Acceleration: float = 0.1
+var Friction: float = 0.01
+

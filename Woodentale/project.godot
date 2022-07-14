@@ -10,18 +10,18 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Resource",
-"class": "PlayerStats",
-"language": "GDScript",
-"path": "res://Resource/PlayerStats.gd"
-}, {
-"base": "Resource",
 "class": "playerModifier",
 "language": "GDScript",
 "path": "res://Resource/PlayerModifier.gd"
+}, {
+"base": "Resource",
+"class": "playerStats",
+"language": "GDScript",
+"path": "res://Resource/PlayerStats.gd"
 } ]
 _global_script_class_icons={
-"PlayerStats": "",
-"playerModifier": ""
+"playerModifier": "",
+"playerStats": ""
 }
 
 [application]
@@ -39,6 +39,14 @@ window/size/test_height=1080
 window/dpi/allow_hidpi=true
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+
+[input]
+
+sprint={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [physics]
 
