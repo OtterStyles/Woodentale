@@ -12,22 +12,30 @@ export var friction: float = 30
 var velocity = Vector2()
 var speed = 0
 var sprint = 1
+var direction = Vector2()
+onready var animationTree = $Animation/AnimationTree
+const animationsName = ['Working','Walking','Idle']
 
-func getInput() -> Vector2:
-	var input = Vector2()
+func _unhandled_input(event) -> void:
+	direction = Vector2()
 	if Input.is_action_pressed("ui_left"):
-		input.x -= 1
+		direction.x -= 1
 	if Input.is_action_pressed("ui_right"):
-		input.x += 1
+		direction.x += 1
 	if Input.is_action_pressed("ui_up"):
-		input.y -= 1
+		direction.y -= 1
 	if Input.is_action_pressed("ui_down"):
-		input.y += 1
+		direction.y += 1
 	if Input.is_action_pressed("sprint"):
 		sprint = speed_Sprint_Mult
 	else:
 		sprint = 1
-	return input
+	direction.normalized()
+	handleAnimation()
+	
+func handleAnimation() -> void:
+	for param in animationsName:
+		animationTree.set("parameters/"+param+"/blend_position", direction)
 	
 	
 func calculateStats() -> void:
@@ -39,7 +47,6 @@ func _process(delta) -> void:
 	
 	
 func _physics_process(delta) -> void:
-	var direction = getInput().normalized()
 	if direction.length() > 0:
 		velocity = lerp(velocity, direction * speed * sprint, acceleration)
 	else:
