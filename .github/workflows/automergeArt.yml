@@ -1,19 +1,25 @@
-name: auto-merge
+name: merge Artwork into Main
 
 on:
   push:
     branches:
-      - 'Artwork'
+      - Artwork
 
 jobs:
-  merge-branch:
+  sync-branches:
     runs-on: ubuntu-latest
+    name: Syncing branches
     steps:
-      - uses: actions/checkout@master
-
-      - name: Merge staging -> main
-        uses: devmasx/merge-branch@master
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Node
+        uses: actions/setup-node@v1
         with:
-          type: now
-          target_branch: main
-          github_token: ${{ github.token }}
+          node-version: 12
+      - name: Opening pull request
+        id: pull
+        uses: tretuna/sync-branches@1.2.0
+        with:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          FROM_BRANCH: 'Artwork'
+          TO_BRANCH: 'master'
