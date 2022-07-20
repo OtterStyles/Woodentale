@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=2]
 
-[ext_resource path="res://Artwork/64Base.png" type="Texture" id=1]
+[ext_resource path="res://Artwork/Raw/64Base.png" type="Texture" id=1]
 [ext_resource path="res://Skripts/Player.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=8]
