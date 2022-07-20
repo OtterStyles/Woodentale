@@ -1,14 +1,19 @@
 name: auto-merge
 
 on:
-  pull_request:
+  push:
+    branches:
+      - 'Artwork'
 
 jobs:
-  auto-merge:
+  merge-branch:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: ahmadnassri/action-dependabot-auto-merge@v2
+      - uses: actions/checkout@master
+
+      - name: Merge staging -> main
+        uses: devmasx/merge-branch@master
         with:
-          target: minor
-          github-token: ${{ secrets.mytoken }}
+          type: now
+          target_branch: main
+          github_token: ${{ github.token }}
