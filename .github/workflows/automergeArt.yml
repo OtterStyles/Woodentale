@@ -3,7 +3,7 @@ name: merge Artwork into Main
 on:
   push:
     branches:
-      - Artwork
+      - artwork
 
 jobs:
   sync-branches:
