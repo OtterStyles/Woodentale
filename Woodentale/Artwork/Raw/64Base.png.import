@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/64BaseBack.png-b122390bfa365e1c84b41e11be69096c.stex"
+path="res://.import/64Base.png-0bff934a77dc444f05b252bfb6bdb021.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Artwork/64BaseBack.png"
-dest_files=[ "res://.import/64BaseBack.png-b122390bfa365e1c84b41e11be69096c.stex" ]
+source_file="res://Artwork/Raw/64Base.png"
+dest_files=[ "res://.import/64Base.png-0bff934a77dc444f05b252bfb6bdb021.stex" ]
 
 [params]
 
