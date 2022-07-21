@@ -14,8 +14,13 @@ var speed = 0
 var sprint = 1
 var direction = Vector2()
 onready var animationTree = $Animation/AnimationTree
+var stateMachine
 const animationsName = ['Working','Walking','Idle']
 
+func _ready():
+	stateMachine = animationTree.get("parameters/playback")
+	
+	
 func _unhandled_input(event) -> void:
 	direction = Vector2()
 	if Input.is_action_pressed("ui_left"):
@@ -49,6 +54,8 @@ func _process(delta) -> void:
 func _physics_process(delta) -> void:
 	if direction.length() > 0:
 		velocity = lerp(velocity, direction * speed * sprint, acceleration)
+		stateMachine.travel("Walking")
 	else:
 		velocity = lerp(velocity, Vector2.ZERO, friction)
+		stateMachine.travel("Idle")
 	velocity = move_and_slide(velocity * delta)
