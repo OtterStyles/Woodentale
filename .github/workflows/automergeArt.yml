@@ -14,6 +14,6 @@ jobs:
         uses: devmasx/merge-branch@master
         with:
           type: now
-          from_branch: artwork
-          target_branch: master
+          from_branch: 'artwork'
+          target_branch: 'main'
           github_token: ${{ github.token }}
