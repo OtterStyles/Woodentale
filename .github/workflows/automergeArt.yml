@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Merge artwork -> main
+      - name: Merge artwork -> master
         uses: devmasx/merge-branch@master
         with:
           type: now
           from_branch: artwork
-          target_branch: main
+          target_branch: master
           github_token: ${{ github.token }}
