@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-
       - name: Merge artwork -> master
         uses: devmasx/merge-branch@master
         with:
