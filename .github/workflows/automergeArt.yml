@@ -3,13 +3,17 @@ name: merge Artwork into Main
 on:
   push:
     branches:
+<<<<<<< HEAD
       - artwork
+=======
+      -artwork
+>>>>>>> 315287cf5dc9bfbdbaeb21a2034cc6a2ac965fc2
 
 jobs:
-  sync-branches:
+  sync-branch:
     runs-on: ubuntu-latest
-    name: Syncing branches
     steps:
+<<<<<<< HEAD
       - name: Checkout
         uses: actions/checkout@artwork
       - name: Set up Node
@@ -23,3 +27,13 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           FROM_BRANCH: 'Artwork'
           TO_BRANCH: 'master'
+=======
+      - uses: actions/checkout@master
+      - name: Merge artwork -> master
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          from_branch: artwork
+          target_branch: master
+          github_token: ${{ github.token }}
+>>>>>>> 315287cf5dc9bfbdbaeb21a2034cc6a2ac965fc2
