@@ -9,11 +9,11 @@ jobs:
   sync-branch:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - name: Merge artwork -> master
-        uses: devmasx/merge-branch@master
+      - uses: actions/checkout@main
+      - name: Merge artwork -> main
+        uses: devmasx/merge-branch@main
         with:
           type: now
           from_branch: artwork
-          target_branch: master
+          target_branch: main
           github_token: ${{ github.token }}
