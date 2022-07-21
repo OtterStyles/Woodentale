@@ -3,7 +3,7 @@ name: merge Artwork into Main
 on:
   push:
     branches:
-      - Artwork
+      - artwork
 
 jobs:
   sync-branches:
@@ -11,14 +11,14 @@ jobs:
     name: Syncing branches
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@artwork
       - name: Set up Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@artwork
         with:
           node-version: 12
       - name: Opening merge request
         id: merge
-        uses: tretuna/sync-branches@1.2.0
+        uses: tretuna/sync-branches@artwork
         with:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           FROM_BRANCH: 'Artwork'
