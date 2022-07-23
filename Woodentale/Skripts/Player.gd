@@ -1,61 +1,60 @@
 extends KinematicBody2D
 
 #Stats
-export var speedAbs: float = 0
-export var speedPerc: float = 1
-export var speed_Default: int = 400
-export var speed_Sprint_Mult: float = 1.5
-export var acceleration: float = 40
-export var friction: float = 30
+export var SPEEDABS: float = 0
+export var SPEEDPERC: float = 1
+export var SPEED_DEFAULT: int = 300
+export var SPEED_SPRINT_MULT: float = 1.2
+export var ACCELERATION: float = 1000
+export var FRICTION: float = 1500
 
 # Movement
 var velocity = Vector2()
-var speed = 0
+var SPEED = 0
 var sprint = 1
-var direction = Vector2()
-onready var animationTree = $Animation/AnimationTree
-var stateMachine
 const animationsName = ['Working','Walking','Idle']
 
-func _ready():
-	stateMachine = animationTree.get("parameters/playback")
 	
-	
-func _unhandled_input(event) -> void:
-	direction = Vector2()
-	if Input.is_action_pressed("ui_left"):
-		direction.x -= 1
-	if Input.is_action_pressed("ui_right"):
-		direction.x += 1
-	if Input.is_action_pressed("ui_up"):
-		direction.y -= 1
-	if Input.is_action_pressed("ui_down"):
-		direction.y += 1
-	if Input.is_action_pressed("sprint"):
-		sprint = speed_Sprint_Mult
-	else:
-		sprint = 1
-	direction.normalized()
-	handleAnimation()
-	
-func handleAnimation() -> void:
-	for param in animationsName:
-		animationTree.set("parameters/"+param+"/blend_position", direction)
-	
-	
-func calculateStats() -> void:
-	speed = (speed_Default + speedAbs) * speedPerc 
-
-
 func _process(delta) -> void:
 	calculateStats()
 	
-	
 func _physics_process(delta) -> void:
-	if direction.length() > 0:
-		velocity = lerp(velocity, direction * speed * sprint, acceleration)
-		stateMachine.travel("Walking")
+	var axis = getInputAxis()
+	if axis == Vector2.ZERO:
+		applyFriction(FRICTION * delta)
 	else:
-		velocity = lerp(velocity, Vector2.ZERO, friction)
-		stateMachine.travel("Idle")
-	velocity = move_and_slide(velocity * delta)
+		applyMovement(axis * ACCELERATION * delta)
+	velocity = move_and_slide(velocity)
+
+func _unhandled_input(event) -> void:
+	sprint = 1
+	if Input.is_action_pressed("sprint"):
+		sprint = SPEED_SPRINT_MULT
+
+func applyMovement(acceleration: Vector2):
+	$Animation/AnimationTree.get("parameters/playback").travel("Walking")
+	velocity += acceleration
+	velocity = velocity.clamped(SPEED * sprint)
+
+func applyFriction(friction):
+	$Animation/AnimationTree.get("parameters/playback").travel("Idle")
+	if velocity.length() > friction:
+		velocity -= velocity.normalized() * friction
+	else:
+		velocity = Vector2.ZERO
+
+func handleAnimation(direction: Vector2) -> void:
+	for param in animationsName:
+		$Animation/AnimationTree.set("parameters/"+param+"/blend_position", direction)
+	
+	
+func calculateStats() -> void:
+	SPEED = (SPEED_DEFAULT + SPEEDABS) * SPEEDPERC
+
+func getInputAxis():
+	var direction = Vector2()
+	direction.x = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
+	direction.y = int(Input.is_action_pressed("down")) - int(Input.is_action_pressed("up"))
+	if direction != Vector2.ZERO:
+		handleAnimation(direction)
+	return direction.normalized()
