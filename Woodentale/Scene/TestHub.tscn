@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2m0x582xkrai"]
+[gd_scene load_steps=4 format=3 uid="uid://c2m0x582xkrai"]
 
 [ext_resource type="PackedScene" uid="uid://q8te7ec6862y" path="res://PreFab/Player.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://cy28ijqj4v7b4" path="res://PreFab/Utilities/hitbox.tscn" id="2_lh55i"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_68eqy"]
+radius = 11.0
+height = 68.0
 
 [node name="TestHub" type="Node2D"]
 
@@ -10,4 +15,13 @@
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(-370, -205, -433, -203, -424, 225, 430, 238, 433, -201, -364, -205, -366, -245, 469, -243, 469, 260, -464, 250, -471, -253, -379, -251)
+disabled = true
 one_way_collision_margin = 0.0
+
+[node name="Hitbox" parent="." instance=ExtResource("2_lh55i")]
+position = Vector2(65, -23)
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource("CapsuleShape2D_68eqy")
+
+[editable path="Hitbox"]

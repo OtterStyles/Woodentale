@@ -19,16 +19,23 @@ func _process(delta) -> void:
 	
 func _physics_process(delta) -> void:
 	var axis = getInputAxis()
-	if axis == Vector2.ZERO:
-		applyFriction(FRICTION * delta)
-	else:
-		applyMovement(axis * ACCELERATION * delta)
+	handleMovement(axis, delta)
 	move_and_slide()
 
 func _unhandled_input(event) -> void:
 	sprint = 1
 	if Input.is_action_pressed("sprint"):
 		sprint = SPEED_SPRINT_MULT
+	if Input.is_action_just_pressed("work"):
+		handleWorkMovement()
+
+func handleMovement(axis: Vector2, delta: float) -> void:
+	if axis == Vector2.ZERO:
+		applyFriction(FRICTION * delta)
+	else:
+		applyMovement(axis * ACCELERATION * delta)
+		applyFrictionOnUnsuedAxis(axis, FRICTION*delta)
+	
 
 func applyMovement(acceleration: Vector2):
 	$Animation/AnimationTree.get("parameters/playback").travel("Walking")
@@ -36,17 +43,34 @@ func applyMovement(acceleration: Vector2):
 	velocity.x = clamp(velocity.x, -SPEED*sprint, SPEED*sprint)
 	velocity.y = clamp(velocity.y, -SPEED*sprint*0.8, SPEED*sprint*0.8)
 
-func applyFriction(friction):
+func applyFriction(friction: float) -> void:
 	$Animation/AnimationTree.get("parameters/playback").travel("Idle")
 	if velocity.length() > friction:
 		velocity -= velocity.normalized() * friction
 	else:
 		velocity = Vector2.ZERO
 
+func applyFrictionOnUnsuedAxis(axis: Vector2, friction: float) -> void:
+	if axis.x == 0:
+		if (velocity.x > friction and velocity.x > 0) or (velocity.x < friction and velocity.x < 0):
+			velocity.x -= velocity.normalized().x * friction
+		else:
+			velocity.x = Vector2.ZERO.x
+		return
+	if axis.y == 0:
+		if (velocity.y > friction and velocity.y > 0) or (velocity.y < friction and velocity.y < 0):
+			velocity.y -= velocity.normalized().y * friction
+		else:
+			velocity.y = Vector2.ZERO.y
+		return
+
 func handleAnimation(direction: Vector2) -> void:
 	for param in animationsName:
 		$Animation/AnimationTree.set("parameters/"+param+"/blend_position", direction)
 	
+func handleWorkMovement() -> void:
+	$Animation/AnimationTree.get("parameters/playback").travel("Working")
+	velocity = Vector2.ZERO
 	
 func calculateStats() -> void:
 	SPEED = (SPEED_DEFAULT + SPEEDABS) * SPEEDPERC
@@ -58,4 +82,4 @@ func getInputAxis():
 	if direction != Vector2.ZERO:
 		handleAnimation(direction)
 	return direction.normalized()
-S
+
