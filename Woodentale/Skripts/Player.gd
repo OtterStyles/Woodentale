@@ -1,15 +1,14 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 #Stats
-export var SPEEDABS: float = 0
-export var SPEEDPERC: float = 1
-export var SPEED_DEFAULT: int = 300
-export var SPEED_SPRINT_MULT: float = 1.2
-export var ACCELERATION: float = 1000
-export var FRICTION: float = 1500
+@export var SPEEDABS: float = 0
+@export var SPEEDPERC: float = 1
+@export var SPEED_DEFAULT: int = 300
+@export var SPEED_SPRINT_MULT: float = 1.2
+@export var ACCELERATION: float = 1000
+@export var FRICTION: float = 1500
 
 # Movement
-var velocity = Vector2()
 var SPEED = 0
 var sprint = 1
 const animationsName = ['Working','Walking','Idle']
@@ -24,7 +23,7 @@ func _physics_process(delta) -> void:
 		applyFriction(FRICTION * delta)
 	else:
 		applyMovement(axis * ACCELERATION * delta)
-	velocity = move_and_slide(velocity)
+	move_and_slide()
 
 func _unhandled_input(event) -> void:
 	sprint = 1
@@ -34,7 +33,8 @@ func _unhandled_input(event) -> void:
 func applyMovement(acceleration: Vector2):
 	$Animation/AnimationTree.get("parameters/playback").travel("Walking")
 	velocity += acceleration
-	velocity = velocity.clamped(SPEED * sprint)
+	velocity.x = clamp(velocity.x, -SPEED*sprint, SPEED*sprint)
+	velocity.y = clamp(velocity.y, -SPEED*sprint*0.8, SPEED*sprint*0.8)
 
 func applyFriction(friction):
 	$Animation/AnimationTree.get("parameters/playback").travel("Idle")
@@ -58,3 +58,4 @@ func getInputAxis():
 	if direction != Vector2.ZERO:
 		handleAnimation(direction)
 	return direction.normalized()
+S
