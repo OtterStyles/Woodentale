@@ -12,13 +12,14 @@ extends CharacterBody2D
 var SPEED = 0
 var sprint = 1
 const animationsName = ['Working','Walking','Idle']
-var animationStates: = {
-	'Idle': 0,
-	'Walking': 1,
-	'Working': 2
-}
-var animationHandler = 0
-	
+var animationWaits = ['Working']
+var timer : Timer
+var pauseAnimation = false
+func _ready():
+	timer = Timer.new()
+	timer.set_wait_time(0.6)
+	timer.connect("timeout", unpauseAnimation)
+
 func _process(delta) -> void:
 	calculateStats()
 	
@@ -27,11 +28,11 @@ func _physics_process(delta) -> void:
 	handleMovement(axis, delta)
 	move_and_slide()
 
-func _unhandled_input(event) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	sprint = 1
-	if Input.is_action_pressed("sprint"):
+	if event.is_action_pressed("sprint"):
 		sprint = SPEED_SPRINT_MULT
-	if Input.is_action_pressed("work"):
+	if event.is_action_pressed("work"):
 		handleWorkMovement()
 
 func handleMovement(axis: Vector2, delta: float) -> void:
@@ -77,10 +78,14 @@ func handleWorkMovement() -> void:
 	velocity = Vector2.ZERO
 
 func handleAnimations(changePostionTo: String) -> void:
-	if animationHandler != 2:
-		$Animation/AnimationTree.get("parameters/playback").travel(changePostionTo)
-		animationHandler = animationStates.get(changePostionTo)
+	if (pauseAnimation) : return
+	$Animation/AnimationTree.get("parameters/playback").travel(changePostionTo)
+	if (changePostionTo in animationWaits):
+		pauseAnimation = true
+		timer.start()
 
+func unpauseAnimation():
+	pauseAnimation = false;
 
 func calculateStats() -> void:
 	SPEED = (SPEED_DEFAULT + SPEEDABS) * SPEEDPERC
@@ -93,8 +98,3 @@ func getInputAxis():
 		changeBlendPositions(direction)
 	return direction.normalized()
 
-
-
-func _on_animation_player_animation_finished(anim_name):
-	if animationHandler == animationStates.get(anim_name):
-		animationHandler = 0;

@@ -10,12 +10,17 @@ height = 68.0
 [node name="TestHub" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1")]
+SPEEDABS = 0
+SPEEDPERC = 1
+SPEED_DEFAULT = 300
+SPEED_SPRINT_MULT = 1.2
+ACCELERATION = 1000
+FRICTION = 1500
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(-370, -205, -433, -203, -424, 225, 430, 238, 433, -201, -364, -205, -366, -245, 469, -243, 469, 260, -464, 250, -471, -253, -379, -251)
-disabled = true
 one_way_collision_margin = 0.0
 
 [node name="Hitbox" parent="." instance=ExtResource("2_lh55i")]
