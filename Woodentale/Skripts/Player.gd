@@ -12,7 +12,12 @@ extends CharacterBody2D
 var SPEED = 0
 var sprint = 1
 const animationsName = ['Working','Walking','Idle']
-
+var animationStates: = {
+	'Idle': 0,
+	'Walking': 1,
+	'Working': 2
+}
+var animationHandler = 0
 	
 func _process(delta) -> void:
 	calculateStats()
@@ -26,7 +31,7 @@ func _unhandled_input(event) -> void:
 	sprint = 1
 	if Input.is_action_pressed("sprint"):
 		sprint = SPEED_SPRINT_MULT
-	if Input.is_action_just_pressed("work"):
+	if Input.is_action_pressed("work"):
 		handleWorkMovement()
 
 func handleMovement(axis: Vector2, delta: float) -> void:
@@ -35,16 +40,15 @@ func handleMovement(axis: Vector2, delta: float) -> void:
 	else:
 		applyMovement(axis * ACCELERATION * delta)
 		applyFrictionOnUnsuedAxis(axis, FRICTION*delta)
-	
 
 func applyMovement(acceleration: Vector2):
-	$Animation/AnimationTree.get("parameters/playback").travel("Walking")
+	handleAnimations("Walking")
 	velocity += acceleration
 	velocity.x = clamp(velocity.x, -SPEED*sprint, SPEED*sprint)
 	velocity.y = clamp(velocity.y, -SPEED*sprint*0.8, SPEED*sprint*0.8)
 
 func applyFriction(friction: float) -> void:
-	$Animation/AnimationTree.get("parameters/playback").travel("Idle")
+	handleAnimations("Idle")
 	if velocity.length() > friction:
 		velocity -= velocity.normalized() * friction
 	else:
@@ -64,14 +68,20 @@ func applyFrictionOnUnsuedAxis(axis: Vector2, friction: float) -> void:
 			velocity.y = Vector2.ZERO.y
 		return
 
-func handleAnimation(direction: Vector2) -> void:
+func changeBlendPositions(direction: Vector2) -> void:
 	for param in animationsName:
 		$Animation/AnimationTree.set("parameters/"+param+"/blend_position", direction)
 	
 func handleWorkMovement() -> void:
-	$Animation/AnimationTree.get("parameters/playback").travel("Working")
+	handleAnimations("Working")
 	velocity = Vector2.ZERO
-	
+
+func handleAnimations(changePostionTo: String) -> void:
+	if animationHandler != 2:
+		$Animation/AnimationTree.get("parameters/playback").travel(changePostionTo)
+		animationHandler = animationStates.get(changePostionTo)
+
+
 func calculateStats() -> void:
 	SPEED = (SPEED_DEFAULT + SPEEDABS) * SPEEDPERC
 
@@ -80,6 +90,11 @@ func getInputAxis():
 	direction.x = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
 	direction.y = int(Input.is_action_pressed("down")) - int(Input.is_action_pressed("up"))
 	if direction != Vector2.ZERO:
-		handleAnimation(direction)
+		changeBlendPositions(direction)
 	return direction.normalized()
 
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if animationHandler == animationStates.get(anim_name):
+		animationHandler = 0;
