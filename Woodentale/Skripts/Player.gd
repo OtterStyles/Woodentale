@@ -11,45 +11,52 @@ extends CharacterBody2D
 # Movement
 var SPEED = 0
 var sprint = 1
-const animationsName = ['Working','Walking','Idle']
-var animationWaits = ['Working']
-var timer : Timer
-var pauseAnimation = false
+var direction
+const animationsName = ['Working','Walking','Idle','Atacking']
+var animationStateMachine;
 func _ready():
-	timer = Timer.new()
-	timer.set_wait_time(0.6)
-	timer.connect("timeout", unpauseAnimation)
-
+	animationStateMachine = $Animation/AnimationTree.get("parameters/playback")
 func _process(delta) -> void:
 	calculateStats()
 	
 func _physics_process(delta) -> void:
-	var axis = getInputAxis()
-	handleMovement(axis, delta)
+	getInput()
+	handleMovement(delta)
 	move_and_slide()
 
-func _unhandled_input(event: InputEvent) -> void:
+func getInput() -> void:
 	sprint = 1
-	if event.is_action_pressed("sprint"):
+	var current = animationStateMachine.get_current_node()
+	if Input.is_action_pressed("work"):
+		handleAnimations("Working")
+		return
+	if Input.is_action_pressed("sprint"):
 		sprint = SPEED_SPRINT_MULT
-	if event.is_action_pressed("work"):
-		handleWorkMovement()
+	handleMovementInputs()
 
-func handleMovement(axis: Vector2, delta: float) -> void:
-	if axis == Vector2.ZERO:
+func handleMovementInputs():
+	direction = Vector2.ZERO
+	direction.x = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
+	direction.y = int(Input.is_action_pressed("down")) - int(Input.is_action_pressed("up"))
+	if direction != Vector2.ZERO:
+		changeBlendPositions(direction)
+	direction = direction.normalized()
+
+func handleMovement(delta: float) -> void:
+	if direction == Vector2.ZERO:
+		handleAnimations("Idle")
 		applyFriction(FRICTION * delta)
 	else:
-		applyMovement(axis * ACCELERATION * delta)
-		applyFrictionOnUnsuedAxis(axis, FRICTION*delta)
+		handleAnimations("Walking")
+		applyMovement(direction * ACCELERATION * delta)
+		applyFrictionOnUnsuedAxis(direction, FRICTION*delta)
 
-func applyMovement(acceleration: Vector2):
-	handleAnimations("Walking")
+func applyMovement(acceleration: Vector2) -> void:
 	velocity += acceleration
 	velocity.x = clamp(velocity.x, -SPEED*sprint, SPEED*sprint)
 	velocity.y = clamp(velocity.y, -SPEED*sprint*0.8, SPEED*sprint*0.8)
 
 func applyFriction(friction: float) -> void:
-	handleAnimations("Idle")
 	if velocity.length() > friction:
 		velocity -= velocity.normalized() * friction
 	else:
@@ -72,29 +79,12 @@ func applyFrictionOnUnsuedAxis(axis: Vector2, friction: float) -> void:
 func changeBlendPositions(direction: Vector2) -> void:
 	for param in animationsName:
 		$Animation/AnimationTree.set("parameters/"+param+"/blend_position", direction)
-	
-func handleWorkMovement() -> void:
-	handleAnimations("Working")
-	velocity = Vector2.ZERO
+
 
 func handleAnimations(changePostionTo: String) -> void:
-	if (pauseAnimation) : return
-	$Animation/AnimationTree.get("parameters/playback").travel(changePostionTo)
-	if (changePostionTo in animationWaits):
-		pauseAnimation = true
-		timer.start()
-
-func unpauseAnimation():
-	pauseAnimation = false;
+	animationStateMachine.travel(changePostionTo)
 
 func calculateStats() -> void:
 	SPEED = (SPEED_DEFAULT + SPEEDABS) * SPEEDPERC
 
-func getInputAxis():
-	var direction = Vector2()
-	direction.x = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
-	direction.y = int(Input.is_action_pressed("down")) - int(Input.is_action_pressed("up"))
-	if direction != Vector2.ZERO:
-		changeBlendPositions(direction)
-	return direction.normalized()
 
