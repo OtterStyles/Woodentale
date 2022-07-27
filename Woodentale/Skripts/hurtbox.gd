@@ -10,6 +10,7 @@ func _ready():
 
 func _on_area_2d_area_entered(area):
 	timer.start()
+	print(typeof(area))
 	collisionShape2D.set_deferred('disabled', true)
 
 

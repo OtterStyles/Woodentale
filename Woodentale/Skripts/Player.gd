@@ -11,24 +11,27 @@ extends CharacterBody2D
 # Movement
 var SPEED = 0
 var sprint = 1
-var direction
+var direction = Vector2.ZERO
 const animationsName = ['Working','Walking','Idle','Atacking']
+const animationWaits = ['Working']
 var animationStateMachine;
 func _ready():
-	animationStateMachine = $Animation/AnimationTree.get("parameters/playback")
+	animationStateMachine = $AnimationTree.get("parameters/playback")
 func _process(delta) -> void:
 	calculateStats()
+	getInput()
 	
 func _physics_process(delta) -> void:
-	getInput()
 	handleMovement(delta)
 	move_and_slide()
 
 func getInput() -> void:
 	sprint = 1
-	var current = animationStateMachine.get_current_node()
+	var current: StringName = animationStateMachine.get_current_node()
 	if Input.is_action_pressed("work"):
 		handleAnimations("Working")
+		return
+	if current in animationWaits:
 		return
 	if Input.is_action_pressed("sprint"):
 		sprint = SPEED_SPRINT_MULT
@@ -38,9 +41,9 @@ func handleMovementInputs():
 	direction = Vector2.ZERO
 	direction.x = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
 	direction.y = int(Input.is_action_pressed("down")) - int(Input.is_action_pressed("up"))
-	if direction != Vector2.ZERO:
-		changeBlendPositions(direction)
 	direction = direction.normalized()
+	if direction != Vector2.ZERO:
+		changeBlendPositions()
 
 func handleMovement(delta: float) -> void:
 	if direction == Vector2.ZERO:
@@ -76,9 +79,9 @@ func applyFrictionOnUnsuedAxis(axis: Vector2, friction: float) -> void:
 			velocity.y = Vector2.ZERO.y
 		return
 
-func changeBlendPositions(direction: Vector2) -> void:
+func changeBlendPositions() -> void:
 	for param in animationsName:
-		$Animation/AnimationTree.set("parameters/"+param+"/blend_position", direction)
+		$AnimationTree.set("parameters/"+param+"/blend_position", direction)
 
 
 func handleAnimations(changePostionTo: String) -> void:
