@@ -22,6 +22,7 @@ func _process(delta) -> void:
 	getInput()
 	
 func _physics_process(delta) -> void:
+	#https://www.youtube.com/watch?v=0nd1zNiy0C4&list=PL9FzW-m48fn2SlrW0KoLT4n5egNdX-W9a&index=9
 	handleMovement(delta)
 	move_and_slide()
 
