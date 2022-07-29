@@ -8,32 +8,52 @@ extends CharacterBody2D
 @export var ACCELERATION: float = 1000
 @export var FRICTION: float = 1500
 
+
 # Movement
 var SPEED = 0
 var sprint = 1
 var direction = Vector2.ZERO
-const animationsName = ['Working','Walking','Idle','Atacking']
-const animationWaits = ['Working']
-var animationStateMachine;
+
+# Animations
+enum {
+	MOVE,
+	WORKING,
+	ATTACKING
+}
+var state = MOVE
+@onready var animationStateMachine = $Animation/AnimationTree.get("parameters/playback");
+@onready var animationTree = $Animation/AnimationTree
+
 func _ready():
-	animationStateMachine = $AnimationTree.get("parameters/playback")
+	animationTree.active = true;
+	
 func _process(delta) -> void:
 	calculateStats()
-	getInput()
 	
 func _physics_process(delta) -> void:
-	#https://www.youtube.com/watch?v=0nd1zNiy0C4&list=PL9FzW-m48fn2SlrW0KoLT4n5egNdX-W9a&index=9
+	match state:
+		MOVE:
+			move_state(delta)
+		WORKING:
+			working_state(delta)
+		ATTACKING:
+			pass
+
+
+func move_state(delta: float) -> void:
+	getInput()
 	handleMovement(delta)
 	move_and_slide()
 
+func working_state(delta: float) -> void:
+	handelAnimation("Working")
+	applyFriction(FRICTION * delta)
+	
 func getInput() -> void:
 	sprint = 1
 	var current: StringName = animationStateMachine.get_current_node()
 	if Input.is_action_pressed("work"):
-		handleAnimations("Working")
-		return
-	if current in animationWaits:
-		return
+		state = WORKING
 	if Input.is_action_pressed("sprint"):
 		sprint = SPEED_SPRINT_MULT
 	handleMovementInputs()
@@ -43,17 +63,17 @@ func handleMovementInputs():
 	direction.x = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
 	direction.y = int(Input.is_action_pressed("down")) - int(Input.is_action_pressed("up"))
 	direction = direction.normalized()
-	if direction != Vector2.ZERO:
-		changeBlendPositions()
+
 
 func handleMovement(delta: float) -> void:
-	if direction == Vector2.ZERO:
-		handleAnimations("Idle")
-		applyFriction(FRICTION * delta)
-	else:
-		handleAnimations("Walking")
+	if direction != Vector2.ZERO:
+		changeBlendPositions()
+		handelAnimation("Walking")
 		applyMovement(direction * ACCELERATION * delta)
 		applyFrictionOnUnsuedAxis(direction, FRICTION*delta)
+	else:
+		handelAnimation("Idle")
+		applyFriction(FRICTION * delta)
 
 func applyMovement(acceleration: Vector2) -> void:
 	velocity += acceleration
@@ -81,14 +101,16 @@ func applyFrictionOnUnsuedAxis(axis: Vector2, friction: float) -> void:
 		return
 
 func changeBlendPositions() -> void:
-	for param in animationsName:
-		$AnimationTree.set("parameters/"+param+"/blend_position", direction)
-
-
-func handleAnimations(changePostionTo: String) -> void:
-	animationStateMachine.travel(changePostionTo)
+	print(direction)
+	animationTree.set("parameters/Idle/blend_position", direction)
+	animationTree.set("parameters/Walking/blend_position", direction)
+	animationTree.set("parameters/Working/blend_position", direction)
 
 func calculateStats() -> void:
 	SPEED = (SPEED_DEFAULT + SPEEDABS) * SPEEDPERC
 
+func handelAnimation(NodeName: StringName) -> void:
+	animationStateMachine.travel(NodeName)
 
+func resetAnimationState() -> void:
+	state = MOVE
