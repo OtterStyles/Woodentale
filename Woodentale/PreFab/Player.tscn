@@ -1,12 +1,9 @@
-[gd_scene load_steps=47 format=3 uid="uid://q8te7ec6862y"]
+[gd_scene load_steps=46 format=3 uid="uid://q8te7ec6862y"]
 
 [ext_resource type="Script" path="res://Skripts/Player.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://dytjms776x00m" path="res://Artwork/Atlase/PlayerAtlas.png" id="2_eicqr"]
 [ext_resource type="PackedScene" uid="uid://csqsmt2ap7qo6" path="res://PreFab/Utilities/hurtbox.tscn" id="3_mpqox"]
 [ext_resource type="PackedScene" uid="uid://cy28ijqj4v7b4" path="res://PreFab/Utilities/hitbox.tscn" id="4_ld7ar"]
-
-[sub_resource type="Animation" id="Animation_5org2"]
-length = 0.001
 
 [sub_resource type="Animation" id="23"]
 resource_name = "idle_DOWN"
@@ -393,7 +390,6 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xxcig"]
 _data = {
-"RESET": SubResource("Animation_5org2"),
 "idle_DOWN": SubResource("23"),
 "idle_LEFT": SubResource("24"),
 "idle_RIGHT": SubResource("25"),
@@ -496,13 +492,9 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_al60y"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_voy2f"]
-switch_mode = 2
-auto_advance = true
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ouwnw"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ufi7k"]
-switch_mode = 2
-auto_advance = true
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_axay8"]
 
 [sub_resource type="AnimationNodeStateMachine" id="6"]
 states/Attacking/node = SubResource("AnimationNodeBlendSpace2D_lpeyy")
@@ -514,7 +506,7 @@ states/Walking/node = SubResource("2")
 states/Walking/position = Vector2(349.889, 205.926)
 states/Working/node = SubResource("3")
 states/Working/position = Vector2(117.889, 37)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_123fq"), "Idle", "Walking", SubResource("AnimationNodeStateMachineTransition_gb10e"), "Walking", "Idle", SubResource("AnimationNodeStateMachineTransition_8lbdx"), "Idle", "Working", SubResource("AnimationNodeStateMachineTransition_ismxh"), "Idle", "Attacking", SubResource("AnimationNodeStateMachineTransition_al60y"), "Working", "Idle", SubResource("AnimationNodeStateMachineTransition_voy2f"), "Attacking", "Idle", SubResource("AnimationNodeStateMachineTransition_ufi7k")]
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_123fq"), "Idle", "Walking", SubResource("AnimationNodeStateMachineTransition_gb10e"), "Walking", "Idle", SubResource("AnimationNodeStateMachineTransition_8lbdx"), "Idle", "Working", SubResource("AnimationNodeStateMachineTransition_ismxh"), "Idle", "Attacking", SubResource("AnimationNodeStateMachineTransition_al60y"), "Working", "Idle", SubResource("AnimationNodeStateMachineTransition_ouwnw"), "Attacking", "Idle", SubResource("AnimationNodeStateMachineTransition_axay8")]
 graph_offset = Vector2(-387.624, -21.688)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_dsb3h"]
@@ -536,6 +528,7 @@ script = ExtResource("2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Animation"]
 root_node = NodePath("../..")
+autoplay = "idle_RIGHT"
 libraries = {
 "": SubResource("AnimationLibrary_xxcig")
 }
@@ -556,7 +549,7 @@ position = Vector2(0, -32)
 texture = ExtResource("2_eicqr")
 hframes = 10
 vframes = 10
-frame = 10
+frame = 20
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -576,8 +569,7 @@ scale = Vector2(1, 0.995297)
 shape = SubResource("CapsuleShape2D_dwi6s")
 
 [node name="Hitbox" parent="Collision" instance=ExtResource("4_ld7ar")]
-position = Vector2(-25, -5)
-rotation = 1.5708
+position = Vector2(0, 12)
 
 [node name="CollisionShape2D" parent="Collision/Hitbox" index="0"]
 shape = SubResource("CapsuleShape2D_n7abs")
