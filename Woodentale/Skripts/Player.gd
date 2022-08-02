@@ -21,6 +21,7 @@ enum {
 	ATTACKING
 }
 var state = MOVE
+var animationName = ['Working','Idle','Walking','Attacking']
 @onready var animationStateMachine = $Animation/AnimationTree.get("parameters/playback");
 @onready var animationTree = $Animation/AnimationTree
 
@@ -51,9 +52,9 @@ func working_state(delta: float) -> void:
 	
 func getInput() -> void:
 	sprint = 1
-	var current: StringName = animationStateMachine.get_current_node()
 	if Input.is_action_pressed("work"):
 		state = WORKING
+		return
 	if Input.is_action_pressed("sprint"):
 		sprint = SPEED_SPRINT_MULT
 	handleMovementInputs()
@@ -101,10 +102,10 @@ func applyFrictionOnUnsuedAxis(axis: Vector2, friction: float) -> void:
 		return
 
 func changeBlendPositions() -> void:
-	print(direction)
-	animationTree.set("parameters/Idle/blend_position", direction)
-	animationTree.set("parameters/Walking/blend_position", direction)
-	animationTree.set("parameters/Working/blend_position", direction)
+	var safe = direction
+	if safe == Vector2.ZERO: return
+	for animName in animationName:
+		animationTree.set("parameters/"+animName+"/blend_position", safe)
 
 func calculateStats() -> void:
 	SPEED = (SPEED_DEFAULT + SPEEDABS) * SPEEDPERC

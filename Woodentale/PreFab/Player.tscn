@@ -17,7 +17,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 2,
 "values": [Vector2(0, 1)]
 }
 
@@ -488,13 +488,14 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8lbdx"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ismxh"]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_al60y"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ouwnw"]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_axay8"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0jnsr"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7ye2o"]
+switch_mode = 1
 
 [sub_resource type="AnimationNodeStateMachine" id="6"]
 states/Attacking/node = SubResource("AnimationNodeBlendSpace2D_lpeyy")
@@ -506,7 +507,7 @@ states/Walking/node = SubResource("2")
 states/Walking/position = Vector2(349.889, 205.926)
 states/Working/node = SubResource("3")
 states/Working/position = Vector2(117.889, 37)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_123fq"), "Idle", "Walking", SubResource("AnimationNodeStateMachineTransition_gb10e"), "Walking", "Idle", SubResource("AnimationNodeStateMachineTransition_8lbdx"), "Idle", "Working", SubResource("AnimationNodeStateMachineTransition_ismxh"), "Idle", "Attacking", SubResource("AnimationNodeStateMachineTransition_al60y"), "Working", "Idle", SubResource("AnimationNodeStateMachineTransition_ouwnw"), "Attacking", "Idle", SubResource("AnimationNodeStateMachineTransition_axay8")]
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_123fq"), "Idle", "Walking", SubResource("AnimationNodeStateMachineTransition_gb10e"), "Walking", "Idle", SubResource("AnimationNodeStateMachineTransition_8lbdx"), "Idle", "Attacking", SubResource("AnimationNodeStateMachineTransition_al60y"), "Attacking", "Idle", SubResource("AnimationNodeStateMachineTransition_axay8"), "Idle", "Working", SubResource("AnimationNodeStateMachineTransition_0jnsr"), "Working", "Idle", SubResource("AnimationNodeStateMachineTransition_7ye2o")]
 graph_offset = Vector2(-387.624, -21.688)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_dsb3h"]
@@ -547,6 +548,7 @@ parameters/Working/blend_position = Vector2(0, 0)
 texture_filter = 1
 position = Vector2(0, -32)
 texture = ExtResource("2_eicqr")
+flip_h = true
 hframes = 10
 vframes = 10
 frame = 20
