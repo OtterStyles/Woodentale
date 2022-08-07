@@ -3,6 +3,7 @@ extends CharacterBody2D
 var player: CharacterBody2D = null
 var beingPickedUp = false
 var item_name
+
 const SPEED = 200
 const ACCELERATION = 400
 const FRICTION = 200
@@ -19,7 +20,9 @@ func _physics_process(delta):
 		velocity = velocity.move_toward(direction * SPEED, ACCELERATION * delta)
 		var distance = global_position.distance_to(toPosition)
 		if distance < MIN_DISTANCE:
-			queue_free()
+			var isStored = PlayerInventory.addItem(item_name, 1)
+			if isStored:
+				queue_free()
 		if distance >= MAX_DISTANCE:
 			beingPickedUp = false
 	else:

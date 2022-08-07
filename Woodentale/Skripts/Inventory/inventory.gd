@@ -7,17 +7,23 @@ const SlotClass = preload("res://Skripts/Inventory/Slot.gd")
 
 
 var holding_item = null;
-var inventoryOpen = false
 
 func _ready():
 	# https://www.youtube.com/watch?v=g1x8ct2Slok
 	exit_button.pressed.connect(unpause)
 	for inv_slot in inventory_slots.get_children():
 		inv_slot.connect("gui_input", slot_gui_input, [inv_slot])
+	initializeInventory()
+	
+func _input(event):
+	if holding_item:
+		holding_item.global_position = get_global_mouse_position()
 
-func _unhandled_input(event: InputEvent):
-	if event.is_action_pressed("inventory") and inventoryOpen:
-		unpause()
+func initializeInventory():
+	var slots = inventory_slots.get_children()
+	for i in range(slots.size()):
+		if PlayerInventory.inventory.has(i):
+			slots[i].initializeItem(PlayerInventory.inventory[i][0], PlayerInventory.inventory[i][1])
 
 func slot_gui_input(event: InputEvent, slot: SlotClass):
 	if not event is InputEventMouseButton:
@@ -52,16 +58,11 @@ func swapItems(event: InputEvent, slot: SlotClass) -> void:
 	slot.item.addItemQuantity(able_to_add)
 	holding_item.decreaseItemQuantity(able_to_add)
 
-func _input(event):
-	if holding_item:
-		holding_item.global_position = get_global_mouse_position()
 
 func unpause():
 	animation_player.play("Unpause")
 	get_tree().paused = false
-	inventoryOpen = false
 	
 func pause():
 	animation_player.play("Pause")
 	get_tree().paused = true
-	inventoryOpen = true

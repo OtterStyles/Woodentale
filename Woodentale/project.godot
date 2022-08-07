@@ -34,6 +34,7 @@ config/icon="res://icon.png"
 [autoload]
 
 JsonData="*res://Skripts/Inventory/JSONData.gd"
+PlayerInventory="*res://Skripts/Manager/PlayerInventory.gd"
 
 [display]
 
