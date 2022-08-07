@@ -21,13 +21,17 @@ enum {
 }
 var state = MOVE
 var animationName = ['Working','Idle','Walking','Attacking']
+
 @onready var animationStateMachine = $Animation/AnimationTree.get("parameters/playback");
 @onready var animationTree = $Animation/AnimationTree
 @onready var player_manager = $Manager/PlayerManager
+@onready var pivot_manager = $Manager/PivotManager
+
 
 func _ready():
 	player_manager
 	animationTree.active = true;
+
 	
 func _process(delta) -> void:
 	calculateStats()
@@ -46,8 +50,8 @@ func _unhandled_input(event):
 		$GUI/Inventory.pause()
 	if event.is_action_pressed("ui_cancel"):
 		$GUI/PauseMenu.pause()
-	
-	
+
+
 func move_state(delta: float) -> void:
 	getInput()
 	handleMovement(delta)

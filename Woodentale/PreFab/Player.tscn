@@ -1,20 +1,15 @@
-<<<<<<< HEAD
-[gd_scene load_steps=49 format=3 uid="uid://b67cityhlbgsm"]
-=======
-[gd_scene load_steps=47 format=3 uid="uid://b14bhbesrvve8"]
->>>>>>> player-manager
+[gd_scene load_steps=52 format=3 uid="uid://b67cityhlbgsm"]
 
 [ext_resource type="Script" path="res://Skripts/Player/Player.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://dytjms776x00m" path="res://Artwork/Atlase/PlayerAtlas.png" id="2_eicqr"]
 [ext_resource type="PackedScene" path="res://PreFab/Utilities/hurtbox.tscn" id="3_mpqox"]
 [ext_resource type="PackedScene" path="res://PreFab/Utilities/hitbox.tscn" id="4_ld7ar"]
-<<<<<<< HEAD
+[ext_resource type="PackedScene" uid="uid://tun5k30k4r60" path="res://PreFab/Manager/player_manager.tscn" id="5_8qdpo"]
 [ext_resource type="PackedScene" uid="uid://yltvvch7jgf3" path="res://PreFab/Utilities/PickUpZone.tscn" id="5_ec71d"]
 [ext_resource type="PackedScene" uid="uid://cwoo6a4h0yq7w" path="res://PreFab/Inventory/inventory.tscn" id="5_wrg2c"]
 [ext_resource type="PackedScene" uid="uid://f383ubqkk2aq" path="res://UI/pauseMenu.tscn" id="6_v5573"]
-=======
-[ext_resource type="PackedScene" uid="uid://tun5k30k4r60" path="res://PreFab/Manager/player_manager.tscn" id="5_8qdpo"]
->>>>>>> player-manager
+[ext_resource type="PackedScene" uid="uid://5yq0wm4r5ply" path="res://PreFab/Manager/ItemsManager.tscn" id="9_pepgd"]
+[ext_resource type="Script" path="res://Skripts/Manager/PivotManager.gd" id="10_bhj7s"]
 
 [sub_resource type="Animation" id="23"]
 resource_name = "idle_DOWN"
@@ -585,19 +580,28 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_n7abs")
 disabled = true
 
-<<<<<<< HEAD
 [node name="PickUpZone" parent="Collision" instance=ExtResource("5_ec71d")]
+unique_name_in_owner = true
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="Inventory" parent="GUI" instance=ExtResource("5_wrg2c")]
 
 [node name="PauseMenu" parent="GUI" instance=ExtResource("6_v5573")]
-=======
+
+[node name="Pivots" type="Node2D" parent="."]
+
+[node name="CenterBody" type="Position2D" parent="Pivots"]
+position = Vector2(0, -30)
+
 [node name="Manager" type="Node" parent="."]
 
 [node name="PlayerManager" parent="Manager" instance=ExtResource("5_8qdpo")]
->>>>>>> player-manager
+
+[node name="ItemsManager" parent="Manager" instance=ExtResource("9_pepgd")]
+
+[node name="PivotManager" type="Node" parent="Manager"]
+script = ExtResource("10_bhj7s")
 
 [editable path="Collision/hurtbox"]
 [editable path="Collision/Hitbox"]
