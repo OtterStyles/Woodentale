@@ -8,7 +8,6 @@ extends CharacterBody2D
 @export var ACCELERATION: float = 1000
 @export var FRICTION: float = 1500
 
-
 # Movement
 var SPEED = 0
 var sprint = 1
@@ -24,8 +23,10 @@ var state = MOVE
 var animationName = ['Working','Idle','Walking','Attacking']
 @onready var animationStateMachine = $Animation/AnimationTree.get("parameters/playback");
 @onready var animationTree = $Animation/AnimationTree
+@onready var player_manager = $Manager/PlayerManager
 
 func _ready():
+	player_manager
 	animationTree.active = true;
 	
 func _process(delta) -> void:
