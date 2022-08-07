@@ -1,9 +1,10 @@
-[gd_scene load_steps=46 format=3 uid="uid://q8te7ec6862y"]
+[gd_scene load_steps=47 format=3 uid="uid://b14bhbesrvve8"]
 
-[ext_resource type="Script" path="res://Skripts/Player.gd" id="2"]
+[ext_resource type="Script" path="res://Skripts/Player/Player.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://dytjms776x00m" path="res://Artwork/Atlase/PlayerAtlas.png" id="2_eicqr"]
-[ext_resource type="PackedScene" uid="uid://csqsmt2ap7qo6" path="res://PreFab/Utilities/hurtbox.tscn" id="3_mpqox"]
-[ext_resource type="PackedScene" uid="uid://cy28ijqj4v7b4" path="res://PreFab/Utilities/hitbox.tscn" id="4_ld7ar"]
+[ext_resource type="PackedScene" path="res://PreFab/Utilities/hurtbox.tscn" id="3_mpqox"]
+[ext_resource type="PackedScene" path="res://PreFab/Utilities/hitbox.tscn" id="4_ld7ar"]
+[ext_resource type="PackedScene" uid="uid://tun5k30k4r60" path="res://PreFab/Manager/player_manager.tscn" id="5_8qdpo"]
 
 [sub_resource type="Animation" id="23"]
 resource_name = "idle_DOWN"
@@ -572,6 +573,10 @@ rotation = 1.5708
 [node name="CollisionShape2D" parent="Collision/Hitbox" index="0"]
 shape = SubResource("CapsuleShape2D_n7abs")
 disabled = true
+
+[node name="Manager" type="Node" parent="."]
+
+[node name="PlayerManager" parent="Manager" instance=ExtResource("5_8qdpo")]
 
 [editable path="Collision/hurtbox"]
 [editable path="Collision/Hitbox"]
