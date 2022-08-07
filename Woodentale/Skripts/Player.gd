@@ -40,7 +40,13 @@ func _physics_process(delta) -> void:
 		ATTACKING:
 			pass
 
-
+func _unhandled_input(event):
+	if event.is_action_pressed("inventory"):
+		$GUI/Inventory.pause()
+	if event.is_action_pressed("ui_cancel"):
+		$GUI/PauseMenu.pause()
+	
+	
 func move_state(delta: float) -> void:
 	getInput()
 	handleMovement(delta)

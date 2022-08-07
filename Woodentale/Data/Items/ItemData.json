@@ -1,0 +1,23 @@
+{
+	"Squisch Blue": {
+		"ItemCategory": "Resource",
+		"StackSize": 512,
+		"Description": "A bouncy slimy thingi"
+	},
+	"Squisch Green": {
+		"ItemCategory": "Weapon",
+		"StackSize": 1,
+		"Description": "Does deal Damage as it throws"
+	},
+	"Squisch Red": {
+		"ItemCategory": "Consumable",
+		"AddHealth": 15,
+		"AddEnergy": 20,
+		"AddStats": {
+			"FireImmunity": 10,
+			"FireImmunityDuration": 300
+		},
+		"StackSize": 16,
+		"Description": "A red Medicin make u firey hot for 5 minutes"
+	}
+}

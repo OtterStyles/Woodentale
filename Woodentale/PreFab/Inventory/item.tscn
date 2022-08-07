@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://curi4rj3f5fd"]
+
+[ext_resource type="Script" path="res://Skripts/Inventory/Item.gd" id="1_5kchx"]
+[ext_resource type="Texture2D" uid="uid://o3qjrxop7dg" path="res://Artwork/Atlase/ItemsAtlas.png" id="2_n3viy"]
+[ext_resource type="Font" uid="uid://cna0rv1ub1cw1" path="res://Artwork/Fonts/Pixel.tres" id="3_2g4vo"]
+
+[node name="Item" type="Node2D"]
+texture_filter = 1
+scale = Vector2(0.75, 0.75)
+script = ExtResource("1_5kchx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(32, 32)
+texture = ExtResource("2_n3viy")
+hframes = 10
+vframes = 10
+region_rect = Rect2(64, 64, 0, 0)
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = 25.0
+offset_top = 55.0
+offset_right = 115.0
+offset_bottom = 99.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_2g4vo")
+theme_override_font_sizes/font_size = 32
+text = "999"
+horizontal_alignment = 2

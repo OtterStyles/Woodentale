@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://cy28ijqj4v7b4"]
+[gd_scene load_steps=2 format=3]
 
 [ext_resource type="Script" path="res://Skripts/Hitbox.gd" id="1_f1vjs"]
 
