@@ -3,29 +3,29 @@ extends ColorRect
 const SlotClass = preload("res://Skripts/Inventory/Slot.gd")
 @onready var inventory_slots: GridContainer = %InventorySlots
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var exit_button = %ExitButton
+@onready var exit_button: Button = %ExitButton
 
 
 var holding_item = null;
 
-func _ready():
+func _ready() -> void:
 	# https://www.youtube.com/watch?v=g1x8ct2Slok
 	exit_button.pressed.connect(unpause)
 	for inv_slot in inventory_slots.get_children():
 		inv_slot.connect("gui_input", slot_gui_input, [inv_slot])
 	initializeInventory()
 	
-func _input(event):
+func _input(event: InputEvent) -> void:
 	if holding_item:
 		holding_item.global_position = get_global_mouse_position()
 
-func initializeInventory():
+func initializeInventory() -> void:
 	var slots = inventory_slots.get_children()
 	for i in range(slots.size()):
 		if PlayerInventory.inventory.has(i):
 			slots[i].initializeItem(PlayerInventory.inventory[i][0], PlayerInventory.inventory[i][1])
 
-func slot_gui_input(event: InputEvent, slot: SlotClass):
+func slot_gui_input(event: InputEvent, slot: SlotClass) -> void:
 	if not event is InputEventMouseButton:
 		return
 	if event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
@@ -59,10 +59,10 @@ func swapItems(event: InputEvent, slot: SlotClass) -> void:
 	holding_item.decreaseItemQuantity(able_to_add)
 
 
-func unpause():
+func unpause() -> void:
 	animation_player.play("Unpause")
 	get_tree().paused = false
 	
-func pause():
+func pause() -> void:
 	animation_player.play("Pause")
 	get_tree().paused = true

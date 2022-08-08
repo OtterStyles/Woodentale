@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cwoo6a4h0yq7w"]
+[gd_scene load_steps=12 format=3 uid="uid://cwoo6a4h0yq7w"]
 
 [ext_resource type="Script" path="res://Skripts/Inventory/inventory.gd" id="1_hbb5x"]
 [ext_resource type="Script" path="res://Skripts/Inventory/Slot.gd" id="1_wsf3x"]
 [ext_resource type="Shader" path="res://Artwork/Shader/blur.gdshader" id="1_yh3gs"]
+[ext_resource type="FontFile" uid="uid://du18od0jqh6cv" path="res://Artwork/Fonts/prstart.ttf" id="3_njvrl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iwxey"]
 shader = ExtResource("1_yh3gs")
@@ -156,6 +157,7 @@ offset_left = 743.0
 offset_top = 93.0
 offset_right = 791.0
 offset_bottom = 124.0
+theme_override_fonts/font = ExtResource("3_njvrl")
 shortcut = SubResource("Shortcut_01kie")
 text = "Exit"
 

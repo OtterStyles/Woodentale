@@ -1,20 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://f383ubqkk2aq"]
+[gd_scene load_steps=8 format=3 uid="uid://f383ubqkk2aq"]
 
-[ext_resource type="Font" uid="uid://dvrn16bnpdpmx" path="res://Artwork/Fonts/PRStart.tres" id="1_k2dm4"]
 [ext_resource type="Shader" path="res://Artwork/Shader/blur.gdshader" id="1_r2c8n"]
 [ext_resource type="Script" path="res://Skripts/UI/pauseMenu.gd" id="2_28jwd"]
+[ext_resource type="FontFile" uid="uid://du18od0jqh6cv" path="res://Artwork/Fonts/prstart.ttf" id="3_k2j8q"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ly2i3"]
 shader = ExtResource("1_r2c8n")
 shader_param/blur = 0.0
 shader_param/brightness = 0.0
-
-[sub_resource type="InputEventAction" id="InputEventAction_ao6ws"]
-action = &"ui_cancel"
-pressed = true
-
-[sub_resource type="Shortcut" id="Shortcut_eemf6"]
-events = [SubResource("InputEventAction_ao6ws")]
 
 [sub_resource type="Animation" id="Animation_n6mxb"]
 resource_name = "Pause"
@@ -166,8 +159,7 @@ offset_bottom = 112.0
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 offset_right = 224.0
 offset_bottom = 31.0
-theme_override_fonts/font = ExtResource("1_k2dm4")
-theme_override_font_sizes/font_size = 27
+theme_override_fonts/font = ExtResource("3_k2j8q")
 text = "Pause"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -182,8 +174,7 @@ unique_name_in_owner = true
 offset_top = 43.0
 offset_right = 224.0
 offset_bottom = 67.0
-theme_override_fonts/font = ExtResource("1_k2dm4")
-shortcut = SubResource("Shortcut_eemf6")
+theme_override_fonts/font = ExtResource("3_k2j8q")
 text = "Resume"
 
 [node name="QuitButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
@@ -191,8 +182,7 @@ unique_name_in_owner = true
 offset_top = 71.0
 offset_right = 224.0
 offset_bottom = 95.0
-theme_override_fonts/font = ExtResource("1_k2dm4")
-text = "Quit"
+theme_override_fonts/font = ExtResource("3_k2j8q")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

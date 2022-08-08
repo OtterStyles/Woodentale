@@ -1,6 +1,0 @@
-[gd_resource type="Font" load_steps=2 format=3 uid="uid://cna0rv1ub1cw1"]
-
-[ext_resource type="FontData" uid="uid://dl1t4fgd7vck0" path="res://Artwork/Fonts/Pixel.ttf" id="1_03ios"]
-
-[resource]
-data/0 = ExtResource("1_03ios")

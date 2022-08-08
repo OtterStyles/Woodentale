@@ -8,8 +8,7 @@ var inventory = {
 	2: ["Squisch Green", 1],
 }
 
-
-func addItem(item_name, item_quantity):
+func addItem(item_name: String, item_quantity: int) -> bool:
 	for item in inventory:
 		if inventory[item][0] == item_name:
 			inventory[item][1]  += item_quantity
@@ -18,3 +17,4 @@ func addItem(item_name, item_quantity):
 		if inventory.has(i) == false:
 			inventory[i] = [item_name, item_quantity]
 			return true
+	return false

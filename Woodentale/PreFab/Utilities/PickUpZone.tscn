@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://yltvvch7jgf3"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="Script" path="res://Skripts/PickUpZone.gd" id="1_x2uag"]
+[ext_resource type="Script" path="res://Skripts/Utilities/PickUpZone.gd" id="1_x2uag"]
+
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nkutc"]
 radius = 57.0

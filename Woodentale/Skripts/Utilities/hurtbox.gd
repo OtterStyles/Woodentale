@@ -4,15 +4,14 @@ extends Area2D
 @onready var timer : Timer = $Timer
 @export var invisibleTime : float = 0.5
 
-func _ready():
+func _ready() -> void:
 	timer.wait_time = invisibleTime
 
 
-func _on_area_2d_area_entered(area):
+func _on_area_2d_area_entered(area: Area2D) -> void:
 	timer.start()
-	print(typeof(area))
 	collisionShape2D.set_deferred('disabled', true)
 
 
-func _on_timer_timeout():
+func _on_timer_timeout() -> void:
 	collisionShape2D.set_deferred('disabled', false)

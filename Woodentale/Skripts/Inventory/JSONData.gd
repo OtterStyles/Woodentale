@@ -2,11 +2,11 @@ extends Node
 
 var item_data: Dictionary
 
-func _ready():
+func _ready() -> void:
 	item_data = LoadData("res://Data/Items/ItemData.json")
 
 
-func LoadData(file_path: String):
+func LoadData(file_path: String) -> Dictionary:
 	var json_data = JSON.new()
 	var file_data = File.new()
 	

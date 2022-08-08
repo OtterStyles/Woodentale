@@ -1,10 +1,10 @@
 extends Node2D
 
-var item_name
-var item_quantity
+var item_name: String
+var item_quantity: int
 
 
-func setItem(set_name, set_quantity):
+func setItem(set_name: String, set_quantity: int) -> void:
 	item_name = set_name
 	item_quantity = set_quantity
 	var jsonData = JsonData.item_data[item_name]
@@ -14,9 +14,6 @@ func setItem(set_name, set_quantity):
 		$Label.visible = false
 	else:
 		changeLabel()
-	
-	
-	
 
 func addItemQuantity(amountToAdd: int) -> void:
 	item_quantity += amountToAdd

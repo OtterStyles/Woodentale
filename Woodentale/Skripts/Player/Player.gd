@@ -46,8 +46,6 @@ func _physics_process(delta) -> void:
 			pass
 
 
-
-
 func move_state(delta: float) -> void:
 	getInput()
 	handleMovement(delta)
@@ -66,12 +64,11 @@ func getInput() -> void:
 		sprint = SPEED_SPRINT_MULT
 	handleMovementInputs()
 
-func handleMovementInputs():
+func handleMovementInputs() -> void:
 	direction = Vector2.ZERO
 	direction.x = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
 	direction.y = int(Input.is_action_pressed("down")) - int(Input.is_action_pressed("up"))
 	direction = direction.normalized()
-
 
 func handleMovement(delta: float) -> void:
 	if direction != Vector2.ZERO:

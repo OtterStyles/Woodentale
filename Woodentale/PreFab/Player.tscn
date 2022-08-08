@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" path="res://PreFab/Utilities/hurtbox.tscn" id="3_mpqox"]
 [ext_resource type="PackedScene" path="res://PreFab/Utilities/hitbox.tscn" id="4_ld7ar"]
 [ext_resource type="PackedScene" uid="uid://tun5k30k4r60" path="res://PreFab/Manager/player_manager.tscn" id="5_8qdpo"]
-[ext_resource type="PackedScene" uid="uid://yltvvch7jgf3" path="res://PreFab/Utilities/PickUpZone.tscn" id="5_ec71d"]
+[ext_resource type="PackedScene" path="res://PreFab/Utilities/PickUpZone.tscn" id="5_ec71d"]
 [ext_resource type="PackedScene" uid="uid://cwoo6a4h0yq7w" path="res://PreFab/Inventory/inventory.tscn" id="5_wrg2c"]
 [ext_resource type="Script" path="res://Skripts/UI/GUI.gd" id="6_0kbaw"]
 [ext_resource type="PackedScene" uid="uid://f383ubqkk2aq" path="res://UI/pauseMenu.tscn" id="6_v5573"]
