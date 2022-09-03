@@ -4,7 +4,6 @@ const ItemType = preload("res://Skripts/Inventory/Item.gd")
 var ItemClass = preload("res://PreFab/Inventory/item.tscn")
 var item = null
 
-
 func initializeItem(item_name: String, item_quantity: int) -> void:
 	if item == null:
 		item = ItemClass.instantiate()

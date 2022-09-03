@@ -1,0 +1,24 @@
+Items:
+	Needs:
+		ID: Identifiere of Item
+		"ItemName": IngameName -> GERMAN
+		"SlotCategory": Item | Accesour | Equipment
+		"ItemCategory": Material | Food | Potion | Weapon |  Rings | Neclace
+						| Head | Foot | Pants | Chest
+						
+		"SubItemCategory": Submaterial
+		"StackSize": 1 | 15 | 30 | 120 | 240
+		"Description": "description",
+		"AtlasFrame": The Frame in the Global Item Atlas
+
+Material:
+
+ID : {
+		"ItemName": "name",
+		"SlotCategory": 
+		"ItemCategory": "Material",
+		"SubItemCategory": "SubMaterial",
+		"StackSize": 512,
+		"Description": "description",
+		"AtlasFrame": 0
+	},

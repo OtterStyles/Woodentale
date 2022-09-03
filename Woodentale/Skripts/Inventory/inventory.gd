@@ -1,9 +1,9 @@
 extends ColorRect
 
 const SlotClass = preload("res://Skripts/Inventory/Slot.gd")
-@onready var inventory_slots: GridContainer = %InventorySlots
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var exit_button: Button = %ExitButton
+@onready var slotsContainer = $centerContainer/TextureRect/Slots
 
 
 var holding_item = null;
@@ -11,16 +11,23 @@ var holding_item = null;
 func _ready() -> void:
 	# https://www.youtube.com/watch?v=g1x8ct2Slok
 	exit_button.pressed.connect(unpause)
-	for inv_slot in inventory_slots.get_children():
+	var slots = getAllSlots()
+	for inv_slot in slots:
 		inv_slot.connect("gui_input", slot_gui_input, [inv_slot])
 	initializeInventory()
 	
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if holding_item:
 		holding_item.global_position = get_global_mouse_position()
 
+func getAllSlots():
+	var slots = []
+	for inv_slots_holder in slotsContainer.get_children():
+		slots.append_array(inv_slots_holder.get_children())
+	return slots
+	
 func initializeInventory() -> void:
-	var slots = inventory_slots.get_children()
+	var slots = getAllSlots()
 	for i in range(slots.size()):
 		if PlayerInventory.inventory.has(i):
 			slots[i].initializeItem(PlayerInventory.inventory[i][0], PlayerInventory.inventory[i][1])
@@ -39,6 +46,7 @@ func slot_gui_input(event: InputEvent, slot: SlotClass) -> void:
 			holding_item = slot.item
 			slot.pickFromSlot()
 			holding_item.global_position = get_global_mouse_position()
+
 
 func swapItems(event: InputEvent, slot: SlotClass) -> void:
 	if holding_item.item_name != slot.item.item_name:

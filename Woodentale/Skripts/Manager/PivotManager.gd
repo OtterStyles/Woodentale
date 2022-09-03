@@ -5,6 +5,6 @@ extends Node
 
 var pivotPositions = {}
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	for pivot in pivots.get_children():
 		pivotPositions[pivot.name] = player.global_position + pivot.position

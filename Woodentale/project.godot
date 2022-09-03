@@ -10,6 +10,11 @@ config_version=5
 
 _global_script_classes=[{
 "base": "Resource",
+"class": &"ItemResource",
+"language": &"GDScript",
+"path": "res://Skripts/Resource/ItemResource.gd"
+}, {
+"base": "Resource",
 "class": &"playerModifier",
 "language": &"GDScript",
 "path": "res://Resource/PlayerModifier.gd"
@@ -20,6 +25,7 @@ _global_script_classes=[{
 "path": "res://Resource/PlayerStats.gd"
 }]
 _global_script_class_icons={
+"ItemResource": "",
 "playerModifier": "",
 "playerStats": ""
 }
@@ -35,6 +41,8 @@ config/icon="res://icon.png"
 
 JsonData="*res://Skripts/Inventory/JSONData.gd"
 PlayerInventory="*res://Skripts/Manager/PlayerInventory.gd"
+Enums="*res://Skripts/Manager/Enums.gd"
+ItemLoader="*res://Skripts/Resource/ItemLoader.gd"
 
 [display]
 
@@ -101,7 +109,8 @@ inventory={
 2d_physics/layer_1="World"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Enemies"
-2d_physics/layer_4="ItemDrop"
+2d_physics/layer_4="Work"
+2d_physics/layer_5="ItemDrop"
 
 [physics]
 

@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dd0kxj6qwtqh8"]
+
+[ext_resource type="Script" path="res://Skripts/UI/GUI.gd" id="1_jxbw5"]
+[ext_resource type="PackedScene" uid="uid://bxhrmkeaakmse" path="res://UI/pause_settings_menue.tscn" id="3_1abxx"]
+[ext_resource type="PackedScene" uid="uid://cwoo6a4h0yq7w" path="res://UI/Inventory/inventory.tscn" id="3_hegqw"]
+
+[node name="GUI" type="CanvasLayer"]
+process_mode = 1
+script = ExtResource("1_jxbw5")
+
+[node name="PauseSettingsMenue" parent="." instance=ExtResource("3_1abxx")]
+visible = false
+
+[node name="Inventory" parent="." instance=ExtResource("3_hegqw")]

@@ -8,7 +8,7 @@ func _ready() -> void:
 	timer.wait_time = invisibleTime
 
 
-func _on_area_2d_area_entered(area: Area2D) -> void:
+func _on_area_2d_area_entered(_area: Area2D) -> void:
 	timer.start()
 	collisionShape2D.set_deferred('disabled', true)
 

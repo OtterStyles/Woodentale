@@ -29,11 +29,10 @@ var animationName = ['Working','Idle','Walking','Attacking']
 
 
 func _ready():
-	player_manager
 	animationTree.active = true;
 
 	
-func _process(delta) -> void:
+func _process(_delta) -> void:
 	calculateStats()
 	
 func _physics_process(delta) -> void:
@@ -75,7 +74,7 @@ func handleMovement(delta: float) -> void:
 		changeBlendPositions()
 		handelAnimation("Walking")
 		applyMovement(direction * ACCELERATION * delta)
-		applyFrictionOnUnsuedAxis(direction, FRICTION*delta)
+		applyFrictionOnUnusedAxis(direction, FRICTION*delta)
 	else:
 		handelAnimation("Idle")
 		applyFriction(FRICTION * delta)
@@ -91,7 +90,7 @@ func applyFriction(friction: float) -> void:
 	else:
 		velocity = Vector2.ZERO
 
-func applyFrictionOnUnsuedAxis(axis: Vector2, friction: float) -> void:
+func applyFrictionOnUnusedAxis(axis: Vector2, friction: float) -> void:
 	if axis.x == 0:
 		if (velocity.x > friction and velocity.x > 0) or (velocity.x < friction and velocity.x < 0):
 			velocity.x -= velocity.normalized().x * friction

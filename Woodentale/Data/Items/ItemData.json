@@ -1,18 +1,28 @@
 {
 	"Squisch Blue": {
 		"ItemCategory": "Resource",
+		"SlotCategory": "Item",
 		"StackSize": 512,
+		"Description": "A bouncy slimy thingi",
+		"AtlasFrame": 0
+	},
+	"Squisch Head": {
+		"ItemCategory": "Resource",
+		"SlotCategory": "Equipment",
+		"StackSize": 1,
 		"Description": "A bouncy slimy thingi",
 		"AtlasFrame": 0
 	},
 	"Squisch Green": {
 		"ItemCategory": "Weapon",
+		"SlotCategory": "Item",
 		"StackSize": 1,
 		"Description": "Does deal Damage as it throws",
 		"AtlasFrame": 1
 	},
 	"Squisch Red": {
 		"ItemCategory": "Consumable",
+		"SlotCategory": "Item",
 		"AddHealth": 15,
 		"AddEnergy": 20,
 		"AddStats": {

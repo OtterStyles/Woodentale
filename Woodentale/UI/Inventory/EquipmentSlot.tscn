@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://3gosfwnnd0mo"]
+
+[ext_resource type="Script" path="res://Skripts/Inventory/EquipmentSlot.gd" id="1_8oepd"]
+
+[node name="EquipmentSlot" type="Panel"]
+custom_minimum_size = Vector2(48, 48)
+offset_right = 48.0
+offset_bottom = 48.0
+script = ExtResource("1_8oepd")

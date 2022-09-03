@@ -1,0 +1,407 @@
+[gd_scene load_steps=14 format=3 uid="uid://cwoo6a4h0yq7w"]
+
+[ext_resource type="Script" path="res://Skripts/Inventory/inventory.gd" id="1_hbb5x"]
+[ext_resource type="Shader" path="res://Artwork/Shader/blur.gdshader" id="1_yh3gs"]
+[ext_resource type="FontFile" uid="uid://du18od0jqh6cv" path="res://Artwork/Fonts/prstart.ttf" id="3_njvrl"]
+[ext_resource type="PackedScene" uid="uid://dqvr07s5e65ji" path="res://UI/Inventory/ItemSlot.tscn" id="4_rmvdj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iwxey"]
+shader = ExtResource("1_yh3gs")
+shader_param/blur = 2.5
+shader_param/brightness = 1.0
+
+[sub_resource type="Texture2D" id="Texture2D_u621d"]
+resource_local_to_scene = false
+resource_name = ""
+
+[sub_resource type="Texture2D" id="Texture2D_nwnbp"]
+resource_local_to_scene = false
+resource_name = ""
+
+[sub_resource type="InputEventAction" id="InputEventAction_v55vy"]
+action = &"inventory"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_01kie"]
+events = [SubResource("InputEventAction_v55vy")]
+
+[sub_resource type="Animation" id="Animation_fgvrp"]
+resource_name = "Pause"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_param/blur")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 2.5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_param/brightness")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 0.5),
+"update": 0,
+"values": [1.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_6yash"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1xaks"]
+resource_name = "Unpause"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_param/blur")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_param/brightness")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v1ghc"]
+_data = {
+"Pause": SubResource("Animation_fgvrp"),
+"RESET": SubResource("Animation_6yash"),
+"Unpause": SubResource("Animation_1xaks")
+}
+
+[node name="Inventory" type="ColorRect"]
+process_mode = 3
+self_modulate = Color(0.313726, 0.313726, 0.313726, 0.584314)
+material = SubResource("ShaderMaterial_iwxey")
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hbb5x")
+
+[node name="centerContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_layout_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="centerContainer"]
+self_modulate = Color(0.290196, 0.290196, 0.290196, 1)
+custom_minimum_size = Vector2(800, 440)
+offset_left = 80.0
+offset_top = 50.0
+offset_right = 880.0
+offset_bottom = 490.0
+texture = SubResource("Texture2D_u621d")
+
+[node name="PlaceHolderMiddle" type="TextureRect" parent="centerContainer/TextureRect"]
+modulate = Color(0.0941176, 0.0941176, 0.0941176, 1)
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_right = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("Texture2D_nwnbp")
+metadata/_edit_layout_mode = 1
+
+[node name="Slots" type="Control" parent="centerContainer/TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_layout_mode = 1
+
+[node name="InventorySlots" type="GridContainer" parent="centerContainer/TextureRect/Slots"]
+unique_name_in_owner = true
+texture_filter = 1
+offset_left = 437.0
+offset_top = 76.0
+offset_right = 787.0
+offset_bottom = 364.0
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+columns = 6
+
+[node name="ItemSlot" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+
+[node name="ItemSlot2" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+offset_left = 60.0
+offset_right = 108.0
+
+[node name="ItemSlot3" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+offset_left = 120.0
+offset_right = 168.0
+
+[node name="ItemSlot4" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+offset_left = 180.0
+offset_right = 228.0
+
+[node name="ItemSlot5" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+offset_left = 240.0
+offset_right = 288.0
+
+[node name="ItemSlot6" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+offset_left = 300.0
+offset_right = 348.0
+
+[node name="ItemSlot7" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+offset_top = 60.0
+offset_bottom = 108.0
+
+[node name="ItemSlot8" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+offset_left = 60.0
+offset_top = 60.0
+offset_right = 108.0
+offset_bottom = 108.0
+
+[node name="ItemSlot9" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+offset_left = 120.0
+offset_top = 60.0
+offset_right = 168.0
+offset_bottom = 108.0
+
+[node name="ItemSlot10" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+offset_left = 180.0
+offset_top = 60.0
+offset_right = 228.0
+offset_bottom = 108.0
+
+[node name="ItemSlot11" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+offset_left = 240.0
+offset_top = 60.0
+offset_right = 288.0
+offset_bottom = 108.0
+
+[node name="ItemSlot12" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+offset_left = 300.0
+offset_top = 60.0
+offset_right = 348.0
+offset_bottom = 108.0
+
+[node name="ItemSlot13" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+offset_top = 120.0
+offset_bottom = 168.0
+
+[node name="ItemSlot14" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+offset_left = 60.0
+offset_top = 120.0
+offset_right = 108.0
+offset_bottom = 168.0
+
+[node name="ItemSlot15" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+offset_left = 120.0
+offset_top = 120.0
+offset_right = 168.0
+offset_bottom = 168.0
+
+[node name="ItemSlot16" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+offset_left = 180.0
+offset_top = 120.0
+offset_right = 228.0
+offset_bottom = 168.0
+
+[node name="ItemSlot17" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+offset_left = 240.0
+offset_top = 120.0
+offset_right = 288.0
+offset_bottom = 168.0
+
+[node name="ItemSlot18" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+offset_left = 300.0
+offset_top = 120.0
+offset_right = 348.0
+offset_bottom = 168.0
+
+[node name="ItemSlot19" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+offset_top = 180.0
+offset_bottom = 228.0
+
+[node name="ItemSlot20" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+offset_left = 60.0
+offset_top = 180.0
+offset_right = 108.0
+offset_bottom = 228.0
+
+[node name="ItemSlot21" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+offset_left = 120.0
+offset_top = 180.0
+offset_right = 168.0
+offset_bottom = 228.0
+
+[node name="ItemSlot22" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+offset_left = 180.0
+offset_top = 180.0
+offset_right = 228.0
+offset_bottom = 228.0
+
+[node name="ItemSlot23" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+offset_left = 240.0
+offset_top = 180.0
+offset_right = 288.0
+offset_bottom = 228.0
+
+[node name="ItemSlot24" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+offset_left = 300.0
+offset_top = 180.0
+offset_right = 348.0
+offset_bottom = 228.0
+
+[node name="ItemSlot25" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+offset_top = 240.0
+offset_bottom = 288.0
+
+[node name="ItemSlot26" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+offset_left = 60.0
+offset_top = 240.0
+offset_right = 108.0
+offset_bottom = 288.0
+
+[node name="ItemSlot27" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+offset_left = 120.0
+offset_top = 240.0
+offset_right = 168.0
+offset_bottom = 288.0
+
+[node name="ItemSlot28" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+offset_left = 180.0
+offset_top = 240.0
+offset_right = 228.0
+offset_bottom = 288.0
+
+[node name="ItemSlot29" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+offset_left = 240.0
+offset_top = 240.0
+offset_right = 288.0
+offset_bottom = 288.0
+
+[node name="ItemSlot30" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+offset_left = 300.0
+offset_top = 240.0
+offset_right = 348.0
+offset_bottom = 288.0
+
+[node name="Equipment Slots" type="GridContainer" parent="centerContainer/TextureRect/Slots"]
+unique_name_in_owner = true
+texture_filter = 1
+offset_left = -6.0
+offset_top = 77.0
+offset_right = 44.0
+offset_bottom = 365.0
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+
+[node name="ItemSlot" parent="centerContainer/TextureRect/Slots/Equipment Slots" instance=ExtResource("4_rmvdj")]
+
+[node name="ExitButton" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 785.0
+offset_top = 76.0
+offset_right = 857.0
+offset_bottom = 107.0
+theme_override_fonts/font = ExtResource("3_njvrl")
+shortcut = SubResource("Shortcut_01kie")
+text = "Exit"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Unpause"
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_v1ghc")
+}

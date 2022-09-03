@@ -21,6 +21,8 @@ one_way_collision_margin = 0.0
 
 [node name="Hitbox" parent="." instance=ExtResource("2_lh55i")]
 position = Vector2(65, -23)
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 shape = SubResource("CapsuleShape2D_68eqy")
@@ -28,59 +30,12 @@ shape = SubResource("CapsuleShape2D_68eqy")
 [node name="Items" type="Node" parent="."]
 
 [node name="ItemDrop" parent="Items" instance=ExtResource("3_82dju")]
-position = Vector2(-215, -80)
-collision_layer = 8
+position = Vector2(-102, -16)
 
 [node name="ItemDrop2" parent="Items" instance=ExtResource("3_82dju")]
-position = Vector2(-380, -168)
-collision_layer = 8
+position = Vector2(-140, -155)
 
 [node name="ItemDrop3" parent="Items" instance=ExtResource("3_82dju")]
-position = Vector2(-374, -81)
-collision_layer = 8
-
-[node name="ItemDrop4" parent="Items" instance=ExtResource("3_82dju")]
-position = Vector2(-359, 20)
-collision_layer = 8
-
-[node name="ItemDrop5" parent="Items" instance=ExtResource("3_82dju")]
-position = Vector2(-106, -149)
-collision_layer = 8
-
-[node name="ItemDrop6" parent="Items" instance=ExtResource("3_82dju")]
-position = Vector2(264, -185)
-collision_layer = 8
-
-[node name="ItemDrop7" parent="Items" instance=ExtResource("3_82dju")]
-position = Vector2(207, -88)
-collision_layer = 8
-
-[node name="ItemDrop8" parent="Items" instance=ExtResource("3_82dju")]
-position = Vector2(70, -174)
-collision_layer = 8
-
-[node name="ItemDrop9" parent="Items" instance=ExtResource("3_82dju")]
-position = Vector2(182, 37)
-collision_layer = 8
-
-[node name="ItemDrop10" parent="Items" instance=ExtResource("3_82dju")]
-position = Vector2(-148, 120)
-collision_layer = 8
-
-[node name="ItemDrop11" parent="Items" instance=ExtResource("3_82dju")]
-position = Vector2(-282, 120)
-collision_layer = 8
-
-[node name="ItemDrop12" parent="Items" instance=ExtResource("3_82dju")]
-position = Vector2(-171, 29)
-collision_layer = 8
-
-[node name="ItemDrop13" parent="Items" instance=ExtResource("3_82dju")]
-position = Vector2(57, 107)
-collision_layer = 8
-
-[node name="ItemDrop14" parent="Items" instance=ExtResource("3_82dju")]
-position = Vector2(244, 121)
-collision_layer = 8
+position = Vector2(95, -138)
 
 [editable path="Hitbox"]

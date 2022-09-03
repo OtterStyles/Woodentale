@@ -6,6 +6,7 @@ var inventory = {
 	0: ["Squisch Blue", 10],
 	1: ["Squisch Red", 5],
 	2: ["Squisch Green", 1],
+	6: ["Squisch Head", 1]
 }
 
 func addItem(item_name: String, item_quantity: int) -> bool:
