@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://b67cityhlbgsm"]
+[gd_scene load_steps=53 format=3 uid="uid://b67cityhlbgsm"]
 
 [ext_resource type="Script" path="res://Skripts/Player/Player.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://dytjms776x00m" path="res://Artwork/Atlase/PlayerAtlas.png" id="2_eicqr"]
@@ -7,8 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://tun5k30k4r60" path="res://PreFab/Manager/player_manager.tscn" id="5_8qdpo"]
 [ext_resource type="PackedScene" uid="uid://c1ldvwxy3b1av" path="res://PreFab/Utilities/PickUpZone.tscn" id="5_ec71d"]
 [ext_resource type="PackedScene" uid="uid://dd0kxj6qwtqh8" path="res://UI/GUI.tscn" id="6_s573a"]
+[ext_resource type="Script" path="res://Skripts/Manager/Manager.gd" id="7_olwk5"]
 [ext_resource type="PackedScene" uid="uid://5yq0wm4r5ply" path="res://PreFab/Manager/ItemsManager.tscn" id="9_pepgd"]
 [ext_resource type="Script" path="res://Skripts/Manager/PivotManager.gd" id="10_bhj7s"]
+[ext_resource type="PackedScene" uid="uid://bp4o5smcxpgxk" path="res://PreFab/Manager/inventory_manager.tscn" id="10_tg4xk"]
 
 [sub_resource type="Animation" id="23"]
 resource_name = "idle_DOWN"
@@ -530,6 +532,18 @@ collision_layer = 2
 moving_platform_wall_layers = 1
 script = ExtResource("2")
 
+[node name="Manager" type="Node" parent="."]
+script = ExtResource("7_olwk5")
+
+[node name="PlayerManager" parent="Manager" instance=ExtResource("5_8qdpo")]
+
+[node name="ItemsManager" parent="Manager" instance=ExtResource("9_pepgd")]
+
+[node name="PivotManager" type="Node" parent="Manager"]
+script = ExtResource("10_bhj7s")
+
+[node name="InventoryManager" parent="Manager" instance=ExtResource("10_tg4xk")]
+
 [node name="Animation" type="Node" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Animation"]
@@ -593,15 +607,6 @@ unique_name_in_owner = true
 
 [node name="CenterBody" type="Position2D" parent="Pivots"]
 position = Vector2(0, -30)
-
-[node name="Manager" type="Node" parent="."]
-
-[node name="PlayerManager" parent="Manager" instance=ExtResource("5_8qdpo")]
-
-[node name="ItemsManager" parent="Manager" instance=ExtResource("9_pepgd")]
-
-[node name="PivotManager" type="Node" parent="Manager"]
-script = ExtResource("10_bhj7s")
 
 [editable path="Collision/hurtbox"]
 [editable path="Collision/Hitbox"]

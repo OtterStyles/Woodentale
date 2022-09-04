@@ -1,16 +1,16 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bgu3q45s7xrr8"]
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dhuhqfgjc6h4r"]
 
 [ext_resource type="Script" path="res://Skripts/Resource/ItemResource.gd" id="1_t4wa1"]
 
 [resource]
 script = ExtResource("1_t4wa1")
-itemName = "Wood"
-itemID = 0
-stackSizeEnum = 6
-atlasFrame = 0
-mainType = 0
-itemType = 0
-itemSubType = 13
+itemName = "Helmet"
+itemID = 6
+stackSizeEnum = 0
+atlasFrame = 2
+mainType = 1
+itemType = 6
+itemSubType = 4
 speed = 1
 stamina = 1
 damage = 1

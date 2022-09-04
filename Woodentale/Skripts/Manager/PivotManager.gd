@@ -1,5 +1,5 @@
 extends Node
-
+class_name PivotManager
 @onready var player = $"../.."
 @onready var pivots = $"../../Pivots"
 

@@ -380,21 +380,45 @@ offset_bottom = 288.0
 [node name="Equipment Slots" type="GridContainer" parent="centerContainer/TextureRect/Slots"]
 unique_name_in_owner = true
 texture_filter = 1
-offset_left = -6.0
-offset_top = 77.0
-offset_right = 44.0
-offset_bottom = 365.0
+offset_left = 29.0
+offset_top = 75.0
+offset_right = 79.0
+offset_bottom = 367.0
 theme_override_constants/h_separation = 12
 theme_override_constants/v_separation = 12
 
 [node name="ItemSlot" parent="centerContainer/TextureRect/Slots/Equipment Slots" instance=ExtResource("4_rmvdj")]
+mainType = 1
+itemType = 6
+itemSubType = 4
 
-[node name="ExitButton" type="Button" parent="."]
+[node name="ItemSlot2" parent="centerContainer/TextureRect/Slots/Equipment Slots" instance=ExtResource("4_rmvdj")]
+offset_top = 60.0
+offset_bottom = 108.0
+mainType = 1
+itemType = 6
+itemSubType = 7
+
+[node name="ItemSlot3" parent="centerContainer/TextureRect/Slots/Equipment Slots" instance=ExtResource("4_rmvdj")]
+offset_top = 120.0
+offset_bottom = 168.0
+mainType = 1
+itemType = 6
+itemSubType = 6
+
+[node name="ItemSlot4" parent="centerContainer/TextureRect/Slots/Equipment Slots" instance=ExtResource("4_rmvdj")]
+offset_top = 180.0
+offset_bottom = 228.0
+mainType = 1
+itemType = 6
+itemSubType = 5
+
+[node name="ExitButton" type="Button" parent="centerContainer/TextureRect"]
 unique_name_in_owner = true
-offset_left = 785.0
-offset_top = 76.0
-offset_right = 857.0
-offset_bottom = 107.0
+offset_left = 705.0
+offset_top = 26.0
+offset_right = 777.0
+offset_bottom = 57.0
 theme_override_fonts/font = ExtResource("3_njvrl")
 shortcut = SubResource("Shortcut_01kie")
 text = "Exit"

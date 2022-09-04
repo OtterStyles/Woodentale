@@ -1,13 +1,13 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bgu3q45s7xrr8"]
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cnfig5mnond8k"]
 
 [ext_resource type="Script" path="res://Skripts/Resource/ItemResource.gd" id="1_t4wa1"]
 
 [resource]
 script = ExtResource("1_t4wa1")
-itemName = "Wood"
-itemID = 0
+itemName = "Stone"
+itemID = 3
 stackSizeEnum = 6
-atlasFrame = 0
+atlasFrame = 1
 mainType = 0
 itemType = 0
 itemSubType = 13

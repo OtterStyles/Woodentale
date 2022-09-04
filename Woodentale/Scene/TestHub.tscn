@@ -34,8 +34,10 @@ position = Vector2(-102, -16)
 
 [node name="ItemDrop2" parent="Items" instance=ExtResource("3_82dju")]
 position = Vector2(-140, -155)
+itemID = 6
 
 [node name="ItemDrop3" parent="Items" instance=ExtResource("3_82dju")]
 position = Vector2(95, -138)
+itemID = 3
 
 [editable path="Hitbox"]

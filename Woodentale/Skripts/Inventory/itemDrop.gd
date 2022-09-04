@@ -1,8 +1,11 @@
 extends CharacterBody2D
 
+@onready var sprite = $Sprite
+
+@export var itemID: DataEnums.ItemID = DataEnums.ItemID.WOOD
 var player: CharacterBody2D = null
 var beingPickedUp = false
-var item_name: String
+var playerInventoryManager
 
 const SPEED = 200
 const ACCELERATION = 400
@@ -10,8 +13,11 @@ const FRICTION = 200
 const MAX_DISTANCE = 90
 const MIN_DISTANCE = 5
 
-func _ready() -> void:
-	item_name = "Squisch Blue"
+func _ready():
+	if ItemLoader.itemDirectory.has(itemID):
+		var item: ItemResource = ItemLoader.itemDirectory[itemID]
+		sprite.frame = item.atlasFrame
+		
 
 func _physics_process(delta: float) -> void:
 	if beingPickedUp:
@@ -20,7 +26,7 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.move_toward(direction * SPEED, ACCELERATION * delta)
 		var distance = global_position.distance_to(toPosition)
 		if distance < MIN_DISTANCE:
-			var isStored = PlayerInventory.addItem(item_name, 1)
+			var isStored = playerInventoryManager.addItem(itemID, 1)
 			if isStored:
 				queue_free()
 			else:
@@ -34,5 +40,6 @@ func _physics_process(delta: float) -> void:
 func pickUpItem(body: CharacterBody2D) -> void:
 	player = body
 	beingPickedUp = true
+	playerInventoryManager = AllPlayerManager.players[player.name]['InventoryManager']
 
 

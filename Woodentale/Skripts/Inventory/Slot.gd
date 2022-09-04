@@ -1,16 +1,21 @@
 extends Panel
 
+@export_category("Type")
+@export var mainType: DataEnums.MainType = DataEnums.MainType.ITEM
+@export var itemType: DataEnums.ItemType = DataEnums.ItemType.RESOURCE
+@export var itemSubType: DataEnums.SubItemType = DataEnums.SubItemType.NONE
+
 const ItemType = preload("res://Skripts/Inventory/Item.gd")
 var ItemClass = preload("res://PreFab/Inventory/item.tscn")
 var item = null
 
-func initializeItem(item_name: String, item_quantity: int) -> void:
+func initializeItem(item_id: int, item_quantity: int) -> void:
 	if item == null:
 		item = ItemClass.instantiate()
-		item.setItem(item_name, item_quantity)
+		item.setItem(item_id, item_quantity)
 		add_child(item)
 	else:
-		item.setItem(item_name, item_quantity)
+		item.setItem(item_id, item_quantity)
 
 func pickFromSlot() -> void:
 	remove_child(item)

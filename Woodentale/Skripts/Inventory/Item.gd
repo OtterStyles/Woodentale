@@ -1,20 +1,26 @@
 extends Node2D
+class_name ItemData
 
-var item_name: String
+var itemID: int
 var item_quantity: int
-var slot_category: String
+var mainType: DataEnums.MainType
+var itemType: DataEnums.ItemType
+var itemSubType: DataEnums.SubItemType
+var item: ItemResource
 
-func setItem(newItemName: String, newItemQuantity: int) -> void:
-	item_name = newItemName
+func setItem(newID: int, newItemQuantity: int) -> void:
+	itemID = newID
 	item_quantity = newItemQuantity
-	var jsonData = JsonData.item_data[item_name]
-	var stack_size = int(jsonData["StackSize"])
-	$Sprite2D.frame = int(jsonData["AtlasFrame"])
-	slot_category = jsonData["SlotCategory"]
-	if stack_size == 1:
-		$Label.visible = false
-	else:
-		changeLabel()
+	item = ItemLoader.getItem(itemID)
+	if item:
+		$Sprite2D.frame = int(item.atlasFrame)
+		mainType = item.mainType
+		itemType = item.itemType
+		itemSubType = item.itemSubType
+		if item.stackSize <= 1:
+			$Label.visible = false
+		else:
+			changeLabel()
 
 func addItemQuantity(amountToAdd: int) -> void:
 	item_quantity += amountToAdd

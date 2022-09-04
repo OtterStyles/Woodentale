@@ -12,8 +12,7 @@ enum ItemType{
 	FOOD,
 	POTIONS,
 	WEAPON,
-	CLOTHS,
-	AMOR,
+	CLOTHS_AMOR,
 	TOOLS
 }
 enum SubItemType {
@@ -31,4 +30,14 @@ enum SubItemType {
 	VITALITY,
 	FURNITURE,
 	MATERIAL,
+}
+
+enum ItemID {
+	WOOD,
+	EN_WOOD,
+	DO_WOOD,
+	STONE,
+	EN_STONE,
+	DO_STONE,
+	HELMET,
 }

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8igmgqdarxdo"]
+
+[ext_resource type="Script" path="res://Skripts/Inventory/HotBarSlot.gd" id="1_cmej4"]
+
+[node name="HotBarSlot" type="Panel"]
+custom_minimum_size = Vector2(50, 50)
+offset_right = 50.0
+script = ExtResource("1_cmej4")
