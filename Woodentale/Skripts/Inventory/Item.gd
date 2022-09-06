@@ -6,6 +6,7 @@ var item_quantity: int
 var mainType: DataEnums.MainType
 var itemType: DataEnums.ItemType
 var itemSubType: DataEnums.SubItemType
+var itemDescription: String
 var item: ItemResource
 
 func setItem(newID: int, newItemQuantity: int) -> void:
@@ -17,6 +18,7 @@ func setItem(newID: int, newItemQuantity: int) -> void:
 		mainType = item.mainType
 		itemType = item.itemType
 		itemSubType = item.itemSubType
+		itemDescription = item.itemDescription
 		if item.stackSize <= 1:
 			$Label.visible = false
 		else:
@@ -28,6 +30,10 @@ func addItemQuantity(amountToAdd: int) -> void:
 	
 func decreaseItemQuantity(amountToDecreas: int) -> void:
 	item_quantity -= amountToDecreas
+	changeLabel()
+
+func setItemQuantity(amountToSet: int) -> void:
+	item_quantity = amountToSet
 	changeLabel()
 	
 func changeLabel() -> void:

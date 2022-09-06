@@ -9,11 +9,6 @@
 config_version=5
 
 _global_script_classes=[{
-"base": "Resource",
-"class": &"BasicResource",
-"language": &"GDScript",
-"path": "res://Skripts/Resource/Resource.gd"
-}, {
 "base": "Node",
 "class": &"InventoryManager",
 "language": &"GDScript",
@@ -25,14 +20,39 @@ _global_script_classes=[{
 "path": "res://Skripts/Inventory/Item.gd"
 }, {
 "base": "Resource",
+"class": &"ItemNodeDrops",
+"language": &"GDScript",
+"path": "res://Skripts/Resource/ItemNodeDrops.gd"
+}, {
+"base": "Resource",
 "class": &"ItemResource",
 "language": &"GDScript",
 "path": "res://Skripts/Resource/ItemResource.gd"
 }, {
 "base": "Node",
+"class": &"ItemsManager",
+"language": &"GDScript",
+"path": "res://Skripts/Manager/ItemsManager.gd"
+}, {
+"base": "Node",
+"class": &"ManagerClass",
+"language": &"GDScript",
+"path": "res://Skripts/Manager/Manager.gd"
+}, {
+"base": "Node",
 "class": &"PivotManager",
 "language": &"GDScript",
 "path": "res://Skripts/Manager/PivotManager.gd"
+}, {
+"base": "Node",
+"class": &"PlayerManager",
+"language": &"GDScript",
+"path": "res://Skripts/Manager/PlayerManager.gd"
+}, {
+"base": "Node",
+"class": &"ToolManager",
+"language": &"GDScript",
+"path": "res://Skripts/Manager/ToolManager.gd"
 }, {
 "base": "Resource",
 "class": &"playerModifier",
@@ -45,11 +65,15 @@ _global_script_classes=[{
 "path": "res://Resource/PlayerStats.gd"
 }]
 _global_script_class_icons={
-"BasicResource": "",
 "InventoryManager": "",
 "ItemData": "",
+"ItemNodeDrops": "",
 "ItemResource": "",
+"ItemsManager": "",
+"ManagerClass": "",
 "PivotManager": "",
+"PlayerManager": "",
+"ToolManager": "",
 "playerModifier": "",
 "playerStats": ""
 }
@@ -66,6 +90,7 @@ config/icon="res://icon.png"
 DataEnums="*res://Skripts/Manager/Enums.gd"
 ItemLoader="*res://Skripts/Resource/ItemLoader.gd"
 AllPlayerManager="*res://Skripts/Manager/AllPlayerManager.gd"
+DataConstants="*res://Skripts/Manager/Constants.gd"
 
 [display]
 
@@ -126,7 +151,7 @@ inventory={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"store_command":true,"alt_pressed":false,"shift_pressed":false,"meta_pressed":false,"command_pressed":false,"pressed":false,"keycode":70,"physical_keycode":0,"unicode":0,"echo":false,"script":null)
 ]
 }
-slowAction={
+strongAction={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"store_command":true,"alt_pressed":false,"shift_pressed":false,"meta_pressed":false,"command_pressed":false,"pressed":false,"keycode":16777237,"physical_keycode":0,"unicode":0,"echo":false,"script":null)
 ]

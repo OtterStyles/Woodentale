@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://dei7me2j5y6fu"]
+
+[ext_resource type="Script" path="res://Skripts/Resource/ItemNode.gd" id="1_22g1i"]
+[ext_resource type="Script" path="res://Skripts/Resource/ItemNodeDrops.gd" id="2_hv5j4"]
+[ext_resource type="Texture2D" uid="uid://o3qjrxop7dg" path="res://Artwork/Atlase/ItemsAtlas.png" id="2_y6wpn"]
+[ext_resource type="PackedScene" path="res://PreFab/Utilities/hurtbox.tscn" id="3_8sqbw"]
+
+[sub_resource type="Resource" id="Resource_aom41"]
+script = ExtResource("2_hv5j4")
+itemID = 0
+dropChance = 100.0
+dropMin = 1
+dropMax = 5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n00jv"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ho6u7"]
+radius = 40.0
+
+[node name="ItemNode" type="StaticBody2D"]
+script = ExtResource("1_22g1i")
+itemDrops = [SubResource("Resource_aom41")]
+health = 2
+
+[node name="sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_y6wpn")
+hframes = 10
+vframes = 10
+
+[node name="collisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_n00jv")
+
+[node name="hurtbox" parent="." instance=ExtResource("3_8sqbw")]
+collision_layer = 0
+collision_mask = 8
+invisibleTime = 0.0
+
+[node name="CollisionShape2D" parent="hurtbox" index="0"]
+shape = SubResource("CircleShape2D_ho6u7")
+
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+
+[editable path="hurtbox"]

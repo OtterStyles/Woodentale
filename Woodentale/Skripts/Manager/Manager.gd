@@ -1,14 +1,12 @@
 extends Node
+class_name ManagerClass
+
 @onready var player = $".."
-
-
+@onready var playerManager: PlayerManager = $PlayerManager
+@onready var itemsManager: ItemsManager = $ItemsManager
+@onready var pivotManager: PivotManager = $PivotManager
+@onready var inventoryManager: InventoryManager = $InventoryManager
+@onready var toolManager = $ToolManager
 
 func _ready():
-	if not AllPlayerManager.players.has(player.name):
-		var managers = getAllManagers()
-		for manager in managers:
-			AllPlayerManager.players[player.name] =  {}
-			AllPlayerManager.players[player.name][manager.name] = manager
-			
-func getAllManagers():
-	return get_children()
+	AllPlayerManager.addPlayer(self)

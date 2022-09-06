@@ -1,5 +1,5 @@
 extends Node
-
+class_name ItemsManager
 @onready var pickupZone = %PickUpZone
 @onready var player = $"../.."
 

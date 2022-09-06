@@ -1,16 +1,18 @@
 extends ColorRect
 
 const SlotClass = preload("res://Skripts/Inventory/Slot.gd")
+var ItemClass = preload("res://PreFab/Inventory/item.tscn")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var exit_button: Button = %ExitButton
 @onready var slotsContainer = $centerContainer/TextureRect/Slots
 @onready var player = $"../.."
-var playerInventoryManager: InventoryManager
 
-var holding_item = null;
+var playerInventoryManager: InventoryManager
+enum PickSize { ONE, MINSTACKSIZE, HALF, FULL}
+var holding_item = null
 
 func _ready() -> void:
-	playerInventoryManager = AllPlayerManager.players[player.name]['InventoryManager']
+	playerInventoryManager = AllPlayerManager.players[player.name].inventoryManager
 	# https://www.youtube.com/watch?v=g1x8ct2Slok
 	exit_button.pressed.connect(unpause)
 	var slots = getAllSlots()
@@ -35,42 +37,60 @@ func initializeInventory() -> void:
 			slots[i].initializeItem(playerInventoryManager.inventory[i][0], playerInventoryManager.inventory[i][1])
 
 func slot_gui_input(event: InputEvent, slot: SlotClass) -> void:
+	var strongAction = Input.is_action_pressed("strongAction")
 	if not event is InputEventMouseButton:
 		return
-	if event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
-		if holding_item != null:
-			if !slot.item and canPlaceInSlot(slot):
-				slot.putIntoSlot(holding_item)
-				putInInventory(holding_item, slot)
-				holding_item = null;
-			else:
-				swapItems(event, slot)
-		elif slot.item:
-			holding_item = slot.item
-			slot.pickFromSlot()
-			removeFromInventory(slot)
-			holding_item.global_position = get_global_mouse_position()
+	if event.button_index == MOUSE_BUTTON_LEFT && event.pressed && strongAction:
+		handleItemWithQuantity(PickSize.ONE, event, slot)
+	elif event.button_index == MOUSE_BUTTON_RIGHT && event.pressed && strongAction:
+		handleItemWithQuantity(PickSize.MINSTACKSIZE, event, slot)
+	elif event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
+		handleItemWithQuantity(PickSize.FULL, event, slot)
+	elif event.button_index == MOUSE_BUTTON_RIGHT && event.pressed:
+		handleItemWithQuantity(PickSize.HALF, event, slot)
 
-func swapItems(event: InputEvent, slot: SlotClass) -> void:
+func handleItemWithQuantity(type: int, event: InputEvent, slot: SlotClass) -> void:
+	if holding_item == null and slot.item != null:
+		pickItems(type, slot)
+	else:
+		if slot.item == null and canPlaceInSlot(slot):
+			putItems(type, slot)
+		else:
+			swapItems(event,type, slot)
+			
+func swapItems(event: InputEvent,type: DataEnums.PickSize, slot: SlotClass) -> void:
 	if canPlaceInSlot(slot):
-		if holding_item.itemID != slot.item.itemID:
-			var temp_item = slot.item
-			slot.pickFromSlot()
-			removeFromInventory(slot)
-			temp_item.global_position = event.global_position
-			slot.putIntoSlot(holding_item)
-			putInInventory(holding_item, slot)
+		if holding_item.itemID != slot.item.itemID and type == DataEnums.PickSize.FULL:
+			remove_child(holding_item)
+			var temp_item = slot.pickFromSlot(type)
+			temp_item.global_position = get_global_mouse_position()
+			slot.putIntoSlot(holding_item, type)
+			putInInventory(slot.item, slot)
+			add_child(temp_item)
 			holding_item = temp_item
 			return
-		var stack_size = ItemLoader.getItem(slot.item.itemID).stackSize
-		var able_to_add = stack_size - slot.item.item_quantity
-		if able_to_add >= holding_item.item_quantity:
-			slot.item.addItemQuantity(holding_item.item_quantity)
-			holding_item.queue_free()
-			holding_item = null
-			return
-		slot.item.addItemQuantity(able_to_add)
-		holding_item.decreaseItemQuantity(able_to_add)
+		elif holding_item.itemID == slot.item.itemID:
+			var stack_size = ItemLoader.getItem(slot.item.itemID).stackSize
+			var able_to_add = stack_size - slot.item.item_quantity
+			if able_to_add >= holding_item.item_quantity:
+				slot.item.addItemQuantity(holding_item.item_quantity)
+				holding_item.queue_free()
+				holding_item = null
+				return
+
+func pickItems(type: DataEnums.PickSize, slot: SlotClass):
+	holding_item = slot.pickFromSlot(type)
+	holding_item.global_position = get_global_mouse_position()
+	add_child(holding_item)
+	updateInventory(slot.item, slot)
+	
+func putItems(type: DataEnums.PickSize, slot: SlotClass):
+	remove_child(holding_item)
+	holding_item = slot.putIntoSlot(holding_item, type)
+	putInInventory(slot.item, slot)
+	if holding_item:
+		add_child(holding_item)
+
 
 func canPlaceInSlot(slot: SlotClass) -> bool:
 	if slot.mainType == DataEnums.MainType.ITEM:
@@ -82,7 +102,11 @@ func canPlaceInSlot(slot: SlotClass) -> bool:
 func putInInventory(item: ItemData,slot: SlotClass):
 	var slotIndex = getAllSlots().find(slot)
 	playerInventoryManager.addToSlot(item, slotIndex)
-	
+
+func updateInventory(item: ItemData, slot: SlotClass):
+	var slotIndex = getAllSlots().find(slot)
+	playerInventoryManager.updateSlot(item, slotIndex)
+
 func removeFromInventory(slot: SlotClass):
 	var slotIndex = getAllSlots().find(slot)
 	playerInventoryManager.removeSlot(slotIndex)

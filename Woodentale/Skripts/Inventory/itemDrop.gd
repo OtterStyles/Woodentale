@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
-@onready var sprite = $Sprite
+@onready var sprite: Sprite2D = $Sprite
 
 @export var itemID: DataEnums.ItemID = DataEnums.ItemID.WOOD
+
 var player: CharacterBody2D = null
 var beingPickedUp = false
 var playerInventoryManager
@@ -14,10 +15,14 @@ const MAX_DISTANCE = 90
 const MIN_DISTANCE = 5
 
 func _ready():
+	changeSprite(itemID)
+		
+func changeSprite(newItemID: int) -> void:
+	itemID = newItemID
 	if ItemLoader.itemDirectory.has(itemID):
 		var item: ItemResource = ItemLoader.itemDirectory[itemID]
+		print(sprite)
 		sprite.frame = item.atlasFrame
-		
 
 func _physics_process(delta: float) -> void:
 	if beingPickedUp:
@@ -40,6 +45,6 @@ func _physics_process(delta: float) -> void:
 func pickUpItem(body: CharacterBody2D) -> void:
 	player = body
 	beingPickedUp = true
-	playerInventoryManager = AllPlayerManager.players[player.name]['InventoryManager']
+	playerInventoryManager = AllPlayerManager.players[player.name].inventoryManager
 
 

@@ -7,7 +7,13 @@ extends Panel
 
 const ItemType = preload("res://Skripts/Inventory/Item.gd")
 var ItemClass = preload("res://PreFab/Inventory/item.tscn")
-var item = null
+var item: ItemData = null
+var updateByQuantity = 0
+
+func _process(_delta):
+	if item:
+		set_tooltip(item.itemDescription)
+	
 
 func initializeItem(item_id: int, item_quantity: int) -> void:
 	if item == null:
@@ -17,15 +23,43 @@ func initializeItem(item_id: int, item_quantity: int) -> void:
 	else:
 		item.setItem(item_id, item_quantity)
 
-func pickFromSlot() -> void:
-	remove_child(item)
-	var inventoryNode  = find_parent("Inventory")
-	inventoryNode.add_child(item)
-	item = null
+func pickFromSlot(type: DataEnums.PickSize) -> ItemData:
+	var invItem: ItemData = matchTypeAndCreateInvItem(item, type)
+	if item.item_quantity > updateByQuantity:
+		item.decreaseItemQuantity(updateByQuantity)
+	else:
+		remove_child(item)
+		item = null
+	return invItem
 
-func putIntoSlot(new_item: ItemType) -> void:
-	item = new_item
-	item.position = Vector2.ZERO
-	var inventoryNode = find_parent("Inventory")
-	inventoryNode.remove_child(item)
-	add_child(item)
+func putIntoSlot(holding_item: ItemType, type: DataEnums.PickSize) -> void:
+	if item == null:
+		var invItem: ItemData = ItemClass.instantiate()
+		item = matchTypeAndCreateInvItem(holding_item, type)
+		item.position = Vector2.ZERO
+		add_child(item)
+		holding_item.decreaseItemQuantity(updateByQuantity)
+		if holding_item.item_quantity <= 0:
+			return null
+		return holding_item
+	else:
+		return holding_item
+
+
+func matchTypeAndCreateInvItem(byItem: ItemData,type: DataEnums.PickSize) -> ItemData:
+	var invItem: ItemData = ItemClass.instantiate()
+	match type:
+		DataEnums.PickSize.ONE:
+			invItem.setItem(byItem.itemID,1)
+			updateByQuantity = 1
+		DataEnums.PickSize.HALF:
+			invItem.setItem(byItem.itemID, int(byItem.item_quantity/2))
+			updateByQuantity = invItem.item_quantity
+		DataEnums.PickSize.FULL:
+			invItem.setItem(byItem.itemID, byItem.item_quantity)
+			updateByQuantity = byItem.item_quantity
+		DataEnums.PickSize.MINSTACKSIZE:
+			invItem.setItem(byItem.itemID, DataConstants.MIN_STACK)
+			updateByQuantity = DataConstants.MIN_STACK
+	print(updateByQuantity)
+	return invItem

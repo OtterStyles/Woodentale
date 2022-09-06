@@ -5,12 +5,14 @@ extends Area2D
 @export var invisibleTime : float = 0.5
 
 func _ready() -> void:
-	timer.wait_time = invisibleTime
+	if invisibleTime > 0:
+		timer.wait_time = invisibleTime
 
 
 func _on_area_2d_area_entered(_area: Area2D) -> void:
 	timer.start()
-	collisionShape2D.set_deferred('disabled', true)
+	if invisibleTime > 0:
+		collisionShape2D.set_deferred('disabled', true)
 
 
 func _on_timer_timeout() -> void:

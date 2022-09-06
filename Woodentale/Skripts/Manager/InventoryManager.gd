@@ -1,15 +1,19 @@
 extends Node
 class_name InventoryManager
 
-const NUM_INVENTORY_SLOTS = 30
+const COLUMN = 6
+const ROW = 5
+const NUM_INVENTORY_SLOTS = ROW * COLUMN
 signal inventoryChanged
 
 var inventory: Dictionary = {
-	0: [DataEnums.ItemID.WOOD, 10],
+	0: [DataEnums.ItemID.WOOD, 20],
 	1: [DataEnums.ItemID.STONE, 5],
-	2: [DataEnums.ItemID.HELMET, 1]
+	2: [DataEnums.ItemID.FARN_HELMET, 1],
+	3: [DataEnums.ItemID.FARN_CHEST, 1],
+	4: [DataEnums.ItemID.FARN_PANTS, 1],
+	5: [DataEnums.ItemID.FARN_SNEACKERS, 1]
 }
-
 
 func addItem(itemID: int, item_quantity: int) -> bool:
 	var stackSize = ItemLoader.getItem(itemID).stackSize
@@ -26,12 +30,24 @@ func addItem(itemID: int, item_quantity: int) -> bool:
 	return false
 
 func removeSlot(slotIndex: int) -> bool:
+	var ret = inventory.erase(slotIndex)
 	inventoryChanged.emit()
-	return inventory.erase(slotIndex)
+	return ret
 	
 func addToSlot(item: ItemData, slotIndex: int) -> bool:
 	if not inventory.has(slotIndex):
-		inventoryChanged.emit()
 		inventory[slotIndex] = [item.itemID, item.item_quantity]
+		inventoryChanged.emit()
+		return true
+	return false
+
+func updateSlot(item: ItemData, slotIndex: int) -> bool:
+	if inventory.has(slotIndex):
+		if item == null:
+			return removeSlot(slotIndex)
+		if item.item_quantity <= 0:
+			removeSlot(slotIndex)
+		else:
+			inventory[slotIndex] = [item.itemID, item.item_quantity]
 		return true
 	return false

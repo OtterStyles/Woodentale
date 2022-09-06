@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2m0x582xkrai"]
+[gd_scene load_steps=6 format=3 uid="uid://c2m0x582xkrai"]
 
 [ext_resource type="PackedScene" uid="uid://b67cityhlbgsm" path="res://PreFab/Player.tscn" id="1"]
 [ext_resource type="PackedScene" path="res://PreFab/Utilities/hitbox.tscn" id="2_lh55i"]
 [ext_resource type="PackedScene" uid="uid://nbvlr1nton3v" path="res://PreFab/Inventory/itemDrop.tscn" id="3_82dju"]
+[ext_resource type="PackedScene" uid="uid://dei7me2j5y6fu" path="res://PreFab/Utilities/itemnode.tscn" id="4_csj6h"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_68eqy"]
 radius = 11.0
@@ -39,5 +40,7 @@ itemID = 6
 [node name="ItemDrop3" parent="Items" instance=ExtResource("3_82dju")]
 position = Vector2(95, -138)
 itemID = 3
+
+[node name="ItemNode" parent="." instance=ExtResource("4_csj6h")]
 
 [editable path="Hitbox"]

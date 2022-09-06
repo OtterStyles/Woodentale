@@ -8,6 +8,7 @@ itemName = "Wood"
 itemID = 0
 stackSizeEnum = 6
 atlasFrame = 0
+itemDescription = "This is a pile of Wood"
 mainType = 0
 itemType = 0
 itemSubType = 13

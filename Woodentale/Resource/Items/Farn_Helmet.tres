@@ -4,10 +4,11 @@
 
 [resource]
 script = ExtResource("1_t4wa1")
-itemName = "Helmet"
+itemName = "Farn_Helmet"
 itemID = 6
 stackSizeEnum = 0
 atlasFrame = 2
+itemDescription = "This is a farn Helmet"
 mainType = 1
 itemType = 6
 itemSubType = 4
