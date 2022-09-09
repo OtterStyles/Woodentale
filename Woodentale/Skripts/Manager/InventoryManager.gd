@@ -12,7 +12,8 @@ var inventory: Dictionary = {
 	2: [DataEnums.ItemID.FARN_HELMET, 1],
 	3: [DataEnums.ItemID.FARN_CHEST, 1],
 	4: [DataEnums.ItemID.FARN_PANTS, 1],
-	5: [DataEnums.ItemID.FARN_SNEACKERS, 1]
+	5: [DataEnums.ItemID.FARN_SNEACKERS, 1],
+	6: [DataEnums.ItemID.WOOD, 480],
 }
 
 func addItem(itemID: int, item_quantity: int) -> bool:

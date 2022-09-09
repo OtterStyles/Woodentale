@@ -41,33 +41,27 @@ func slot_gui_input(event: InputEvent, slot: SlotClass) -> void:
 	if not event is InputEventMouseButton:
 		return
 	if event.button_index == MOUSE_BUTTON_LEFT && event.pressed && strongAction:
-		handleItemWithQuantity(PickSize.ONE, event, slot)
+		handleItemWithQuantity(PickSize.ONE, slot)
 	elif event.button_index == MOUSE_BUTTON_RIGHT && event.pressed && strongAction:
-		handleItemWithQuantity(PickSize.MINSTACKSIZE, event, slot)
+		handleItemWithQuantity(PickSize.MINSTACKSIZE, slot)
 	elif event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
-		handleItemWithQuantity(PickSize.FULL, event, slot)
+		handleItemWithQuantity(PickSize.FULL, slot)
 	elif event.button_index == MOUSE_BUTTON_RIGHT && event.pressed:
-		handleItemWithQuantity(PickSize.HALF, event, slot)
+		handleItemWithQuantity(PickSize.HALF, slot)
 
-func handleItemWithQuantity(type: int, event: InputEvent, slot: SlotClass) -> void:
+func handleItemWithQuantity(type: int, slot: SlotClass) -> void:
 	if holding_item == null and slot.item != null:
 		pickItems(type, slot)
 	else:
 		if slot.item == null and canPlaceInSlot(slot):
 			putItems(type, slot)
 		else:
-			swapItems(event,type, slot)
+			swapItems(type, slot)
 			
-func swapItems(event: InputEvent,type: DataEnums.PickSize, slot: SlotClass) -> void:
-	if canPlaceInSlot(slot):
-		if holding_item.itemID != slot.item.itemID and type == DataEnums.PickSize.FULL:
-			remove_child(holding_item)
-			var temp_item = slot.pickFromSlot(type)
-			temp_item.global_position = get_global_mouse_position()
-			slot.putIntoSlot(holding_item, type)
-			putInInventory(slot.item, slot)
-			add_child(temp_item)
-			holding_item = temp_item
+func swapItems(type: DataEnums.PickSize, slot: SlotClass) -> void:
+	if canPlaceInSlot(slot) and type == DataEnums.PickSize.FULL:
+		if holding_item.itemID != slot.item.itemID:
+			swapTwoItems(slot, type)
 			return
 		elif holding_item.itemID == slot.item.itemID:
 			var stack_size = ItemLoader.getItem(slot.item.itemID).stackSize
@@ -77,7 +71,22 @@ func swapItems(event: InputEvent,type: DataEnums.PickSize, slot: SlotClass) -> v
 				holding_item.queue_free()
 				holding_item = null
 				return
-
+			elif slot.item.item_quantity == stack_size:
+				swapTwoItems(slot, type)
+				return
+			slot.item.addItemQuantity(able_to_add)
+			holding_item.decreaseItemQuantity(able_to_add)
+			
+func swapTwoItems(slot: SlotClass, type: DataEnums.PickSize):
+	remove_child(holding_item)
+	var temp_item = slot.pickFromSlot(type)
+	removeFromInventory(slot)
+	temp_item.global_position = get_global_mouse_position()
+	slot.putIntoSlot(holding_item, type)
+	putInInventory(slot.item, slot)
+	add_child(temp_item)
+	holding_item = temp_item
+			
 func pickItems(type: DataEnums.PickSize, slot: SlotClass):
 	holding_item = slot.pickFromSlot(type)
 	holding_item.global_position = get_global_mouse_position()

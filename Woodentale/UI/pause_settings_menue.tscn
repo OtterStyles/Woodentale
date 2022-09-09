@@ -15,7 +15,7 @@ grow_vertical = 2
 script = ExtResource("1_l1ykq")
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_47n76")]
+layout_mode = 1
 
 [node name="SettingsMenue" parent="." instance=ExtResource("3_u3gyt")]
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 1

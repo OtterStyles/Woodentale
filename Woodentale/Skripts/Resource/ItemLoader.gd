@@ -20,5 +20,5 @@ func _init():
 func getItem(ID: int):
 	if itemDirectory.has(ID):
 		return itemDirectory[ID]
-	return null
+	return ERR_DOES_NOT_EXIST
 

@@ -13,10 +13,5 @@ script = ExtResource("1_jxbw5")
 anchors_preset = 15
 
 [node name="PauseSettingsMenue" parent="." instance=ExtResource("3_1abxx")]
-layout_mode = 3
-anchors_preset = 15
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Inventory" parent="." instance=ExtResource("3_hegqw")]
-anchors_preset = 15

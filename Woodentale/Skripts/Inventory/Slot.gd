@@ -32,9 +32,8 @@ func pickFromSlot(type: DataEnums.PickSize) -> ItemData:
 		item = null
 	return invItem
 
-func putIntoSlot(holding_item: ItemClass, type: DataEnums.PickSize) -> void:
+func putIntoSlot(holding_item: ItemClass, type: DataEnums.PickSize) -> ItemClass:
 	if item == null:
-		var invItem: ItemData = ItemType.instantiate()
 		item = matchTypeAndCreateInvItem(holding_item, type)
 		item.position = Vector2.ZERO
 		add_child(item)

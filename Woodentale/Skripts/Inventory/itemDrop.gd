@@ -17,7 +17,7 @@ const MIN_DISTANCE = 5
 func _ready():
 	changeSprite(itemID)
 		
-func changeSprite(newItemID: int) -> void:
+func changeSprite(newItemID: DataEnums.ItemID ) -> void:
 	itemID = newItemID
 	if ItemLoader.itemDirectory.has(itemID):
 		var item: ItemResource = ItemLoader.itemDirectory[itemID]

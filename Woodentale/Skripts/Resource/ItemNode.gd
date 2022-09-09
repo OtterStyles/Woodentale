@@ -27,10 +27,10 @@ func dropItems():
 func doDrop(percent: int) -> bool:
 	return randf_range(0,100) <= percent
 
-func quantityDrop(min: int, max: int) -> int:
-	return randi_range(min, max)
+func quantityDrop(minRange: int, maxRange: int) -> int:
+	return randi_range(minRange, maxRange)
 	
 func randomVelocity() -> Vector2:
-	var max = 200
-	var min = -200
-	return Vector2(randf_range(min,max),randf_range(min,max))
+	var maxRange = 200
+	var minRange = -200
+	return Vector2(randf_range(minRange,maxRange),randf_range(minRange,maxRange))
