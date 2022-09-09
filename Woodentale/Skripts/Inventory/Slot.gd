@@ -5,19 +5,19 @@ extends Panel
 @export var itemType: DataEnums.ItemType = DataEnums.ItemType.RESOURCE
 @export var itemSubType: DataEnums.SubItemType = DataEnums.SubItemType.NONE
 
-const ItemType = preload("res://Skripts/Inventory/Item.gd")
-var ItemClass = preload("res://PreFab/Inventory/item.tscn")
+const ItemType = preload("res://PreFab/Inventory/item.tscn")
+const ItemClass = preload("res://Skripts/Inventory/Item.gd")
 var item: ItemData = null
 var updateByQuantity = 0
 
 func _process(_delta):
 	if item:
-		set_tooltip(item.itemDescription)
+		tooltip_text = item.itemDescription
 	
 
 func initializeItem(item_id: int, item_quantity: int) -> void:
 	if item == null:
-		item = ItemClass.instantiate()
+		item = ItemType.instantiate()
 		item.setItem(item_id, item_quantity)
 		add_child(item)
 	else:
@@ -32,9 +32,9 @@ func pickFromSlot(type: DataEnums.PickSize) -> ItemData:
 		item = null
 	return invItem
 
-func putIntoSlot(holding_item: ItemType, type: DataEnums.PickSize) -> void:
+func putIntoSlot(holding_item: ItemClass, type: DataEnums.PickSize) -> void:
 	if item == null:
-		var invItem: ItemData = ItemClass.instantiate()
+		var invItem: ItemData = ItemType.instantiate()
 		item = matchTypeAndCreateInvItem(holding_item, type)
 		item.position = Vector2.ZERO
 		add_child(item)
@@ -47,7 +47,7 @@ func putIntoSlot(holding_item: ItemType, type: DataEnums.PickSize) -> void:
 
 
 func matchTypeAndCreateInvItem(byItem: ItemData,type: DataEnums.PickSize) -> ItemData:
-	var invItem: ItemData = ItemClass.instantiate()
+	var invItem: ItemData = ItemType.instantiate()
 	match type:
 		DataEnums.PickSize.ONE:
 			invItem.setItem(byItem.itemID,1)

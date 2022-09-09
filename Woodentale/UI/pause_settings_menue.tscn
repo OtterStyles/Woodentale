@@ -6,10 +6,16 @@
 
 [node name="PauseSettingsMenue" type="Control"]
 process_mode = 3
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_l1ykq")
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_47n76")]
 
 [node name="SettingsMenue" parent="." instance=ExtResource("3_u3gyt")]
+grow_horizontal = 2
+grow_vertical = 2

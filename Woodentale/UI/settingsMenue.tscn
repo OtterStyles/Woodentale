@@ -1,13 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://celdb5vo8o13d"]
+[gd_scene load_steps=9 format=3 uid="uid://celdb5vo8o13d"]
 
 [ext_resource type="Script" path="res://Skripts/UI/settingsMenue.gd" id="1_hdltq"]
 [ext_resource type="Shader" path="res://Artwork/Shader/blur.gdshader" id="1_yw7te"]
-[ext_resource type="FontFile" uid="uid://du18od0jqh6cv" path="res://Artwork/Fonts/prstart.ttf" id="3_8yiaf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ub68v"]
 shader = ExtResource("1_yw7te")
-shader_param/blur = 2.5
-shader_param/brightness = 1.0
+blur = null
+brightness = null
 
 [sub_resource type="InputEventKey" id="InputEventKey_5ckya"]
 store_command = false
@@ -34,7 +33,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:material:shader_param/blur")
+tracks/1/path = NodePath(".:material:blur")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -46,7 +45,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".:material:shader_param/brightness")
+tracks/2/path = NodePath(".:material:brightness")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -86,7 +85,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:material:shader_param/blur")
+tracks/1/path = NodePath(".:material:blur")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -98,7 +97,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".:material:shader_param/brightness")
+tracks/2/path = NodePath(".:material:brightness")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -127,28 +126,31 @@ _data = {
 }
 
 [node name="SettingsMenue" type="ColorRect"]
-visible = false
 self_modulate = Color(0.537255, 0.537255, 0.537255, 0.443137)
 material = SubResource("ShaderMaterial_ub68v")
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_hdltq")
 
 [node name="centerContainer" type="CenterContainer" parent="."]
-modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 offset_right = 960.0
 offset_bottom = 540.0
 
 [node name="vBoxContainer" type="VBoxContainer" parent="centerContainer"]
 custom_minimum_size = Vector2(960, 540)
+layout_mode = 2
 offset_right = 960.0
 offset_bottom = 540.0
 
 [node name="label" type="Label" parent="centerContainer/vBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
 offset_right = 960.0
 offset_bottom = 60.0
-theme_override_fonts/font = ExtResource("3_8yiaf")
 theme_override_font_sizes/font_size = 32
 text = "Settings"
 horizontal_alignment = 1
@@ -156,10 +158,10 @@ vertical_alignment = 1
 
 [node name="tabBar" type="TabBar" parent="centerContainer/vBoxContainer"]
 visible = false
+layout_mode = 2
 offset_top = 64.0
 offset_right = 960.0
 offset_bottom = 98.0
-theme_override_fonts/font = ExtResource("3_8yiaf")
 theme_override_font_sizes/font_size = 25
 tab_alignment = 1
 tab_count = 3
@@ -168,13 +170,15 @@ tab_1/title = "Keymap"
 tab_2/title = "Audio"
 
 [node name="tabContainer" type="TabContainer" parent="centerContainer/vBoxContainer"]
+layout_mode = 2
 offset_top = 64.0
 offset_right = 960.0
 offset_bottom = 476.0
 size_flags_vertical = 3
 
 [node name="Video" type="Control" parent="centerContainer/vBoxContainer/tabContainer"]
-visible = false
+layout_mode = 2
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 31.0
@@ -183,6 +187,8 @@ grow_vertical = 2
 metadata/_edit_layout_mode = 1
 
 [node name="hBoxContainer" type="HBoxContainer" parent="centerContainer/vBoxContainer/tabContainer/Video"]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -190,37 +196,40 @@ grow_vertical = 2
 metadata/_edit_layout_mode = 1
 
 [node name="scrollContainer" type="ScrollContainer" parent="centerContainer/vBoxContainer/tabContainer/Video/hBoxContainer"]
+layout_mode = 2
 offset_right = 960.0
 offset_bottom = 381.0
 size_flags_horizontal = 3
 vertical_scroll_mode = 2
 
 [node name="vBoxContainer" type="VBoxContainer" parent="centerContainer/vBoxContainer/tabContainer/Video/hBoxContainer/scrollContainer"]
-offset_right = 960.0
+layout_mode = 2
+offset_right = 952.0
 offset_bottom = 381.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="monitor" type="HBoxContainer" parent="centerContainer/vBoxContainer/tabContainer/Video/hBoxContainer/scrollContainer/vBoxContainer"]
+layout_mode = 2
 offset_right = 952.0
-offset_bottom = 29.0
+offset_bottom = 36.0
 theme_override_constants/separation = 150
 
 [node name="label" type="Label" parent="centerContainer/vBoxContainer/tabContainer/Video/hBoxContainer/scrollContainer/vBoxContainer/monitor"]
+layout_mode = 2
 offset_top = 2.0
-offset_right = 160.0
-offset_bottom = 26.0
-theme_override_fonts/font = ExtResource("3_8yiaf")
+offset_right = 84.0
+offset_bottom = 33.0
 theme_override_font_sizes/font_size = 20
 text = "Monitor:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="optionButton" type="OptionButton" parent="centerContainer/vBoxContainer/tabContainer/Video/hBoxContainer/scrollContainer/vBoxContainer/monitor"]
-offset_left = 310.0
-offset_right = 533.0
-offset_bottom = 29.0
-theme_override_fonts/font = ExtResource("3_8yiaf")
+layout_mode = 2
+offset_left = 234.0
+offset_right = 372.0
+offset_bottom = 36.0
 theme_override_font_sizes/font_size = 20
 item_count = 2
 selected = 0
@@ -230,26 +239,27 @@ popup/item_1/text = "Monitor 2"
 popup/item_1/id = 1
 
 [node name="fps" type="HBoxContainer" parent="centerContainer/vBoxContainer/tabContainer/Video/hBoxContainer/scrollContainer/vBoxContainer"]
-offset_top = 33.0
+layout_mode = 2
+offset_top = 40.0
 offset_right = 952.0
-offset_bottom = 62.0
+offset_bottom = 76.0
 theme_override_constants/separation = 150
 
 [node name="label" type="Label" parent="centerContainer/vBoxContainer/tabContainer/Video/hBoxContainer/scrollContainer/vBoxContainer/fps"]
+layout_mode = 2
 offset_top = 2.0
-offset_right = 80.0
-offset_bottom = 26.0
-theme_override_fonts/font = ExtResource("3_8yiaf")
+offset_right = 40.0
+offset_bottom = 33.0
 theme_override_font_sizes/font_size = 20
 text = "FPS:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="optionButton" type="OptionButton" parent="centerContainer/vBoxContainer/tabContainer/Video/hBoxContainer/scrollContainer/vBoxContainer/fps"]
-offset_left = 230.0
-offset_right = 313.0
-offset_bottom = 29.0
-theme_override_fonts/font = ExtResource("3_8yiaf")
+layout_mode = 2
+offset_left = 190.0
+offset_right = 256.0
+offset_bottom = 36.0
 theme_override_font_sizes/font_size = 20
 item_count = 2
 selected = 0
@@ -259,26 +269,27 @@ popup/item_1/text = "60"
 popup/item_1/id = 1
 
 [node name="v-sync" type="HBoxContainer" parent="centerContainer/vBoxContainer/tabContainer/Video/hBoxContainer/scrollContainer/vBoxContainer"]
-offset_top = 66.0
+layout_mode = 2
+offset_top = 80.0
 offset_right = 952.0
-offset_bottom = 95.0
+offset_bottom = 116.0
 theme_override_constants/separation = 150
 
 [node name="label" type="Label" parent="centerContainer/vBoxContainer/tabContainer/Video/hBoxContainer/scrollContainer/vBoxContainer/v-sync"]
+layout_mode = 2
 offset_top = 2.0
-offset_right = 140.0
-offset_bottom = 26.0
-theme_override_fonts/font = ExtResource("3_8yiaf")
+offset_right = 69.0
+offset_bottom = 33.0
 theme_override_font_sizes/font_size = 20
 text = "V-Sync:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="optionButton" type="OptionButton" parent="centerContainer/vBoxContainer/tabContainer/Video/hBoxContainer/scrollContainer/vBoxContainer/v-sync"]
-offset_left = 290.0
-offset_right = 513.0
-offset_bottom = 29.0
-theme_override_fonts/font = ExtResource("3_8yiaf")
+layout_mode = 2
+offset_left = 219.0
+offset_right = 357.0
+offset_bottom = 36.0
 theme_override_font_sizes/font_size = 20
 item_count = 2
 selected = 0
@@ -289,6 +300,8 @@ popup/item_1/id = 1
 
 [node name="Audio" type="Control" parent="centerContainer/vBoxContainer/tabContainer"]
 visible = false
+layout_mode = 2
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 31.0
@@ -297,6 +310,8 @@ grow_vertical = 2
 metadata/_edit_layout_mode = 1
 
 [node name="hBoxContainer" type="HBoxContainer" parent="centerContainer/vBoxContainer/tabContainer/Audio"]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -304,37 +319,40 @@ grow_vertical = 2
 metadata/_edit_layout_mode = 1
 
 [node name="scrollContainer" type="ScrollContainer" parent="centerContainer/vBoxContainer/tabContainer/Audio/hBoxContainer"]
+layout_mode = 2
 offset_right = 960.0
 offset_bottom = 381.0
 size_flags_horizontal = 3
 vertical_scroll_mode = 2
 
 [node name="vBoxContainer" type="VBoxContainer" parent="centerContainer/vBoxContainer/tabContainer/Audio/hBoxContainer/scrollContainer"]
+layout_mode = 2
 offset_right = 960.0
 offset_bottom = 381.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Audio" type="HBoxContainer" parent="centerContainer/vBoxContainer/tabContainer/Audio/hBoxContainer/scrollContainer/vBoxContainer"]
+layout_mode = 2
 offset_right = 952.0
 offset_bottom = 29.0
 theme_override_constants/separation = 150
 
 [node name="label" type="Label" parent="centerContainer/vBoxContainer/tabContainer/Audio/hBoxContainer/scrollContainer/vBoxContainer/Audio"]
+layout_mode = 2
 offset_top = 2.0
 offset_right = 260.0
 offset_bottom = 26.0
-theme_override_fonts/font = ExtResource("3_8yiaf")
 theme_override_font_sizes/font_size = 20
 text = "Audio Device:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="optionButton" type="OptionButton" parent="centerContainer/vBoxContainer/tabContainer/Audio/hBoxContainer/scrollContainer/vBoxContainer/Audio"]
+layout_mode = 2
 offset_left = 410.0
 offset_right = 473.0
 offset_bottom = 29.0
-theme_override_fonts/font = ExtResource("3_8yiaf")
 theme_override_font_sizes/font_size = 20
 item_count = 2
 selected = 0
@@ -344,15 +362,16 @@ popup/item_1/text = "2"
 popup/item_1/id = 1
 
 [node name="General" type="HBoxContainer" parent="centerContainer/vBoxContainer/tabContainer/Audio/hBoxContainer/scrollContainer/vBoxContainer"]
+layout_mode = 2
 offset_top = 33.0
 offset_right = 952.0
 offset_bottom = 57.0
 theme_override_constants/separation = 150
 
 [node name="label" type="Label" parent="centerContainer/vBoxContainer/tabContainer/Audio/hBoxContainer/scrollContainer/vBoxContainer/General"]
+layout_mode = 2
 offset_right = 160.0
 offset_bottom = 24.0
-theme_override_fonts/font = ExtResource("3_8yiaf")
 theme_override_font_sizes/font_size = 20
 text = "General:"
 horizontal_alignment = 1
@@ -360,21 +379,23 @@ vertical_alignment = 1
 
 [node name="ruler" type="HSlider" parent="centerContainer/vBoxContainer/tabContainer/Audio/hBoxContainer/scrollContainer/vBoxContainer/General"]
 custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
 offset_left = 310.0
 offset_right = 810.0
 offset_bottom = 24.0
 size_flags_vertical = 1
 
 [node name="Ambient" type="HBoxContainer" parent="centerContainer/vBoxContainer/tabContainer/Audio/hBoxContainer/scrollContainer/vBoxContainer"]
+layout_mode = 2
 offset_top = 61.0
 offset_right = 952.0
 offset_bottom = 85.0
 theme_override_constants/separation = 150
 
 [node name="label" type="Label" parent="centerContainer/vBoxContainer/tabContainer/Audio/hBoxContainer/scrollContainer/vBoxContainer/Ambient"]
+layout_mode = 2
 offset_right = 160.0
 offset_bottom = 24.0
-theme_override_fonts/font = ExtResource("3_8yiaf")
 theme_override_font_sizes/font_size = 20
 text = "Ambient:"
 horizontal_alignment = 1
@@ -382,21 +403,23 @@ vertical_alignment = 1
 
 [node name="ruler" type="HSlider" parent="centerContainer/vBoxContainer/tabContainer/Audio/hBoxContainer/scrollContainer/vBoxContainer/Ambient"]
 custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
 offset_left = 310.0
 offset_right = 810.0
 offset_bottom = 24.0
 size_flags_vertical = 1
 
 [node name="Sounds" type="HBoxContainer" parent="centerContainer/vBoxContainer/tabContainer/Audio/hBoxContainer/scrollContainer/vBoxContainer"]
+layout_mode = 2
 offset_top = 89.0
 offset_right = 952.0
 offset_bottom = 113.0
 theme_override_constants/separation = 150
 
 [node name="label" type="Label" parent="centerContainer/vBoxContainer/tabContainer/Audio/hBoxContainer/scrollContainer/vBoxContainer/Sounds"]
+layout_mode = 2
 offset_right = 140.0
 offset_bottom = 24.0
-theme_override_fonts/font = ExtResource("3_8yiaf")
 theme_override_font_sizes/font_size = 20
 text = "Sounds:"
 horizontal_alignment = 1
@@ -404,12 +427,16 @@ vertical_alignment = 1
 
 [node name="ruler" type="HSlider" parent="centerContainer/vBoxContainer/tabContainer/Audio/hBoxContainer/scrollContainer/vBoxContainer/Sounds"]
 custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
 offset_left = 290.0
 offset_right = 790.0
 offset_bottom = 24.0
 size_flags_vertical = 1
 
 [node name="Keymap" type="Control" parent="centerContainer/vBoxContainer/tabContainer"]
+visible = false
+layout_mode = 2
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 31.0
@@ -418,6 +445,8 @@ grow_vertical = 2
 metadata/_edit_layout_mode = 1
 
 [node name="hBoxContainer" type="HBoxContainer" parent="centerContainer/vBoxContainer/tabContainer/Keymap"]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -425,37 +454,40 @@ grow_vertical = 2
 metadata/_edit_layout_mode = 1
 
 [node name="scrollContainer" type="ScrollContainer" parent="centerContainer/vBoxContainer/tabContainer/Keymap/hBoxContainer"]
+layout_mode = 2
 offset_right = 960.0
 offset_bottom = 381.0
 size_flags_horizontal = 3
 vertical_scroll_mode = 2
 
 [node name="vBoxContainer" type="VBoxContainer" parent="centerContainer/vBoxContainer/tabContainer/Keymap/hBoxContainer/scrollContainer"]
+layout_mode = 2
 offset_right = 960.0
 offset_bottom = 381.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Up" type="HBoxContainer" parent="centerContainer/vBoxContainer/tabContainer/Keymap/hBoxContainer/scrollContainer/vBoxContainer"]
+layout_mode = 2
 offset_right = 952.0
 offset_bottom = 29.0
 theme_override_constants/separation = 150
 
 [node name="label" type="Label" parent="centerContainer/vBoxContainer/tabContainer/Keymap/hBoxContainer/scrollContainer/vBoxContainer/Up"]
+layout_mode = 2
 offset_top = 2.0
 offset_right = 60.0
 offset_bottom = 26.0
-theme_override_fonts/font = ExtResource("3_8yiaf")
 theme_override_font_sizes/font_size = 20
 text = "UP:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="menuButton" type="MenuButton" parent="centerContainer/vBoxContainer/tabContainer/Keymap/hBoxContainer/scrollContainer/vBoxContainer/Up"]
+layout_mode = 2
 offset_left = 210.0
 offset_right = 238.0
 offset_bottom = 29.0
-theme_override_fonts/font = ExtResource("3_8yiaf")
 theme_override_font_sizes/font_size = 20
 text = "W"
 item_count = 1
@@ -464,6 +496,8 @@ popup/item_0/id = 0
 
 [node name="control" type="Control" parent="centerContainer/vBoxContainer"]
 visible = false
+layout_mode = 2
+anchors_preset = 0
 offset_top = 106.0
 offset_right = 960.0
 offset_bottom = 476.0
@@ -471,6 +505,7 @@ size_flags_vertical = 3
 
 [node name="hBoxContainer2" type="HBoxContainer" parent="centerContainer/vBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
 offset_top = 480.0
 offset_right = 960.0
 offset_bottom = 540.0
@@ -478,12 +513,12 @@ alignment = 1
 
 [node name="exitButton" type="Button" parent="centerContainer/vBoxContainer/hBoxContainer2"]
 unique_name_in_owner = true
-offset_left = 412.0
-offset_top = 10.0
-offset_right = 548.0
-offset_bottom = 50.0
+layout_mode = 2
+offset_left = 439.0
+offset_top = 3.0
+offset_right = 521.0
+offset_bottom = 56.0
 size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("3_8yiaf")
 theme_override_font_sizes/font_size = 32
 shortcut = SubResource("Shortcut_fasdv")
 text = "Back"

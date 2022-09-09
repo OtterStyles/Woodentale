@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://curi4rj3f5fd"]
+[gd_scene load_steps=3 format=3 uid="uid://curi4rj3f5fd"]
 
 [ext_resource type="Script" path="res://Skripts/Inventory/Item.gd" id="1_5kchx"]
 [ext_resource type="Texture2D" uid="uid://o3qjrxop7dg" path="res://Artwork/Atlase/ItemsAtlas.png" id="2_n3viy"]
-[ext_resource type="FontFile" uid="uid://du18od0jqh6cv" path="res://Artwork/Fonts/prstart.ttf" id="3_kgqf3"]
 
 [node name="Item" type="Node2D"]
 texture_filter = 1
@@ -25,7 +24,6 @@ offset_right = 115.0
 offset_bottom = 99.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("3_kgqf3")
 theme_override_font_sizes/font_size = 32
 text = "999"
 horizontal_alignment = 2

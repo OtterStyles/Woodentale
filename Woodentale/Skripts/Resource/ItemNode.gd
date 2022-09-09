@@ -22,7 +22,7 @@ func dropItems():
 					item.itemID = itemDrop.itemID
 					item.global_position = global_position
 					item.velocity = randomVelocity()
-					get_parent().add_child(item)
+					get_parent().call_deferred("add_child", item)
 
 func doDrop(percent: int) -> bool:
 	return randf_range(0,100) <= percent

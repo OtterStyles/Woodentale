@@ -15,9 +15,9 @@ func _ready() -> void:
 	playerInventoryManager = AllPlayerManager.players[player.name].inventoryManager
 	# https://www.youtube.com/watch?v=g1x8ct2Slok
 	exit_button.pressed.connect(unpause)
-	var slots = getAllSlots()
+	var slots: Array[SlotClass] = getAllSlots()
 	for inv_slot in slots:
-		inv_slot.connect("gui_input", slot_gui_input, [inv_slot])
+		inv_slot.connect("gui_input", slot_gui_input.bind(inv_slot))
 	initializeInventory()
 	
 func _input(_event: InputEvent) -> void:
