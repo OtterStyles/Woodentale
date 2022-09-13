@@ -21,11 +21,9 @@ func _input(event):
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP && event.pressed:
 			activeHotBarRow -= playerInventoryManager.COLUMN
 		activeHotBarRow = clampi(activeHotBarRow, 0, playerInventoryManager.NUM_INVENTORY_SLOTS - playerInventoryManager.COLUMN)
-		print(activeHotBarRow)
 		initializeInventory()
 
 func initializeInventory() -> void:
-	print(playerInventoryManager.inventory)
 	var slots = hotbar_slots.get_children()
 	for i in range(playerInventoryManager.COLUMN):
 		var keyIndex = activeHotBarRow + i

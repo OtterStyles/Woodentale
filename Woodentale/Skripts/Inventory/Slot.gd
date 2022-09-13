@@ -24,6 +24,8 @@ func initializeItem(item_id: int, item_quantity: int) -> void:
 		item.setItem(item_id, item_quantity)
 
 func pickFromSlot(type: DataEnums.PickSize) -> ItemData:
+	if not item:
+		return item
 	var invItem: ItemData = matchTypeAndCreateInvItem(item, type)
 	if item.item_quantity > updateByQuantity:
 		item.decreaseItemQuantity(updateByQuantity)
@@ -33,16 +35,16 @@ func pickFromSlot(type: DataEnums.PickSize) -> ItemData:
 	return invItem
 
 func putIntoSlot(holding_item: ItemClass, type: DataEnums.PickSize) -> ItemClass:
-	if item == null:
-		item = matchTypeAndCreateInvItem(holding_item, type)
-		item.position = Vector2.ZERO
-		add_child(item)
-		holding_item.decreaseItemQuantity(updateByQuantity)
-		if holding_item.item_quantity <= 0:
-			return null
+	if item:
 		return holding_item
-	else:
-		return holding_item
+	item = matchTypeAndCreateInvItem(holding_item, type)
+	item.position = Vector2.ZERO
+	add_child(item)
+	holding_item.decreaseItemQuantity(updateByQuantity)
+	if holding_item.item_quantity <= 0:
+		return null
+	return holding_item
+		
 
 
 func matchTypeAndCreateInvItem(byItem: ItemData,type: DataEnums.PickSize) -> ItemData:
@@ -58,7 +60,9 @@ func matchTypeAndCreateInvItem(byItem: ItemData,type: DataEnums.PickSize) -> Ite
 			invItem.setItem(byItem.itemID, byItem.item_quantity)
 			updateByQuantity = byItem.item_quantity
 		DataEnums.PickSize.MINSTACKSIZE:
-			invItem.setItem(byItem.itemID, DataConstants.MIN_STACK)
+			if byItem.item_quantity >= DataConstants.MIN_STACK:
+				invItem.setItem(byItem.itemID, DataConstants.MIN_STACK)
+			else:
+				invItem.setItem(byItem.itemID, byItem.item_quantity)
 			updateByQuantity = DataConstants.MIN_STACK
-	print(updateByQuantity)
 	return invItem

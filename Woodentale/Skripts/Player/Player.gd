@@ -27,11 +27,9 @@ var animationName = ['Working','Idle','Walking','Attacking']
 @onready var player_manager = $Manager/PlayerManager
 @onready var pivot_manager = $Manager/PivotManager
 
-
 func _ready():
 	animationTree.active = true;
 
-	
 func _process(_delta) -> void:
 	calculateStats()
 	
@@ -43,7 +41,6 @@ func _physics_process(delta) -> void:
 			working_state(delta)
 		ATTACKING:
 			pass
-
 
 func move_state(delta: float) -> void:
 	getInput()
