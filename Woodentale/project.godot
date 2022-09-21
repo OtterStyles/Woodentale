@@ -19,10 +19,15 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Skripts/Inventory/Item.gd"
 }, {
+"base": "StaticBody2D",
+"class": &"ItemNode",
+"language": &"GDScript",
+"path": "res://Skripts/Resource/ItemNode.gd"
+}, {
 "base": "Resource",
 "class": &"ItemNodeDrops",
 "language": &"GDScript",
-"path": "res://Skripts/Resource/ItemNodeDrops.gd"
+"path": "res://Resource/ItemNodeDrops.gd"
 }, {
 "base": "Resource",
 "class": &"ItemResource",
@@ -49,6 +54,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Skripts/Manager/PlayerManager.gd"
 }, {
+"base": "Resource",
+"class": &"SpawnFieldResource",
+"language": &"GDScript",
+"path": "res://Resource/SpawnFieldResource.gd"
+}, {
 "base": "Node",
 "class": &"ToolManager",
 "language": &"GDScript",
@@ -67,12 +77,14 @@ _global_script_classes=[{
 _global_script_class_icons={
 "InventoryManager": "",
 "ItemData": "",
+"ItemNode": "",
 "ItemNodeDrops": "",
 "ItemResource": "",
 "ItemsManager": "",
 "ManagerClass": "",
 "PivotManager": "",
 "PlayerManager": "",
+"SpawnFieldResource": "",
 "ToolManager": "",
 "playerModifier": "",
 "playerStats": ""

@@ -1,7 +1,8 @@
 extends StaticBody2D
-@export var itemDrops: Array[Resource] = []
-@export var type: DataEnums.ToolTypes = DataEnums.ToolTypes.AXE
-@export var health = 5
+class_name ItemNode
+var itemDrops: Array[Resource] = []
+var type: DataEnums.ToolTypes = DataEnums.ToolTypes.AXE
+var health = 5
 
 const ItemDrop = preload("res://PreFab/Inventory/itemDrop.tscn")
 func _on_hurtbox_area_entered(area: Area2D):
@@ -25,7 +26,7 @@ func dropItems():
 					get_parent().call_deferred("add_child", item)
 
 func doDrop(percent: int) -> bool:
-	return randf_range(0,100) <= percent
+	return randf_range(0,1) <= percent
 
 func quantityDrop(minRange: int, maxRange: int) -> int:
 	return randi_range(minRange, maxRange)
