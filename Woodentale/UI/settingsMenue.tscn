@@ -157,31 +157,30 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="tabBar" type="TabBar" parent="centerContainer/vBoxContainer"]
-visible = false
 layout_mode = 2
 offset_top = 64.0
 offset_right = 960.0
-offset_bottom = 98.0
+offset_bottom = 107.0
 theme_override_font_sizes/font_size = 25
 tab_alignment = 1
 tab_count = 3
 tab_0/title = "Video"
-tab_1/title = "Keymap"
-tab_2/title = "Audio"
+tab_1/title = "Audio"
+tab_2/title = "Keymap"
 
 [node name="tabContainer" type="TabContainer" parent="centerContainer/vBoxContainer"]
 layout_mode = 2
-offset_top = 64.0
+offset_top = 111.0
 offset_right = 960.0
 offset_bottom = 476.0
 size_flags_vertical = 3
+tabs_visible = false
 
 [node name="Video" type="Control" parent="centerContainer/vBoxContainer/tabContainer"]
 layout_mode = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 31.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_layout_mode = 1
@@ -198,14 +197,14 @@ metadata/_edit_layout_mode = 1
 [node name="scrollContainer" type="ScrollContainer" parent="centerContainer/vBoxContainer/tabContainer/Video/hBoxContainer"]
 layout_mode = 2
 offset_right = 960.0
-offset_bottom = 381.0
+offset_bottom = 365.0
 size_flags_horizontal = 3
 vertical_scroll_mode = 2
 
 [node name="vBoxContainer" type="VBoxContainer" parent="centerContainer/vBoxContainer/tabContainer/Video/hBoxContainer/scrollContainer"]
 layout_mode = 2
 offset_right = 952.0
-offset_bottom = 381.0
+offset_bottom = 365.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -304,7 +303,6 @@ layout_mode = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 31.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_layout_mode = 1
@@ -439,7 +437,6 @@ layout_mode = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 31.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_layout_mode = 1

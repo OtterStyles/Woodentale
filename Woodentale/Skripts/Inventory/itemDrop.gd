@@ -21,7 +21,6 @@ func changeSprite(newItemID: DataEnums.ItemID ) -> void:
 	itemID = newItemID
 	if ItemLoader.itemDirectory.has(itemID):
 		var item: ItemResource = ItemLoader.itemDirectory[itemID]
-		print(sprite)
 		sprite.frame = item.atlasFrame
 
 func _physics_process(delta: float) -> void:

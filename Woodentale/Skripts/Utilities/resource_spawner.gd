@@ -10,19 +10,19 @@ func _ready():
 	
 func initItemNode(cell: Vector2i) -> void:
 	selectRandomSpawnNode()
-	print(map_to_local(cell))
 	if randomSpawn():
 		var newItemNode: ItemNode = itemNode.instantiate()
-		newItemNode.health = activeSpawnNodes.health
+		newItemNode.healths = activeSpawnNodes.healths
 		newItemNode.type = activeSpawnNodes.type
 		newItemNode.itemDrops = activeSpawnNodes.itemDrops
 		newItemNode.global_position = map_to_local(cell)
+		newItemNode.setItemID(activeSpawnNodes.itemID)
+		newItemNode.changeSprite()
 		get_parent().call_deferred("add_child", newItemNode)
 
 func selectRandomSpawnNode() -> void:
-	spawnNodes.shuffle()
-	activeSpawnNodes = spawnNodes.front()
+	activeSpawnNodes = spawnNodes[randi_range(0,len(spawnNodes) - 1)]
 
 func randomSpawn() -> bool:
-	return randf_range(0,1) <= activeSpawnNodes.spawnChance
+	return randi_range(0,1) <= activeSpawnNodes.spawnChance
 

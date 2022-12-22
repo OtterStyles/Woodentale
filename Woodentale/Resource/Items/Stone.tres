@@ -1,5 +1,6 @@
-[gd_resource type="Resource" load_steps=2 format=3]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://ckoaptjlvijrf"]
 
+[ext_resource type="Texture2D" uid="uid://bme3bwm1i462j" path="res://Artwork/Atlase/Enviroment/Spring/Stone.png" id="1_o2itc"]
 [ext_resource type="Script" path="res://Skripts/Resource/ItemResource.gd" id="1_t4wa1"]
 
 [resource]
@@ -7,7 +8,7 @@ script = ExtResource("1_t4wa1")
 itemName = "Stone"
 itemID = 3
 stackSizeEnum = 6
-atlasFrame = 1
+atlasFrame = 0
 itemDescription = "This is a pile of Stone"
 mainType = 0
 itemType = 0
@@ -24,3 +25,4 @@ fishingBonus = 1
 miningBonus = 1
 placeHeight = 1
 placeWidth = 1
+enviromentTextures = [ExtResource("1_o2itc")]

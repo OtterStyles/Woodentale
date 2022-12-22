@@ -10,6 +10,7 @@ func _ready() -> void:
 	resume_button.pressed.connect(unpause)
 	quit_button.pressed.connect(get_tree().quit)
 	settings_button.pressed.connect(openSettings)
+	visible = false
 
 func openSettings() -> void:
 	changeToSettings.emit()

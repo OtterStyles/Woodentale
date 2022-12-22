@@ -11,9 +11,10 @@ script = ExtResource("1_5kchx")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(32, 32)
+scale = Vector2(2, 2)
 texture = ExtResource("2_n3viy")
-hframes = 10
-vframes = 10
+hframes = 20
+vframes = 20
 region_rect = Rect2(64, 64, 0, 0)
 
 [node name="Label" type="Label" parent="."]

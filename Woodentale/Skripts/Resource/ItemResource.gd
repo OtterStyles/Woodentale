@@ -13,7 +13,6 @@ var stackSize = 0
 @export var mainType: DataEnums.MainType = DataEnums.MainType.ITEM
 @export var itemType: DataEnums.ItemType = DataEnums.ItemType.RESOURCE
 @export var itemSubType: DataEnums.SubItemType = DataEnums.SubItemType.NONE
-
 @export_category("Stats")
 @export_group("PlayerAttribute")
 @export_range(1,2) var speed = 1
@@ -30,4 +29,7 @@ var stackSize = 0
 @export_group("PlaceAbles")
 @export var placeHeight = 1
 @export var placeWidth = 1
+
+@export_category("Enviroment")
+@export var enviromentTextures: Array[Texture2D] = []
 

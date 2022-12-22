@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://Skripts/UI/hotbar.gd" id="1_rgs60"]
 
 [node name="HotBar" type="ColorRect"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -13,6 +14,8 @@ script = ExtResource("1_rgs60")
 
 [node name="control" type="Control" parent="."]
 custom_minimum_size = Vector2(0, 100)
+layout_mode = 3
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -22,6 +25,7 @@ metadata/_edit_layout_mode = 1
 
 [node name="centerContainer" type="CenterContainer" parent="control"]
 custom_minimum_size = Vector2(0, 100)
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2

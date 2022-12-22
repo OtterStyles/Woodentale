@@ -1,13 +1,15 @@
-[gd_resource type="Resource" load_steps=2 format=3]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://dctnj4pkt1m1n"]
 
+[ext_resource type="Texture2D" uid="uid://kgqy1njo7yen" path="res://Artwork/Atlase/Enviroment/Spring/Oak_Tree.png" id="1_rrj70"]
 [ext_resource type="Script" path="res://Skripts/Resource/ItemResource.gd" id="1_t4wa1"]
+[ext_resource type="Texture2D" uid="uid://c47iopxsociww" path="res://Artwork/Atlase/Enviroment/Spring/Oak_Stomp.png" id="2_hi18p"]
 
 [resource]
 script = ExtResource("1_t4wa1")
 itemName = "Wood"
 itemID = 0
 stackSizeEnum = 6
-atlasFrame = 0
+atlasFrame = 1
 itemDescription = "This is a pile of Wood"
 mainType = 0
 itemType = 0
@@ -24,3 +26,4 @@ fishingBonus = 1
 miningBonus = 1
 placeHeight = 1
 placeWidth = 1
+enviromentTextures = [ExtResource("1_rrj70"), ExtResource("2_hi18p")]

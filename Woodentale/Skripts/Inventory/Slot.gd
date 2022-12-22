@@ -8,9 +8,11 @@ extends Panel
 const ItemType = preload("res://PreFab/Inventory/item.tscn")
 const ItemClass = preload("res://Skripts/Inventory/Item.gd")
 var item: ItemData = null
+var activated: bool = false
 var updateByQuantity = 0
 
 func _process(_delta):
+	visible = activated
 	if item:
 		tooltip_text = item.itemDescription
 	
@@ -44,8 +46,6 @@ func putIntoSlot(holding_item: ItemClass, type: DataEnums.PickSize) -> ItemClass
 	if holding_item.item_quantity <= 0:
 		return null
 	return holding_item
-		
-
 
 func matchTypeAndCreateInvItem(byItem: ItemData,type: DataEnums.PickSize) -> ItemData:
 	var invItem: ItemData = ItemType.instantiate()

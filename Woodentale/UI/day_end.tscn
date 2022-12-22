@@ -1,0 +1,82 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://Skripts/DayEnd/day_end.gd" id="1_5iwrr"]
+[ext_resource type="Script" path="res://Skripts/DayEnd/soldItems.gd" id="1_gb4l6"]
+
+[node name="dayEnd" type="ColorRect"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5iwrr")
+
+[node name="centerContainer" type="CenterContainer" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="vBoxContainer" type="VBoxContainer" parent="centerContainer"]
+offset_left = 354.0
+offset_top = 184.0
+offset_right = 606.0
+offset_bottom = 356.0
+
+[node name="label" type="Label" parent="centerContainer/vBoxContainer"]
+texture_filter = 1
+offset_right = 252.0
+offset_bottom = 91.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "Day End"
+
+[node name="container" type="PanelContainer" parent="centerContainer/vBoxContainer"]
+offset_top = 95.0
+offset_right = 252.0
+offset_bottom = 137.0
+size_flags_stretch_ratio = 20.0
+script = ExtResource("1_gb4l6")
+
+[node name="hBoxContainer" type="HBoxContainer" parent="centerContainer/vBoxContainer/container"]
+offset_right = 252.0
+offset_bottom = 42.0
+theme_override_constants/separation = 3
+alignment = 1
+
+[node name="label" type="Label" parent="centerContainer/vBoxContainer/container/hBoxContainer"]
+offset_right = 63.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = "Item"
+
+[node name="vSeparator" type="VSeparator" parent="centerContainer/vBoxContainer/container/hBoxContainer"]
+offset_left = 66.0
+offset_right = 212.0
+offset_bottom = 42.0
+size_flags_horizontal = 3
+
+[node name="label2" type="Label" parent="centerContainer/vBoxContainer/container/hBoxContainer"]
+offset_left = 215.0
+offset_top = 8.0
+offset_right = 252.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "1000"
+
+[node name="hBoxContainer" type="HBoxContainer" parent="centerContainer/vBoxContainer"]
+offset_top = 141.0
+offset_right = 252.0
+offset_bottom = 172.0
+alignment = 1
+
+[node name="continueButton" type="Button" parent="centerContainer/vBoxContainer/hBoxContainer"]
+unique_name_in_owner = true
+offset_left = 86.0
+offset_right = 165.0
+offset_bottom = 31.0
+text = "Continue"

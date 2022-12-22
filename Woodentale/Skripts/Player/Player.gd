@@ -24,8 +24,9 @@ var animationName = ['Working','Idle','Walking','Attacking']
 
 @onready var animationStateMachine = $Animation/AnimationTree.get("parameters/playback");
 @onready var animationTree = $Animation/AnimationTree
-@onready var player_manager = $Manager/PlayerManager
-@onready var pivot_manager = $Manager/PivotManager
+@onready var player_manager: PlayerManager = $Manager/PlayerManager
+@onready var pivot_manager: PivotManager = $Manager/PivotManager
+@onready var tool_manager = $Manager/ToolManager
 
 func _ready():
 	animationTree.active = true;
@@ -55,6 +56,7 @@ func getInput() -> void:
 	sprint = 1
 	if Input.is_action_pressed("work"):
 		state = WORKING
+		player_manager.inventorySlots = 18
 		return
 	if Input.is_action_pressed("sprint"):
 		sprint = SPEED_SPRINT_MULT
@@ -115,3 +117,4 @@ func handelAnimation(NodeName: StringName) -> void:
 
 func resetAnimationState() -> void:
 	state = MOVE
+	tool_manager.toolHit = false

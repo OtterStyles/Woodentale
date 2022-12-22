@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://Skripts/UI/Overhead.gd" id="1_re8mw"]
+[ext_resource type="Texture2D" uid="uid://jy53rnm6y5cw" path="res://Artwork/Atlase/Assets/ClockAtlas.png" id="2_fil1u"]
+
+[node name="Overhead" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+script = ExtResource("1_re8mw")
+
+[node name="control" type="Control" parent="."]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+metadata/_edit_layout_mode = 1
+
+[node name="centerContainer" type="HBoxContainer" parent="control"]
+custom_minimum_size = Vector2(0, 100)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 128.0
+grow_horizontal = 2
+alignment = 2
+metadata/_edit_layout_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="sprite2d" type="Sprite2D" parent="control/centerContainer"]
+texture_filter = 1
+texture = ExtResource("2_fil1u")
+centered = false
+hframes = 12
+vframes = 2

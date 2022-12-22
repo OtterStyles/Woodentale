@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpnrtxdqhyfcd"]
+
+[ext_resource type="Script" path="res://Skripts/Manager/timeManager.gd" id="1_s11o0"]
+
+[node name="timeManager" type="Node"]
+script = ExtResource("1_s11o0")
+
+[node name="timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

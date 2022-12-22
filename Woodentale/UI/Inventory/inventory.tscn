@@ -1,21 +1,21 @@
-[gd_scene load_steps=13 format=3 uid="uid://cwoo6a4h0yq7w"]
+[gd_scene load_steps=19 format=3 uid="uid://c7f35axhxuuuj"]
 
 [ext_resource type="Script" path="res://Skripts/Inventory/inventory.gd" id="1_hbb5x"]
 [ext_resource type="Shader" path="res://Artwork/Shader/blur.gdshader" id="1_yh3gs"]
+[ext_resource type="PackedScene" path="res://UI/Overhead.tscn" id="3_i33el"]
+[ext_resource type="Script" path="res://Skripts/UI/BookTexture.gd" id="4_dknsn"]
 [ext_resource type="PackedScene" uid="uid://dqvr07s5e65ji" path="res://UI/Inventory/ItemSlot.tscn" id="4_rmvdj"]
+[ext_resource type="Texture2D" uid="uid://c6rx8x4jbpmnw" path="res://Artwork/Atlase/Assets/Book/Book_empty.png" id="4_s5puh"]
+[ext_resource type="Texture2D" uid="uid://ckygv1vcukr3v" path="res://Artwork/Atlase/Assets/Book/Book_phase1.png" id="6_dpd74"]
+[ext_resource type="Texture2D" uid="uid://b48yw80va6e5r" path="res://Artwork/Atlase/Assets/Buttons/Close_normal.png" id="6_fuuh1"]
+[ext_resource type="Texture2D" uid="uid://da1qd51wtp0ri" path="res://Artwork/Atlase/Assets/Book/Book_phase2.png" id="7_hb11o"]
+[ext_resource type="Texture2D" uid="uid://bbebnop7ilw7k" path="res://Artwork/Atlase/Assets/Buttons/Close_hover.png" id="7_v38xv"]
+[ext_resource type="Texture2D" uid="uid://cdx1x4c3vxyt2" path="res://Artwork/Atlase/Assets/Buttons/Close_pressed.png" id="8_02p7v"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iwxey"]
 shader = ExtResource("1_yh3gs")
-blur = null
-brightness = null
-
-[sub_resource type="Texture2D" id="Texture2D_u621d"]
-resource_local_to_scene = false
-resource_name = ""
-
-[sub_resource type="Texture2D" id="Texture2D_nwnbp"]
-resource_local_to_scene = false
-resource_name = ""
+blur = 2.5
+brightness = 1.0
 
 [sub_resource type="InputEventAction" id="InputEventAction_v55vy"]
 action = &"inventory"
@@ -164,8 +164,6 @@ _data = {
 
 [node name="Inventory" type="ColorRect"]
 process_mode = 3
-visible = false
-modulate = Color(1, 1, 1, 0)
 self_modulate = Color(0.313726, 0.313726, 0.313726, 0.584314)
 material = SubResource("ShaderMaterial_iwxey")
 anchors_preset = 15
@@ -175,6 +173,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hbb5x")
 
+[node name="Overhead" parent="." instance=ExtResource("3_i33el")]
+
 [node name="centerContainer" type="CenterContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
@@ -183,29 +183,20 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_layout_mode = 1
 
-[node name="TextureRect" type="TextureRect" parent="centerContainer"]
-self_modulate = Color(0.290196, 0.290196, 0.290196, 1)
+[node name="Book" type="TextureRect" parent="centerContainer"]
+texture_filter = 1
 custom_minimum_size = Vector2(800, 440)
 offset_left = 80.0
 offset_top = 50.0
 offset_right = 880.0
 offset_bottom = 490.0
-texture = SubResource("Texture2D_u621d")
+texture = ExtResource("4_s5puh")
+script = ExtResource("4_dknsn")
+inv6Slots = ExtResource("6_dpd74")
+inv18Slots = ExtResource("7_hb11o")
+inv30Slots = ExtResource("4_s5puh")
 
-[node name="PlaceHolderMiddle" type="TextureRect" parent="centerContainer/TextureRect"]
-modulate = Color(0.0941176, 0.0941176, 0.0941176, 1)
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -25.0
-offset_right = 25.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("Texture2D_nwnbp")
-metadata/_edit_layout_mode = 1
-
-[node name="Slots" type="Control" parent="centerContainer/TextureRect"]
+[node name="Slots" type="Control" parent="centerContainer/Book"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -214,219 +205,259 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_layout_mode = 1
 
-[node name="InventorySlots" type="GridContainer" parent="centerContainer/TextureRect/Slots"]
+[node name="InventorySlots" type="GridContainer" parent="centerContainer/Book/Slots"]
 unique_name_in_owner = true
 texture_filter = 1
-offset_left = 437.0
+offset_left = 430.0
 offset_top = 76.0
-offset_right = 787.0
+offset_right = 780.0
 offset_bottom = 364.0
 theme_override_constants/h_separation = 12
 theme_override_constants/v_separation = 12
 columns = 6
 
-[node name="ItemSlot" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot" parent="centerContainer/Book/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
 
-[node name="ItemSlot2" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot2" parent="centerContainer/Book/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
 offset_left = 60.0
 offset_right = 108.0
 
-[node name="ItemSlot3" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot3" parent="centerContainer/Book/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
 offset_left = 120.0
 offset_right = 168.0
 
-[node name="ItemSlot4" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot4" parent="centerContainer/Book/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
 offset_left = 180.0
 offset_right = 228.0
 
-[node name="ItemSlot5" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot5" parent="centerContainer/Book/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
 offset_left = 240.0
 offset_right = 288.0
 
-[node name="ItemSlot6" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot6" parent="centerContainer/Book/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
 offset_left = 300.0
 offset_right = 348.0
 
-[node name="ItemSlot7" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot7" parent="centerContainer/Book/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
 offset_top = 60.0
 offset_bottom = 108.0
 
-[node name="ItemSlot8" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot8" parent="centerContainer/Book/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
 offset_left = 60.0
 offset_top = 60.0
 offset_right = 108.0
 offset_bottom = 108.0
 
-[node name="ItemSlot9" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot9" parent="centerContainer/Book/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
 offset_left = 120.0
 offset_top = 60.0
 offset_right = 168.0
 offset_bottom = 108.0
 
-[node name="ItemSlot10" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot10" parent="centerContainer/Book/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
 offset_left = 180.0
 offset_top = 60.0
 offset_right = 228.0
 offset_bottom = 108.0
 
-[node name="ItemSlot11" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot11" parent="centerContainer/Book/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
 offset_left = 240.0
 offset_top = 60.0
 offset_right = 288.0
 offset_bottom = 108.0
 
-[node name="ItemSlot12" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot12" parent="centerContainer/Book/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
 offset_left = 300.0
 offset_top = 60.0
 offset_right = 348.0
 offset_bottom = 108.0
 
-[node name="ItemSlot13" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot13" parent="centerContainer/Book/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
 offset_top = 120.0
 offset_bottom = 168.0
 
-[node name="ItemSlot14" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot14" parent="centerContainer/Book/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
 offset_left = 60.0
 offset_top = 120.0
 offset_right = 108.0
 offset_bottom = 168.0
 
-[node name="ItemSlot15" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot15" parent="centerContainer/Book/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
 offset_left = 120.0
 offset_top = 120.0
 offset_right = 168.0
 offset_bottom = 168.0
 
-[node name="ItemSlot16" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot16" parent="centerContainer/Book/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
 offset_left = 180.0
 offset_top = 120.0
 offset_right = 228.0
 offset_bottom = 168.0
 
-[node name="ItemSlot17" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot17" parent="centerContainer/Book/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
 offset_left = 240.0
 offset_top = 120.0
 offset_right = 288.0
 offset_bottom = 168.0
 
-[node name="ItemSlot18" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot18" parent="centerContainer/Book/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
 offset_left = 300.0
 offset_top = 120.0
 offset_right = 348.0
 offset_bottom = 168.0
 
-[node name="ItemSlot19" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot19" parent="centerContainer/Book/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
 offset_top = 180.0
 offset_bottom = 228.0
 
-[node name="ItemSlot20" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot20" parent="centerContainer/Book/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
 offset_left = 60.0
 offset_top = 180.0
 offset_right = 108.0
 offset_bottom = 228.0
 
-[node name="ItemSlot21" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot21" parent="centerContainer/Book/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
 offset_left = 120.0
 offset_top = 180.0
 offset_right = 168.0
 offset_bottom = 228.0
 
-[node name="ItemSlot22" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot22" parent="centerContainer/Book/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
 offset_left = 180.0
 offset_top = 180.0
 offset_right = 228.0
 offset_bottom = 228.0
 
-[node name="ItemSlot23" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot23" parent="centerContainer/Book/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
 offset_left = 240.0
 offset_top = 180.0
 offset_right = 288.0
 offset_bottom = 228.0
 
-[node name="ItemSlot24" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot24" parent="centerContainer/Book/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
 offset_left = 300.0
 offset_top = 180.0
 offset_right = 348.0
 offset_bottom = 228.0
 
-[node name="ItemSlot25" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot25" parent="centerContainer/Book/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
 offset_top = 240.0
 offset_bottom = 288.0
 
-[node name="ItemSlot26" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot26" parent="centerContainer/Book/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
 offset_left = 60.0
 offset_top = 240.0
 offset_right = 108.0
 offset_bottom = 288.0
 
-[node name="ItemSlot27" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot27" parent="centerContainer/Book/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
 offset_left = 120.0
 offset_top = 240.0
 offset_right = 168.0
 offset_bottom = 288.0
 
-[node name="ItemSlot28" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot28" parent="centerContainer/Book/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
 offset_left = 180.0
 offset_top = 240.0
 offset_right = 228.0
 offset_bottom = 288.0
 
-[node name="ItemSlot29" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot29" parent="centerContainer/Book/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
 offset_left = 240.0
 offset_top = 240.0
 offset_right = 288.0
 offset_bottom = 288.0
 
-[node name="ItemSlot30" parent="centerContainer/TextureRect/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot30" parent="centerContainer/Book/Slots/InventorySlots" instance=ExtResource("4_rmvdj")]
 offset_left = 300.0
 offset_top = 240.0
 offset_right = 348.0
 offset_bottom = 288.0
 
-[node name="Equipment Slots" type="GridContainer" parent="centerContainer/TextureRect/Slots"]
+[node name="Equipment Slots" type="GridContainer" parent="centerContainer/Book/Slots"]
 unique_name_in_owner = true
 texture_filter = 1
-offset_left = 29.0
+offset_left = 30.0
 offset_top = 75.0
-offset_right = 79.0
+offset_right = 78.0
 offset_bottom = 367.0
 theme_override_constants/h_separation = 12
 theme_override_constants/v_separation = 12
 
-[node name="ItemSlot" parent="centerContainer/TextureRect/Slots/Equipment Slots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot" parent="centerContainer/Book/Slots/Equipment Slots" instance=ExtResource("4_rmvdj")]
 mainType = 1
 itemType = 6
 itemSubType = 4
 
-[node name="ItemSlot2" parent="centerContainer/TextureRect/Slots/Equipment Slots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot2" parent="centerContainer/Book/Slots/Equipment Slots" instance=ExtResource("4_rmvdj")]
 offset_top = 60.0
 offset_bottom = 108.0
 mainType = 1
 itemType = 6
 itemSubType = 7
 
-[node name="ItemSlot3" parent="centerContainer/TextureRect/Slots/Equipment Slots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot3" parent="centerContainer/Book/Slots/Equipment Slots" instance=ExtResource("4_rmvdj")]
 offset_top = 120.0
 offset_bottom = 168.0
 mainType = 1
 itemType = 6
 itemSubType = 6
 
-[node name="ItemSlot4" parent="centerContainer/TextureRect/Slots/Equipment Slots" instance=ExtResource("4_rmvdj")]
+[node name="ItemSlot4" parent="centerContainer/Book/Slots/Equipment Slots" instance=ExtResource("4_rmvdj")]
 offset_top = 180.0
 offset_bottom = 228.0
 mainType = 1
 itemType = 6
 itemSubType = 5
 
-[node name="ExitButton" type="Button" parent="centerContainer/TextureRect"]
+[node name="AccesoirSlots" type="GridContainer" parent="centerContainer/Book/Slots"]
 unique_name_in_owner = true
+texture_filter = 1
+offset_left = 338.0
+offset_top = 75.0
+offset_right = 386.0
+offset_bottom = 367.0
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+
+[node name="ItemSlot" parent="centerContainer/Book/Slots/AccesoirSlots" instance=ExtResource("4_rmvdj")]
+mainType = 2
+itemType = 6
+itemSubType = 3
+
+[node name="ItemSlot2" parent="centerContainer/Book/Slots/AccesoirSlots" instance=ExtResource("4_rmvdj")]
+offset_top = 60.0
+offset_bottom = 108.0
+mainType = 2
+itemType = 6
+itemSubType = 3
+
+[node name="ItemSlot3" parent="centerContainer/Book/Slots/AccesoirSlots" instance=ExtResource("4_rmvdj")]
+offset_top = 120.0
+offset_bottom = 168.0
+mainType = 2
+itemType = 6
+itemSubType = 2
+
+[node name="ItemSlot4" parent="centerContainer/Book/Slots/AccesoirSlots" instance=ExtResource("4_rmvdj")]
+offset_top = 180.0
+offset_bottom = 228.0
+mainType = 2
+itemType = 6
+itemSubType = 2
+
+[node name="ExitButton" type="TextureButton" parent="centerContainer/Book"]
+unique_name_in_owner = true
+texture_filter = 1
 offset_left = 705.0
 offset_top = 26.0
 offset_right = 777.0
 offset_bottom = 57.0
+shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_01kie")
-text = "Exit"
+texture_normal = ExtResource("6_fuuh1")
+texture_pressed = ExtResource("7_v38xv")
+texture_hover = ExtResource("8_02p7v")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Unpause"

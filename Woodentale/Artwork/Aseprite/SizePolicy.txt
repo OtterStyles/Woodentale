@@ -1,0 +1,7 @@
+Enviroment:
+	Size: 64x64
+	Set ID in Atlas
+
+Items
+	Size: 48x48
+

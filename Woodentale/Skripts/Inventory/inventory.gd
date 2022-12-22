@@ -4,13 +4,15 @@ const SlotClass = preload("res://Skripts/Inventory/Slot.gd")
 var ItemClass = preload("res://PreFab/Inventory/item.tscn")
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var exit_button: Button = %ExitButton
-@onready var slotsContainer = $centerContainer/TextureRect/Slots
+@onready var exit_button: TextureButton = %ExitButton
+@onready var slotsContainer = $centerContainer/Book/Slots
 @onready var player = $"../.."
 @onready var timer: Timer = $timer
+@onready var book: BookTexture = $centerContainer/Book
 
 enum Functions { PICK, PUT, SWAP}
 var playerInventoryManager: InventoryManager
+var playerManager: PlayerManager
 var holding_item = null
 var isPressed: bool = false
 var activeSlot : SlotClass
@@ -23,13 +25,40 @@ var offsetTime = 0.1
 
 func _ready() -> void:
 	playerInventoryManager = AllPlayerManager.players[player.name].inventoryManager
+	playerManager = AllPlayerManager.players[player.name].playerManager
+	playerManager.updateInventorySlots.connect(updateInventorySlots)
+	playerManager.updateEquipmentSlots.connect(updateEquipmentSlots)
 	# https://www.youtube.com/watch?v=g1x8ct2Slok
+	visible = false
 	exit_button.pressed.connect(unpause)
+	
+	updateInventorySlots(playerManager.inventorySlots)
+	updateEquipmentSlots(playerManager.equipmentSlots)
+	updateAccesoirSlots(playerManager.accesoirSlots)
+	
 	var slots: Array[SlotClass] = getAllSlots()
 	for inv_slot in slots:
 		inv_slot.connect("gui_input", slot_gui_input.bind(inv_slot))
 	initializeInventory()
+
+func updateInventorySlots(inventorySlots: int):
+	book.updateInventorySlots(inventorySlots)
+	var slots: Array[SlotClass] = getAllSlotsByCategorie(DataEnums.MainType.ITEM)
+	for i in range(inventorySlots):
+		slots[i].activated = true
+
+func updateEquipmentSlots(equipmentSlots: int):
+	book.updateEquipmentSlots(equipmentSlots)
+	var slots: Array[SlotClass] = getAllSlotsByCategorie(DataEnums.MainType.EQUIPMENT)
+	for slot in slots:
+		slot.activated = true
 	
+func updateAccesoirSlots(equipmentSlots: int):
+	book.updateAccesoirSlots(equipmentSlots)
+	var slots: Array[SlotClass] = getAllSlotsByCategorie(DataEnums.MainType.ACCESSOIR)
+	for slot in slots:
+		slot.activated = true
+
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		isPressed = event.pressed
@@ -54,14 +83,32 @@ func getAllSlots():
 	for inv_slots_holder in slotsContainer.get_children():
 		slots.append_array(inv_slots_holder.get_children())
 	return slots
+
+func getAllSlotsByCategorie(mainType: DataEnums.MainType):
+	var slots = []
+	for inv_slots_holder in slotsContainer.get_children():
+		for slot in inv_slots_holder.get_children():
+			if slot.mainType == mainType:
+				slots.append(slot)
+	return slots
+
+func getAllActivatedSlotsByCategorie(mainType: DataEnums.MainType):
+	var slots = []
+	var allSlots: Array[SlotClass] = getAllSlotsByCategorie(mainType)
+	for slot in allSlots:
+		if slot.activated:
+			slots.append(slot)
+	return slots
 	
 func initializeInventory() -> void:
-	var slots = getAllSlots()
+	var slots = getAllActivatedSlotsByCategorie(DataEnums.MainType.ITEM)
 	for i in range(slots.size()):
 		if playerInventoryManager.inventory.has(i):
 			slots[i].initializeItem(playerInventoryManager.inventory[i][0], playerInventoryManager.inventory[i][1])
 
 func slot_gui_input(event: InputEvent, slot: SlotClass) -> void:
+	if not slot.activated:
+		return
 	var strongAction = Input.is_action_pressed("strongAction")
 	if not event is InputEventMouseButton:
 		return
@@ -95,7 +142,6 @@ func handleItemWithQuantity(type: int, slot: SlotClass) -> void:
 
 func swapItems(type: DataEnums.PickSize, slot: SlotClass) -> void:
 	activeFunction = Functions.SWAP
-	print(type)
 	if canPlaceInSlot(slot) and type == DataEnums.PickSize.FULL:
 		if holding_item.itemID != slot.item.itemID:
 			swapTwoItems(slot, type)

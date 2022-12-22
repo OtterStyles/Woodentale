@@ -4,4 +4,4 @@ class_name SpawnFieldResource extends Resource
 @export_range(0, 1) var spawnChance = 0
 @export var itemDrops: Array[Resource] = []
 @export var type: DataEnums.ToolTypes = DataEnums.ToolTypes.AXE
-@export var health = 1
+@export var healths: Array[int] = [1]
