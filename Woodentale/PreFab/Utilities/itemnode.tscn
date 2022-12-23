@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ud44tn6rpolj"]
+[gd_scene load_steps=6 format=3 uid="uid://ud44tn6rpolj"]
 
 [ext_resource type="Script" path="res://Skripts/Resource/ItemNode.gd" id="1_22g1i"]
+[ext_resource type="Texture2D" uid="uid://b311twhsqw7om" path="res://Artwork/Atlase/Enviroment/Spring/Oak_Tree.tres" id="2_swm4s"]
 [ext_resource type="PackedScene" path="res://PreFab/Utilities/hurtbox.tscn" id="3_8sqbw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n00jv"]
@@ -14,10 +15,12 @@ script = ExtResource("1_22g1i")
 
 [node name="sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
+texture = ExtResource("2_swm4s")
 centered = false
+offset = Vector2(-64, -192)
 
 [node name="collisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 15)
+position = Vector2(0, -15)
 shape = SubResource("CircleShape2D_n00jv")
 
 [node name="hurtbox" parent="." instance=ExtResource("3_8sqbw")]
@@ -26,7 +29,7 @@ collision_mask = 8
 invisibleTime = 0.0
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
-position = Vector2(0, 15)
+position = Vector2(0, -15)
 shape = SubResource("CircleShape2D_ho6u7")
 
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]

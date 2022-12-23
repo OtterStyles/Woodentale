@@ -31,4 +31,3 @@ func _on_timer_timeout():
 	globalTime += ingameDayPerSecond * timer.wait_time
 	timeChange.emit(globalTime)
 	timer.start()
-	print(globalTime)

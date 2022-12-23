@@ -1449,7 +1449,7 @@ parameters/Working/blend_position = Vector2(1, 0)
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -32)
+position = Vector2(0, -64)
 texture = ExtResource("2_eicqr")
 flip_h = true
 hframes = 10

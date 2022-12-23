@@ -23,7 +23,7 @@ func _on_hurtbox_area_entered(area: Area2D):
 		if healths[nodePhase] <= 0 and isMultiPhase and nodePhase < len(item.enviromentTextures) - 1:
 			dropItems()
 			nodePhase += 1
-			$sprite2D.texture = load(item.enviromentTextures[nodePhase].get_load_path())
+			$sprite2D.texture = item.enviromentTextures[nodePhase]
 			calculateOffsetSprite()
 		elif healths[nodePhase] <= 0:
 			dropItems()
@@ -31,9 +31,9 @@ func _on_hurtbox_area_entered(area: Area2D):
 
 func changeSprite() -> void:
 	if len(item.enviromentTextures) == 1:
-		$sprite2D.texture = load(item.enviromentTextures[0].get_load_path())
+		$sprite2D.texture = item.enviromentTextures[0]
 	elif len(item.enviromentTextures) > 1:
-		$sprite2D.texture = load(item.enviromentTextures[0].get_load_path())
+		$sprite2D.texture = item.enviromentTextures[0]
 		togleMutltiPhase()
 	calculateOffsetSprite()
 	
@@ -42,10 +42,7 @@ func calculateOffsetSprite():
 	var texture: Texture2D = $sprite2D.texture
 	var size = texture.get_size()
 	size.x = -size.x/2
-	if size.y > 64:
-		size.y = -32 - 32 * size.y/64
-	else:
-		size.y = -32
+	size.y = -size.y
 	sprite.offset = size
 
 func togleMutltiPhase():

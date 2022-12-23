@@ -16,6 +16,7 @@ func initItemNode(cell: Vector2i) -> void:
 		newItemNode.type = activeSpawnNodes.type
 		newItemNode.itemDrops = activeSpawnNodes.itemDrops
 		newItemNode.global_position = map_to_local(cell)
+		newItemNode.global_position.y = newItemNode.global_position.y + 15
 		newItemNode.setItemID(activeSpawnNodes.itemID)
 		newItemNode.changeSprite()
 		get_parent().call_deferred("add_child", newItemNode)
