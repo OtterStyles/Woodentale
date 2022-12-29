@@ -99,7 +99,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Woodentale"
-run/main_scene="res://Scene/TestHub.tscn"
+run/main_scene="res://Scene/default_farm.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.png"
 
@@ -183,6 +183,7 @@ strongAction={
 2d_physics/layer_3="Enemies"
 2d_physics/layer_4="Work"
 2d_physics/layer_5="ItemDrop"
+2d_physics/layer_6="Farming"
 
 [physics]
 

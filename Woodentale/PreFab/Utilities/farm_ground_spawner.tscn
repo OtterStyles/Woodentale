@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://t4gudfiotqad"]
+
+[ext_resource type="Texture2D" uid="uid://cmp0dtokqg2kw" path="res://icon.png" id="1_5w81u"]
+[ext_resource type="Script" path="res://Skripts/Utilities/farmGroundSpawner.gd" id="2_m5xt4"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xwb4x"]
+texture = ExtResource("1_5w81u")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_o07t7"]
+sources/0 = SubResource("TileSetAtlasSource_xwb4x")
+
+[node name="farmGroundSpawner" type="TileMap"]
+tile_set = SubResource("TileSet_o07t7")
+format = 2
+script = ExtResource("2_m5xt4")

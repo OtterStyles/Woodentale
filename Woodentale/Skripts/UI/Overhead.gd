@@ -12,4 +12,5 @@ func _process(delta):
 	pass
 
 func updateTime(time: float):
-	clock.frame = floori(time)
+	if floori(time) < 24:
+		clock.frame = floori(time)

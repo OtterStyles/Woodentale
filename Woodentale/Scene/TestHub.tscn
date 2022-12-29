@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c2m0x582xkrai"]
+[gd_scene load_steps=14 format=3 uid="uid://c2m0x582xkrai"]
 
 [ext_resource type="PackedScene" uid="uid://b67cityhlbgsm" path="res://PreFab/Player.tscn" id="1"]
 [ext_resource type="PackedScene" path="res://PreFab/Utilities/hitbox.tscn" id="2_lh55i"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Resource/ItemNodeDrops.gd" id="4_hk1q4"]
 [ext_resource type="PackedScene" uid="uid://bsah2vtvpjw1e" path="res://PreFab/Utilities/resource_spawner.tscn" id="4_msnv6"]
 [ext_resource type="Script" path="res://Resource/SpawnFieldResource.gd" id="5_y4gbx"]
+[ext_resource type="Script" path="res://Skripts/Utilities/ItemOutlet.gd" id="7_op0ew"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_68eqy"]
 radius = 11.0
@@ -16,8 +17,8 @@ script = ExtResource("4_hk1q4")
 itemID = 3
 dropPhase = 0
 dropChance = 1.0
-dropMin = 1
-dropMax = 5
+dropMin = 1000
+dropMax = 1000
 
 [sub_resource type="Resource" id="Resource_rbnod"]
 script = ExtResource("5_y4gbx")
@@ -87,5 +88,9 @@ layer_0/tile_data = PackedInt32Array(-262156, 0, 0, -262155, 0, 0, -196619, 0, 0
 spawnNodes = [SubResource("Resource_rbnod"), SubResource("Resource_m1gyc")]
 
 [node name="Player" parent="." instance=ExtResource("1")]
+
+[node name="ItemOutlet" type="Node2D" parent="."]
+script = ExtResource("7_op0ew")
+maxOverSize = 500
 
 [editable path="Hitbox"]

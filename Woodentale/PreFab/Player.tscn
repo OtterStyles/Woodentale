@@ -1490,6 +1490,7 @@ disabled = true
 unique_name_in_owner = true
 
 [node name="GUI" parent="." instance=ExtResource("6_s573a")]
+visible = false
 
 [node name="Pivots" type="Node2D" parent="."]
 
