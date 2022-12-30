@@ -1,13 +1,17 @@
-[gd_resource type="Resource" load_steps=2 format=3]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://cwdmkysf6rk6n"]
 
+[ext_resource type="Texture2D" uid="uid://o3qjrxop7dg" path="res://Artwork/Atlase/ItemsAtlas.png" id="1_eh7co"]
 [ext_resource type="Script" path="res://Skripts/Resource/ItemResource.gd" id="1_t4wa1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8x1q"]
+atlas = ExtResource("1_eh7co")
+region = Rect2(65, 1, 30, 31)
 
 [resource]
 script = ExtResource("1_t4wa1")
 itemName = "Farn_Helmet"
 itemID = 6
 stackSizeEnum = 0
-atlasFrame = 2
 itemDescription = "This is a farn Helmet"
 mainType = 1
 itemType = 6
@@ -24,3 +28,5 @@ fishingBonus = 1
 miningBonus = 1
 placeHeight = 1
 placeWidth = 1
+itemAtlas = SubResource("AtlasTexture_k8x1q")
+activeAtlas = []

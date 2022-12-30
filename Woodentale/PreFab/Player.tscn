@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://b67cityhlbgsm"]
+[gd_scene load_steps=55 format=3 uid="uid://dvjq7xtqslr8h"]
 
 [ext_resource type="Script" path="res://Skripts/Player/Player.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://dytjms776x00m" path="res://Artwork/Atlase/PlayerAtlas.png" id="2_eicqr"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://tun5k30k4r60" path="res://PreFab/Manager/player_manager.tscn" id="5_8qdpo"]
 [ext_resource type="PackedScene" uid="uid://c1ldvwxy3b1av" path="res://PreFab/Utilities/PickUpZone.tscn" id="5_ec71d"]
 [ext_resource type="PackedScene" uid="uid://dd0kxj6qwtqh8" path="res://UI/GUI.tscn" id="6_s573a"]
-[ext_resource type="PackedScene" uid="uid://dmi8jv3jni0st" path="res://PreFab/Manager/ToolManager.tscn" id="7_1av78"]
+[ext_resource type="PackedScene" uid="uid://dmi8jv3jni0st" path="res://PreFab/Manager/HandHoldManager.tscn" id="7_1av78"]
 [ext_resource type="Script" path="res://Skripts/Manager/Manager.gd" id="7_olwk5"]
 [ext_resource type="PackedScene" uid="uid://dwlf8cjkxr8ax" path="res://PreFab/Manager/equipment_manager.tscn" id="8_0tgab"]
 [ext_resource type="PackedScene" uid="uid://5yq0wm4r5ply" path="res://PreFab/Manager/ItemsManager.tscn" id="9_pepgd"]
@@ -1412,6 +1412,12 @@ radius = 8.0
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("2")
+SPEEDABS = null
+SPEEDPERC = null
+SPEED_DEFAULT = null
+SPEED_SPRINT_MULT = null
+ACCELERATION = null
+FRICTION = null
 
 [node name="Manager" type="Node" parent="."]
 script = ExtResource("7_olwk5")
@@ -1425,7 +1431,7 @@ script = ExtResource("10_bhj7s")
 
 [node name="InventoryManager" parent="Manager" instance=ExtResource("10_tg4xk")]
 
-[node name="ToolManager" parent="Manager" instance=ExtResource("7_1av78")]
+[node name="HandHoldManager" parent="Manager" instance=ExtResource("7_1av78")]
 
 [node name="EquipmentManager" parent="Manager" instance=ExtResource("8_0tgab")]
 
@@ -1458,7 +1464,10 @@ frame = 23
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+process_callback = 0
 smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -13)
@@ -1514,4 +1523,3 @@ position = Vector2(-1, -1)
 
 [editable path="Collision/hurtbox"]
 [editable path="Collision/Hitbox"]
-[editable path="GUI"]

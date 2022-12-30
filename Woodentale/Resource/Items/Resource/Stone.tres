@@ -1,0 +1,37 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://ckoaptjlvijrf"]
+
+[ext_resource type="Script" path="res://Skripts/Resource/ItemResource.gd" id="1_t4wa1"]
+[ext_resource type="Texture2D" uid="uid://dyghyfll4kc3u" path="res://Artwork/Atlase/EnviromentAtlas.png" id="1_uck32"]
+[ext_resource type="Texture2D" uid="uid://o3qjrxop7dg" path="res://Artwork/Atlase/ItemsAtlas.png" id="2_ql1fi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhgi5"]
+atlas = ExtResource("1_uck32")
+region = Rect2(138, 31, 46, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5t2oh"]
+atlas = ExtResource("2_ql1fi")
+region = Rect2(2, 5, 28, 27)
+
+[resource]
+script = ExtResource("1_t4wa1")
+itemName = "Stone"
+itemID = 3
+stackSizeEnum = 7
+itemDescription = "This is a pile of Stone"
+mainType = 0
+itemType = 0
+itemSubType = 16
+speed = 1
+stamina = 1
+damage = 1
+workSpeed = 1
+critDamage = 1
+workHeight = 1
+workWidth = 1
+collectionRadius = 1
+fishingBonus = 1
+miningBonus = 1
+placeHeight = 1
+placeWidth = 1
+itemAtlas = SubResource("AtlasTexture_5t2oh")
+activeAtlas = [SubResource("AtlasTexture_jhgi5")]

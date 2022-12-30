@@ -14,7 +14,7 @@ func setItem(newID: int, newItemQuantity: int) -> void:
 	item_quantity = newItemQuantity
 	item = ItemLoader.getItem(itemID)
 	if item:
-		$Sprite2D.frame = int(item.atlasFrame)
+		$Sprite2D.texture = item.itemAtlas
 		mainType = item.mainType
 		itemType = item.itemType
 		itemSubType = item.itemSubType

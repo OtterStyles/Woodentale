@@ -7,9 +7,6 @@ extends ColorRect
 func _ready():
 	TimeManager.connect("timeChange",updateTime)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 func updateTime(time: float):
 	if floori(time) < 24:

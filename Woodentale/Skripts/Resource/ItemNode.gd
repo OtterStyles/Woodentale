@@ -1,7 +1,7 @@
 extends StaticBody2D
 class_name ItemNode
 var itemDrops: Array[Resource] = []
-var type: DataEnums.ToolTypes = DataEnums.ToolTypes.AXE
+var type: DataEnums.SubItemType = DataEnums.SubItemType.AXE
 var healths = [5]
 var itemID = DataEnums.ItemID.WOOD
 var item: ItemResource = null
@@ -14,26 +14,30 @@ func setItemID(_itemID: DataEnums.ItemID):
 	if ItemLoader.itemDirectory.has(itemID):
 		item = ItemLoader.itemDirectory[itemID]
 
+func setHealths(_healths: Array[int]):
+	healths.clear()
+	healths.append_array(_healths)
+
 func _on_hurtbox_area_entered(area: Area2D):
 	var player = area.get_parent().get_parent().name
-	var toolManager: ToolManager = AllPlayerManager.players[player].toolManager
-	if type == toolManager.toolType and not toolManager.toolHit:
-		toolManager.toolHit = true
-		healths[nodePhase] -= toolManager.toolDamage
-		if healths[nodePhase] <= 0 and isMultiPhase and nodePhase < len(item.enviromentTextures) - 1:
+	var handHoldManager: HandHoldManager = AllPlayerManager.players[player].handHoldManager
+	if type == handHoldManager.handHoldType and not handHoldManager.handHoldHitCooldown:
+		handHoldManager.handHoldHitCooldown = true
+		healths[nodePhase] -= handHoldManager.handHoldDamage
+		if healths[nodePhase] <= 0 and isMultiPhase and nodePhase < len(item.activeAtlas) - 1:
 			dropItems()
 			nodePhase += 1
-			$sprite2D.texture = item.enviromentTextures[nodePhase]
+			$sprite2D.texture = item.activeAtlas[nodePhase]
 			calculateOffsetSprite()
 		elif healths[nodePhase] <= 0:
 			dropItems()
 			queue_free()
 
 func changeSprite() -> void:
-	if len(item.enviromentTextures) == 1:
-		$sprite2D.texture = item.enviromentTextures[0]
-	elif len(item.enviromentTextures) > 1:
-		$sprite2D.texture = item.enviromentTextures[0]
+	if len(item.activeAtlas) == 1:
+		$sprite2D.texture = item.activeAtlas[0]
+	elif len(item.activeAtlas) > 1:
+		$sprite2D.texture = item.activeAtlas[0]
 		togleMutltiPhase()
 	calculateOffsetSprite()
 	
@@ -47,8 +51,8 @@ func calculateOffsetSprite():
 
 func togleMutltiPhase():
 	isMultiPhase = true
-	if len(item.enviromentTextures) > len(healths):
-		for i in range(len(item.enviromentTextures) - len(healths)):
+	if len(item.activeAtlas) > len(healths):
+		for i in range(len(item.activeAtlas) - len(healths)):
 			healths.append(0)
 		
 func dropItems():

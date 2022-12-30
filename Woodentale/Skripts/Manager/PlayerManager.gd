@@ -28,7 +28,7 @@ var accesoirSlots: int = 4 :
 		
 
 
-func _process(delta):
+func _process(_delta):
 	inventorySlots = inventorySlots
 	equipmentSlots = equipmentSlots
 	accesoirSlots = accesoirSlots

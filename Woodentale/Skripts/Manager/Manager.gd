@@ -6,7 +6,7 @@ class_name ManagerClass
 @onready var itemsManager: ItemsManager = $ItemsManager
 @onready var pivotManager: PivotManager = $PivotManager
 @onready var inventoryManager: InventoryManager = $InventoryManager
-@onready var toolManager = $ToolManager
+@onready var handHoldManager = $HandHoldManager
 @onready var equipmentManager = $EquipmentManager
 
 func _ready():

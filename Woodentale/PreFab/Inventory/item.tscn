@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://curi4rj3f5fd"]
+[gd_scene load_steps=2 format=3 uid="uid://curi4rj3f5fd"]
 
 [ext_resource type="Script" path="res://Skripts/Inventory/Item.gd" id="1_5kchx"]
-[ext_resource type="Texture2D" uid="uid://o3qjrxop7dg" path="res://Artwork/Atlase/ItemsAtlas.png" id="2_n3viy"]
 
 [node name="Item" type="Node2D"]
 texture_filter = 1
@@ -12,9 +11,6 @@ script = ExtResource("1_5kchx")
 texture_filter = 1
 position = Vector2(32, 32)
 scale = Vector2(2, 2)
-texture = ExtResource("2_n3viy")
-hframes = 20
-vframes = 20
 region_rect = Rect2(64, 64, 0, 0)
 
 [node name="Label" type="Label" parent="."]

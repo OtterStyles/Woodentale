@@ -1,0 +1,33 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://cf8al3ncndjnw"]
+
+[ext_resource type="Texture2D" uid="uid://bk86rdgdp5s5j" path="res://Artwork/Atlase/TooItemAtlas.png" id="1_is5f2"]
+[ext_resource type="Script" path="res://Skripts/Resource/ItemResource.gd" id="1_t4wa1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5evt"]
+atlas = ExtResource("1_is5f2")
+region = Rect2(0, 0, 32, 32)
+filter_clip = true
+
+[resource]
+script = ExtResource("1_t4wa1")
+itemName = "Stone Hoe"
+itemID = 10
+stackSizeEnum = 0
+itemDescription = "A simple Hoe for starting your farm"
+mainType = 1
+itemType = 7
+itemSubType = 7
+speed = 1
+stamina = 1
+damage = 1
+workSpeed = 1
+critDamage = 1
+workHeight = 1
+workWidth = 1
+collectionRadius = 1
+fishingBonus = 1
+miningBonus = 1
+placeHeight = 1
+placeWidth = 1
+itemAtlas = SubResource("AtlasTexture_g5evt")
+activeAtlas = null

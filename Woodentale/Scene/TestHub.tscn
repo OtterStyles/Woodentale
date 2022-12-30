@@ -1,10 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://c2m0x582xkrai"]
+[gd_scene load_steps=14 format=3]
 
-[ext_resource type="PackedScene" uid="uid://b67cityhlbgsm" path="res://PreFab/Player.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://dvjq7xtqslr8h" path="res://PreFab/Player.tscn" id="1"]
 [ext_resource type="PackedScene" path="res://PreFab/Utilities/hitbox.tscn" id="2_lh55i"]
 [ext_resource type="PackedScene" uid="uid://nbvlr1nton3v" path="res://PreFab/Inventory/itemDrop.tscn" id="3_82dju"]
 [ext_resource type="Script" path="res://Resource/ItemNodeDrops.gd" id="4_hk1q4"]
-[ext_resource type="PackedScene" uid="uid://bsah2vtvpjw1e" path="res://PreFab/Utilities/resource_spawner.tscn" id="4_msnv6"]
+[ext_resource type="PackedScene" path="res://PreFab/Utilities/resource_spawner.tscn" id="4_msnv6"]
 [ext_resource type="Script" path="res://Resource/SpawnFieldResource.gd" id="5_y4gbx"]
 [ext_resource type="Script" path="res://Skripts/Utilities/ItemOutlet.gd" id="7_op0ew"]
 

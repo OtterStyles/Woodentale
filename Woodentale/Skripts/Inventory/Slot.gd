@@ -54,7 +54,7 @@ func matchTypeAndCreateInvItem(byItem: ItemData,type: DataEnums.PickSize) -> Ite
 			invItem.setItem(byItem.itemID,1)
 			updateByQuantity = 1
 		DataEnums.PickSize.HALF:
-			invItem.setItem(byItem.itemID, int(byItem.item_quantity/2))
+			invItem.setItem(byItem.itemID, roundi(byItem.item_quantity/2))
 			updateByQuantity = invItem.item_quantity
 		DataEnums.PickSize.FULL:
 			invItem.setItem(byItem.itemID, byItem.item_quantity)

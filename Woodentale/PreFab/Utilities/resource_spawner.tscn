@@ -1,9 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bsah2vtvpjw1e"]
+[gd_scene load_steps=5 format=3 uid="uid://bsah2vtvpjw1e"]
 
 [ext_resource type="Script" path="res://Skripts/Utilities/resource_spawner.gd" id="1_4uivj"]
 [ext_resource type="Texture2D" uid="uid://cmp0dtokqg2kw" path="res://icon.png" id="1_g1bqp"]
-[ext_resource type="Script" path="res://Resource/ItemNodeDrops.gd" id="3_ygrjy"]
-[ext_resource type="Script" path="res://Resource/SpawnFieldResource.gd" id="3_yrgmj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_amvae"]
 texture = ExtResource("1_g1bqp")
@@ -14,25 +12,8 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_amvae")
 
-[sub_resource type="Resource" id="Resource_eaadq"]
-script = ExtResource("3_ygrjy")
-itemID = 0
-dropPhase = 0
-dropChance = 100.0
-dropMin = 1
-dropMax = 5
-
-[sub_resource type="Resource" id="Resource_do6x7"]
-script = ExtResource("3_yrgmj")
-itemID = 0
-spawnChance = 0.5
-itemDrops = [SubResource("Resource_eaadq")]
-type = 2
-healths = null
-
 [node name="ResourceSpawner" type="TileMap"]
 tile_set = SubResource("TileSet_oej7n")
 cell_quadrant_size = 64
 format = 2
 script = ExtResource("1_4uivj")
-spawnNodes = [SubResource("Resource_do6x7")]

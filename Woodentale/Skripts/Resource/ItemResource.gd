@@ -3,10 +3,9 @@ class_name ItemResource
 @export_category("Algemein")
 @export var itemName: String = ""
 @export var itemID: DataEnums.ItemID = DataEnums.ItemID.WOOD
-const stackSizeFlags = ["1","15","30","60","120","240","480"]
-@export_enum("1","15","30","60","120","240","480") var stackSizeEnum = 0
+const stackSizeFlags = ["1","15","30","60","120","240","480","960"]
+@export_enum("1","15","30","60","120","240","480", "960") var stackSizeEnum = 0
 var stackSize = 0
-@export var atlasFrame = 0
 @export_multiline var itemDescription = "New Description"
 
 @export_category("Type")
@@ -30,6 +29,7 @@ var stackSize = 0
 @export var placeHeight = 1
 @export var placeWidth = 1
 
-@export_category("Enviroment")
-@export var enviromentTextures: Array[Texture2D] = []
+@export_category("Atlas")
+@export var itemAtlas: Texture2D
+@export var activeAtlas: Array[Texture2D] = []
 

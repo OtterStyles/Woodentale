@@ -1,7 +1,15 @@
 extends Node
-class_name ToolManager
+class_name HandHoldManager
 
-var toolType: DataEnums.ToolTypes = DataEnums.ToolTypes.AXE
-var toolDamage = 1
-var toolEffect = ""
-var toolHit: bool = false
+var handHoldType: DataEnums.SubItemType = DataEnums.SubItemType.AXE
+var handHoldDamage = 1
+var handHoldEffect = ""
+var handHoldHitCooldown: bool = false
+
+
+func changeSprite():
+	pass
+
+func changeTool(type: DataEnums.SubItemType):
+	handHoldType = type
+

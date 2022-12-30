@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dr4u4ihd1wexp"]
+[gd_scene load_steps=5 format=3 uid="uid://cn34epqel665u"]
 
 [ext_resource type="PackedScene" uid="uid://b8igmgqdarxdo" path="res://UI/Inventory/hot_bar_slot.tscn" id="1_hcnhm"]
 [ext_resource type="Script" path="res://Skripts/UI/hotbar.gd" id="1_rgs60"]
-[ext_resource type="Script" path="res://UI/hotbarSlotsManager.gd" id="2_wdhrb"]
+[ext_resource type="Script" path="res://Skripts/Inventory/hotbarSlotsManager.gd" id="2_ow08m"]
 [ext_resource type="Texture2D" uid="uid://sxlsn3s5ln6m" path="res://Artwork/Atlase/HotBarFrame.png" id="4_cjpu2"]
 
 [node name="HotBar" type="ColorRect"]
@@ -55,7 +55,7 @@ offset_top = 25.0
 offset_right = 640.0
 offset_bottom = 75.0
 columns = 6
-script = ExtResource("2_wdhrb")
+script = ExtResource("2_ow08m")
 
 [node name="HotBarSlot" parent="control/centerContainer/hotbarSlots" instance=ExtResource("1_hcnhm")]
 layout_mode = 2
@@ -92,7 +92,7 @@ offset_right = 320.0
 offset_bottom = 50.0
 
 [node name="HotFrame" type="Sprite2D" parent="control/centerContainer/hotbarSlots"]
-position = Vector2(295, 25)
+position = Vector2(25, 25)
 texture = ExtResource("4_cjpu2")
 
 [node name="timer" type="Timer" parent="."]

@@ -14,8 +14,8 @@ func updateInventorySlots(inventorySlots: int):
 	else:
 		texture = inv30Slots
 		
-func updateEquipmentSlots(equipmentSlots: int):
+func updateEquipmentSlots(_equipmentSlots: int):
 	pass
 	
-func updateAccesoirSlots(accesiorSlots: int):
+func updateAccesoirSlots(_accesiorSlots: int):
 	pass

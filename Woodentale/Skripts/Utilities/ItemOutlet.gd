@@ -9,7 +9,7 @@ const ItemDrop = preload("res://PreFab/Inventory/itemDrop.tscn")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if get_children().size() < maxOverSize:
 		canSpawnItems = true
 		var headItemQueue = itemQueue.pop_front()

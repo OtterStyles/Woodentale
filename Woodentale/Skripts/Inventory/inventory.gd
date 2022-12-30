@@ -66,7 +66,7 @@ func _input(event: InputEvent) -> void:
 		holding_item.global_position = get_global_mouse_position()
 		holding_item.global_position = get_global_mouse_position()
 
-func _process(delta):
+func _process(_delta):
 	if isPressed and activeSecondTime and activeTime and activeFunction == Functions.PICK:
 		addPickItems(activeConfig, activeSlot)
 		offsetTime -= 0.01
@@ -126,7 +126,7 @@ func slot_gui_input(event: InputEvent, slot: SlotClass) -> void:
 		handleItemWithQuantity(DataEnums.PickSize.HALF, slot)
 		activeConfig = DataEnums.PickSize.HALF
 
-func handleItemWithQuantity(type: int, slot: SlotClass) -> void:
+func handleItemWithQuantity(type: DataEnums.PickSize, slot: SlotClass) -> void:
 	activeConfig = type
 	if holding_item == null:
 		pickItems(type, slot)

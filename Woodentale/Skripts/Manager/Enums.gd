@@ -17,7 +17,14 @@ enum ItemType{
 }
 enum SubItemType {
 	NONE,
+	HAND,
+	PICKAXE,
+	AXE,
 	SWORD,
+	BOMB,
+	SHOVEL,
+	HOE,
+	CROP,
 	RING,
 	NECLACE,
 	HEAD,
@@ -26,6 +33,7 @@ enum SubItemType {
 	CHEST,
 	FRUIT,
 	VEGETABLE,
+	SEED,
 	BOOSTER,
 	VITALITY,
 	FURNITURE,
@@ -42,15 +50,10 @@ enum ItemID {
 	FARN_HELMET,
 	FARN_CHEST,
 	FARN_PANTS,
-	FARN_SNEACKERS
-}
-enum ToolTypes {
-	HAND,
-	PICKAXE,
-	AXE,
-	SWORD,
-	BOMB,
-	SHOVEL
+	FARN_SNEACKERS,
+	STONE_HOE,
+	STONE_AXE,
+	STONE_PICKAXE
 }
 
 enum PickSize { ONE, MINSTACKSIZE, HALF, FULL}

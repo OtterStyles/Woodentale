@@ -1,7 +1,9 @@
 Enviroment:
 	Size: 64x64
-	Set ID in Atlas
+	Make for Item tres unique and change Region
 
 Items
 	Size: 48x48
 
+Tools:
+	Size: 32x32

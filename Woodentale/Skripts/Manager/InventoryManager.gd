@@ -5,16 +5,26 @@ const COLUMN = 6
 const ROW = 5
 const NUM_INVENTORY_SLOTS = ROW * COLUMN
 signal inventoryChanged
+var initInv = [
+	[DataEnums.ItemID.STONE_AXE, 1],
+	[DataEnums.ItemID.STONE_HOE, 1],
+	[DataEnums.ItemID.STONE_PICKAXE, 1],
+	[DataEnums.ItemID.WOOD, 20],
+	[DataEnums.ItemID.STONE, 5],
+	[DataEnums.ItemID.FARN_HELMET, 1],
+	[DataEnums.ItemID.FARN_CHEST, 1],
+	[DataEnums.ItemID.FARN_PANTS, 1],
+	[DataEnums.ItemID.FARN_SNEACKERS, 1],
+	[DataEnums.ItemID.WOOD, 480]
+]
+
 
 var inventory: Dictionary = {
-	0: [DataEnums.ItemID.WOOD, 20],
-	1: [DataEnums.ItemID.STONE, 5],
-	2: [DataEnums.ItemID.FARN_HELMET, 1],
-	3: [DataEnums.ItemID.FARN_CHEST, 1],
-	4: [DataEnums.ItemID.FARN_PANTS, 1],
-	5: [DataEnums.ItemID.FARN_SNEACKERS, 1],
-	6: [DataEnums.ItemID.WOOD, 480],
 }
+
+func _ready():
+	for i in range(len(initInv)):
+		inventory[i] = initInv[i]
 
 func addItem(itemID: int, item_quantity: int) -> bool:
 	var stackSize = ItemLoader.getItem(itemID).stackSize

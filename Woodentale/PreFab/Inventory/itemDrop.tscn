@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://nbvlr1nton3v"]
 
 [ext_resource type="Script" path="res://Skripts/Inventory/itemDrop.gd" id="1_55e84"]
-[ext_resource type="Texture2D" uid="uid://o3qjrxop7dg" path="res://Artwork/Atlase/ItemsAtlas.png" id="1_s4v0s"]
+[ext_resource type="Texture2D" uid="uid://cniojkq0aa5rq" path="res://Artwork/AtlasGD/allyear/ItemsAtlas.tres" id="2_1vdc0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ek5w7"]
 radius = 24.0
@@ -11,18 +11,6 @@ height = 64.0
 resource_name = "Float"
 loop_mode = 1
 step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, -8), Vector2(0, 0)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w12c8"]
 _data = {
@@ -36,12 +24,8 @@ collision_mask = 0
 script = ExtResource("1_55e84")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(0, -7.27341)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("1_s4v0s")
-hframes = 20
-vframes = 20
+texture = ExtResource("2_1vdc0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ek5w7")

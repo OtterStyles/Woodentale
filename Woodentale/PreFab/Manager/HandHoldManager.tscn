@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://Skripts/Manager/ToolManager.gd" id="1_mi80y"]
 
-[node name="ToolManager" type="Node"]
+[node name="HandHoldManager" type="Node"]
 script = ExtResource("1_mi80y")

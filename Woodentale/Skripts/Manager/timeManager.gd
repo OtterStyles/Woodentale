@@ -1,9 +1,9 @@
 extends Node
-
+class_name TimeManagerType
 @onready var timer: Timer = $timer
 
 var globalTime = 0
-var globalDay = 0
+var globalDay = 1
 var globalMonth = 1
 var globalYear = 1
 
@@ -28,9 +28,8 @@ signal updateMonth
 
 func _init():
 	ingameDayPerSecond = defaultWorkHour / (ingameDayinMinutes * 60)
-	globalTime = 23.5
 
-func _process(delta):
+func _process(_delta):
 	if globalTime >= 24:
 		timer.stop()
 		dayEnd.emit()

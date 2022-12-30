@@ -2,7 +2,8 @@ extends TileMap
 @export var spawnNodes: Array[Resource] = []
 var itemNode = load("res://PreFab/Utilities/itemnode.tscn")
 var activeSpawnNodes: SpawnFieldResource
-# Called when the node enters the scene tree for the first time.
+
+
 func _ready():
 	for cell in get_used_cells(0):
 		initItemNode(cell)
@@ -12,7 +13,7 @@ func initItemNode(cell: Vector2i) -> void:
 	selectRandomSpawnNode()
 	if randomSpawn():
 		var newItemNode: ItemNode = itemNode.instantiate()
-		newItemNode.healths = activeSpawnNodes.healths
+		newItemNode.setHealths(activeSpawnNodes.healths)
 		newItemNode.type = activeSpawnNodes.type
 		newItemNode.itemDrops = activeSpawnNodes.itemDrops
 		var newPosition = map_to_local(cell)

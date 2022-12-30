@@ -26,7 +26,7 @@ var animationName = ['Working','Idle','Walking','Attacking']
 @onready var animationTree = $Animation/AnimationTree
 @onready var player_manager: PlayerManager = $Manager/PlayerManager
 @onready var pivot_manager: PivotManager = $Manager/PivotManager
-@onready var tool_manager = $Manager/ToolManager
+@onready var handHold_manager: HandHoldManager = $Manager/HandHoldManager
 @onready var gui = $GUI
 var timer: Timer = Timer.new()
 var canChangeHotBar = true
@@ -133,8 +133,14 @@ func calculateStats() -> void:
 	SPEED = (SPEED_DEFAULT + SPEEDABS) * SPEEDPERC
 
 func changeHandItem():
-	var index = gui.hot_bar.getHotBarIndex()
-	print(index)
+	var item: ItemData = gui.hot_bar.getHotBarActiveItem()
+	var currentToolType = handHold_manager.handHoldType
+	if item:
+		if item.itemSubType != currentToolType:
+			handHold_manager.changeTool(item.itemSubType)
+		return
+	handHold_manager.changeTool(DataEnums.HandHoldTypes.HAND)
+	
 
 
 func handelAnimation(NodeName: StringName) -> void:
@@ -142,7 +148,7 @@ func handelAnimation(NodeName: StringName) -> void:
 
 func resetAnimationState() -> void:
 	state = MOVE
-	tool_manager.toolHit = false
+	handHold_manager.handHoldHitCooldown = false
 
 func timerTimeOut():
 	canChangeHotBar = true
