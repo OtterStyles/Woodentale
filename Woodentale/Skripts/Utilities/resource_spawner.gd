@@ -11,7 +11,16 @@ func _ready():
 func initItemNode(cell: Vector2i) -> void:
 	selectRandomSpawnNode()
 	if randomSpawn():
-		$"../ItemOutlet".addItemToQueue(activeSpawnNodes,map_to_local(cell) )
+		var newItemNode: ItemNode = itemNode.instantiate()
+		newItemNode.healths = activeSpawnNodes.healths
+		newItemNode.type = activeSpawnNodes.type
+		newItemNode.itemDrops = activeSpawnNodes.itemDrops
+		var newPosition = map_to_local(cell)
+		newPosition.y += 15
+		newItemNode.global_position = newPosition
+		newItemNode.setItemID(activeSpawnNodes.itemID)
+		newItemNode.changeSprite()
+		get_parent().call_deferred("add_child", newItemNode)
 
 func selectRandomSpawnNode() -> void:
 	activeSpawnNodes = spawnNodes[randi_range(0,len(spawnNodes) - 1)]

@@ -54,6 +54,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Skripts/Manager/PivotManager.gd"
 }, {
+"base": "CharacterBody2D",
+"class": &"Player",
+"language": &"GDScript",
+"path": "res://Skripts/Player/Player.gd"
+}, {
 "base": "Node",
 "class": &"PlayerManager",
 "language": &"GDScript",
@@ -89,6 +94,7 @@ _global_script_class_icons={
 "ItemsManager": "",
 "ManagerClass": "",
 "PivotManager": "",
+"Player": "",
 "PlayerManager": "",
 "SpawnFieldResource": "",
 "ToolManager": "",

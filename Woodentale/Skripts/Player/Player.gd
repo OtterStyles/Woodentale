@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name Player
 #Stats
 @export var SPEEDABS: float = 0
 @export var SPEEDPERC: float = 1
@@ -27,12 +27,20 @@ var animationName = ['Working','Idle','Walking','Attacking']
 @onready var player_manager: PlayerManager = $Manager/PlayerManager
 @onready var pivot_manager: PivotManager = $Manager/PivotManager
 @onready var tool_manager = $Manager/ToolManager
+@onready var gui = $GUI
+var timer: Timer = Timer.new()
+var canChangeHotBar = true
 
 func _ready():
+	timer.wait_time = 0.8
+	timer.autostart = true
+	timer.timeout.connect(timerTimeOut)
+	add_child(timer)
 	animationTree.active = true;
 
 func _process(_delta) -> void:
 	calculateStats()
+	changeHandItem()
 	
 func _physics_process(delta) -> void:
 	match state:
@@ -61,6 +69,18 @@ func getInput() -> void:
 	if Input.is_action_pressed("sprint"):
 		sprint = SPEED_SPRINT_MULT
 	handleMovementInputs()
+
+func _input(event):
+	if not Input.is_key_pressed(KEY_SHIFT):
+		if event is InputEventMouseButton and canChangeHotBar:
+			timer.start(0.1)
+			canChangeHotBar = false
+			if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+				gui.hot_bar.hotbar_slots.moveFrameLeft()
+			elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+				gui.hot_bar.hotbar_slots.moveFrameRight()
+		if event is InputEventKey:
+			gui.hot_bar.hotbar_slots.moveFrameSet(event.as_text().to_int())
 
 func handleMovementInputs() -> void:
 	direction = Vector2.ZERO
@@ -112,9 +132,17 @@ func changeBlendPositions() -> void:
 func calculateStats() -> void:
 	SPEED = (SPEED_DEFAULT + SPEEDABS) * SPEEDPERC
 
+func changeHandItem():
+	var index = gui.hot_bar.getHotBarIndex()
+	print(index)
+
+
 func handelAnimation(NodeName: StringName) -> void:
 	animationStateMachine.travel(NodeName)
 
 func resetAnimationState() -> void:
 	state = MOVE
 	tool_manager.toolHit = false
+
+func timerTimeOut():
+	canChangeHotBar = true

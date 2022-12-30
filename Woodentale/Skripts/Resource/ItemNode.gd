@@ -56,19 +56,10 @@ func dropItems():
 		if itemDrop is ItemNodeDrops and itemDrop.dropPhase == nodePhase:
 			for i in range(quantityDrop(itemDrop.dropMin, itemDrop.dropMax)):
 				if doDrop(itemDrop.dropChance):
-					var item = ItemDrop.instantiate()
-					item.itemID = itemDrop.itemID
-					item.global_position = global_position
-					item.velocity = randomVelocity()
-					get_parent().call_deferred("add_child", item)
+					$"../ItemOutlet".addItemToQueue(itemDrop, global_position)
 
 func doDrop(percent: int) -> bool:
 	return randf_range(0,1) <= percent
 
 func quantityDrop(minRange: int, maxRange: int) -> int:
 	return randi_range(minRange, maxRange)
-	
-func randomVelocity() -> Vector2:
-	var maxRange = 200
-	var minRange = -200
-	return Vector2(randf_range(minRange,maxRange),randf_range(minRange,maxRange))

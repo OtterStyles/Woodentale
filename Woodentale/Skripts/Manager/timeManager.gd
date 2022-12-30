@@ -23,6 +23,8 @@ var ingameMonthsPerYear = 5
 
 signal timeChange
 signal dayEnd
+signal updateDay
+signal updateMonth
 
 func _init():
 	ingameDayPerSecond = defaultWorkHour / (ingameDayinMinutes * 60)
@@ -47,11 +49,13 @@ func _on_timer_timeout():
 
 func addDay():
 	globalDay += 1
+	updateDay.emit(globalDay)
 	if globalDay >= ingameDaysPerMonth:
 		globalDay = 1
 		
 func addMonth():
 	globalMonth += 1
+	updateMonth.emit(globalMonth)
 	if globalMonth >= ingameMonthsPerYear:
 		globalMonth = 1
 	

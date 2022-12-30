@@ -7,14 +7,11 @@
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_amvae"]
 texture = ExtResource("1_g1bqp")
-texture_region_size = Vector2i(32, 32)
+texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
-1:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_oej7n"]
-tile_size = Vector2i(32, 32)
+tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_amvae")
 
 [sub_resource type="Resource" id="Resource_eaadq"]
@@ -35,7 +32,7 @@ healths = null
 
 [node name="ResourceSpawner" type="TileMap"]
 tile_set = SubResource("TileSet_oej7n")
-cell_quadrant_size = 32
+cell_quadrant_size = 64
 format = 2
 script = ExtResource("1_4uivj")
 spawnNodes = [SubResource("Resource_do6x7")]

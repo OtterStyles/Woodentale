@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dr4u4ihd1wexp"]
+[gd_scene load_steps=5 format=3 uid="uid://dr4u4ihd1wexp"]
 
 [ext_resource type="PackedScene" uid="uid://b8igmgqdarxdo" path="res://UI/Inventory/hot_bar_slot.tscn" id="1_hcnhm"]
 [ext_resource type="Script" path="res://Skripts/UI/hotbar.gd" id="1_rgs60"]
+[ext_resource type="Script" path="res://UI/hotbarSlotsManager.gd" id="2_wdhrb"]
+[ext_resource type="Texture2D" uid="uid://sxlsn3s5ln6m" path="res://Artwork/Atlase/HotBarFrame.png" id="4_cjpu2"]
 
 [node name="HotBar" type="ColorRect"]
 anchors_preset = 15
@@ -14,7 +16,7 @@ script = ExtResource("1_rgs60")
 
 [node name="control" type="Control" parent="."]
 custom_minimum_size = Vector2(0, 100)
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -25,6 +27,7 @@ metadata/_edit_layout_mode = 1
 
 [node name="centerContainer" type="CenterContainer" parent="control"]
 custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -34,6 +37,7 @@ metadata/_edit_layout_mode = 1
 
 [node name="background" type="ColorRect" parent="control/centerContainer"]
 modulate = Color(0.294118, 0.294118, 0.294118, 0.882353)
+layout_mode = 2
 offset_left = 480.0
 offset_top = 50.0
 offset_right = 480.0
@@ -45,39 +49,51 @@ metadata/_edit_layout_mode = 1
 [node name="hotbarSlots" type="GridContainer" parent="control/centerContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
 offset_left = 320.0
 offset_top = 25.0
 offset_right = 640.0
 offset_bottom = 75.0
 columns = 6
+script = ExtResource("2_wdhrb")
 
 [node name="HotBarSlot" parent="control/centerContainer/hotbarSlots" instance=ExtResource("1_hcnhm")]
+layout_mode = 2
 offset_bottom = 50.0
 
 [node name="HotBarSlot2" parent="control/centerContainer/hotbarSlots" instance=ExtResource("1_hcnhm")]
+layout_mode = 2
 offset_left = 54.0
 offset_right = 104.0
 offset_bottom = 50.0
 
 [node name="HotBarSlot3" parent="control/centerContainer/hotbarSlots" instance=ExtResource("1_hcnhm")]
+layout_mode = 2
 offset_left = 108.0
 offset_right = 158.0
 offset_bottom = 50.0
 
 [node name="HotBarSlot4" parent="control/centerContainer/hotbarSlots" instance=ExtResource("1_hcnhm")]
+layout_mode = 2
 offset_left = 162.0
 offset_right = 212.0
 offset_bottom = 50.0
 
 [node name="HotBarSlot5" parent="control/centerContainer/hotbarSlots" instance=ExtResource("1_hcnhm")]
+layout_mode = 2
 offset_left = 216.0
 offset_right = 266.0
 offset_bottom = 50.0
 
 [node name="HotBarSlot6" parent="control/centerContainer/hotbarSlots" instance=ExtResource("1_hcnhm")]
+layout_mode = 2
 offset_left = 270.0
 offset_right = 320.0
 offset_bottom = 50.0
+
+[node name="HotFrame" type="Sprite2D" parent="control/centerContainer/hotbarSlots"]
+position = Vector2(295, 25)
+texture = ExtResource("4_cjpu2")
 
 [node name="timer" type="Timer" parent="."]
 one_shot = true

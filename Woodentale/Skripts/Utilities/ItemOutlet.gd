@@ -3,36 +3,35 @@ extends Node2D
 @export var maxOverSize: int = 300
 
 var canSpawnItems: bool = true
-var itemQueue: Array[Dictionary] = []
-var itemNode = load("res://PreFab/Utilities/itemnode.tscn")
+var itemQueue: Array[Array] = []
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+const ItemDrop = preload("res://PreFab/Inventory/itemDrop.tscn")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if get_children().size() < maxOverSize:
-		_spawnItem(itemQueue.pop_front()['Node'], itemQueue.pop_front()['Position'])
-		maxOverSize = true
+		canSpawnItems = true
+		var headItemQueue = itemQueue.pop_front()
+		if headItemQueue:
+			_spawnItem(headItemQueue[0], headItemQueue[1])
 	else:
-		maxOverSize = false
-		
-		
-		
-func addItemToQueue(activeSpawnNodes: SpawnFieldResource, designetedPosition: Vector2):
-	if canSpawnItems:
-		itemQueue.append({'Node': activeSpawnNodes, 'Position': designetedPosition})
+		canSpawnItems = false
+
+func addItemToQueue(itemDrop, localPosition):
+	if not canSpawnItems:
+		itemQueue.append([itemDrop, localPosition])
+	else:
+		_spawnItem(itemDrop, localPosition)
+
+func _spawnItem(itemDrop, localPosition):
+	var item = ItemDrop.instantiate()
+	item.itemID = itemDrop.itemID
+	item.global_position = localPosition
+	item.velocity = randomVelocity()
+	call_deferred("add_child" ,item)
 	
-		
-func _spawnItem(activeSpawnNodes, designetedPosition):
-	var newItemNode: ItemNode = itemNode.instantiate()
-	newItemNode.healths = activeSpawnNodes.healths
-	newItemNode.type = activeSpawnNodes.type
-	newItemNode.itemDrops = activeSpawnNodes.itemDrops
-	newItemNode.global_position = designetedPosition
-	newItemNode.global_position.y = newItemNode.global_position.y + 15
-	newItemNode.setItemID(activeSpawnNodes.itemID)
-	newItemNode.changeSprite()
-	add_child(newItemNode)
+func randomVelocity() -> Vector2:
+	var maxRange = 200
+	var minRange = -200
+	return Vector2(randf_range(minRange,maxRange),randf_range(minRange,maxRange))

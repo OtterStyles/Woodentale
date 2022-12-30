@@ -1,7 +1,9 @@
 extends ColorRect
+
 @onready var hotbar_slots = %hotbarSlots
 @onready var timer = $timer
 @onready var player = $"../.."
+
 var activeHotBarRow = 0
 var playerInventoryManager: InventoryManager
 var canRotateAgain = true
@@ -13,15 +15,16 @@ func _ready():
 	initializeInventory()
 
 func _input(event):
-	if event is InputEventMouseButton and canRotateAgain:
-		timer.start()
-		canRotateAgain = false
-		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN && event.pressed:
-			activeHotBarRow += playerInventoryManager.COLUMN
-		if event.button_index == MOUSE_BUTTON_WHEEL_UP && event.pressed:
-			activeHotBarRow -= playerInventoryManager.COLUMN
-		activeHotBarRow = clampi(activeHotBarRow, 0, playerInventoryManager.NUM_INVENTORY_SLOTS - playerInventoryManager.COLUMN)
-		initializeInventory()
+	if Input.is_key_pressed(KEY_SHIFT):
+		if event is InputEventMouseButton and canRotateAgain:
+			timer.start()
+			canRotateAgain = false
+			if event.button_index == MOUSE_BUTTON_WHEEL_DOWN && event.pressed:
+				activeHotBarRow += playerInventoryManager.COLUMN
+			if event.button_index == MOUSE_BUTTON_WHEEL_UP && event.pressed:
+				activeHotBarRow -= playerInventoryManager.COLUMN
+			activeHotBarRow = clampi(activeHotBarRow, 0, playerInventoryManager.NUM_INVENTORY_SLOTS - playerInventoryManager.COLUMN)
+			initializeInventory()
 
 func initializeInventory() -> void:
 	var slots = hotbar_slots.get_children()
@@ -34,3 +37,13 @@ func initializeInventory() -> void:
 
 func _on_timer_timeout():
 	canRotateAgain = true
+	
+	
+func getHotBarIndex() -> int:
+	var hotFrame : Sprite2D = $control/centerContainer/hotbarSlots/HotFrame
+	return roundi((hotFrame.position.x - 25) / 54)
+
+func getHotBarActiveItem() -> ItemData:
+	var index = getHotBarIndex()
+	return %hotbarSlots.get_child(index).get_child(0)
+	
