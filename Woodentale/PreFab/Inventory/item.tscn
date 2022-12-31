@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://curi4rj3f5fd"]
+[gd_scene load_steps=6 format=3 uid="uid://curi4rj3f5fd"]
 
 [ext_resource type="Script" path="res://Skripts/Inventory/Item.gd" id="1_5kchx"]
+[ext_resource type="Texture2D" uid="uid://bgdyf8f2jb05e" path="res://Artwork/Atlase/Assets/Progressbar.png" id="2_ef7j2"]
+[ext_resource type="Texture2D" uid="uid://buqs0s1osqqg7" path="res://Artwork/AtlasGD/utils/Progresbar.tres" id="3_aacxu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vp1uj"]
+atlas = ExtResource("2_ef7j2")
+region = Rect2(0, 0, 15, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpeib"]
+atlas = ExtResource("2_ef7j2")
+region = Rect2(30, 0, 15, 45)
 
 [node name="Item" type="Node2D"]
 texture_filter = 1
@@ -13,14 +23,28 @@ position = Vector2(32, 32)
 scale = Vector2(2, 2)
 region_rect = Rect2(64, 64, 0, 0)
 
-[node name="Label" type="Label" parent="."]
+[node name="Overhead" type="Node2D" parent="."]
+z_index = 3
+
+[node name="Label" type="Label" parent="Overhead"]
 texture_filter = 1
 offset_left = 25.0
 offset_top = 55.0
 offset_right = 115.0
-offset_bottom = 99.0
+offset_bottom = 103.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 32
 text = "999"
 horizontal_alignment = 2
+
+[node name="ToolBarFill" type="TextureProgressBar" parent="Overhead"]
+custom_minimum_size = Vector2(15, 45)
+offset_left = 2.66666
+offset_top = 2.66667
+offset_right = 17.6667
+offset_bottom = 47.6667
+fill_mode = 3
+texture_under = SubResource("AtlasTexture_vp1uj")
+texture_over = ExtResource("3_aacxu")
+texture_progress = SubResource("AtlasTexture_tpeib")

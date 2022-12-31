@@ -9,7 +9,8 @@ var globalYear = 1
 
 const moths = 5
 const days = 30
-const ingameDayinMinutes = 16.0
+#const ingameDayinMinutes = 16.0
+const ingameDayinMinutes = 1
 const defaultWorkHour = 18.0
 var ingameDayPerSecond = 0.0
 var ingameDaysPerMonth = 24

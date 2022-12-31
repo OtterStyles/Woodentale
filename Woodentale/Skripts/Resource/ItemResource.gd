@@ -22,13 +22,16 @@ var stackSize = 0
 @export_range(1,2) var critDamage = 1
 @export var workHeight = 1
 @export var workWidth = 1
+@export var hasToolProgressBar: bool = false
+@export var usesToolProgressBar: int = 1
 @export_range(1,4) var collectionRadius = 1
 @export_range(1,2) var fishingBonus = 1
 @export_range(1,2) var miningBonus = 1
 @export_group("PlaceAbles")
 @export var placeHeight = 1
 @export var placeWidth = 1
-
+@export_group("Crops")
+@export var duration = 1
 @export_category("Atlas")
 @export var itemAtlas: Texture2D
 @export var activeAtlas: Array[Texture2D] = []

@@ -1,21 +1,21 @@
-[gd_resource type="Resource" load_steps=4 format=3 uid="uid://cja4nmr7ekn4v"]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://dhivpf7labkyx"]
 
 [ext_resource type="Texture2D" uid="uid://bk86rdgdp5s5j" path="res://Artwork/Atlase/TooItemAtlas.png" id="1_2qa6f"]
 [ext_resource type="Script" path="res://Skripts/Resource/ItemResource.gd" id="1_t4wa1"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4hwwu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4h67v"]
 atlas = ExtResource("1_2qa6f")
-region = Rect2(64, 0, 32, 32)
+region = Rect2(96, 0, 32, 32)
 
 [resource]
 script = ExtResource("1_t4wa1")
-itemName = "Stone Pickaxe"
-itemID = 12
+itemName = "Stone Watering Can"
+itemID = 13
 stackSizeEnum = 0
-itemDescription = "A Pickaxe to destroy the enviroment"
+itemDescription = "A Watering Can to grow Plants"
 mainType = 1
 itemType = 7
-itemSubType = 2
+itemSubType = 8
 speed = 1
 stamina = 1
 damage = 1
@@ -23,12 +23,12 @@ workSpeed = 1
 critDamage = 1
 workHeight = 1
 workWidth = 1
-hasToolProgressBar = false
-usesToolProgressBar = 1
+hasToolProgressBar = true
+usesToolProgressBar = 10
 collectionRadius = 1
 fishingBonus = 1
 miningBonus = 1
 placeHeight = 1
 placeWidth = 1
-itemAtlas = SubResource("AtlasTexture_4hwwu")
+itemAtlas = SubResource("AtlasTexture_4h67v")
 activeAtlas = null

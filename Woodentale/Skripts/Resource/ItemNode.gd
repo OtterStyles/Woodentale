@@ -21,9 +21,9 @@ func setHealths(_healths: Array[int]):
 func _on_hurtbox_area_entered(area: Area2D):
 	var player = area.get_parent().get_parent().name
 	var handHoldManager: HandHoldManager = AllPlayerManager.players[player].handHoldManager
-	if type == handHoldManager.handHoldType and not handHoldManager.handHoldHitCooldown:
-		handHoldManager.handHoldHitCooldown = true
-		healths[nodePhase] -= handHoldManager.handHoldDamage
+	if type == handHoldManager.type and not handHoldManager.coolDown:
+		handHoldManager.coolDown = true
+		healths[nodePhase] -= handHoldManager.getDamage()
 		if healths[nodePhase] <= 0 and isMultiPhase and nodePhase < len(item.activeAtlas) - 1:
 			dropItems()
 			nodePhase += 1

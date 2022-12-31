@@ -59,13 +59,12 @@ func move_state(delta: float) -> void:
 func working_state(delta: float) -> void:
 	handelAnimation("Working")
 	applyFriction(FRICTION * delta)
+	handHold_manager.useTool()
 	
 func getInput() -> void:
 	sprint = 1
 	if Input.is_action_pressed("work"):
 		state = WORKING
-		player_manager.inventorySlots = 18
-		return
 	if Input.is_action_pressed("sprint"):
 		sprint = SPEED_SPRINT_MULT
 	handleMovementInputs()
@@ -134,21 +133,19 @@ func calculateStats() -> void:
 
 func changeHandItem():
 	var item: ItemData = gui.hot_bar.getHotBarActiveItem()
-	var currentToolType = handHold_manager.handHoldType
+	var currentToolType = handHold_manager.type
 	if item:
 		if item.itemSubType != currentToolType:
-			handHold_manager.changeTool(item.itemSubType)
+			handHold_manager.changeItem(item.item)
 		return
-	handHold_manager.changeTool(DataEnums.HandHoldTypes.HAND)
-	
-
+	handHold_manager.changeItem(null)
 
 func handelAnimation(NodeName: StringName) -> void:
 	animationStateMachine.travel(NodeName)
 
 func resetAnimationState() -> void:
 	state = MOVE
-	handHold_manager.handHoldHitCooldown = false
+	handHold_manager.coolDown = false
 
 func timerTimeOut():
 	canChangeHotBar = true

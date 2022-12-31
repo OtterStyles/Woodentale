@@ -1412,12 +1412,6 @@ radius = 8.0
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("2")
-SPEEDABS = null
-SPEEDPERC = null
-SPEED_DEFAULT = null
-SPEED_SPRINT_MULT = null
-ACCELERATION = null
-FRICTION = null
 
 [node name="Manager" type="Node" parent="."]
 script = ExtResource("7_olwk5")
@@ -1485,7 +1479,7 @@ scale = Vector2(1, 0.995297)
 shape = SubResource("CapsuleShape2D_dwi6s")
 
 [node name="Hitbox" parent="Collision" instance=ExtResource("4_ld7ar")]
-position = Vector2(0, -20)
+position = Vector2(0, 12)
 collision_layer = 12
 collision_mask = 0
 
@@ -1504,22 +1498,22 @@ unique_name_in_owner = true
 position = Vector2(0, -30)
 
 [node name="Head" type="Marker2D" parent="Pivots"]
-position = Vector2(-1, -50)
+position = Vector2(0, -50)
 
 [node name="Body" type="Marker2D" parent="Pivots"]
-position = Vector2(-2, -30)
+position = Vector2(0, -30)
 
 [node name="Pants_left" type="Marker2D" parent="Pivots"]
-position = Vector2(-1, -10)
+position = Vector2(-5, -10)
 
 [node name="Pants_right" type="Marker2D" parent="Pivots"]
-position = Vector2(-1, -10)
+position = Vector2(5, -10)
 
 [node name="Boots_left" type="Marker2D" parent="Pivots"]
-position = Vector2(-1, -1)
+position = Vector2(-5, -1)
 
 [node name="Boots_right" type="Marker2D" parent="Pivots"]
-position = Vector2(-1, -1)
+position = Vector2(5, -1)
 
 [editable path="Collision/hurtbox"]
 [editable path="Collision/Hitbox"]

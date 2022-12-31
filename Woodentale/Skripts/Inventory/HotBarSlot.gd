@@ -15,3 +15,11 @@ func updateItem(item_id: int, item_quantity: int) -> void:
 func clear() -> void:
 	for child in get_children():
 		remove_child(child)
+
+func setHotbar(value: bool):
+	if not item: return
+	item.setHotbar(value)
+	
+func changeToolBarFill(value: int):
+	if not item: return
+	item.changeToolBarFill(value)

@@ -7,17 +7,19 @@ const NUM_INVENTORY_SLOTS = ROW * COLUMN
 signal inventoryChanged
 var initInv = [
 	[DataEnums.ItemID.STONE_AXE, 1],
-	[DataEnums.ItemID.STONE_HOE, 1],
 	[DataEnums.ItemID.STONE_PICKAXE, 1],
+	[DataEnums.ItemID.STONE_HOE, 1],
+	[DataEnums.ItemID.STONE_WATERING_CAN, 1],
+	[DataEnums.ItemID.SEED_POTATO, 480],
+	[DataEnums.ItemID.POTATO, 10],
 	[DataEnums.ItemID.WOOD, 20],
 	[DataEnums.ItemID.STONE, 5],
 	[DataEnums.ItemID.FARN_HELMET, 1],
 	[DataEnums.ItemID.FARN_CHEST, 1],
 	[DataEnums.ItemID.FARN_PANTS, 1],
 	[DataEnums.ItemID.FARN_SNEACKERS, 1],
-	[DataEnums.ItemID.WOOD, 480]
+	[DataEnums.ItemID.WOOD, 480],
 ]
-
 
 var inventory: Dictionary = {
 }
