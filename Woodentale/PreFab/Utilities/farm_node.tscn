@@ -43,6 +43,17 @@ invisibleTime = 0.0
 visible = false
 shape = SubResource("CircleShape2D_tbh6i")
 
+[node name="interactHurtbox" parent="." instance=ExtResource("5_rjtuc")]
+collision_layer = 0
+collision_mask = 64
+invisibleTime = 0.0
+
+[node name="CollisionShape2D" parent="interactHurtbox" index="0"]
+visible = false
+shape = SubResource("CircleShape2D_tbh6i")
+
 [connection signal="area_entered" from="hurtbox" to="." method="_on_farm_node_area_entered"]
+[connection signal="area_entered" from="interactHurtbox" to="." method="_on_farm_node_area_interact"]
 
 [editable path="hurtbox"]
+[editable path="interactHurtbox"]

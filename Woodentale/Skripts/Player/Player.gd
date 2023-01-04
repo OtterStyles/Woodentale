@@ -17,10 +17,11 @@ var direction = Vector2.ZERO
 enum {
 	MOVE,
 	WORKING,
-	ATTACKING
+	ATTACKING,
+	INTERACT
 }
 var state = MOVE
-var animationName = ['Working','Idle','Walking','Attacking']
+var animationName = ['Working','Idle','Walking','Attacking','Interact']
 
 @onready var animationStateMachine = $Animation/AnimationTree.get("parameters/playback");
 @onready var animationTree = $Animation/AnimationTree
@@ -48,6 +49,8 @@ func _physics_process(delta) -> void:
 			move_state(delta)
 		WORKING:
 			working_state(delta)
+		INTERACT:
+			interact_state(delta)
 		ATTACKING:
 			pass
 
@@ -60,6 +63,11 @@ func working_state(delta: float) -> void:
 	handelAnimation("Working")
 	applyFriction(FRICTION * delta)
 	handHold_manager.useTool()
+
+func interact_state(delta: float) -> void:
+	handelAnimation("Interact")
+	applyFriction(FRICTION * delta)
+
 	
 func getInput() -> void:
 	sprint = 1
@@ -67,6 +75,8 @@ func getInput() -> void:
 		state = WORKING
 	if Input.is_action_pressed("sprint"):
 		sprint = SPEED_SPRINT_MULT
+	if Input.is_action_just_pressed("interact"):
+		state = INTERACT
 	handleMovementInputs()
 
 func _input(event):

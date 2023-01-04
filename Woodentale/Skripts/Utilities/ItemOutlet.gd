@@ -18,7 +18,7 @@ func _process(_delta):
 	else:
 		canSpawnItems = false
 
-func addItemToQueue(itemDrop, localPosition):
+func addItemToQueue(itemDrop: ItemNodeDrops, localPosition):
 	if not canSpawnItems:
 		itemQueue.append([itemDrop, localPosition])
 	else:

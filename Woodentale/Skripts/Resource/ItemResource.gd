@@ -31,7 +31,11 @@ var stackSize = 0
 @export var placeHeight = 1
 @export var placeWidth = 1
 @export_group("Crops")
-@export var duration = 1
+@export var duration = 4
+@export var phaseDuration = 1
+@export var spawns: DataEnums.ItemID = DataEnums.ItemID.POTATO 
+@export var spawnsMin: int = 1
+@export var spawnsMax: int = 3
 @export_category("Atlas")
 @export var itemAtlas: Texture2D
 @export var activeAtlas: Array[Texture2D] = []
