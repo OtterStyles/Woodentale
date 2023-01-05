@@ -1,9 +1,9 @@
 extends CanvasLayer
 
-@onready var inventory = $Inventory
-@onready var pause_settings_menue = $PauseSettingsMenue
-@onready var player = $".."
-@onready var hot_bar = $HotBar
+@onready var inventory: InventoryGUI = $Inventory
+@onready var pause_settings_menue: PauseSettingsMenue = $PauseSettingsMenue
+@onready var player: Player = $".."
+@onready var hot_bar: HotBar = $HotBar
 
 
 func _input(event: InputEvent) -> void:

@@ -1,25 +1,29 @@
 extends Control
 
-const ItemType = preload("res://Skripts/Inventory/Item.gd")
 var ItemClass = preload("res://PreFab/Inventory/item.tscn")
-var item = null
+var itemData: ItemData = null
 
-func updateItem(item_id: int, item_quantity: int) -> void:
-	var newItem = ItemClass.instantiate()
-	newItem.setItem(item_id, item_quantity)
-	if newItem != item:
-		clear()
+func updateItem(itemID: int, itemQuantity: int) -> void:
+	var newItem: ItemData = ItemClass.instantiate()
+	newItem.setItem(itemID, itemQuantity)
+	if newItem != itemData:
+		clearHotBarSlot()
 		add_child(newItem)
-		item = newItem
+		itemData = newItem
+		setToolStamina()
 
-func clear() -> void:
+func clearHotBarSlot() -> void:
 	for child in get_children():
 		remove_child(child)
 
-func setHotbar(value: bool):
-	if not item: return
-	item.setHotbar(value)
+func setHotbar(value: bool) -> void:
+	if not itemData: return
+	itemData.setHotbar(value)
 	
-func changeToolBarFill(value: int):
-	if not item: return
-	item.changeToolBarFill(value)
+func changeToolStamina(value: int) -> void:
+	if not itemData: return
+	itemData.changeToolStamina(value)
+
+func setToolStamina():
+	if not itemData: return
+	itemData.setToolStamina(itemData.item.hasStamina, itemData.item.valueStamina)

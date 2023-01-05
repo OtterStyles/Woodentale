@@ -1,4 +1,5 @@
 extends Area2D
+class_name HutBox
 
 @onready var collisionShape2D : CollisionShape2D = $CollisionShape2D
 @onready var timer : Timer = $Timer

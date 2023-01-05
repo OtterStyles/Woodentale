@@ -1,17 +1,30 @@
 extends GridContainer
-@onready var hot_frame: Sprite2D = $HotFrame
 
+var numberActiveFrame = 0
+var maxActiveFrames = 0
 
+func _ready():
+	maxActiveFrames = len(get_children(0)) - 1
 
 func moveFrameLeft():
-	if hot_frame.position.x > 25:
-		hot_frame.position.x -= 54
+	disableHotFrame()
+	numberActiveFrame = clampi(numberActiveFrame - 1, 0, maxActiveFrames)
+	enableHotFrame()
 	
 func moveFrameRight():
-	if hot_frame.position.x < 295:
-		hot_frame.position.x += 54
+	disableHotFrame()
+	numberActiveFrame = clampi(numberActiveFrame + 1, 0, maxActiveFrames)
+	enableHotFrame()
 
-func moveFrameSet(number: int):
-	var offset = 25 + (number - 1) * 54
-	if offset >= 25 and offset <= 295:
-		hot_frame.position.x = offset
+func setFrame(number: int):
+	disableHotFrame()
+	numberActiveFrame = clampi(number, 0, maxActiveFrames)
+	enableHotFrame()
+
+
+func disableHotFrame() -> void:
+	get_child(numberActiveFrame).get_child(0).updateHotFrame(false)
+
+func enableHotFrame() -> void:
+	get_child(numberActiveFrame).get_child(0).updateHotFrame(true)
+	

@@ -1,4 +1,5 @@
 extends Panel
+class_name Slot
 
 @export_category("Type")
 @export var mainType: DataEnums.MainType = DataEnums.MainType.ITEM
@@ -6,16 +7,12 @@ extends Panel
 @export var itemSubType: DataEnums.SubItemType = DataEnums.SubItemType.NONE
 
 const ItemType = preload("res://PreFab/Inventory/item.tscn")
-const ItemClass = preload("res://Skripts/Inventory/Item.gd")
 var item: ItemData = null
 var activated: bool = false
 var updateByQuantity = 0
 
-func _process(_delta):
+func _process(_delta) -> void:
 	visible = activated
-	if item:
-		tooltip_text = item.itemDescription
-	
 
 func initializeItem(item_id: int, item_quantity: int) -> void:
 	if item == null:
@@ -24,6 +21,7 @@ func initializeItem(item_id: int, item_quantity: int) -> void:
 		add_child(item)
 	else:
 		item.setItem(item_id, item_quantity)
+	tooltip_text = item.itemDescription
 
 func pickFromSlot(type: DataEnums.PickSize) -> ItemData:
 	if not item:
@@ -36,7 +34,7 @@ func pickFromSlot(type: DataEnums.PickSize) -> ItemData:
 		item = null
 	return invItem
 
-func putIntoSlot(holding_item: ItemClass, type: DataEnums.PickSize) -> ItemClass:
+func putIntoSlot(holding_item: ItemData, type: DataEnums.PickSize) -> ItemData:
 	if item:
 		return holding_item
 	item = matchTypeAndCreateInvItem(holding_item, type)

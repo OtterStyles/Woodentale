@@ -5,8 +5,7 @@ class_name BookTexture
 @export var inv18Slots: Texture2D
 @export var inv30Slots: Texture2D
 
-
-func updateInventorySlots(inventorySlots: int):
+func updateInventorySlots(inventorySlots: int) -> void:
 	if inventorySlots == 6:
 		texture = inv6Slots
 	elif inventorySlots == 18:
@@ -14,8 +13,8 @@ func updateInventorySlots(inventorySlots: int):
 	else:
 		texture = inv30Slots
 		
-func updateEquipmentSlots(_equipmentSlots: int):
+func updateEquipmentSlots(_equipmentSlots: int) -> void:
 	pass
 	
-func updateAccesoirSlots(_accesiorSlots: int):
+func updateAccesoirSlots(_accesiorSlots: int) -> void:
 	pass

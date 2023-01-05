@@ -1,7 +1,8 @@
 extends Node
+class_name ItemLoaderType
 
 const path = "res://Resource/Items/"
-var itemDirectory = {}
+var _itemDirectory = {}
 
 func _init():
 	var dir = Directory.new()
@@ -11,17 +12,18 @@ func _init():
 			if currentDir.open(path+folder) == OK:
 				for file_name in currentDir.get_files():
 					var res: ItemResource = load(path+folder+"/"+file_name)
-					if not itemDirectory.has(res.itemID):
+					res.maxStamina = res.valueStamina
+					if not _itemDirectory.has(res.itemID):
 						res.stackSize = res.stackSizeFlags[res.stackSizeEnum].to_int()
-						itemDirectory[res.itemID] = res
+						_itemDirectory[res.itemID] = res
 					else:
 						printerr("DUPLICATION: ID"+res.itemID+" is in "
-						+res.itemName+" and "+itemDirectory.get(res.itemID).itemName)
+						+res.itemName+ " and " + _itemDirectory.get(res.itemID).itemName)
 	else:
 		printerr("FAILED TO LOAD ITEMS")
 
-func getItem(ID: int):
-	if itemDirectory.has(ID):
-		return itemDirectory[ID]
-	return ERR_DOES_NOT_EXIST
+func getItem(ID: int) -> ItemResource:
+	if _itemDirectory.has(ID):
+		return _itemDirectory[ID]
+	return null
 

@@ -1,9 +1,10 @@
 extends Control
+class_name PauseSettingsMenue
 
 @onready var pause_menu = $PauseMenu
 @onready var settings_menue = $SettingsMenue
 
-func _ready():
+func _ready() -> void:
 	pause_menu.connect("changeToSettings", openSettings)
 	settings_menue.connect("changeToPause", closeSettings)
 

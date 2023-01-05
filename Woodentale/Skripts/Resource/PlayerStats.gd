@@ -1,5 +1,5 @@
 extends Resource
-class_name playerStats
+class_name PlayerStats
 
 var Speed: int = 400
 var Speed_Sprint: int = 600

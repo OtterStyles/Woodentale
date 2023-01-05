@@ -27,8 +27,7 @@ var accesoirSlots: int = 4 :
 		updateAccesoirSlots.emit(accesoirSlots)
 		
 
-
-func _process(_delta):
+func _ready() -> void:
 	inventorySlots = inventorySlots
 	equipmentSlots = equipmentSlots
 	accesoirSlots = accesoirSlots

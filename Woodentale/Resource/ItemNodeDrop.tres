@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://djncm5050b20x"]
+
+[ext_resource type="Script" path="res://Skripts/Resource/ItemNodeDrops.gd" id="1_ocvgd"]
+
+[resource]
+script = ExtResource("1_ocvgd")
+itemID = 0
+dropPhase = 0
+dropChance = 0
+dropMin = 0
+dropMax = 0

@@ -31,8 +31,9 @@ var animationName = ['Working','Idle','Walking','Attacking','Interact']
 @onready var gui = $GUI
 var timer: Timer = Timer.new()
 var canChangeHotBar = true
+var singleUseHolder = false
 
-func _ready():
+func _ready() -> void:
 	timer.wait_time = 0.8
 	timer.autostart = true
 	timer.timeout.connect(timerTimeOut)
@@ -62,7 +63,9 @@ func move_state(delta: float) -> void:
 func working_state(delta: float) -> void:
 	handelAnimation("Working")
 	applyFriction(FRICTION * delta)
-	handHold_manager.useTool()
+	if not handHold_manager.coolDown: 
+		handHold_manager.useTool()
+		handHold_manager.coolDown = true
 
 func interact_state(delta: float) -> void:
 	handelAnimation("Interact")
@@ -79,7 +82,7 @@ func getInput() -> void:
 		state = INTERACT
 	handleMovementInputs()
 
-func _input(event):
+func _input(event: InputEvent) -> void:
 	if not Input.is_key_pressed(KEY_SHIFT):
 		if event is InputEventMouseButton and canChangeHotBar:
 			timer.start(0.1)
@@ -89,7 +92,8 @@ func _input(event):
 			elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 				gui.hot_bar.hotbar_slots.moveFrameRight()
 		if event is InputEventKey:
-			gui.hot_bar.hotbar_slots.moveFrameSet(event.as_text().to_int())
+			if not event.as_text().to_lower() in DataConstants.ASCII_LOWERCASE:
+				gui.hot_bar.hotbar_slots.setFrame(event.as_text().to_int() - 1)
 
 func handleMovementInputs() -> void:
 	direction = Vector2.ZERO
@@ -141,7 +145,7 @@ func changeBlendPositions() -> void:
 func calculateStats() -> void:
 	SPEED = (SPEED_DEFAULT + SPEEDABS) * SPEEDPERC
 
-func changeHandItem():
+func changeHandItem() -> void:
 	var item: ItemData = gui.hot_bar.getHotBarActiveItem()
 	var currentToolType = handHold_manager.type
 	if item:
@@ -157,5 +161,5 @@ func resetAnimationState() -> void:
 	state = MOVE
 	handHold_manager.coolDown = false
 
-func timerTimeOut():
+func timerTimeOut() -> void:
 	canChangeHotBar = true

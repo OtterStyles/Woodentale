@@ -5,6 +5,7 @@ const COLUMN = 6
 const ROW = 5
 const NUM_INVENTORY_SLOTS = ROW * COLUMN
 signal inventoryChanged
+
 var initInv = [
 	[DataEnums.ItemID.STONE_AXE, 1],
 	[DataEnums.ItemID.STONE_PICKAXE, 1],
@@ -24,7 +25,7 @@ var initInv = [
 var inventory: Dictionary = {
 }
 
-func _ready():
+func _ready() -> void:
 	for i in range(len(initInv)):
 		inventory[i] = initInv[i]
 

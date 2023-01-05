@@ -1,9 +1,11 @@
 extends ColorRect
+class_name PauseMenue
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var resume_button: Button = %ResumeButton
 @onready var quit_button: Button = %QuitButton
-@onready var settings_button = %SettingsButton
+@onready var settings_button: Button = %SettingsButton
+
 signal changeToSettings 
 
 func _ready() -> void:

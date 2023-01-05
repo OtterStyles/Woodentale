@@ -10,7 +10,7 @@ var globalYear = 1
 const moths = 5
 const days = 30
 #const ingameDayinMinutes = 16.0
-const ingameDayinMinutes = 1
+const ingameDayinMinutes = .5
 const defaultWorkHour = 18.0
 var ingameDayPerSecond = 0.0
 var ingameDaysPerMonth = 24
@@ -27,33 +27,34 @@ signal dayEnd
 signal updateDay
 signal updateMonth
 
-func _init():
+func _init() -> void:
 	ingameDayPerSecond = defaultWorkHour / (ingameDayinMinutes * 60)
 
-func _process(_delta):
+func _process(_delta) -> void:
 	if globalTime >= 24:
 		timer.stop()
 		dayEnd.emit()
 		get_tree().paused = true
 
-func restartDay():
+func restartDay() -> void:
 	globalTime = 0
 	timer.start()
+	print("change")
 	addDay()
 	get_tree().paused = false
 
-func _on_timer_timeout():
+func _on_timer_timeout() -> void:
 	globalTime += ingameDayPerSecond * timer.wait_time
 	timeChange.emit(globalTime)
 	timer.start()
 
-func addDay():
+func addDay() -> void:
 	globalDay += 1
 	updateDay.emit(globalDay)
 	if globalDay >= ingameDaysPerMonth:
 		globalDay = 1
 		
-func addMonth():
+func addMonth() -> void:
 	globalMonth += 1
 	updateMonth.emit(globalMonth)
 	if globalMonth >= ingameMonthsPerYear:
