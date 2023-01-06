@@ -12,7 +12,6 @@ func itemInit(_item: ItemResource):
 	type = _item.itemSubType
 
 func changeItem(_item: ItemResource):
-	print(_item)
 	item = _item
 	if item:
 		type = _item.itemSubType

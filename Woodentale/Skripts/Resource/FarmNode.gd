@@ -49,10 +49,8 @@ func _on_farm_node_area_interact(area: Area2D):
 
 func updateDay(time: int) -> void:
 	if lastDehydrated + dehyderationPeriod <=time and seed == null and isHoed:
-		print("Vanish")
 		vanishCrop()
 	if isWatered and seed:
-		print("Grow")
 		dayHydrated += 1
 		var startFrame = 0
 		if dayHydrated % seed.phaseDuration == 0:

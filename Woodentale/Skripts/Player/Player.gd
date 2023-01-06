@@ -163,3 +163,9 @@ func resetAnimationState() -> void:
 
 func timerTimeOut() -> void:
 	canChangeHotBar = true
+
+
+func _on_interact_hurtbox_body_entered(body):
+	if body is TileMap:
+		var tile = body.get_cell_tile_data(3,body.local_to_map( $Collision/InteractHurtbox.global_position) )
+		print(tile)

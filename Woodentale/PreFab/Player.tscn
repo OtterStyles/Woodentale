@@ -518,6 +518,42 @@ tracks/9/keys = {
 "update": 1,
 "values": [true, false, true]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Collision/InteractHurtbox:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 12)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Collision/InteractHurtbox:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Collision/InteractHurtbox/CollisionShape2D:disabled")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
 
 [sub_resource type="Animation" id="Animation_jxh5b"]
 resource_name = "interact_LEFT"
@@ -639,6 +675,42 @@ tracks/9/path = NodePath("Collision/InteractHitBox/CollisionShape2D:disabled")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Collision/InteractHurtbox:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-25, -5)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Collision/InteractHurtbox:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Collision/InteractHurtbox/CollisionShape2D:disabled")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
@@ -770,6 +842,42 @@ tracks/9/keys = {
 "update": 1,
 "values": [true, false, true]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Collision/InteractHurtbox:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(25, -5)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Collision/InteractHurtbox:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Collision/InteractHurtbox/CollisionShape2D:disabled")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
 
 [sub_resource type="Animation" id="Animation_p3cyl"]
 resource_name = "interact_UP"
@@ -891,6 +999,42 @@ tracks/9/path = NodePath("Collision/InteractHitBox/CollisionShape2D:disabled")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Collision/InteractHurtbox:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -20)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Collision/InteractHurtbox:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Collision/InteractHurtbox/CollisionShape2D:disabled")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
@@ -2018,6 +2162,17 @@ collision_mask = 2
 scale = Vector2(1, 0.995297)
 shape = SubResource("CapsuleShape2D_dwi6s")
 
+[node name="InteractHurtbox" parent="Collision" instance=ExtResource("3_mpqox")]
+position = Vector2(-25, -5)
+collision_layer = 0
+collision_mask = 64
+invisibleTime = 0.0
+
+[node name="CollisionShape2D" parent="Collision/InteractHurtbox" index="0"]
+scale = Vector2(1, 0.995297)
+shape = SubResource("CapsuleShape2D_dwi6s")
+disabled = true
+
 [node name="Hitbox" parent="Collision" instance=ExtResource("4_ld7ar")]
 position = Vector2(0, -20)
 collision_layer = 12
@@ -2029,7 +2184,7 @@ disabled = true
 
 [node name="InteractHitBox" parent="Collision" instance=ExtResource("4_ld7ar")]
 position = Vector2(0, -20)
-collision_layer = 64
+collision_layer = 128
 collision_mask = 0
 
 [node name="CollisionShape2D" parent="Collision/InteractHitBox" index="0"]
@@ -2064,6 +2219,9 @@ position = Vector2(-5, -1)
 [node name="Boots_right" type="Marker2D" parent="Pivots"]
 position = Vector2(5, -1)
 
+[connection signal="body_entered" from="Collision/InteractHurtbox" to="." method="_on_interact_hurtbox_body_entered"]
+
 [editable path="Collision/hurtbox"]
+[editable path="Collision/InteractHurtbox"]
 [editable path="Collision/Hitbox"]
 [editable path="Collision/InteractHitBox"]

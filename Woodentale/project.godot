@@ -307,6 +307,7 @@ interact={
 2d_physics/layer_5="ItemDrop"
 2d_physics/layer_6="Farming"
 2d_physics/layer_7="Interact"
+2d_physics/layer_8="InteractHit"
 
 [physics]
 
@@ -314,5 +315,6 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+vulkan/rendering/back_end=1
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
 textures/canvas_textures/default_texture_filter=0

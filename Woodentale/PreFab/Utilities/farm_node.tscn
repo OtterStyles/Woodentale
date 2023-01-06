@@ -24,7 +24,7 @@ shape = SubResource("CircleShape2D_s41dd")
 texture = ExtResource("2_3pf85")
 hframes = 2
 region_enabled = true
-region_rect = Rect2(0, 128, 128, 64)
+region_rect = Rect2(0, 768, 128, 64)
 
 [node name="CropOutlet" type="Sprite2D" parent="."]
 position = Vector2(0, -26)

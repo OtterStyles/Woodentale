@@ -39,7 +39,6 @@ func _process(_delta) -> void:
 func restartDay() -> void:
 	globalTime = 0
 	timer.start()
-	print("change")
 	addDay()
 	get_tree().paused = false
 

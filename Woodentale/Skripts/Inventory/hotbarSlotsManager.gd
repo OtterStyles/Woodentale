@@ -23,8 +23,10 @@ func setFrame(number: int):
 
 
 func disableHotFrame() -> void:
-	get_child(numberActiveFrame).get_child(0).updateHotFrame(false)
+	if get_child(numberActiveFrame).get_child(0):
+		get_child(numberActiveFrame).get_child(0).updateHotFrame(false)
 
 func enableHotFrame() -> void:
-	get_child(numberActiveFrame).get_child(0).updateHotFrame(true)
+	if get_child(numberActiveFrame).get_child(0):
+		get_child(numberActiveFrame).get_child(0).updateHotFrame(true)
 	

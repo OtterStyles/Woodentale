@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://q547dfmquvy5"]
+[gd_scene load_steps=10 format=3 uid="uid://q547dfmquvy5"]
 
 [ext_resource type="PackedScene" uid="uid://dvjq7xtqslr8h" path="res://PreFab/Player.tscn" id="1"]
 [ext_resource type="PackedScene" path="res://PreFab/Utilities/hitbox.tscn" id="2_lh55i"]
 [ext_resource type="PackedScene" uid="uid://nbvlr1nton3v" path="res://PreFab/Inventory/itemDrop.tscn" id="3_82dju"]
-[ext_resource type="Script" path="res://Skripts/Resource/ItemNodeDrops.gd" id="4_hk1q4"]
 [ext_resource type="PackedScene" uid="uid://bsah2vtvpjw1e" path="res://PreFab/Utilities/resource_spawner.tscn" id="4_msnv6"]
 [ext_resource type="Script" path="res://Skripts/Resource/SpawnFieldResource.gd" id="5_y4gbx"]
 [ext_resource type="Script" path="res://Skripts/Utilities/ItemOutlet.gd" id="7_op0ew"]
@@ -12,43 +11,19 @@
 radius = 11.0
 height = 68.0
 
-[sub_resource type="Resource" id="Resource_henha"]
-script = ExtResource("4_hk1q4")
-itemID = 3
-dropPhase = 0
-dropChance = 1.0
-dropMin = 1000
-dropMax = 1000
-
 [sub_resource type="Resource" id="Resource_rbnod"]
 script = ExtResource("5_y4gbx")
 itemID = 3
 spawnChance = 0.5
-itemDrops = [SubResource("Resource_henha")]
+itemNodeDrops = null
 type = 2
 healths = [1]
-
-[sub_resource type="Resource" id="Resource_iflwl"]
-script = ExtResource("4_hk1q4")
-itemID = 0
-dropPhase = 0
-dropChance = 1.0
-dropMin = 1
-dropMax = 5
-
-[sub_resource type="Resource" id="Resource_m3c3g"]
-script = ExtResource("4_hk1q4")
-itemID = 0
-dropPhase = 1
-dropChance = 1.0
-dropMin = 1
-dropMax = 3
 
 [sub_resource type="Resource" id="Resource_m1gyc"]
 script = ExtResource("5_y4gbx")
 itemID = 0
 spawnChance = 0
-itemDrops = [SubResource("Resource_iflwl"), SubResource("Resource_m3c3g")]
+itemNodeDrops = null
 type = 2
 healths = [1, 1]
 
@@ -84,7 +59,6 @@ position = Vector2(95, -138)
 itemID = 3
 
 [node name="ResourceSpawner" parent="." instance=ExtResource("4_msnv6")]
-layer_0/tile_data = PackedInt32Array(-262156, 0, 0, -262155, 0, 0, -196619, 0, 0, -131082, 0, 0, -65546, 0, 0, -131083, 0, 0, -196620, 0, 0, -131084, 0, 0, -65548, 0, 0, -12, 0, 0, -11, 0, 0, -10, 0, 0, -65547, 0, 0, -196618, 0, 0, -262154, 0, 0, -262153, 0, 0, -196617, 0, 0, -131081, 0, 0, -65545, 0, 0, -9, 0, 0, -8, 0, 0, -65544, 0, 0, -131080, 0, 0, -196616, 0, 0, -262152, 0, 0, -262151, 0, 0, -196615, 0, 0, -131079, 0, 0, -65543, 0, 0, -7, 0, 0, -6, 0, 0, -65542, 0, 0, -131078, 0, 0, -196614, 0, 0, -262150, 0, 0, -327686, 0, 0, -327687, 0, 0, -327688, 0, 0, -327689, 0, 0, -327690, 0, 0, -327691, 0, 0, -327692, 0, 0, -327693, 0, 0, -262157, 0, 0, -196621, 0, 0, -131085, 0, 0, -65549, 0, 0, -13, 0, 0, 65523, 0, 0, 65524, 0, 0, 65525, 0, 0, 65526, 0, 0, 65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0)
 layer_0/tile_data = PackedInt32Array(-262156, 0, 0, -262155, 0, 0, -196619, 0, 0, -131082, 0, 0, -65546, 0, 0, -131083, 0, 0, -196620, 0, 0, -131084, 0, 0, -65548, 0, 0, -12, 0, 0, -11, 0, 0, -10, 0, 0, -65547, 0, 0, -196618, 0, 0, -262154, 0, 0, -262153, 0, 0, -196617, 0, 0, -131081, 0, 0, -65545, 0, 0, -9, 0, 0, -8, 0, 0, -65544, 0, 0, -131080, 0, 0, -196616, 0, 0, -262152, 0, 0, -262151, 0, 0, -196615, 0, 0, -131079, 0, 0, -65543, 0, 0, -7, 0, 0, -6, 0, 0, -65542, 0, 0, -131078, 0, 0, -196614, 0, 0, -262150, 0, 0, -327686, 0, 0, -327687, 0, 0, -327688, 0, 0, -327689, 0, 0, -327690, 0, 0, -327691, 0, 0, -327692, 0, 0, -327693, 0, 0, -262157, 0, 0, -196621, 0, 0, -131085, 0, 0, -65549, 0, 0, -13, 0, 0, 65523, 0, 0, 65524, 0, 0, 65525, 0, 0, 65526, 0, 0, 65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0)
 spawnNodes = [SubResource("Resource_rbnod"), SubResource("Resource_m1gyc")]
 

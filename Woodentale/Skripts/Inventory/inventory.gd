@@ -133,7 +133,7 @@ func handleItemWithQuantity(type: DataEnums.PickSize, slot: Slot) -> void:
 	if holding_item == null:
 		pickItems(type, slot)
 	else:
-		if slot.item == null and canPlaceInSlot(slot):
+		if slot.itemData == null and canPlaceInSlot(slot):
 			putItems(type, slot)
 		else:
 			swapItems(type, slot)
@@ -145,24 +145,24 @@ func handleItemWithQuantity(type: DataEnums.PickSize, slot: Slot) -> void:
 func swapItems(type: DataEnums.PickSize, slot: Slot) -> void:
 	activeFunction = Functions.SWAP
 	if canPlaceInSlot(slot) and type == DataEnums.PickSize.FULL:
-		if holding_item.itemID != slot.item.itemID:
+		if holding_item.itemID != slot.itemData.itemID:
 			swapTwoItems(slot, type)
 			return
-		elif holding_item.itemID == slot.item.itemID:
-			var stack_size = ItemLoader.getItem(slot.item.itemID).stackSize
-			var able_to_add = stack_size - slot.item.item_quantity
+		elif holding_item.itemID == slot.itemData.itemID:
+			var stack_size = ItemLoader.getItem(slot.itemData.itemID).stackSize
+			var able_to_add = stack_size - slot.itemData.item_quantity
 			if able_to_add >= holding_item.item_quantity:
 				activeFunction = Functions.PICK
 				addPickItems(type, slot)
 				return
-			elif slot.item.item_quantity == stack_size:
+			elif slot.itemData.item_quantity == stack_size:
 				swapTwoItems(slot, type)
 				return
 			slot.item.addItemQuantity(able_to_add)
 			holding_item.decreaseItemQuantity(able_to_add)
 	elif canPlaceInSlot(slot):
-		if holding_item.itemID == slot.item.itemID:
-			var stack_size = ItemLoader.getItem(slot.item.itemID).stackSize
+		if holding_item.itemID == slot.itemData.itemID:
+			var stack_size = ItemLoader.getItem(slot.itemData.itemID).stackSize
 			if holding_item.item_quantity < stack_size:
 				activeFunction = Functions.PICK
 				addPickItems(type, slot)
@@ -174,38 +174,38 @@ func swapTwoItems(slot: Slot, type: DataEnums.PickSize):
 	removeFromInventory(slot)
 	temp_item.global_position = get_global_mouse_position()
 	slot.putIntoSlot(holding_item, type)
-	putInInventory(slot.item, slot)
+	putInInventory(slot.itemData, slot)
 	add_child(temp_item)
 	holding_item = temp_item
 
 func pickItems(type: DataEnums.PickSize, slot: Slot):
-	if not slot.item:
+	if not slot.itemData:
 		return
 	activeFunction = Functions.PICK
 	holding_item = slot.pickFromSlot(type)
 	holding_item.global_position = get_global_mouse_position()
 	add_child(holding_item)
-	updateInventory(slot.item, slot)
+	updateInventory(slot.itemData, slot)
 
 func addPickItems(type: DataEnums.PickSize, slot: Slot):
-	if not slot.item:
+	if not slot.itemData:
 		return
 	var stack_size = ItemLoader.getItem(holding_item.itemID).stackSize
-	if holding_item.item_quantity < stack_size and slot.item:
+	if holding_item.item_quantity < stack_size and slot.itemData:
 		var temp_item: ItemData = slot.pickFromSlot(type)
 		remove_child(holding_item)
 		holding_item.addItemQuantity(temp_item.item_quantity)
 		holding_item.global_position = get_global_mouse_position()
 		add_child(holding_item)
-		updateInventory(slot.item, slot)
+		updateInventory(slot.itemData, slot)
 
 func putItems(type: DataEnums.PickSize, slot: Slot):
 	activeFunction = Functions.PUT
 	remove_child(holding_item)
 	holding_item = slot.putIntoSlot(holding_item, type)
-	if not slot.item:
+	if not slot.itemData:
 		return
-	putInInventory(slot.item , slot)
+	putInInventory(slot.itemData , slot)
 	if holding_item:
 		add_child(holding_item)
 

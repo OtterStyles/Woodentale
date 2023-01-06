@@ -35,9 +35,9 @@ func initializeInventory() -> void:
 	for i in range(playerInventoryManager.COLUMN):
 		var keyIndex = activeHotBarRow + i
 		if playerInventoryManager.inventory.has(keyIndex):
-			slots[i].updateItem(playerInventoryManager.inventory[keyIndex][0], playerInventoryManager.inventory[keyIndex][1])
+			slots[keyIndex].updateItem(playerInventoryManager.inventory[keyIndex][0], playerInventoryManager.inventory[keyIndex][1])
 		else:
-			slots[i].clear()
+			slots[keyIndex].clearHotBarSlot()
 	%hotbarSlots.enableHotFrame()
 
 func _on_timer_timeout() -> void:
