@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://df8ncx8e066fh"]
+
+[ext_resource type="Script" path="res://Skripts/Placeables/bed.gd" id="1_cdlpe"]
+[ext_resource type="Texture2D" uid="uid://domwftpcus8xp" path="res://Artwork/Atlase/Enviroment/Farm/Beds.tres" id="2_mwxoe"]
+[ext_resource type="PackedScene" path="res://PreFab/Utilities/hurtbox.tscn" id="3_a0rhj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6naxh"]
+radius = 24.0
+height = 104.0
+
+[node name="Bed" type="Node2D"]
+script = ExtResource("1_cdlpe")
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+texture = ExtResource("2_mwxoe")
+
+[node name="hurtbox" parent="." instance=ExtResource("3_a0rhj")]
+collision_layer = 0
+collision_mask = 128
+invisibleTime = 0.0
+
+[node name="CollisionShape2D" parent="hurtbox" index="0"]
+shape = SubResource("CapsuleShape2D_6naxh")
+
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+
+[editable path="hurtbox"]

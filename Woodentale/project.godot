@@ -179,6 +179,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Skripts/UI/settingsMenue.gd"
 }, {
+"base": "Node",
+"class": &"SignalManagerType",
+"language": &"GDScript",
+"path": "res://Skripts/Manager/SignalManager.gd"
+}, {
 "base": "Panel",
 "class": &"Slot",
 "language": &"GDScript",
@@ -234,6 +239,7 @@ _global_script_class_icons={
 "ResourceSpawnPoint": "",
 "ResourceSpawner": "",
 "SettingsMenue": "",
+"SignalManagerType": "",
 "Slot": "",
 "SpawnFieldResource": "",
 "SpawnOutlet": "",
@@ -255,6 +261,7 @@ AllPlayerManager="*res://Skripts/Manager/AllPlayerManager.gd"
 DataConstants="*res://Skripts/Manager/Constants.gd"
 TimeManager="*res://PreFab/Manager/time_manager.tscn"
 SpawnOutletManager="*res://Skripts/Manager/SpawnOutlet.gd"
+SignalManager="*res://Skripts/Manager/SignalManager.gd"
 
 [display]
 

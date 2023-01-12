@@ -26,10 +26,16 @@ signal timeChange
 signal dayEnd
 signal updateDay
 signal updateMonth
+signal endDay
+
+
 
 func _init() -> void:
 	ingameDayPerSecond = defaultWorkHour / (ingameDayinMinutes * 60)
-
+	
+func _ready():
+	endDay.connect(endDayAndRestart)
+	
 func _process(_delta) -> void:
 	if globalTime >= 24:
 		timer.stop()
@@ -39,8 +45,12 @@ func _process(_delta) -> void:
 func restartDay() -> void:
 	globalTime = 0
 	timer.start()
-	addDay()
 	get_tree().paused = false
+
+func endDayAndRestart():
+	dayEnd.emit()
+	addDay()
+	print(globalDay)
 
 func _on_timer_timeout() -> void:
 	globalTime += ingameDayPerSecond * timer.wait_time

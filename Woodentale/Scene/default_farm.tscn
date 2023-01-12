@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://dvlitnddiul8g"]
+[gd_scene load_steps=15 format=3 uid="uid://dvlitnddiul8g"]
 
+[ext_resource type="PackedScene" uid="uid://df8ncx8e066fh" path="res://PreFab/Placeables/bed.tscn" id="3_jhinu"]
 [ext_resource type="PackedScene" uid="uid://dvn28farqa7ha" path="res://PreFab/Utilities/spawner_nodes.tscn" id="4_l4wwh"]
 [ext_resource type="Script" path="res://Skripts/Resource/ItemNodeDrops.gd" id="4_nmqw7"]
 [ext_resource type="PackedScene" uid="uid://dvjq7xtqslr8h" path="res://PreFab/Player.tscn" id="4_xv7jq"]
@@ -53,7 +54,7 @@ healths = [1]
 y_sort_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("4_xv7jq")]
-position = Vector2(-1057, -675)
+position = Vector2(-1837, -4328)
 
 [node name="Map" type="Node" parent="."]
 process_priority = 1
@@ -101,7 +102,11 @@ layer_5/y_sort_origin = 0
 layer_5/z_index = 0
 layer_5/tile_data = PackedInt32Array()
 
+[node name="Bed" parent="Map" instance=ExtResource("3_jhinu")]
+position = Vector2(-1885, -4340)
+
 [node name="SpawnerNodes" parent="." instance=ExtResource("4_l4wwh")]
+visible = false
 forest = [SubResource("Resource_l8te3"), SubResource("Resource_7asru")]
 
 [node name="SpawnerPolygon" parent="SpawnerNodes" instance=ExtResource("5_coowu")]
@@ -114,3 +119,9 @@ spawnerType = 1
 [node name="ResourceSpawnPoint" parent="." instance=ExtResource("5_pkv15")]
 
 [node name="ItemOutlet" parent="." instance=ExtResource("6_yhahq")]
+
+[node name="StaticBody2d" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2d" type="CollisionPolygon2D" parent="StaticBody2d"]
+position = Vector2(96, -192)
+polygon = PackedVector2Array(-4135, -6818, -8103, 169, -4061, 7195, 3930, 7214, 8021, 193, 3951, -6814, -4134, -6824, -4242, -7256, 4178, -7399, 8573, 193, 4045, 7766, -4194, 7690, -8438, 182, -4231, -7273)
