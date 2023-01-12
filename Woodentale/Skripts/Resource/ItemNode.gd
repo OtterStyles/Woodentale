@@ -59,7 +59,7 @@ func dropItems() -> void:
 		if itemNodeDrop is ItemNodeDrop and itemNodeDrop.dropPhase == nodePhase:
 			for i in range(quantityDrop(itemNodeDrop.dropMin, itemNodeDrop.dropMax)):
 				if doDrop(itemNodeDrop.dropChance):
-					$"../ItemOutlet".addItemToQueue(itemNodeDrop, global_position)
+					SpawnOutletManager.addNewItem(itemNodeDrop, global_position)
 
 func doDrop(percent: int) -> bool:
 	return randf_range(0,1) <= percent

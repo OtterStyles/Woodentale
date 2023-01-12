@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1atb16kegl50"]
+
+[ext_resource type="Script" path="res://Skripts/Utilities/ItemOutlet.gd" id="1_a0gh6"]
+
+[node name="ItemOutlet" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_a0gh6")
+maxOverSize = 500

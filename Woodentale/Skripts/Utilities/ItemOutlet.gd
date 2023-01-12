@@ -8,6 +8,8 @@ var itemQueue: Array[Array] = []
 
 const ItemDropType = preload("res://PreFab/Inventory/itemDrop.tscn")
 
+func _ready():
+	SpawnOutletManager.addItem.connect(addItemToQueue)
 
 func _process(_delta: float) -> void:
 	if get_children().size() < maxOverSize:

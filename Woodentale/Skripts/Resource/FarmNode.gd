@@ -23,7 +23,7 @@ func _ready() -> void:
 func onHydrate() -> void:
 	lastDehydrated = TimeManager.globalTime
 
-func _on_farm_node_area_entered(area: Area2D) -> void:
+func _on_farm_node_area_entered(area) -> void:
 	var player: Player = area.get_parent().get_parent()
 	var handHoldManager: HandHoldManager = AllPlayerManager.getManagerByPlayer(player).handHoldManager
 	if not crop and not seed and not isHoed and DataEnums.SubItemType.HOE == handHoldManager.type and handHoldManager.coolDown:
@@ -66,7 +66,7 @@ func spawnCrop(crop: ItemResource) -> void:
 		for i in range(quantityDrop(crop.spawnsMin, crop.spawnsMax)):
 			var newItemDrop : ItemNodeDrop = ItemNodeDrop.new()
 			newItemDrop.itemID = crop.itemID
-			$"../ItemOutlet".addItemToQueue(newItemDrop, global_position)
+			SpawnOutletManager.addNewItem(newItemDrop, global_position)
 
 func vanishCrop():
 	base.visible = false

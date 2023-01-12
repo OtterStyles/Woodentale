@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://85c6iran80ur"]
+
+[ext_resource type="Script" path="res://Skripts/Utilities/SpawnerPolygon.gd" id="1_3j11n"]
+
+[node name="SpawnerPolygon" type="CollisionPolygon2D"]
+script = ExtResource("1_3j11n")
+spawnerType = null

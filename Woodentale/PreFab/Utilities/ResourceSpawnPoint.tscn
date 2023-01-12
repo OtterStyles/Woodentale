@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4ar575u8neng"]
+
+[ext_resource type="Script" path="res://Skripts/Resource/ResourceSpawnPoint.gd" id="1_qvy3a"]
+
+[node name="ResourceSpawnPoint" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_qvy3a")
