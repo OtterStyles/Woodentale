@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b4qn4vuglxu0k"]
+
+[node name="InterfaceSlot" type="Panel"]
+modulate = Color(1, 1, 1, 0)
+offset_right = 40.0
+offset_bottom = 40.0

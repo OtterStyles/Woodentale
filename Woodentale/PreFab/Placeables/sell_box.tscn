@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdvn4kn1vq1rn"]
+
+[ext_resource type="Script" path="res://Skripts/Placeables/SellBox.gd" id="1_hkng3"]
+[ext_resource type="PackedScene" path="res://PreFab/Utilities/hurtbox.tscn" id="2_mblyo"]
+
+[node name="SellBox" type="Node2D"]
+script = ExtResource("1_hkng3")
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+
+[node name="hurtbox" parent="." instance=ExtResource("2_mblyo")]
+invisibleTime = 0.0
+
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+
+[editable path="hurtbox"]

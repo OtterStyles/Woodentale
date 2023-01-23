@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://bde7tf6wbatf5"]
+
+[ext_resource type="Script" path="res://Skripts/UI/Dialogs.gd" id="1_ndhkv"]
+[ext_resource type="PackedScene" uid="uid://dvn3s7jqx4cja" path="res://UI/SleepDialog.tscn" id="2_fc1eh"]
+[ext_resource type="PackedScene" uid="uid://c06jk88fybwy7" path="res://UI/SellBoxDialog.tscn" id="3_5043r"]
+
+[node name="Dialogs" type="CanvasLayer"]
+script = ExtResource("1_ndhkv")
+
+[node name="SleepDialog" parent="." instance=ExtResource("2_fc1eh")]
+
+[node name="SellBoxDialog" parent="." instance=ExtResource("3_5043r")]

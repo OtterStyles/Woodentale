@@ -4,7 +4,7 @@ class_name InventoryGUI
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var exit_button: TextureButton = %ExitButton
 @onready var slotsContainer = $centerContainer/Book/Slots
-@onready var player = $"../.."
+@onready var player: Player = $"../.."
 @onready var timer: Timer = $timer
 @onready var book: BookTexture = $centerContainer/Book
 

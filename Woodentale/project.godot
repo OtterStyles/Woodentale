@@ -19,6 +19,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Skripts/Utilities/CropOutlet.gd"
 }, {
+"base": "CanvasLayer",
+"class": &"Dialogs",
+"language": &"GDScript",
+"path": "res://Skripts/UI/Dialogs.gd"
+}, {
 "base": "Node",
 "class": &"EquipmentManager",
 "language": &"GDScript",
@@ -174,6 +179,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Skripts/Utilities/resource_spawner.gd"
 }, {
+"base": "Node2D",
+"class": &"SellBox",
+"language": &"GDScript",
+"path": "res://Skripts/Placeables/SellBox.gd"
+}, {
 "base": "ColorRect",
 "class": &"SettingsMenue",
 "language": &"GDScript",
@@ -207,6 +217,7 @@ _global_script_classes=[{
 _global_script_class_icons={
 "BookTexture": "",
 "CropOutlet": "",
+"Dialogs": "",
 "EquipmentManager": "",
 "FarmGroundSpawner": "",
 "FarmNode": "",
@@ -238,6 +249,7 @@ _global_script_class_icons={
 "PlayerStats": "",
 "ResourceSpawnPoint": "",
 "ResourceSpawner": "",
+"SellBox": "",
 "SettingsMenue": "",
 "SignalManagerType": "",
 "Slot": "",

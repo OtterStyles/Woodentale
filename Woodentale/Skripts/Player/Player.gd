@@ -29,6 +29,8 @@ var animationName = ['Working','Idle','Walking','Attacking','Interact']
 @onready var pivot_manager: PivotManager = $Manager/PivotManager
 @onready var handHold_manager: HandHoldManager = $Manager/HandHoldManager
 @onready var gui = $GUI
+@onready var camera_2d = $Camera2D
+
 var timer: Timer = Timer.new()
 var canChangeHotBar = true
 var singleUseHolder = false

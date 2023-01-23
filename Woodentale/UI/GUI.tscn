@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dd0kxj6qwtqh8"]
+[gd_scene load_steps=7 format=3 uid="uid://dd0kxj6qwtqh8"]
 
 [ext_resource type="Script" path="res://Skripts/UI/GUI.gd" id="1_jxbw5"]
 [ext_resource type="PackedScene" uid="uid://bxhrmkeaakmse" path="res://UI/pause_settings_menue.tscn" id="3_1abxx"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cn34epqel665u" path="res://UI/hotbar.tscn" id="4_p0u42"]
 [ext_resource type="PackedScene" path="res://UI/Overhead.tscn" id="5_o427c"]
 [ext_resource type="PackedScene" path="res://UI/day_end.tscn" id="6_gohho"]
-[ext_resource type="PackedScene" uid="uid://dvn3s7jqx4cja" path="res://UI/SleepDialog.tscn" id="7_o44uu"]
 
 [node name="GUI" type="CanvasLayer"]
 process_mode = 1
@@ -21,5 +20,3 @@ script = ExtResource("1_jxbw5")
 [node name="Inventory" parent="." instance=ExtResource("3_hegqw")]
 
 [node name="dayEnd" parent="." instance=ExtResource("6_gohho")]
-
-[node name="SleepDialog" parent="." instance=ExtResource("7_o44uu")]

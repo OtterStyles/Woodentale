@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://c06jk88fybwy7"]
+
+[ext_resource type="Script" path="res://UI/SellBoxDialog.gd" id="1_nwc4g"]
+[ext_resource type="Texture2D" uid="uid://da7moomucm647" path="res://Artwork/Atlase/Assets/Dialogs.png" id="2_x5vau"]
+[ext_resource type="PackedScene" uid="uid://b4qn4vuglxu0k" path="res://UI/Inventory/InterfaceSlot.tscn" id="3_jnn1j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6jhi"]
+atlas = ExtResource("2_x5vau")
+region = Rect2(0, 0, 240, 240)
+
+[node name="SellBoxDialog" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nwc4g")
+
+[node name="Polygon2d" type="Polygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(362, 153, 597, 152, 599, 388, 361, 388)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+layout_mode = 2
+offset_left = 360.0
+offset_top = 150.0
+offset_right = 600.0
+offset_bottom = 390.0
+texture = SubResource("AtlasTexture_m6jhi")
+
+[node name="Container" type="Control" parent="CenterContainer"]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+anchors_preset = 0
+offset_left = 360.0
+offset_top = 150.0
+offset_right = 600.0
+offset_bottom = 390.0
+
+[node name="InterfaceSlot" parent="CenterContainer/Container" instance=ExtResource("3_jnn1j")]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -72.0
+offset_right = 24.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="gui_input" from="." to="." method="_on_sell_box_dialog_gui_input"]
